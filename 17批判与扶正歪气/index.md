@@ -3,14 +3,14 @@
 
 # 批判与扶正歪气
 
-前言：我有两个有关总结自己社交账号发的情绪化或理性化的随笔、想法，一个是给我自己也希望帮助到别人——《[只剩结论的故事便是短句合集](https://staok.gitee.io/2.5%E5%8F%AA%E5%89%A9%E7%BB%93%E8%AE%BA%E7%9A%84%E6%95%85%E4%BA%8B%E4%BE%BF%E6%98%AF%E7%9F%AD%E5%8F%A5%E5%90%88%E9%9B%86/)》，另一个是给别人也希望帮助到自己——《[批判与扶正歪气](https://staok.gitee.io/17批判与扶正歪气/)》。
+前言：我有两个有关总结自己社交账号发的情绪化或理性化的随笔、想法，一个是给我自己也希望帮助到别人——《[只剩结论的故事便是短句合集](https://staok.github.io/2.5%E5%8F%AA%E5%89%A9%E7%BB%93%E8%AE%BA%E7%9A%84%E6%95%85%E4%BA%8B%E4%BE%BF%E6%98%AF%E7%9F%AD%E5%8F%A5%E5%90%88%E9%9B%86/)》，另一个是给别人也希望帮助到自己——《[批判与扶正歪气](https://staok.github.io/17批判与扶正歪气/)》。
 
 ------
 
 在开始本文之前，可以先打开下面链接看一看：
 
 - [在这里我只陈述事实，我只讲我的亲眼所见、亲耳所听以及亲身感受到的最真实的一切 - 知乎 (zhihu.com)](https://www.zhihu.com/question/21010247/answer/2900133862)。
-- [有关教育的理性讨论和批判的收集 - 欢迎来到 Staok - 瞰百易 (gitee.io)](https://staok.gitee.io/29有关教育的理性讨论和批判的收集/)
+- [有关教育的理性讨论和批判的收集 - 欢迎来到 Staok - 瞰百易 (github.io)](https://staok.github.io/29有关教育的理性讨论和批判的收集/)
 
 ------
 
@@ -384,13 +384,13 @@ anyway，现在以及可遇见的将来，日子还是好的
 
 
 
-⚑ 老师日常语录，师之传达：[【杂谈】师之传达 - 欢迎来到 Staok - 瞰百易 (gitee.io)](https://staok.gitee.io/5师之传达/)，定总基调的。
+⚑ 老师日常语录，师之传达：[【杂谈】师之传达 - 欢迎来到 Staok - 瞰百易 (github.io)](https://staok.github.io/5师之传达/)，定总基调的。
 
 
 
 ⚑ 具体学习路线：实验室的嵌入式方向的学习路线，可以借鉴：
 
-- [总览软硬件规范化的意义和内容-学习路径](https://staok.gitee.io/总览软硬件规范化的意义和内容/#学习路径)。
+- [总览软硬件规范化的意义和内容-学习路径](https://staok.github.io/总览软硬件规范化的意义和内容/#学习路径)。
 
 
 
@@ -398,34 +398,34 @@ anyway，现在以及可遇见的将来，日子还是好的
 
 介绍和罗列关于硬件设计所需要考虑的各个方面。纯个人经验总结，非科班念经。
 
-- [【规范】SCH & PCB 设计规范、技巧以及 AD 的使用](https://staok.gitee.io/硬件规范/) / [Github 仓库](https://github.com/Staok/thoughs-about-hardware-design) / [Gitee 仓库](https://gitee.com/staok/thoughs-about-hardware-design)。
+- [【规范】SCH & PCB 设计规范、技巧以及 AD 的使用](https://staok.github.io/硬件规范/) / [Github 仓库](https://github.com/Staok/thoughs-about-hardware-design) / [Gitee 仓库](https://gitee.com/staok/thoughs-about-hardware-design)。
 
 
 
 ⚑ C 编程学习 & 规范：
 
-- [C 语言学前班](https://staok.gitee.io/21c语言学前班/)。
-- [【规范】C & MCU 编写规范和技巧](https://staok.gitee.io/软件规范/) / [Github 仓库](https://github.com/Staok/coding-style-and-more) / [Gitee 仓库](https://gitee.com/staok/coding-style-and-more)。
-- [数据结构与算法 总结](https://staok.gitee.io/15数据结构与算法简述和cs综合/)。
+- [C 语言学前班](https://staok.github.io/21c语言学前班/)。
+- [【规范】C & MCU 编写规范和技巧](https://staok.github.io/软件规范/) / [Github 仓库](https://github.com/Staok/coding-style-and-more) / [Gitee 仓库](https://gitee.com/staok/coding-style-and-more)。
+- [数据结构与算法 总结](https://staok.github.io/15数据结构与算法简述和cs综合/)。
 
 
 
 ⚑ STM32 学习：
 
-- [超快 STM32 系统入门指南](https://staok.gitee.io/11超快stm32系统入门指南/)。
+- [超快 STM32 系统入门指南](https://staok.github.io/11超快stm32系统入门指南/)。
 - 外设编程 实例 [Github 仓库](https://github.com/Staok/stm32_framework) / [Gitee 仓库](https://gitee.com/staok/stm32_framework)。
 
 
 
 ⚑ FPGA 学习 & 规范：
 
-- [【规范】HDL & FPGA 学习、规范和技巧](https://staok.gitee.io/fpga学习和规范/) / [Github 仓库](https://github.com/Staok/HDL-FPGA-study-and-norms) / [Gitee 仓库](https://gitee.com/staok/HDL-FPGA-study-and-norms)。
+- [【规范】HDL & FPGA 学习、规范和技巧](https://staok.github.io/fpga学习和规范/) / [Github 仓库](https://github.com/Staok/HDL-FPGA-study-and-norms) / [Gitee 仓库](https://gitee.com/staok/HDL-FPGA-study-and-norms)。
 
 
 
 ⚑ Linux 学习：
 
-- [【主线剧情】Linux 系列](https://staok.gitee.io/categories/主线剧情linux-系列/) / [Github 仓库](https://github.com/Staok/ARM-Linux-Study) / [Gitee 仓库](https://gitee.com/staok/ARM-Linux-Study)。
+- [【主线剧情】Linux 系列](https://staok.github.io/categories/主线剧情linux-系列/) / [Github 仓库](https://github.com/Staok/ARM-Linux-Study) / [Gitee 仓库](https://gitee.com/staok/ARM-Linux-Study)。
 
 
 

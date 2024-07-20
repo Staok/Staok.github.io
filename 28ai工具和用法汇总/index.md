@@ -7,7 +7,7 @@
 
 文中有许多内容作者还没有亲自尝试，所以很多内容只是罗列，但信息大源都已给出，授人以渔，欢迎 PR 补充细节内容，比如 好的教程、简明使用步骤、工具的优缺点、使用经验等等！！！
 
-注：[这是 本文原版文章的 Github 仓库，在这里日后可能会更新](https://github.com/Staok/Awesome-AI-Tools)，在其它位置发的不会跟进，原文使用 Markdown 写成，在一些网站的排版会不完美，推荐去 github/gitee 或者 [个人小站](https://staok.gitee.io/28ai%E5%B7%A5%E5%85%B7%E5%92%8C%E7%94%A8%E6%B3%95%E6%B1%87%E6%80%BB/) 看原文，[这是文章的 Gitee 仓库地址，Gitee 访问更流畅](https://gitee.com/staok/Awesome-AI-Tools)。
+注：[这是 本文原版文章的 Github 仓库，在这里日后可能会更新](https://github.com/Staok/Awesome-AI-Tools)，在其它位置发的不会跟进，原文使用 Markdown 写成，在一些网站的排版会不完美，推荐去 github/gitee 或者 [个人小站](https://staok.github.io/28ai%E5%B7%A5%E5%85%B7%E5%92%8C%E7%94%A8%E6%B3%95%E6%B1%87%E6%80%BB/) 看原文，[这是文章的 Gitee 仓库地址，Gitee 访问更流畅](https://gitee.com/staok/Awesome-AI-Tools)。
 
 ![带着AI看这大千世界](assets/带着AI看这大千世界.jpeg)
 

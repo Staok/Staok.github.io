@@ -32,7 +32,7 @@
                             "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "IEEE 1451, 标准, 1451.5","wordcount":  6031 ,
+                        }],"genre": "posts","keywords": "IEEE 1451, 标准, 1451.5","wordcount":  6032 ,
         "url": "https:\/\/staok.github.io\/%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0\/","datePublished": "2022-11-28T16:07:06+08:00","dateModified": "2022-11-28T16:07:06+08:00","publisher": {
             "@type": "Organization",
             "name": "Staok","logo": {
@@ -87,7 +87,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">【读标准03】IEEE1451.5标准协议尝鲜实现</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AF%BB%E6%A0%87%E5%87%86/"><i class="far fa-folder fa-fw"></i>读标准</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-28">2022-11-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6031 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-28">2022-11-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6032 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -121,7 +121,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="读标准03-ieee14515标准协议尝鲜实现">读标准03-IEEE1451.5标准协议尝鲜实现</h1>
-<p><a href="https://staok.gitee.io/categories/%E8%AF%BB%E6%A0%87%E5%87%86/" target="_blank" rel="noopener noreffer">前面两个文章</a>里面已经详细描述了 TEDS 和 Message 的组成，这里 C 的实现分两个部分：分别对 TEDS 和 Message 的 数据结构实现 与 帧打包与解析的算法实现（第一版 2021.7）。从这个应用层协议标准原文来看，1451 协议内容相当繁杂（有关这种优缺点的论述在前两篇文章里面列举过）但是结构清晰，其类似表格化的结构可以比较顺畅的建模成编程语言的基本数据结构，并且一个编程基本哲学是设计优良的数据结构会使算法设计事半功倍。</p>
+<p><a href="https://staok.github.io/categories/%E8%AF%BB%E6%A0%87%E5%87%86/" target="_blank" rel="noopener noreffer">前面两个文章</a>里面已经详细描述了 TEDS 和 Message 的组成，这里 C 的实现分两个部分：分别对 TEDS 和 Message 的 数据结构实现 与 帧打包与解析的算法实现（第一版 2021.7）。从这个应用层协议标准原文来看，1451 协议内容相当繁杂（有关这种优缺点的论述在前两篇文章里面列举过）但是结构清晰，其类似表格化的结构可以比较顺畅的建模成编程语言的基本数据结构，并且一个编程基本哲学是设计优良的数据结构会使算法设计事半功倍。</p>
 <p>本文描述成文时（2022.11）的程序状态、数据建模方式 和 API 设计，日后有更新只以 开源仓库内的 源码 和 其内的注释 为准，这里文章或许不跟进，只是一个程序初始版本的引导介绍。</p>
 <hr>
 <h2 id="放在前面的说明">放在前面的说明</h2>
@@ -134,7 +134,7 @@
 <p><a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer">IEEE-1451-study: IEEE 1451 智能传感器接口标准，读原文、相关论文，学习记录，源码实现。 (gitee.com)</a>。</p>
 </li>
 <li>
-<p><a href="https://staok.gitee.io/categories/%e8%af%bb%e6%a0%87%e5%87%86/" target="_blank" rel="noopener noreffer">小站——读标准 - 分类</a>。</p>
+<p><a href="https://staok.github.io/categories/%e8%af%bb%e6%a0%87%e5%87%86/" target="_blank" rel="noopener noreffer">小站——读标准 - 分类</a>。</p>
 </li>
 <li>
 <p><a href="https://blog.csdn.net/staokgo/category_11531131.html" target="_blank" rel="noopener noreffer">CSDN——【读IEEE 1451标准】系列</a>。</p>
@@ -165,14 +165,14 @@
 </ul>
 <h2 id="teds-实现">TEDS 实现</h2>
 <h3 id="整体设计简述">整体设计简述</h3>
-<p>参考 <a href="https://staok.gitee.io/%e8%af%bb%e6%a0%87%e5%87%8601-ieee1451-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e6%8e%a5%e5%8f%a3%e6%a0%87%e5%87%86%e4%bb%8b%e7%bb%8d/#teds-%e7%9a%84%e6%a0%bc%e5%bc%8f" target="_blank" rel="noopener noreffer">【读标准01】IEEE1451 智能传感器接口标准介绍 - 欢迎来到 Staok - 瞰百易 (gitee.io)</a>。</p>
+<p>参考 <a href="https://staok.github.io/%e8%af%bb%e6%a0%87%e5%87%8601-ieee1451-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e6%8e%a5%e5%8f%a3%e6%a0%87%e5%87%86%e4%bb%8b%e7%bb%8d/#teds-%e7%9a%84%e6%a0%bc%e5%bc%8f" target="_blank" rel="noopener noreffer">【读标准01】IEEE1451 智能传感器接口标准介绍 - 欢迎来到 Staok - 瞰百易 (github.io)</a>。</p>
 <p>要实现四种必要的 TEDS：Meta-TEDS、TransducerChannel TEDS、User’s transducer name TEDS 和 PHY TEDS。</p>
 <p>它们的结构均是 <code>4byte 的 Length</code> + <code>一个一个 TLV 域类</code> + <code>2byte 的 checksum</code>，其中 一个一个 域类 细看标准原文去 用结构体 打包实现，四个 TEDS 就 四个 结构体即可 完成 数据的建模。</p>
 <p>然后用一个结构体打包以上整体，再和一个 uint8_t 数组 一同放到一个 union 联合体 里面，就可以通过 访问那个 数组 来 逐字节的 访问和处理 TEDS，发送的时候，先装填好 TEDS 结构体，然后按字节 发送那个数组 即可，接收同样，接收到一个 TEDS 二进制的大数组，直接放到 联合体 里面的 的数组的位置，那么 TEDS 二进制数据流就直接填充到 TEDS 结构体里面了。</p>
 <p>优点就是：1、减少拷贝 或者叫 0 拷贝，提升打包发送和接收解析的效率；2、结构体易于扩展。</p>
 <p>如果这里讲的抽象，那么下面直接看程序。 以下只以 Meta-TEDS 的构建为例，都摘自 .h 文件，其余部分思路相通，详见源程序便好。</p>
 <h3 id="teds-头">TEDS 头</h3>
-<p>即 TEDS identification header，详见 <a href="https://staok.gitee.io/%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/#teds-%E5%A4%B4" target="_blank" rel="noopener noreffer">01-“TEDS 头” 一节</a>。</p>
+<p>即 TEDS identification header，详见 <a href="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/#teds-%E5%A4%B4" target="_blank" rel="noopener noreffer">01-“TEDS 头” 一节</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -393,7 +393,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="teds-属性和状态-结构体">TEDS 属性和状态 结构体</h3>
-<p>参考详见 <a href="https://staok.gitee.io/%e8%af%bb%e6%a0%87%e5%87%8601-ieee1451-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e6%8e%a5%e5%8f%a3%e6%a0%87%e5%87%86%e4%bb%8b%e7%bb%8d/#teds-%e5%b1%9e%e6%80%a7" target="_blank" rel="noopener noreffer">01-“TEDS 属性” 一节</a>。</p>
+<p>参考详见 <a href="https://staok.github.io/%e8%af%bb%e6%a0%87%e5%87%8601-ieee1451-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e6%8e%a5%e5%8f%a3%e6%a0%87%e5%87%86%e4%bb%8b%e7%bb%8d/#teds-%e5%b1%9e%e6%80%a7" target="_blank" rel="noopener noreffer">01-“TEDS 属性” 一节</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -789,7 +789,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="message-实现">Message 实现</h2>
-<p>参考详见 <a href="https://staok.gitee.io/%e8%af%bb%e6%a0%87%e5%87%8601-ieee1451-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e6%8e%a5%e5%8f%a3%e6%a0%87%e5%87%86%e4%bb%8b%e7%bb%8d/#%e6%b6%88%e6%81%af-%e7%9a%84%e6%a0%bc%e5%bc%8f" target="_blank" rel="noopener noreffer">01-“消息 的格式” 一节</a>。</p>
+<p>参考详见 <a href="https://staok.github.io/%e8%af%bb%e6%a0%87%e5%87%8601-ieee1451-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e6%8e%a5%e5%8f%a3%e6%a0%87%e5%87%86%e4%bb%8b%e7%bb%8d/#%e6%b6%88%e6%81%af-%e7%9a%84%e6%a0%bc%e5%bc%8f" target="_blank" rel="noopener noreffer">01-“消息 的格式” 一节</a>。</p>
 <h3 id="各个命令类的枚举实现">各个命令类的枚举实现</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

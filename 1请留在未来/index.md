@@ -7,7 +7,7 @@
 
 Science-fiction 《Please Stay in The Future》
 
-本文发在 [Github](https://github.com/Staok/Please-stay-in-the-future)、[知乎](https://zhuanlan.zhihu.com/p/361265924)、[BiliBili](https://www.bilibili.com/read/cv6305018)、[小站](https://staok.gitee.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5)。
+本文发在 [Github](https://github.com/Staok/Please-stay-in-the-future)、[知乎](https://zhuanlan.zhihu.com/p/361265924)、[BiliBili](https://www.bilibili.com/read/cv6305018)、[小站](https://staok.github.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5)。
 
 ------
 

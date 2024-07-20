@@ -12,7 +12,7 @@
 - Github [Staok/ARM-Linux-Study: ARM Linux 的学习历程，文章遵守 CC BY NC SA 4.0 协议。 (github.com)](https://github.com/Staok/ARM-Linux-Study)。
 - Gitee [ARM-Linux-Study: ARM Linux 的学习历程，文章遵守 CC BY NC SA 4.0 协议。 (gitee.com)](https://gitee.com/staok/ARM-Linux-Study)。
 
-小站文章 [【主线剧情】Linux 系列 - 分类 - 欢迎来到 Staok - 瞰百易 (gitee.io)](https://staok.gitee.io/categories/主线剧情linux-系列/)。
+小站文章 [【主线剧情】Linux 系列 - 分类 - 欢迎来到 Staok - 瞰百易 (github.io)](https://staok.github.io/categories/主线剧情linux-系列/)。
 
 ## 负责声明
 

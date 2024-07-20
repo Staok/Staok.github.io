@@ -78,7 +78,7 @@
 
 - [一个电控大牛的回答 - 知乎 (zhihu.com)](https://www.zhihu.com/question/37050422/answer/1982925583)，自律，稳定学习，跟踪前沿，扩展视野。
 
-- [BJTU Synergy Lab 招生说明 (gitee.io)](http://fangvv.gitee.io/homepage/index.html) 不是 ad，只是里面说的是正道——“人间正道是沧桑”，很有感染。[BJTU Synergy Lab 经验汇编 (gitee.io)](http://fangvv.gitee.io/homepage/exp.html)。
+- [BJTU Synergy Lab 招生说明 (github.io)](http://fangvv.github.io/homepage/index.html) 不是 ad，只是里面说的是正道——“人间正道是沧桑”，很有感染。[BJTU Synergy Lab 经验汇编 (github.io)](http://fangvv.github.io/homepage/exp.html)。
 
 - [职场杂谈|几条忠告，不鸡汤，值得思考 (qq.com)](https://mp.weixin.qq.com/s/OyDgDvMwFwzJA_0ADiqGhw)。
 
@@ -110,10 +110,10 @@
 
 
 
-个人简历 [.png(380KB)](https://staok.gitee.io/about/resume.png), [.pdf(489KB)](https://staok.gitee.io/about/resume.pdf)。
+个人简历 [.png(380KB)](https://staok.github.io/about/resume.png), [.pdf(489KB)](https://staok.github.io/about/resume.pdf)。
 
 ------
 
-:boom:此网页采用 [HUGO](https://gohugo.io/) 工具 + [LoveIt](https://github.com/dillonzq/LoveIt) 主题完成，后托管于 Gitee。:kissing_heart:
+:boom:此网页采用 [HUGO](https://gohugo.io/) 工具 + [LoveIt](https://github.com/dillonzq/LoveIt) 主题完成，后托管于 Github。:kissing_heart:
 
 ~~本小站的留言和站内搜索功能随缘升级，To be continuted...~~
