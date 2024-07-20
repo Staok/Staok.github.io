@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>神经网络 - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+        <description>神经网络 - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Mon, 12 Apr 2021 16:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>（大集合）嵌入式端的神经网络算法部署和实现综合</title>
+    <link>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</link>
+    <pubDate>Mon, 12 Apr 2021 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</guid>
+    <description><![CDATA[嵌入式端的神经网络算法部署和实现 介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现。神经网络的调教（训练）还是在 PC 端，神经]]></description>
+</item></channel>
+</rss>

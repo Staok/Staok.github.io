@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>PCIe接口及其衍生接口大总结 - 欢迎来到 瞰百Staok</title><meta name="Description" content="PCIe接口及其衍生接口大总结"><meta property="og:title" content="PCIe接口及其衍生接口大总结" />
+<meta property="og:description" content="PCIe接口及其衍生接口大总结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-24T16:15:14+08:00" />
+<meta property="article:modified_time" content="2021-05-24T16:15:14+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PCIe接口及其衍生接口大总结"/>
+<meta name="twitter:description" content="PCIe接口及其衍生接口大总结"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" /><link rel="prev" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" /><link rel="next" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%850.0-linux%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%A4%A7%E7%BB%BC%E5%90%88/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "PCIe接口及其衍生接口大总结",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "硬件, PCIe","wordcount":  377 ,
+        "url": "https:\/\/staok.github.io\/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93\/","datePublished": "2021-05-24T16:15:14+08:00","dateModified": "2021-05-24T16:15:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "PCIe接口及其衍生接口大总结"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">PCIe接口及其衍生接口大总结</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/"><i class="far fa-folder fa-fw"></i>随机技术情报</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-24">2021-05-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 377 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>注，相关的介绍网上有很多，这里是一个总结文（用时再查），不是科普文。</p>
+<p>参考：</p>
+<ul>
+<li>搜索标准接口定义的网站：<a href="https://link.zhihu.com/?target=https%3A//pinouts.ru/" target="_blank" rel="noopener noreffer">https://pinouts.ru/</a>。</li>
+<li>一个视频讲的很精彩<a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1Qv411t7ZL" target="_blank" rel="noopener noreffer">【硬件科普】硬盘的SATA M.2 NGFF NVME是什么意思，详解硬盘的总线协议与接口_哔哩哔哩_bilibili</a>，推荐从13：13看起。</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/Mark_md/article/details/111149261" target="_blank" rel="noopener noreffer">SATA M.2 NGFF PCIE AHCI NVME SSD固态硬盘的接口、总线和协议区分_Mark_md的博客-CSDN博客</a>。</li>
+</ul>
+<hr>
+<p>开局一张鸟瞰图（水印表示<a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1Qv411t7ZL" target="_blank" rel="noopener noreffer">出处</a>）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e9%b8%9f%e7%9e%b0%e5%9b%be.png"
+        data-srcset="assets/%e9%b8%9f%e7%9e%b0%e5%9b%be.png, assets/%e9%b8%9f%e7%9e%b0%e5%9b%be.png 1.5x, assets/%e9%b8%9f%e7%9e%b0%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="assets/鸟瞰图.png"
+        title="鸟瞰图" /></p>
+<p>PCIe 引脚定义 <a href="https://link.zhihu.com/?target=https%3A//pinouts.ru/Slots/pci_express_pinout.shtml" target="_blank" rel="noopener noreffer">PCI Express 1x, 4x, 8x, 16x bus pinout diagram @ pinouts.ru</a>。</p>
+<p>SATA 引脚定义 <a href="https://link.zhihu.com/?target=https%3A//pinoutguide.com/HD/serialATA_pinout.shtml" target="_blank" rel="noopener noreffer">SATA pinout diagram @ pinoutguide.com</a>。</p>
+<p>mSATA 引脚定义 <a href="https://link.zhihu.com/?target=https%3A//pinoutguide.com/HD/Mini-SATA_mSATA_connector_pinout.shtml" target="_blank" rel="noopener noreffer">Mini-SATA (mSATA) connector pinout diagram @ pinoutguide.com</a>。</p>
+<p>M.2（NGFF）引脚定义 <a href="https://link.zhihu.com/?target=https%3A//pinoutguide.com/HD/M.2_NGFF_connector_pinout.shtml" target="_blank" rel="noopener noreffer">M.2 (NGFF) connector pinout diagram @ pinoutguide.com</a>。</p>
+<p>传统艺能，一言（图）以蔽之。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/PCIe%e6%8e%a5%e5%8f%a3%e5%8f%8a%e5%85%b6%e8%a1%8d%e7%94%9f%e6%8e%a5%e5%8f%a3%e5%a4%a7%e6%80%bb%e7%bb%93.png"
+        data-srcset="assets/PCIe%e6%8e%a5%e5%8f%a3%e5%8f%8a%e5%85%b6%e8%a1%8d%e7%94%9f%e6%8e%a5%e5%8f%a3%e5%a4%a7%e6%80%bb%e7%bb%93.png, assets/PCIe%e6%8e%a5%e5%8f%a3%e5%8f%8a%e5%85%b6%e8%a1%8d%e7%94%9f%e6%8e%a5%e5%8f%a3%e5%a4%a7%e6%80%bb%e7%bb%93.png 1.5x, assets/PCIe%e6%8e%a5%e5%8f%a3%e5%8f%8a%e5%85%b6%e8%a1%8d%e7%94%9f%e6%8e%a5%e5%8f%a3%e5%a4%a7%e6%80%bb%e7%bb%93.png 2x"
+        data-sizes="auto"
+        alt="assets/PCIe接口及其衍生接口大总结.png"
+        title="PCIe接口及其衍生接口大总结" /></p>
+<p>别看此文字少，这一张图我做了半天，可以点击查看原图（2.9MB）看清细节。引用材料均非商业用途，侵删。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-05-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" data-title="PCIe接口及其衍生接口大总结" data-hashtags="硬件,PCIe"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" data-hashtag="硬件"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" data-title="PCIe接口及其衍生接口大总结" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%A1%AC%E4%BB%B6/">硬件</a>,&nbsp;<a href="/tags/pcie/">PCIe</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" class="prev" rel="prev" title="【主线剧情08】Linux 应用编程-学习总结备查"><i class="fas fa-angle-left fa-fw"></i>【主线剧情08】Linux 应用编程-学习总结备查</a>
+            <a href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%850.0-linux%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%A4%A7%E7%BB%BC%E5%90%88/" class="next" rel="next" title="【主线剧情0.0】Linux 学习资源大综合">【主线剧情0.0】Linux 学习资源大综合<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,3458 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【主线剧情02】ARM Linux 基础学习记录 - 欢迎来到 瞰百Staok</title><meta name="Description" content="介绍 Linux 基本使用和对 ARM SoC 的基本编译流程"><meta property="og:title" content="【主线剧情02】ARM Linux 基础学习记录" />
+<meta property="og:description" content="介绍 Linux 基本使用和对 ARM SoC 的基本编译流程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-05T12:20:44+08:00" />
+<meta property="article:modified_time" content="2023-05-27T20:40:41+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【主线剧情02】ARM Linux 基础学习记录"/>
+<meta name="twitter:description" content="介绍 Linux 基本使用和对 ARM SoC 的基本编译流程"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" /><link rel="prev" href="https://staok.github.io/%E6%80%BB%E8%A7%88%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%86%85%E5%AE%B9/" /><link rel="next" href="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【主线剧情02】ARM Linux 基础学习记录",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "ARM, Linux","wordcount":  33073 ,
+        "url": "https:\/\/staok.github.io\/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95\/","datePublished": "2021-04-05T12:20:44+08:00","dateModified": "2023-05-27T20:40:41+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "介绍 Linux 基本使用和对 ARM SoC 的基本编译流程"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【主线剧情02】ARM Linux 基础学习记录</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85linux-%E7%B3%BB%E5%88%97/"><i class="far fa-folder fa-fw"></i>【主线剧情】Linux 系列</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-05">2021-04-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 33073 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 67 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#linux-一般开发步骤">Linux 一般开发步骤</a></li>
+    <li><a href="#linux-os-相关">Linux OS 相关</a>
+      <ul>
+        <li><a href="#linux-文件系统">Linux 文件系统</a>
+          <ul>
+            <li><a href="#文件目录">文件目录</a></li>
+            <li><a href="#文件属性">文件属性</a></li>
+          </ul>
+        </li>
+        <li><a href="#linux-系统相关概念">Linux 系统相关概念</a></li>
+        <li><a href="#terminal--console--tty--shell">terminal / console / tty / shell</a></li>
+        <li><a href="#linux-shell">Linux Shell</a>
+          <ul>
+            <li><a href="#概况">概况</a></li>
+            <li><a href="#常用命令">常用命令</a>
+              <ul>
+                <li><a href="#快捷键--通配符--流重定向--管道">快捷键 / 通配符 / 流重定向 / 管道</a></li>
+                <li><a href="#基本命令--文件目录管理">基本命令 / 文件&amp;目录管理</a></li>
+                <li><a href="#文件权限--用户管理--密码管理">文件权限 &amp; 用户管理 &amp; 密码管理</a></li>
+                <li><a href="#获取命令帮助---helpman">获取命令帮助： &ndash;help/man</a></li>
+                <li><a href="#连接流--取文件内容cat">连接流 / 取文件内容：cat</a></li>
+                <li><a href="#文件分割--文件合并">文件分割 / 文件合并</a></li>
+                <li><a href="#查看二进制文件-hexdump">查看二进制文件 hexdump</a></li>
+                <li><a href="#比较文件差异diff">比较文件差异：diff</a></li>
+                <li><a href="#常用-find--grep--sed--awk">常用 find / grep / sed / awk</a></li>
+                <li><a href="#压缩打包gzipbzip2tar7z">压缩打包：gzip、bzip2、tar、7z</a></li>
+                <li><a href="#网络命令ifconfig-netstat">网络命令：ifconfig /netstat</a></li>
+                <li><a href="#查看文件类型filereadelf">查看文件类型：file/readelf</a></li>
+                <li><a href="#定位文件locate">定位文件：locate</a></li>
+                <li><a href="#查找应用程序位置which">查找应用程序位置：which</a></li>
+                <li><a href="#任务后台执行--任务进程查看">任务后台执行 / 任务&amp;进程查看</a></li>
+                <li><a href="#磁盘管理df--du--fdisk">磁盘管理：df / du / fdisk</a></li>
+                <li><a href="#文件系统挂载mount">文件系统挂载：mount</a></li>
+                <li><a href="#内核模块管理kmod">内核模块管理：kmod</a></li>
+                <li><a href="#系统日志dmesg">系统日志：dmesg</a></li>
+                <li><a href="#系统管理--杂项--日常">系统管理 / 杂项 / 日常</a></li>
+                <li><a href="#设置开机运行脚本">设置开机运行脚本</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#linux-下的开发">Linux 下的开发</a>
+      <ul>
+        <li><a href="#详细资料-重要">详细资料-重要</a></li>
+        <li><a href="#vim-编辑器">Vim 编辑器</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#一图以蔽之">一图以蔽之</a></li>
+                <li><a href="#在-一般模式-的快捷键">在 一般模式 的快捷键</a></li>
+                <li><a href="#在-命令行模式-的命令">在 命令行模式 的命令</a></li>
+                <li><a href="#恢复文件">恢复文件</a></li>
+                <li><a href="#vim-命令行中的-选项">vim 命令行中的 选项</a></li>
+                <li><a href="#vim-编辑器的配置">vim 编辑器的配置</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#gcc--命令详情">GCC  命令详情</a>
+          <ul>
+            <li><a href="#编译流程">编译流程</a></li>
+            <li><a href="#gcc-基本命令">gcc 基本命令</a></li>
+          </ul>
+        </li>
+        <li><a href="#makefile-简述和模板">Makefile 简述和模板</a>
+          <ul>
+            <li><a href="#基本格式">基本格式</a></li>
+            <li><a href="#变量赋值--">变量赋值（ =、:=、?=、+= ）</a></li>
+            <li><a href="#自动变量--">自动变量（ $@、$^、$&lt; ）</a></li>
+            <li><a href="#模式规则-x-">模式规则（ %.x ）</a></li>
+            <li><a href="#伪目标">伪目标</a></li>
+            <li><a href="#makefile-函数">Makefile 函数</a></li>
+            <li><a href="#一个简易的-makefile-模板">一个简易的 Makefile 模板</a></li>
+            <li><a href="#更加通用的-makefile-模板">更加通用的 Makefile 模板</a></li>
+          </ul>
+        </li>
+        <li><a href="#ubuntu-下的包管理--apt工具">Ubuntu 下的包管理 / apt工具</a>
+          <ul>
+            <li><a href="#包管理工具-apt">包管理工具 apt</a></li>
+            <li><a href="#换源-和-添加系统变量">换源 和 添加系统变量</a></li>
+            <li><a href="#ubuntu-下的卸载包">Ubuntu 下的卸载包</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#linux-驱动和应用的体验">Linux 驱动和应用的体验</a>
+      <ul>
+        <li><a href="#ubuntu-主机-的配置工作">Ubuntu 主机 的配置工作</a></li>
+        <li><a href="#获取交叉编译工具链">获取交叉编译工具链</a>
+          <ul>
+            <li><a href="#用开发板厂家提供的-sdk-里的工具链">用开发板厂家提供的 SDK 里的工具链</a></li>
+            <li><a href="#arm-官网下载-合适的工具链">ARM 官网下载 合适的工具链</a></li>
+            <li><a href="#使用-linaro-gcc-编译器">使用 Linaro GCC 编译器</a></li>
+          </ul>
+        </li>
+        <li><a href="#第一个应用">第一个应用</a></li>
+        <li><a href="#第一个驱动">第一个驱动</a>
+          <ul>
+            <li><a href="#编译内核">编译内核</a></li>
+            <li><a href="#编译内核模块">编译内核模块</a></li>
+            <li><a href="#更新目标板">更新目标板</a></li>
+            <li><a href="#编写编译驱动">编写、编译驱动</a></li>
+            <li><a href="#linux内核编译操作">linux内核编译操作</a></li>
+          </ul>
+        </li>
+        <li><a href="#学至此的一点启示">学至此的一点启示</a></li>
+        <li><a href="#构建系统简约步骤">构建系统简约步骤</a>
+          <ul>
+            <li><a href="#每个部分单独手动简约步骤">每个部分单独手动简约步骤</a></li>
+            <li><a href="#使用-buildroot-构建系统简约步骤">使用 Buildroot 构建系统简约步骤</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#pc-与-嵌入式板-传输文件的方式汇总日常补充">PC 与 嵌入式板 传输文件的方式汇总（日常补充）</a>
+      <ul>
+        <li><a href="#网络传输ethwifi">网络传输：ETH/WiFi</a>
+          <ul>
+            <li><a href="#ssh">SSH</a></li>
+            <li><a href="#nfs">NFS</a></li>
+            <li><a href="#tftp">tftp</a></li>
+          </ul>
+        </li>
+        <li><a href="#usb-传输">USB 传输</a></li>
+        <li><a href="#串口传输rzsz-命令">串口传输：rz/sz 命令</a>
+          <ul>
+            <li><a href="#上位机往板子发rz">上位机往板子发：rz</a></li>
+            <li><a href="#板子往上位机发sz">板子往上位机发：sz</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e6%82%a6%e5%b7%b1%e4%b9%8b%e4%bd%9c%ef%bc%8c%e6%96%b9%e8%83%bd%e6%82%a6%e4%ba%ba.png"
+        data-srcset="assets/%e6%82%a6%e5%b7%b1%e4%b9%8b%e4%bd%9c%ef%bc%8c%e6%96%b9%e8%83%bd%e6%82%a6%e4%ba%ba.png, assets/%e6%82%a6%e5%b7%b1%e4%b9%8b%e4%bd%9c%ef%bc%8c%e6%96%b9%e8%83%bd%e6%82%a6%e4%ba%ba.png 1.5x, assets/%e6%82%a6%e5%b7%b1%e4%b9%8b%e4%bd%9c%ef%bc%8c%e6%96%b9%e8%83%bd%e6%82%a6%e4%ba%ba.png 2x"
+        data-sizes="auto"
+        alt="assets/悦己之作，方能悦人.png"
+        title="悦己之作，方能悦人" /></p>
+<h1 id="arm--linux-基础学习记录">ARM &amp; Linux 基础学习记录</h1>
+<p>编辑整理 by <a href="https://github.com/Staok" target="_blank" rel="noopener noreffer">Staok</a>。</p>
+<p>本文部分内容摘自 “100ask imx6ull” 开发板的配套资料（如 百问网的《嵌入式Linux应用开发完全手册》，在 <a href="http://download.100ask.net/boards/Nxp/100ask_imx6ull_pro/index.html" target="_blank" rel="noopener noreffer">百问网 imx6ull pro 开发板 页面</a> 中的《2.1 100ASK_IMX6ULL_PRO：开发板资料》或《2.2 全系列Linux教程：在线视频与配套资料》里面可以下载到），还有参考 菜鸟教程、C语言中文网、红联的等等等等，比较广泛，侵删。进行了精髓提取，方便日后查阅。过于基础的内容不会在此提及。如有错误恭谢指出！</p>
+<p>注：<a href="https://github.com/Staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">在 Github 上的原版文章日后可能会更新</a>，在其它位置发的不会跟进。<a href="https://gitee.com/staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">文章的 Gitee 仓库地址，Gitee 访问更流畅</a>。</p>
+<hr>
+<h2 id="目录">目录</h2>
+<p>[TOC]</p>
+<hr>
+<h2 id="linux-一般开发步骤">Linux 一般开发步骤</h2>
+<p><em>p.s 本应放在最后，刻意写在前头。</em></p>
+<p>Bootloader、Linux 内核、根文件系统、APP 等等软件，需要在 Ubuntu 中编译；但是阅读、修改这些源码时，在 Windows 下会比较方便。</p>
+<p>所以工作日常开发流程如下：</p>
+<p>PC 端，使用 Source insight 编、改源码 —&gt;传—&gt; Ubuntu 端（通过 SSH 打开），对修改好的源码进行编译、制作 —&gt;下载—&gt; 嵌入式板端，在 Linux 板子上运行、测试。</p>
+<p>分步来说就是：</p>
+<ol>
+<li>在 Windows 上（Source insight）阅读、研究、修改，修改后，上传（推荐 FileZilla）到 Ubuntu；</li>
+<li>在 Ubuntu 上编译、制作（推荐使用 MobaXterm 通过 SSH 远程登陆 Ubuntu）；</li>
+<li>把制作好的可执行程序下载到 嵌入式开发板 上运行、测试。</li>
+</ol>
+<p>u-boot、Linux内核，在 Windows 和 Ubuntu 各存一份。根文件系统使用 buildroot （或 Busybox 或 Yocto）制作，它无需放在 Windows 上。</p>
+<h2 id="linux-os-相关">Linux OS 相关</h2>
+<p><em>p.s 关于在 VM 虚拟机中安装 Linux 发行版系统和在 PC上安装 Linux 发行版系统，用时再在网上随用随查。</em></p>
+<p><em>p.s 若仅用于开发或者只使用命令行的形式，一般在 MobaXterm 或者 Xshell 中使用 SSH 连接 Linux 系统（如 Ubuntu）来进行系统操作。</em></p>
+<p><em>p.s 鼠标退出 VM ，按 ctrl + alt。</em></p>
+<p>参考网搜教程的总目录 <a href="https://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener noreffer">Linux 教程 | 菜鸟教程 (runoob.com)</a>，<a href="http://c.biancheng.net/linux_tutorial/" target="_blank" rel="noopener noreffer">Linux学习教程，Linux入门教程（超详细） (biancheng.net)</a>。<a href="https://www.runoob.com/linux/linux-system-boot.html" target="_blank" rel="noopener noreffer">Linux 系统启动过程 | 菜鸟教程 (runoob.com)</a>。</p>
+<p>VM 虚拟机推荐安装 Ubuntu-18.04，网搜教程很多，安装好之后，要再执行结果必要的步骤：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 安装 vim</span>
+sudo apt-get install vim
+
+<span class="c1"># 换源</span>
+<span class="c1"># 参考本文 “Ubuntu 下的包管理” 一节</span>
+
+<span class="c1"># 安装 net-tools，可以使用 ifconfig 命令来查看 本机 ip 地址</span>
+sudo apt-get install net-tools
+
+<span class="c1"># 安装 SSH 服务</span>
+sudo apt-get  install openssh-server
+
+<span class="c1"># 推荐使用 MobaXterm 通过 SSH 远程登陆 虚拟机里面的 Ubuntu-18.04</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="linux-文件系统">Linux 文件系统</h3>
+<h4 id="文件目录">文件目录</h4>
+<p>Ubuntu 中的目录遵循 FHS 标准(Filesystem Hierarchy Standard， 文件系统层次标准)。它定义了文件系统中目录、文件分类存放的原则、定义了系统运行所需的最小文件、目录的集合，并列举了不遵循这些原则的例外情况及其原因。 FHS 并不是一个强制的标准，但是大多的 Linux、 Unix 发行版本遵循 FHS。</p>
+<p>这些目录简单介绍如下。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9b%ae%e5%bd%95%e4%bb%8b%e7%bb%8d.png"
+        data-srcset="assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9b%ae%e5%bd%95%e4%bb%8b%e7%bb%8d.png, assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9b%ae%e5%bd%95%e4%bb%8b%e7%bb%8d.png 1.5x, assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e7%9b%ae%e5%bd%95%e4%bb%8b%e7%bb%8d.png 2x"
+        data-sizes="auto"
+        alt="assets/Linux文件系统目录介绍.png"
+        title="Linux文件系统目录介绍" /></p>
+<ul>
+<li><a href="https://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener noreffer">Linux 系统目录结构 | 菜鸟教程 (runoob.com)</a>。<a href="http://c.biancheng.net/view/3546.html" target="_blank" rel="noopener noreffer">Linux文件系统的层次结构 (biancheng.net)</a>。</li>
+<li><a href="http://c.biancheng.net/view/5862.html" target="_blank" rel="noopener noreffer">Linux绝对路径和相对路径详解 (biancheng.net)</a>，<a href="http://c.biancheng.net/view/3608.html" target="_blank" rel="noopener noreffer">Linux文件（目录）命名规则 (biancheng.net)</a>。</li>
+</ul>
+<h4 id="文件属性">文件属性</h4>
+<p>终端中执行 &ldquo;ls -al&rdquo; 命令则给出每个文件完整属性信息。文件属性示意图如下 。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e6%96%87%e4%bb%b6%e5%b1%9e%e6%80%a7.png"
+        data-srcset="assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e6%96%87%e4%bb%b6%e5%b1%9e%e6%80%a7.png, assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e6%96%87%e4%bb%b6%e5%b1%9e%e6%80%a7.png 1.5x, assets/Linux%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e6%96%87%e4%bb%b6%e5%b1%9e%e6%80%a7.png 2x"
+        data-sizes="auto"
+        alt="assets/Linux文件系统文件属性.png"
+        title="Linux文件系统文件属性" /></p>
+<ul>
+<li>第一个字符表示“文件类型”，文件类型可以是目录、文件或链接文件等。如下表所示。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>d</th>
+<th>目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>文件</td>
+</tr>
+<tr>
+<td>l</td>
+<td>链接文件</td>
+</tr>
+<tr>
+<td>b</td>
+<td>设备文件里的可供存储的接口设备</td>
+</tr>
+<tr>
+<td>c</td>
+<td>设备文件里的串行端口设备，如鼠标、键盘等</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>文件类型后面的 9 个字符以 3 个为一组：</p>
+<ol>
+<li>第一组表示 “文件所有者的权限”；</li>
+<li>第二组表示 “用户组的权限”；</li>
+<li>第三组表示 “其他非本用户组的权限”，即其它所有人的权限。</li>
+</ol>
+<p>每组都是 rwx 的组合， 其中 r 代表可读， w 代表可写， x 代表可执行； 如果没有对应的权限，就会出现减号<code>-</code>。</p>
+</li>
+<li>
+<p>连接数： 表示有多少文件名连接到此节点。</p>
+</li>
+<li>
+<p>文件所有者：表示这个文件的 “所有者的账号”。</p>
+</li>
+<li>
+<p>文件所属用户组。</p>
+</li>
+<li>
+<p>文件大小：表示这个文件的大小，默认单位是 B(字节)。</p>
+</li>
+<li>
+<p>文件最后被修改的时间： 这个文件的创建文件日期或者是最近的修改日期。</p>
+</li>
+<li>
+<p>文件名：对应文件的文件名。</p>
+</li>
+</ul>
+<p>文件/目录管理 和 更改文件属性/权限 等 参看<code>文件/目录 &amp; 文件权限 &amp; 用户管理</code>一节。</p>
+<h3 id="linux-系统相关概念">Linux 系统相关概念</h3>
+<ul>
+<li><a href="https://www.runoob.com/linux/linux-system-boot.html" target="_blank" rel="noopener noreffer">Linux 系统启动过程 | 菜鸟教程 (runoob.com)</a>。</li>
+<li><a href="https://blog.csdn.net/daaikuaichuan/article/details/82729483" target="_blank" rel="noopener noreffer">Linux系统相关的基础问题（空间、内存、库、链接、环境变量）_~青萍之末~的博客-CSDN博客</a>。</li>
+<li><a href="https://blog.csdn.net/daaikuaichuan/article/details/82902407" target="_blank" rel="noopener noreffer">Linux系统调用_~青萍之末~的博客-CSDN博客_linux系统调用</a>。<a href="https://www.bilibili.com/video/BV1kk4y117Tu?p=13" target="_blank" rel="noopener noreffer">【第4篇】嵌入式Linux应用开发基础知识_哔哩哔哩_bilibili</a>，其中 <code>4-2_ 文件IO _系统接口</code> 这一个节讲解 系统调用怎么进入内核。</li>
+<li><a href="https://blog.csdn.net/daaikuaichuan/article/details/82957655" target="_blank" rel="noopener noreffer">Linux内核的五大模块_~青萍之末~的博客-CSDN博客_linux内核模块</a>，进程调度，进程间通信模块（包括管道、命名管道、消息队列、信号量和共享内存等），内存管理模块，文件系统模块，网络接口模块。</li>
+<li>etc.</li>
+</ul>
+<h3 id="terminal--console--tty--shell">terminal / console / tty / shell</h3>
+<p>一文搞懂~</p>
+<p><a href="https://www.zhihu.com/question/21711307/answer/2231006377" target="_blank" rel="noopener noreffer"> 终端、Shell、tty 和控制台（console）有什么区别？ - 知乎 (zhihu.com)</a>。</p>
+<h3 id="linux-shell">Linux Shell</h3>
+<h4 id="概况">概况</h4>
+<p>Shell 的意思是“外壳”，在 Linux 中它是一个程序，比如 /bin/sh、 /bin/bash 等。它负责接收用户的输入，根据用户的输入找到其他程序并运行。比如我们输入“ ls”并回车时， shell 程序找到“ ls”程序并运行，再把结果打印出来。Shell 有很多种实现，我们常用 bash。</p>
+<p>命令提示符如下图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/Linux-Shell.png"
+        data-srcset="assets/Linux-Shell.png, assets/Linux-Shell.png 1.5x, assets/Linux-Shell.png 2x"
+        data-sizes="auto"
+        alt="assets/Linux-Shell.png"
+        title="Linux-Shell" /></p>
+<p>根目录： &ldquo;/&rdquo; ；家目录： &ldquo;~&rdquo; ；上一级目录： &ldquo;..&rdquo; ；当前目录： &ldquo;.&rdquo; ；上一次目录：&quot;-&quot;。执行当前目录的  &ldquo;app&rdquo; 应用程序： &ldquo;./app&rdquo; 。</p>
+<p>绝对路径从 根目录 &ldquo;/&rdquo; 开始写起，相对目录从当前所在目录 “.” 开始写起。</p>
+<h4 id="常用命令">常用命令</h4>
+<ul>
+<li><strong>Linux 命令查询，当字典用</strong>。
+<ul>
+<li><a href="https://www.runoob.com/linux/linux-command-manual.html" target="_blank" rel="noopener noreffer">Linux 命令大全 - 菜鸟教程</a>。</li>
+<li>即用网页：<a href="https://wangchujiang.com/linux-command/" target="_blank" rel="noopener noreffer">Linux命令搜索引擎 命令，Linux Linux命令搜索引擎 命令详解：最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。 - Linux 命令搜索引擎 (wangchujiang.com)</a>，开源地址 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" rel="noopener noreffer">jaywcjlove/linux-command: Linux命令大全搜索工具，内容包含Linux命令手册、详解、学习、搜集。https://git.io/linux (github.com)</a>。</li>
+<li>即用网页：<a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener noreffer">Linux工具快速教程 — Linux Tools Quick Tutorial (linuxtools-rst.readthedocs.io)</a>，开源地址 <a href="https://github.com/me115/linuxtools_rst" target="_blank" rel="noopener noreffer">me115/linuxtools_rst: Linux工具快速教程 (github.com)</a>。</li>
+<li>本地离线文档资料 Linux 命令速查：<code>【1 Linux 命令速查 &amp; Shell &amp; Vim】\Linux 命令速查-快速定位查询\</code>。</li>
+<li>100ask 手册《嵌入式Linux应用开发完全手册》的 “第2章 开发板板载系统应用、库、工具、使用”。</li>
+<li><a href="https://www.zhihu.com/question/452895041/answer/1822141892" target="_blank" rel="noopener noreffer">Linux大神都是怎么记住这么多命令的？ - 知乎 (zhihu.com)</a>。</li>
+<li><a href="https://blog.csdn.net/pong123456/article/details/123296550" target="_blank" rel="noopener noreffer">20个提高生产力的 Linux 命令与技巧，用完带你起飞_布道者-瞎子的博客-CSDN博客</a>.</li>
+</ul>
+</li>
+<li><a href="https://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener noreffer">Shell 教程 - 菜鸟教程</a>，<a href="http://c.biancheng.net/shell/" target="_blank" rel="noopener noreffer">Shell脚本：Linux Shell脚本学习指南（超详细） (biancheng.net)</a>。</li>
+<li>添加环境变量：具体步骤在 “换源 和 添加系统变量” 一节 里面的 “添加系统变量” 处。</li>
+</ul>
+<h5 id="快捷键--通配符--流重定向--管道">快捷键 / 通配符 / 流重定向 / 管道</h5>
+<ul>
+<li>
+<p>Linux 图形界面中（比如 Ubuntu 图形界面中），按下 <code>Ctrl + Alt + t</code> 打开终端。</p>
+</li>
+<li>
+<p>命令的 惯例选项 的含义：以下命令的多个选项可以任意按需组合。</p>
+<ul>
+<li>-a 表含隐藏文件；</li>
+<li>-r 表文件夹内遍历所有文件；</li>
+<li>-h 容量以方便识别的形式打印（如容量大小以 K/M/G 单位显示）；</li>
+<li>-i 执行例外操作前会询问，加上比较保险；</li>
+<li>-v 显示版本；</li>
+<li>&ndash;help 显示帮助；</li>
+<li>等等。</li>
+</ul>
+</li>
+<li>
+<p>快捷键：</p>
+<ul>
+<li>结束当前进程：ctrl + c。</li>
+<li>暂停当前进程：ctrl + z，可使用 <code>fg</code> 命令 恢复，详见 <code>任务后台执行 / 任务&amp;进程查看</code> 一节。</li>
+<li>使光标移动到命令行的最前：ctrl + a，对于长命令可以快速定位到最前。</li>
+<li>使光标移动到命令行的最后：ctrl + e。</li>
+<li>退出当前终端：ctrl + d，关闭，作用与 <code>exit</code> 一样。</li>
+<li>暂停终端的快速滚动（冻结）：ctrl + s；解冻终端是用 ctrl + q。</li>
+</ul>
+</li>
+<li>
+<p>一行多个命令逐个执行：命令之间加 <code>&amp;&amp;</code> 符号。</p>
+</li>
+<li>
+<p>一次运行多个命令：命令之间加上 <code>;</code> 分号，即 <code>command_1; command_2; command_3</code> 形式。</p>
+</li>
+<li>
+<p>将命令放到后台执行：命令结尾加一个 <code>&amp;</code> 符号，更多信息见 <code>任务后台执行 / 任务&amp;进程查看</code> 一节。</p>
+</li>
+<li>
+<p>自动补全：tab 键自动补全命令和文件或目录的全名。输入路径全名的中途，按两下 tab 键显示当前目录下的内容。</p>
+</li>
+<li>
+<p>shell 中 <code>!!</code> 代表上一个命令，原样替换，比如执行 <code>command_1</code> 后发现需要 root 权限，只需再执行 <code>sudo !!</code> 即可 带上 sudo 前缀执行上一次命令。</p>
+</li>
+<li>
+<p>shell 中 <code>!$</code> 代表 上一个命令的最后一项，比如 <code>ls ~</code> 和 <code>cd !$</code> 就是接连查看家目录和打开家目录。</p>
+</li>
+<li>
+<p>设置命令别名：<a href="https://blog.csdn.net/qingquanyingyue/article/details/120223948" target="_blank" rel="noopener noreffer">设置 linux 命令别名_清泉影月的博客-CSDN博客</a>。</p>
+<ul>
+<li>基本命令 <code>alias ll=ls -l</code>。删除别名 <code>unalias [别名]</code>。</li>
+<li>直接执行 alias 命令后别名立马生效，只是临时生效，退出 shell 窗口就没了。</li>
+<li>永久生效方法：上述命令写到 <code>/root/.bashrc</code> 文件，用 source 命令让 .bashrc 文件生效。</li>
+</ul>
+</li>
+<li>
+<p>各种通配符：</p>
+<ul>
+<li>
+<p>*：任何字符和字符串。</p>
+</li>
+<li>
+<p>?：一个任意字符。</p>
+</li>
+<li>
+<p>[abc&hellip;]： <i class="far fa-square fa-fw"></i> 内的任意一个字符。 [abc]表示 a、 b、 c 任一个字符；有时候也表示范围，如 [a-x] ，表示 a 到 x 的任一个字符； [1-9] 表示 1 到 9 的任一数字。</p>
+</li>
+<li>
+<p>[!abc&hellip;]：和上面的相反，表示除 <i class="far fa-square fa-fw"></i> 内的字符外的任意一个字符。</p>
+</li>
+</ul>
+<p>例 <code>rm -f 1[!1]*.txt</code>  删除名字中第一个字符是 “1” 而第二个字符不是为 “1” 的所有文件。</p>
+</li>
+<li>
+<p>流控制，输入 和 输出 重定向（&gt; / &raquo;, &lt;）：<a href="https://www.runoob.com/linux/linux-shell-io-redirections.html" target="_blank" rel="noopener noreffer">Shell 输入/输出重定向 | 菜鸟教程 (runoob.com)</a>。</p>
+<ul>
+<li>
+<p><code>command &gt; file</code>，将 command 的 输出 重定向到 file（一个文件），即将 command 的输出流 stdout 重定向到 file，将 command 的打印内容<strong>覆盖</strong>输出到文件 file 里；<code>command &gt;&gt; file</code>，将输出以<strong>追加</strong>的方式重定向到 file，追加输入到文件 file。</p>
+</li>
+<li>
+<p><code>command &lt; file</code>，将 command 的 输入 重定向到 file，即将 command 的输入流 stdin 重定向到 file，本来需要从键盘获取输入的命令会转移到读取文件内容。</p>
+</li>
+<li>
+<p>注意 输出重定向是大于号(&gt;)，输入重定向是小于号(&lt;)。</p>
+</li>
+<li>
+<p>清空文本文件的内容而不删除文件本身：<code>&gt; 文件名</code>。</p>
+</li>
+<li>
+<p>错误信息重定向：</p>
+<p>一般情况下，每个 Unix/Linux 命令运行时都会打开三个文件：</p>
+<ul>
+<li>
+<p>标准输入文件(stdin)：stdin 的文件描述符为 0，Unix 程序默认从 stdin 读取数据。</p>
+</li>
+<li>
+<p>标准输出文件(stdout)：stdout 的文件描述符为 1，Unix 程序默认向 stdout 输出数据。</p>
+</li>
+<li>
+<p>标准错误文件(stderr)：stderr 的文件描述符为 2，Unix 程序会向 stderr 流中写入错误信息。</p>
+<p><code>command 2 &gt;&gt; file</code> 让执行命令后的错误信息 stderr 追加到 file 文件末尾。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>管道（ | ）：</p>
+<p><code>command1 | command2</code>，当在两个 命令/应用/进程 之间设置管道时，管道符<code>|</code>左边命令的输出就变成了右边命令的输入（管道 即进程间通讯的一种）。</p>
+<p>这里需要注意，command1 必须有正确输出，而 command2 必须可以处理 command1 的输出结果； command2 只能处理 command1 的正确输出结果，不能处理 command1 的错误信息。</p>
+<p>例：查看指定程序的进程运行状态，并将输出重定向到文件中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ps aux <span class="p">|</span> grep httpd &gt; /tmp/ps.output <span class="o">&amp;&amp;</span> cat /tmp/ps.output
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h5 id="基本命令--文件目录管理">基本命令 / 文件&amp;目录管理</h5>
+<p><strong>基本命令</strong></p>
+<p><code>pwd</code>、<code>cd</code>、<code>mkdir</code>（<strong>-p</strong> 选项指示连续创建目录及其子目录，如<code>mkdir -p test1/test2/test3/test4</code>）、<code>rmdir</code>（不能删除非空目录，-p 选项可以一次删除多级空目录）、<code>touch</code>、<code>clear</code>、<code>echo</code>（往文件写内容 <code>echo none &gt; /sys/class/leds/cpu/trigger</code>）。</p>
+<p><strong>文件与目录管理</strong></p>
+<p><a href="https://www.runoob.com/linux/linux-file-content-manage.html" target="_blank" rel="noopener noreffer">Linux 文件与目录管理 | 菜鸟教程 (runoob.com)</a>。</p>
+<blockquote>
+<ul>
+<li>ls（英文全拼：list files）: 列出目录及文件名</li>
+<li>cd（英文全拼：change directory）：切换目录</li>
+<li>pwd（英文全拼：print work directory）：显示目前的目录</li>
+<li>mkdir（英文全拼：make directory）：创建一个新的目录</li>
+<li>rmdir（英文全拼：remove directory）：删除一个空的目录</li>
+<li>cp（英文全拼：copy file）: 复制文件或目录</li>
+<li>rm（英文全拼：remove）: 删除文件或目录</li>
+<li>mv（英文全拼：move file）: 移动文件与目录，或修改文件与目录的名称</li>
+</ul>
+</blockquote>
+<p><strong>显示目录文件和文件夹：ls</strong></p>
+<p>-l 显示完整属性信息；-a 显示隐藏文件；-h 文件和文件夹大小以 K/M/G 单位显示；-i参数显示文件的inode节点信息。一个例子如图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95%e6%96%87%e4%bb%b6%e5%92%8c%e6%96%87%e4%bb%b6%e5%a4%b9ls.png"
+        data-srcset="assets/%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95%e6%96%87%e4%bb%b6%e5%92%8c%e6%96%87%e4%bb%b6%e5%a4%b9ls.png, assets/%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95%e6%96%87%e4%bb%b6%e5%92%8c%e6%96%87%e4%bb%b6%e5%a4%b9ls.png 1.5x, assets/%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95%e6%96%87%e4%bb%b6%e5%92%8c%e6%96%87%e4%bb%b6%e5%a4%b9ls.png 2x"
+        data-sizes="auto"
+        alt="assets/显示目录文件和文件夹ls.png"
+        title="显示目录文件和文件夹 ls" /></p>
+<p><strong>统计目录每个文件大小：du</strong></p>
+<p>统计指定目录内每个文件和文件夹大小：<code>du -ah ~/Videos</code>。-a 表显示隐藏文件，-h 表大小以 K/M/G 单位显示。</p>
+<p>显示指定文件所占空间：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># du log2012.log </span>
+<span class="m">300</span>    log2012.log
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>复制 文件或文件夹：cp</strong></p>
+<ul>
+<li>-r 表示递归目录下所有文件。</li>
+<li>-d 如果源文件为链接文件，只复制链接文件而不是实际文件。</li>
+<li>-i 增加特殊情况的讯问，如同名时会询问是否覆盖等（个人建议常用）。</li>
+<li>-f 强制覆盖。</li>
+</ul>
+<p>额外选项：</p>
+<ul>
+<li>-l：进行<strong>硬连结</strong>(hard link)的连结档创建，而非复制文件本身。</li>
+<li>-s：复制成为<strong>符号连结</strong>档 (symbolic link)，亦即 快捷方式文件。</li>
+<li>-p：连同文件的属性一起复制过去，而非使用默认属性(备份常用)。</li>
+<li>**-a：**相当於 -pdr，递归复制，并将文件属性和链接文件一同复制过去。</li>
+</ul>
+<p>例子：</p>
+<ul>
+<li>拷贝 dir1 目录内所有文件到 dir2 目录：<code>cp dir1/* dir2</code> 或者 <code>cp -r dir1/ dir2/</code>。</li>
+<li>复制 整个目录 到 另一个目录 时常用：<code>cp -rid dir_a dir_b</code>。</li>
+</ul>
+<p><strong>关于 硬链接 和 符号链接：</strong></p>
+<blockquote>
+<p>引自：<a href="https://www.runoob.com/linux/linux-file-content-manage.html" target="_blank" rel="noopener noreffer">Linux 文件与目录管理 | 菜鸟教程 (runoob.com)</a>。<a href="https://github.com/xiaowenxia/embedded-notes/blob/master/linux.md" target="_blank" rel="noopener noreffer">embedded-notes/linux.md at master · xiaowenxia/embedded-notes (github.com)</a>。</p>
+<p>Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被称为符号链接（Symbolic Link）。默认情况下，<strong>ln</strong> 命令产生硬链接。</p>
+<p><strong>硬连接</strong></p>
+<p>硬连接指通过索引节点来进行连接。在 Linux 的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在 Linux 中，多个文件名指向同一索引节点是存在的。比如：A 是 B 的硬链接（A 和 B 都是文件名），则 A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号相同，即一个 inode 节点对应两个不同的文件名，两个文件名指向同一个文件，A 和 B 对文件系统来说是完全平等的。删除其中任何一个都不会影响另外一个的访问。</p>
+<p>硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p>
+<ul>
+<li>硬链接直接指向文件的i节点</li>
+<li>硬链接和原文件的i节点是一样的</li>
+<li>硬链接文件显示的大小是跟原文件是一样的</li>
+<li>硬链接不能链接目录文件。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ln file2 /home/xiaxiaowen/file2hard
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>软连接</strong></p>
+<p>另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。比如：A 是 B 的软链接（A 和 B 都是文件名），A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号不相同，A 和 B 指向的是两个不同的 inode，继而指向两块不同的数据块。但是 A 的数据块中存放的只是 B 的路径名（可以根据这个找到 B 的目录项）。A 和 B 之间是“主从”关系，如果 B 被删除了，A 仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。</p>
+<ul>
+<li>软链接则是建立了一个新文件</li>
+<li>这个文件指向链接的文件，i节点不一样</li>
+<li>可以链接目录</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ln -s file2 /home/xiaxiaowen/file2soft
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>实验</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">touch f1          <span class="c1">#创建一个测试文件f1</span>
+ln f1 f2          <span class="c1">#创建f1的一个硬连接文件f2</span>
+ln -s f1 f3       <span class="c1">#创建f1的一个符号连接文件f3</span>
+ls -li            <span class="c1"># -i参数显示文件的inode节点信息</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从上面的结果中可以看出，硬连接文件 f2 与原文件 f1 的 inode 节点相同，均为 9797648，然而符号连接文件的 inode 节点不同。</p>
+<p>可以得到以下预期与测试的结果：</p>
+<ul>
+<li>1).删除符号连接f3，对f1、f2无影响；</li>
+<li>2).删除硬连接f2，对f1、f3也无影响；</li>
+<li>3).删除原文件f1，对硬连接f2没有影响，导致符号连接f3失效；</li>
+<li>4).同时删除原文件f1，硬连接f2，整个文件会真正的被删除。</li>
+</ul>
+</blockquote>
+<p><strong>移动/重命名 文件/文件夹：mv</strong></p>
+<ul>
+<li>-f 强制；-i 询问（个人建议常用）。</li>
+</ul>
+<p>直接举例：</p>
+<ul>
+<li><code>mv file1 dir1 dir2</code>，将文件 file1 和 目录 dir1 移动到目录 dir2 里面。</li>
+<li><code>mv file1 file_1</code>，将文件 file1 重命名为 file_1。</li>
+</ul>
+<p><strong>删除 文件或文件夹：rm</strong></p>
+<ul>
+<li>-r 递归；-f 强制；-i 询问（个人建议常用）。</li>
+<li>删除目录：<code>rm -r dir_a</code>。</li>
+<li>喜闻乐见的删库跑路（新手要理解其意思）：<code>rm -rf /*</code>。</li>
+</ul>
+<p><strong>文件内容查看</strong></p>
+<blockquote>
+<p>Linux系统中使用以下命令来查看文件的内容：</p>
+<ul>
+<li>cat 由第一行开始显示文件内容</li>
+<li>tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！</li>
+<li>nl  显示的时候，顺道输出行号！</li>
+<li>more 一页一页的显示文件内容</li>
+<li>less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</li>
+<li>head 只看头几行</li>
+<li>tail 只看尾巴几行</li>
+</ul>
+</blockquote>
+<p>查看长文件 <code>less</code>：<code>less install.log</code>，最下面显示的是这个文件的名称，我们可以使用 “PageUp” 和 “PageDown” 可以进行上一页和下一页的翻页。如果要知道具体的控制键，我们可以按下 “H” 键，可以显示 less 命令的所有控制键，如果想结束，可以按 “q” 键。</p>
+<p>在需要在应用程序运行时分析日志（文本）文件，动态追踪显示：<code>tail -F linuxidc_log</code>。</p>
+<p>以上每个命令的选项，可用时再查（上面 “Linux 命令查询” 处给出了一些在线查询 Linux 命令 的网站），用的多了就 内化 / 记住了。</p>
+<h5 id="文件权限--用户管理--密码管理">文件权限 &amp; 用户管理 &amp; 密码管理</h5>
+<p><strong>文件权限/属性管理</strong></p>
+<p>这里面讲的更详细 <a href="https://www.runoob.com/linux/linux-file-attr-permission.html" target="_blank" rel="noopener noreffer">Linux 文件基本属性 | 菜鸟教程 (runoob.com)</a>，<a href="http://c.biancheng.net/linux_tutorial/70/" target="_blank" rel="noopener noreffer">Linux权限管理详解 (biancheng.net)</a>。</p>
+<p>一句话明白：对于一个文件，通过 chown 来授权某个用户所有该文件，通过 chmod 为该用户设置可以操作（读/写/执行）该文件的权限。</p>
+<ul>
+<li>
+<p>改变文件所属用户组 ：chgrp</p>
+<p>将 install.log 文件的用户组改为 hy 用户组：<code>chgrp hy install.log</code>。注意 hy 用户组必须要在/etc/group 文件内存在才可以。</p>
+<p>-R : 进行递归的持续更改，也连同子目录下的所有文件、目录都更新成为这个用户组之意。常常用在更改某一目录内所有文件的情况。</p>
+</li>
+<li>
+<p>改变文件的所有者：chown</p>
+<p>例子：<code>chown bin install.log</code>、<code>chown book:book install.log</code>，改变 install.log 文件的所有者为 bin，改变 install.log 文件的所有者和用户组为 book 和 book。</p>
+<p>改变文件所有者和用户组的这两个命令的应用场景：复制文件，由于复制行为会复制执行者的属性和权限，因此复制后需要改变文件所属用户、用户组等。</p>
+<p>-R：也是递归子目录。</p>
+</li>
+<li>
+<p>改变文件权限：chmod</p>
+<p>使用 u、 g、 o 三个字母代表 user、 group、 others 3 中身份；此外 a 代表 all，即所有身份。范例：<code>chmod u=rwx,go=rx .bashrc</code>，即对于 .bashrc 文件，用户有 rwx 权限，用户组和其它用户有 rx 权限。</p>
+<p>也可以增加或去除某种权限，“ +”表示添加权限，“ -”表示去除权限：  <code>chmod a+w .bashrc</code>、<code>chmod a-x .bashrc</code>、<code>chmod +x app</code>。</p>
+<p>数字的方式就不细说了：用 4 代表 r 权限，2 代表 w 权限，1 代表 x 权限；owner = rwx = 4+2+1 = 7；例子：<code>chmod 777 .bashrc</code>。</p>
+</li>
+</ul>
+<p><strong>用户与用户组管理</strong></p>
+<p><a href="https://www.runoob.com/linux/linux-user-manage.html" target="_blank" rel="noopener noreffer">Linux 用户和用户组管理 | 菜鸟教程 (runoob.com)</a>，<a href="http://c.biancheng.net/linux_tutorial/60/" target="_blank" rel="noopener noreffer">Linux用户和用户组管理详解 (biancheng.net)</a>。</p>
+<p>对于用户与用户组的阐释：</p>
+<ul>
+<li><a href="http://c.biancheng.net/view/3038.html" target="_blank" rel="noopener noreffer">Linux用户和用户组（包含两者之间的关系） (biancheng.net)</a>。</li>
+<li><a href="https://blog.csdn.net/qq_37141978/article/details/106010346" target="_blank" rel="noopener noreffer">linux用户和用户组相关概念、理解、操作_森狗道格的博客-CSDN博客_linux用户和组的作用</a>。</li>
+</ul>
+<p>主要有这些命令：</p>
+<blockquote>
+<ul>
+<li>Linux系统添加新用户（useradd命令）</li>
+<li>Linux修改系统用户密码（passwd命令）</li>
+<li>Linux修改系统用户信息（usermod命令）</li>
+<li>Linux强制系统用户登陆时修改密码（chage命令）</li>
+<li>Linux删除系统用户（userdel命令）</li>
+<li>Linux查看用户的UID和GID（id命令）</li>
+<li>Linux临时切换用户身份（su命令）</li>
+<li>Linux whoami和who am i命令</li>
+<li>Linux添加用户组（groupadd命令）</li>
+<li>Linux修改用户组（groupmod命令）</li>
+<li>Linux删除用户组（groupdel命令）</li>
+<li>Linux将系统用户加入或移除群组（gpasswd命令）</li>
+<li>Linux切换用户的有效群组（newgrp命令）</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>增加用户：<code>useradd user1</code>，表增加一个用户 user1 ，并接着提示设置密码；只有 root 可以修改所有用户的密码，普通用户只能修改自己的密码，修改自己的密码 <code>passwd uesr1</code>。</p>
+</li>
+<li>
+<p>删除用户：<code>userdel</code>，慎用，可删除用户帐号与相关的文件。若不加 -f 参数，则仅删除用户帐号，而不删除相关文件，加上则会删除用户登入目录以及目录中所有文件。</p>
+</li>
+<li>
+<p>修改用户信息：usermod，选项：</p>
+<ul>
+<li>-c &lt;备注&gt;，修改用户帐号的备注文字。</li>
+<li>-d 登入目录&gt;，修改用户登入时的目录。</li>
+<li>-e &lt;有效期限&gt;，修改帐号的有效期限。</li>
+<li>-f &lt;缓冲天数&gt;，修改在密码过期后多少天即关闭该帐号。</li>
+<li>-g &lt;群组&gt;，修改用户所属的群组。</li>
+<li>-G &lt;群组&gt;，修改用户所属的附加群组。</li>
+<li>-l &lt;帐号名称&gt;，修改用户帐号名称。</li>
+<li>-L，锁定用户密码，使密码无效。</li>
+<li>-s <shell>，修改用户登入后所使用的shell。</li>
+<li>-u <uid>，修改用户ID。</li>
+<li>-U，解除密码锁定。</li>
+</ul>
+</li>
+<li>
+<p>普通用户 与 超级用户 之间切换：</p>
+<p>切换为 root 超级用户的命令为：<code>sudo su</code>；切换普通用户的命令为：<code>su &lt;username&gt;</code>，也可以用 <code>exit</code> 来退出超级用户。</p>
+</li>
+</ul>
+<p><strong>密码管理</strong></p>
+<ul>
+<li>给 root 用户设置密码，并在用户间切换：
+<ol>
+<li><code>sudo passwd root</code> 给 root 设置密码；</li>
+<li><code>输入 当前用户（book）密码</code>；</li>
+<li><code>输入 root 新设置的密码，两次</code>；</li>
+<li>成功；</li>
+<li><code>su root</code> 切换到 root 用户；<code>su</code>用来切换用户；</li>
+<li><code>su book</code> 切回。</li>
+</ol>
+</li>
+<li><a href="https://www.runoob.com/linux/linux-forget-password.html" target="_blank" rel="noopener noreffer">Linux 忘记密码解决方法 | 菜鸟教程 (runoob.com)</a>。</li>
+</ul>
+<h5 id="获取命令帮助---helpman">获取命令帮助： &ndash;help/man</h5>
+<p>help、man 和 info 命令。</p>
+<ul>
+<li>
+<p>help 只能用于查看某个命令的用法。</p>
+</li>
+<li>
+<p>man 命令既可以查看命令的用法，还可以查看函数的详细介绍等等。</p>
+<blockquote>
+<p>（引自 百问网）</p>
+<p>比如想查看 open() 函数的用法时，可以直接执行 <code>man open</code> ，发现这不是想要内容时再执行 <code>man 2 open</code>。</p>
+<p>在 man 命令中可以及时按“h”查看帮助信息了解快捷键。常用的快捷键是：</p>
+<ul>
+<li><code>f</code> 往前翻一页。</li>
+<li><code>b</code> 往后翻一页。</li>
+<li><code>/&lt;patten&gt;</code> 往前搜 <code>patten</code> 字符。</li>
+<li><code>?&lt;patten&gt;</code> 往后搜。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>info 命令会显示最全面的信息，一般 <code>man</code> 命令就够了，故 <code>info</code> 命令介绍 暂时略。</p>
+</li>
+</ul>
+<p>以下详细：</p>
+<p>命令后加 &ndash;help 选项，获取此命令的所有选项和其释义。详情如下图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9--help.png"
+        data-srcset="assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9--help.png, assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9--help.png 1.5x, assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9--help.png 2x"
+        data-sizes="auto"
+        alt="assets/获取命令帮助--help.png"
+        title="获取命令帮助 &amp;ndash;help" /></p>
+<p>命令的完整手册，命令前加 man，提供命令、API、概念、配置文件等帮助信息。详情如下。</p>
+<p>man 手册一共有 9 册，每一册专注一个方面。如下表。</p>
+<table>
+<thead>
+<tr>
+<th><strong>section</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>用户命令</td>
+<td>用户可操作的命令</td>
+</tr>
+<tr>
+<td>2</td>
+<td>系统调用</td>
+<td>内核提供的函数(查头文件)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>库调用</td>
+<td>常用的函数库</td>
+</tr>
+<tr>
+<td>4</td>
+<td>特殊文件</td>
+<td>设备文件(/dev下)和特殊文件</td>
+</tr>
+<tr>
+<td>5</td>
+<td>文件格式和约定</td>
+<td>对一些文件进行解释</td>
+</tr>
+<tr>
+<td>6</td>
+<td>游戏程序</td>
+<td>游戏程序</td>
+</tr>
+<tr>
+<td>7</td>
+<td>杂项</td>
+<td>包括宏包和约定等</td>
+</tr>
+<tr>
+<td>8</td>
+<td>系统管理员使用的管理命令</td>
+<td>通常只有系统管理员可以使用</td>
+</tr>
+<tr>
+<td>9</td>
+<td>内核相关</td>
+<td>Linux内核相关文件</td>
+</tr>
+</tbody>
+</table>
+<p>每一册都细分为语法说明、详细说明、作者说明、版权信息等章节。如下表。</p>
+<table>
+<thead>
+<tr>
+<th><strong>段名</strong></th>
+<th><strong>主要内容</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NAME</td>
+<td>命令、数据名称的简短说明</td>
+</tr>
+<tr>
+<td>SYNOPSIS</td>
+<td>简短的命令语法说明</td>
+</tr>
+<tr>
+<td>DESCRIPTION</td>
+<td>最为权威和全面的使用说明</td>
+</tr>
+<tr>
+<td>EXAMPLES</td>
+<td>使用本命令或数据的一些参考示例</td>
+</tr>
+<tr>
+<td>AUTHOR</td>
+<td>作者</td>
+</tr>
+<tr>
+<td>REPORTING BUGS</td>
+<td>报告相关的错误信息</td>
+</tr>
+<tr>
+<td>COPYRIGHT</td>
+<td>版权</td>
+</tr>
+<tr>
+<td>SEE ALSO</td>
+<td>与本命令或数据相关的其他参考说明</td>
+</tr>
+</tbody>
+</table>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9man.png"
+        data-srcset="assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9man.png, assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9man.png 1.5x, assets/%e8%8e%b7%e5%8f%96%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9man.png 2x"
+        data-sizes="auto"
+        alt="assets/获取命令帮助man.png"
+        title="获取命令帮助 man" /></p>
+<h5 id="连接流--取文件内容cat">连接流 / 取文件内容：cat</h5>
+<ul>
+<li>-n 或 &ndash;number：由 1 开始对所有输出的行数编号。</li>
+<li>-b 或 &ndash;number-nonblank：和 -n 相似，只不过对于空白行不编号。</li>
+<li>-s 或 &ndash;squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行。</li>
+</ul>
+<p>例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 将一个字符串输入到一个文件</span>
+<span class="nb">echo</span> <span class="s2">&#34;难凉热血瞰百易&#34;</span> &gt; users
+
+<span class="c1"># 把 textfile1 的文档内容加上行号后覆盖输入 textfile2 这个文档里</span>
+cat -n textfile1 &gt; textfile2
+
+<span class="c1"># 把 textfile1 和 textfile2 的文档内容加上行号（空白行不加）之后将内容 追加 到 textfile3 文档里</span>
+cat -b textfile1 textfile2 &gt;&gt; textfile3
+
+<span class="c1"># 清空 /etc/test.txt 文档内容</span>
+cat /dev/null &gt; /etc/test.txt
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="文件分割--文件合并">文件分割 / 文件合并</h5>
+<p>参考 <a href="https://mp.weixin.qq.com/s/8Zd5NHB9zKawuUv3J-XZ3Q" target="_blank" rel="noopener noreffer">Linux 下大文件切割与合并 (qq.com)</a>。</p>
+<blockquote>
+<p>在 Linux 系统下使用 split 命令进行大文件切割，使用 cat 命令进行多个小文件的合并，很方便。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">-a: <span class="c1">#指定输出文件名的后缀长度(默认为2个:aa,ab...)</span>
+-d: <span class="c1">#指定输出文件名的后缀用数字代替</span>
+-l: <span class="c1">#行数分割模式(指定每多少行切成一个小文件;默认行数是1000行)</span>
+-b: <span class="c1">#二进制分割模式(支持单位:k/m)</span>
+-C: <span class="c1">#文件大小分割模式(切割时尽量维持每行的完整性)</span>
+
+split <span class="o">[</span>-a<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-l &lt;行数&gt;<span class="o">]</span> <span class="o">[</span>-b &lt;字节&gt;<span class="o">]</span> <span class="o">[</span>-C &lt;字节&gt;<span class="o">]</span> <span class="o">[</span>要切割的文件<span class="o">]</span> <span class="o">[</span>输出文件名<span class="o">]</span>
+
+——————
+
+-n: <span class="c1">#显示行号</span>
+-e: <span class="c1">#以$字符作为每行的结尾</span>
+-t: <span class="c1">#显示TAB字符(^I)</span>
+cat <span class="o">[</span>-n<span class="o">]</span> <span class="o">[</span>-e<span class="o">]</span> <span class="o">[</span>-t<span class="o">]</span> <span class="o">[</span>输出文件名<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 行切割文件</span>
+$ split -l <span class="m">300000</span> users.sql /data/users_
+
+<span class="c1"># 使用数字后缀</span>
+$ split -d -l <span class="m">300000</span> users.sql /data/users_
+
+<span class="c1"># 按字节大小分割</span>
+$ split -d -b 100m users.sql /data/users_
+
+<span class="c1"># 合并文件</span>
+$ cat /data/users_* &gt; users.sql
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="查看二进制文件-hexdump">查看二进制文件 hexdump</h5>
+<p><a href="http://www.biscuitos.cn/blog/Linux-development-tools/#hexdump" target="_blank" rel="noopener noreffer">Linux 内核源码开发工具合集 (biscuitos.cn) ——hexdump</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">hexdump</span> <span class="p">[</span><span class="err">选项</span><span class="p">]</span> <span class="p">[</span><span class="err">文件</span><span class="p">]</span><span class="err">…</span>
+
+<span class="err">选项</span>
+    <span class="o">-</span><span class="n">n</span> <span class="n">length</span><span class="err">：格式化输出文件的前</span> <span class="n">length</span> <span class="err">个字节</span>
+    <span class="o">-</span><span class="n">C</span> <span class="err">输出规范的十六进制和</span><span class="n">ASCII码</span>
+    <span class="o">-</span><span class="n">b</span> <span class="err">单字节八进制显示</span>
+    <span class="o">-</span><span class="n">c</span> <span class="err">单字节字符显示</span>
+    <span class="o">-</span><span class="n">d</span> <span class="err">双字节十进制显示</span>
+    <span class="o">-</span><span class="n">o</span> <span class="err">双字节八进制显示</span>
+    <span class="o">-</span><span class="n">x</span> <span class="err">双字节十六进制显示</span>
+    <span class="o">-</span><span class="n">s</span> <span class="err">从偏移量开始输出</span>
+    <span class="o">-</span><span class="n">e</span> <span class="err">指定格式字符串，格式字符串由单引号包含，格式字符串形如：’</span><span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="err">“</span><span class="n">format1</span><span class="err">”</span> <span class="err">“</span><span class="n">format2</span><span class="err">”。</span>
+       <span class="err">每个格式字符串由三部分组成，每个由空格分割，如</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="err">表示，</span><span class="n">b</span> <span class="err">表示对每</span><span class="n">b个输入字节应用</span>
+       <span class="n">format1</span> <span class="err">格式，</span><span class="n">a</span> <span class="err">表示对每个</span> <span class="n">a</span> <span class="err">输入字节应用</span> <span class="n">format2</span><span class="err">，一般</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="err">，且</span> <span class="n">b</span> <span class="err">只能为</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="err">，</span>
+       <span class="err">另外</span> <span class="n">a</span> <span class="err">可以省略，省略</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="err">。</span><span class="n">format1</span> <span class="err">和</span> <span class="n">format2</span> <span class="err">中可以使用类似</span><span class="n">printf的格斯字符串</span><span class="err">。</span>
+           <span class="o">%</span><span class="mo">02</span><span class="n">d</span><span class="err">：两位十进制</span>
+           <span class="o">%</span><span class="mo">03</span><span class="n">x</span><span class="err">：三位十六进制</span>
+           <span class="o">%</span><span class="mo">02</span><span class="n">o</span><span class="err">：两位八进制</span>
+           <span class="o">%</span><span class="n">c</span><span class="err">：单个字符等</span>
+           <span class="o">%</span><span class="n">_ad</span><span class="err">：标记下一个输出字节的序号，用十进制表示</span>
+           <span class="o">%</span><span class="n">_ax</span><span class="err">：标记下一个输出字节的序号，用十六进制表示</span>
+           <span class="o">%</span><span class="n">_ao</span><span class="err">：标记下一个输出字节的序号，用八进制表示</span>
+           <span class="o">%</span><span class="n">_p</span><span class="err">：对不能以常规字符显示的用</span><span class="p">.</span><span class="err">代替</span>
+       <span class="err">同一行显示多个格式字符串，可以跟多个</span><span class="o">-</span><span class="n">e选项</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>另外还有：</p>
+<blockquote>
+<ul>
+<li>hexedit 是 linux 下的一款二进制文件编辑工具，可以使用 hexedit 工具对二进制 文件进行编辑和查看。</li>
+<li>Bless 是一个十六进制编辑器，其主要功能包括：支持编辑大数据文件及块设备、能够执行 搜索与替换操作、具有类似 Firefox 的标签浏览特性、可将数据输出为文本或 HTML、包含 插件系统。</li>
+</ul>
+</blockquote>
+<h5 id="比较文件差异diff">比较文件差异：diff</h5>
+<p>diff 以逐行的方式，比较文本文件的异同处。如果指定要比较目录，则 diff 会比较目录中相同文件名的文件，但不会比较其中子目录。</p>
+<p><a href="https://www.runoob.com/linux/linux-comm-diff.html" target="_blank" rel="noopener noreffer">Linux diff命令</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">diff log2014.log log2013.log 
+3c3
+&lt; 2014-03
+---
+&gt; 2013-03
+8c8
+&lt; 2013-07
+---
+&gt; 2013-08
+11,12d10
+&lt; 2013-11
+&lt; 2013-12
+<span class="c1"># 上面的 &#34;3c3&#34; 和 &#34;8c8&#34; 表示 log2014.log 和 log20143log 文件在 3 行和第 8 行内容有所不同；&#34;11,12d10&#34; 表示第一个文件比第二个文件多了第 11 和 12 行。</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>-a，只会逐行比较文本文件。</li>
+<li>-c，显示全部内文，并标出不同之处。</li>
+<li>-B，不检查空白行。</li>
+<li>-r，比较子目录中的文件。</li>
+<li>-y，以并列的方式显示文件的异同之处，其中：
+<ul>
+<li>&ldquo;|&ldquo;表示前后2个文件内容有不同。</li>
+<li>&ldquo;&lt;&ldquo;表示后面文件比前面文件少了1行内容。</li>
+<li>&ldquo;&gt;&ldquo;表示后面文件比前面文件多了1行内容。</li>
+</ul>
+</li>
+<li>-u，以合并的方式来显示文件内容的不同。</li>
+<li>-H，比较大文件时，可加快速度。</li>
+</ul>
+<p>常用 <code>diff -yB &lt;文件1&gt; &lt;文件2&gt;</code>。</p>
+<h5 id="常用-find--grep--sed--awk">常用 find / grep / sed / awk</h5>
+<p>可参考 <a href="https://blog.csdn.net/daaikuaichuan/article/details/82288634" target="_blank" rel="noopener noreffer">四个强大的linux文本处理工具（find、grep、sed、awk）_~青萍之末~的博客-CSDN博客_linux 文本处理 查找</a>。<a href="https://github.com/xiaowenxia/embedded-notes/blob/master/linux.md" target="_blank" rel="noopener noreffer">embedded-notes/linux.md at master · xiaowenxia/embedded-notes (github.com)</a> 下面一些参考了这个链接。</p>
+<p><strong>查找/搜索：find</strong></p>
+<ul>
+<li>格式：<code>find 目录名 选项 查找条件</code>；如果没有指定目录，则为当前目录查找</li>
+<li>举例，在某目录用名字查找名为 test1.txt 的文件：<code>find /home/book/dira/ -name &quot;test1.txt&quot;</code>；按格式查找：<code>-name &quot; *.txt &quot;</code>；</li>
+<li>其他高级用法很多，这里举例，查找 x 天内有变动的文件：<code>find /home/book -mtime -2</code>，查找 /home 目录下两天内有变动的文件。</li>
+</ul>
+<p>用法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">find <span class="o">[</span>-path ..<span class="o">]</span> <span class="o">[</span>expression<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>选项</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">-name     按照文件名
+-iname     按照文件名 忽略大小写
+-perm     按照文件权限
+-user     按照文件拥有者
+-group    按照文件所属的组
+-mtime -n +n 按照文件的更改时间来查找文件， -n：n天以内，+n：n天以前
+-type     查找某一类型：文件类型有：普通文件<span class="o">(</span>f<span class="o">)</span>，目录<span class="o">(</span>d<span class="o">)</span>，字符设备文件<span class="o">(</span>c<span class="o">)</span>，块设备文件<span class="o">(</span>b<span class="o">)</span>，符号链接文件<span class="o">(</span>l<span class="o">)</span>，套接字文件<span class="o">(</span>s<span class="o">)</span>，管道文件<span class="o">(</span>p<span class="o">)</span>
+-size n   查找文件长度为n块（一块等于512字节）的文件，带有c时表示文件长度以字节计。 
+-mount    不跨越文件系统
+-follow   遇到符号链接文件，就跟踪至链接所指向的文件
+-path     匹配文件路径或者文件
+-exec     执行后续命令操作
+-a        and 与操作
+-o        or  或操作
+-not      not 非操作
+</code></pre></td></tr></table>
+</div>
+</div><p>经典使用方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#查找/run中所有的socket文件</span>
+find /run -type s
+<span class="c1">#搜索/dev中所有包含tty的文件</span>
+find /dev -name <span class="s2">&#34;*tty*&#34;</span>
+<span class="c1">#搜索/dev中大小大于10字节，名称包含bus的文件</span>
+find /dev -size +10c -name <span class="s2">&#34;*bus*&#34;</span>
+<span class="c1">#或操作，搜索debug开头的文件或者.rst的文件</span>
+find -name <span class="s1">&#39;debug*&#39;</span> -o -name <span class="s1">&#39;*.rst&#39;</span>
+<span class="c1">#与操作，搜索debug开头的文件同时是.rst的文件</span>
+find -name <span class="s1">&#39;debug*&#39;</span> -a -name <span class="s1">&#39;*.rst&#39;</span>
+<span class="c1">#找出文件大小大于10000块的文件，并复制到当前目录</span>
+find -size +100000 -exec cp <span class="o">{}</span> . <span class="se">\;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>高级使用方法</p>
+<p>查询所有mk文件中的date文本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">find ./build/ -name <span class="s2">&#34;*.mk&#34;</span> -print -exec grep -rwn <span class="s2">&#34;date&#34;</span> --color<span class="o">=</span>auto <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>文件内搜索：grep</strong></p>
+<ul>
+<li>格式：<code>grep [选项] [查找模式] [文件名]</code>；</li>
+<li><code>grep -rn &quot;字符串&quot; 文件名</code>。字符串：要查找的字符串；文件名：要查找的目标文件，如果是 * 符号则表示查找当前目录下的所有文件和目录；r(recursive) 递归查找；n(number) 显示目标位置的行号；-w 全字匹配；</li>
+<li>在 test1.txt 中查找字符串abc： <code>grep -n &quot;abc&quot; test1.txt</code>，在当前目录递归查找字符串abc：<code>grep -rn &quot;abc&quot; *</code>；</li>
+<li>第一个命令的结果传入第二个命令，即在 grep 的结果中再次执行 grep 搜索：<code>grep “ABC” * -nR | grep “ \.h”</code>，搜索包含有 &ldquo;ABC&rdquo; 的头文件。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">选项：
+    -c：只输出匹配行的计数。
+    -C：匹配的上下文分别显示<span class="o">[</span>number<span class="o">]</span>行。
+    -I：不区分大小写<span class="o">(</span>只适用于单字符<span class="o">)</span>。
+    -i：不区分大小写。
+    -h：查询多文件时不显示文件名。
+    -l：查询多文件时只输出包含匹配字符的文件名。
+    -L：列出不匹配的文件名。
+    -n：显示匹配行及 行号。
+    -s：不显示不存在或无匹配文本的错误信息。
+    -v：显示不包含匹配文本的所有行。
+    -w：只匹配整个单词。
+    -E：扩展的正则表达式
+    -R：递归搜寻
+    --exclude<span class="o">=</span>FILE：跳过FILE
+
+正则表达式主要参数：
+	<span class="se">\：</span>忽略正则表达式中特殊字符的原有含义。
+	^：匹配正则表达式的开始行。
+	$：匹配正则表达式的结束行。
+	<span class="se">\&lt;</span>：从匹配正则表达式的行开始。
+	<span class="se">\&gt;</span>：到匹配正则表达式的行结束。
+	<span class="o">[]</span>：单个字符，如<span class="o">[</span>A<span class="o">]</span>即A符合要求 。
+	<span class="o">[</span>-<span class="o">]</span>：范围，如<span class="o">[</span>A-Z<span class="o">]</span>，即A、B、C一直到Z都符合要求 。
+	.：所有的单个字符。
+	*：有字符，长度可以为0。
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">经典使用方法：
+
+<span class="c1">#所有以d开头的文件，包含test的匹配行</span>
+grep <span class="s2">&#34;test&#34;</span> d*
+<span class="c1">#包含test或者zephyr 不区分大小写 显示行号 扩展正则表达式</span>
+grep -inE <span class="s2">&#34;test|zephyr&#34;</span> d*
+<span class="c1">#包含test和zephyr 不区分大小写 显示行号 扩展正则表达式</span>
+grep -in <span class="s2">&#34;test&#34;</span> d* <span class="p">|</span> grep <span class="s1">&#39;zephyr&#39;</span>
+
+主要参数：
+	－c：只输出匹配行的计数。
+	－I：不区分大小写<span class="o">(</span>只适用于单字符<span class="o">)</span>。
+	－h：查询多文件时不显示文件名。
+	－l：查询多文件时只输出包含匹配字符的文件名。
+	－L：列出不匹配的文件名
+	－n：显示匹配行及行号。
+	－s：不显示不存在或无匹配文本的错误信息。
+	－v：显示不包含匹配文本的所有行。
+	－R：递归搜寻
+	－d skip：不递归搜寻
+	－w：匹配整个单词
+正则表达式主要参数：
+	<span class="se">\：</span>忽略正则表达式中特殊字符的原有含义。
+	^：匹配正则表达式的开始行。
+	$：匹配正则表达式的结束行。
+	<span class="se">\&lt;</span>：从匹配正则表达式的行开始。
+	<span class="se">\&gt;</span>：到匹配正则表达式的行结束。
+	<span class="o">[]</span>：单个字符，如<span class="o">[</span>A<span class="o">]</span>即A符合要求 。
+	<span class="o">[</span>-<span class="o">]</span>：范围，如<span class="o">[</span>A-Z<span class="o">]</span>，即A、B、C一直到Z都符合要求 。
+	.：所有的单个字符。
+	*：有字符，长度可以为0。
+
+grep <span class="s1">&#39;test&#39;</span> d*		显示以d开头的文件中包含的test行
+grep <span class="s1">&#39;test&#39;</span> aa bb cc 	查找文件aa bb cc 中匹配的test行
+grep <span class="s1">&#39;test&#39;</span><span class="p">|</span><span class="s1">&#39;hello&#39;</span> files 匹配test或者hello
+grep <span class="s1">&#39;\&lt;man&#39;</span> files	匹配manic 和man 不匹配batman
+grep <span class="s1">&#39;\&lt;man\&gt;&#39;</span>		只匹配man 不匹配batman和manic
+grep <span class="s1">&#39;^man&#39;</span> files	匹配的字符行首
+grep <span class="s1">&#39;$man&#39;</span> files	匹配的字符串仔行尾
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>计算字数：wc</strong></p>
+<ul>
+<li>各个选项：<code>-c</code> 只显示 Bytes 数； -l 只显示列数； -w 只显示字数。</li>
+</ul>
+<p><strong>数据替换：sed</strong></p>
+<ul>
+<li>用时现查。</li>
+</ul>
+<p><strong>文本处理：awk</strong></p>
+<ul>
+<li>用时现查。</li>
+</ul>
+<p><strong>列出当前打开的文件：lsof</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo lsof
+COMMAND    PID      USER   FD      TYPE     DEVICE     SIZE       NODE      NAME
+init       <span class="m">1</span>         root  cwd      DIR       3,3       <span class="m">1024</span>       <span class="m">2</span>         /
+init       <span class="m">1</span>         root  rtd      DIR       3,3       <span class="m">1024</span>       <span class="m">2</span>         /
+init       <span class="m">1</span>         root  txt      REG       3,3       <span class="m">38432</span>      <span class="m">1763452</span>  /sbin/init
+init       <span class="m">1</span>         root  mem      REG       3,3       <span class="m">106114</span>     <span class="m">1091620</span>  /lib/libdl-2.6.so
+init       <span class="m">1</span>         root  mem      REG       3,3       <span class="m">7560696</span>    <span class="m">1091614</span>  /lib/libc-2.6.so
+init       <span class="m">1</span>         root  mem      REG       3,3       <span class="m">79460</span>      <span class="m">1091669</span>  /lib/libselinux.so.1
+init       <span class="m">1</span>         root  mem      REG       3,3       <span class="m">223280</span>     <span class="m">1091668</span>  /lib/libsepol.so.1
+init       <span class="m">1</span>         root  mem      REG       3,3       <span class="m">564136</span>     <span class="m">1091607</span>  /lib/ld-2.6.so
+init       <span class="m">1</span>         root  10u      FIFO      0,15                  <span class="m">1309</span>     /dev/initctl
+</code></pre></td></tr></table>
+</div>
+</div><table style="text-align:center">
+   <tr>
+      <td>COMMAND</td>
+      <td>进程的名称</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>PID</td>
+      <td>进程标识符</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>USER</td>
+      <td>进程所有者</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>FD</td>
+      <td>文件描述符</td>
+      <td>应用程序通过文件描述符识别该文件。如cwd、txt、mem等</td>
+   </tr>
+   <tr>
+      <td>TYPE</td>
+      <td>文件类型</td>
+      <td>REG(文件) DIR(目录) CHR(字符) BLK(块设备) FIFO(管道) UNIX(UNIX 域套接字) IPv4(IP套接字)</td>
+   </tr>
+   <tr>
+      <td>DEVICE</td>
+      <td>指定磁盘的名称</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>SIZE</td>
+      <td>文件大小</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>NODE</td>
+      <td>文件inode</td>
+      <td>每个文件都有一个唯一的inode</td>
+   </tr>
+   <tr>
+      <td>NAME</td>
+      <td>文件名称</td>
+      <td></td>
+   </tr>
+</table>
+<p>参数列表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">lsof  filename      显示打开指定文件的所有进程
+lsof -a             表示两个参数都必须满足时才显示结果
+lsof -c string      显示COMMAND列中包含指定字符的进程所有打开的文件
+lsof -u username    显示所属user进程打开的文件
+lsof -g gid         显示归属gid的进程情况
+lsof +d /DIR/       显示目录下被进程打开的文件
+lsof +D /DIR/       同上，但是会搜索目录下的所有目录，时间相对较长
+lsof -d FD          显示指定文件描述符的进程
+lsof -n             不将IP转换为hostname，缺省是不加上-n参数
+lsof -i             用以显示符合条件的进程情况
+lsof -i<span class="o">[</span>46<span class="o">]</span> <span class="o">[</span>protocol<span class="o">][</span>@hostname<span class="p">|</span>hostaddr<span class="o">][</span>:service<span class="p">|</span>port<span class="o">]</span>
+                    <span class="m">46</span> --&gt; IPv4 or IPv6
+                    protocol --&gt; TCP or UDP
+                    hostname --&gt; Internet host name
+                    hostaddr --&gt; IPv4地址
+                    service --&gt; /etc/service中的 service name <span class="o">(</span>可以不只一个<span class="o">)</span>
+                    port --&gt; 端口号 <span class="o">(</span>可以不只一个<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>查找应用程序打开的文件的名称和数目</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#显示打开指定文件的所有进程</span>
+$ lsof  filename
+<span class="c1">#例如:打开所有使用/dev/urandom的进程</span>
+$ lsof /dev/urandom
+<span class="c1">#查看22端口现在运行的情况 </span>
+$ lsof -i :22
+<span class="c1">#查看所属xiaxiaowen用户进程所打开的文件类型为txt的文件</span>
+$ lsof -a -u xiaxiaowen -d txt
+<span class="c1">#查找谁在使用文件系统</span>
+$ lsof /media/xiaxiaowen/机械硬盘
+COMMAND  PID       USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+zsh     <span class="m">8465</span> xiaxiaowen  cwd    DIR   8,17     <span class="m">8192</span>    <span class="m">5</span> /media/xiaxiaowen/机械硬盘
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="压缩打包gzipbzip2tar7z">压缩打包：gzip、bzip2、tar、7z</h5>
+<p><a href="http://c.biancheng.net/linux_tutorial/bale_compress/" target="_blank" rel="noopener noreffer">Linux打包（归档）和压缩详解 (biancheng.net)</a>。</p>
+<p><strong>单文件压缩、解压：gzip、bzip2</strong></p>
+<ul>
+<li>小文件：gzip （.gz）</li>
+<li>大文件（压缩比高）：bzip2 （.bz2）</li>
+</ul>
+<p>上述两个的选项：-l (list) 列出压缩文件内容；-k (keep) 保留压缩或解压的源文件；-d (decompress) 解压压缩文件。</p>
+<p>例子：</p>
+<ul>
+<li>查看：<code>gzip -l pwd.1.gz</code>；</li>
+<li>压缩：<code>gzip -k guesswhat.iso</code>；</li>
+<li>解压：<code>gzip -kd pwd.1.gz</code>。</li>
+</ul>
+<p>注：不加 -k 选项，在操作完后不会保留源文件；都只能压缩单文件。</p>
+<p><strong>多文件、目录的压缩和解压：tar</strong></p>
+<ul>
+<li>-c (create)：表示创建用来生成文件包 。压缩。</li>
+<li>-x：表示提取，从文件包中提取文件。解压。</li>
+<li>-t：可以查看压缩的文件。查看。</li>
+<li>-z：使用 gzip 方式进行处理，它与”c“ 结合就表示压缩，与”x“ 结合就表示解压缩。</li>
+<li>-j：使用 bzip2 方式进行处理，它与”c“ 结合就表示压缩，与”x“ 结合就表示解压缩。</li>
+<li>-v (verbose)：详细报告 tar 处理的信息。</li>
+<li>-f (file)：表示文件，后面接着一个文件名。</li>
+<li>-C &lt;指定目录&gt; 解压到指定目录。</li>
+</ul>
+<p>例子：（选项前可以不加 &ldquo;-&quot;，以下还是加上的）</p>
+<ul>
+<li>
+<p>查看：<code>tar -tvf dira.tar.gz</code>。</p>
+</li>
+<li>
+<p>压缩（目录）：<code>tar -czf dira.tar.gz dira</code>；或者 <code>tar -cjf dira.tar.bz2 dira</code>；前者使用 gzip （<code>-czf</code>），后者使用 bzip2 （<code>-cjf</code>）。</p>
+<p>tar 打包、 bzip2 压缩：<code>tar -cjvf dira.tar.bz2 dira</code>，把目录 dira 压缩、打包为 dira.tar.bz2 文件。</p>
+</li>
+<li>
+<p>解压：<code>tar -xzf dira.tar.gz -C /home/book</code>，加 <code>-C</code> 指定目录，不加就是解压到当前目录；使用 gzip（<code>-xzf</code>），使用 bzip2（<code>-xjf</code>）。</p>
+</li>
+</ul>
+<p>总之：</p>
+<ul>
+<li>查看：<code>tar tvf &lt;压缩文件&gt;</code>。</li>
+<li>压缩（用 bzip2）：<code>tar cjf /&lt;目标位置&gt;/xxx.tar.bz2 &lt;要压缩的文件夹或文件&gt;</code>；用 tar：<code>tar cf /.../&lt;目标压缩文件.tar&gt; &lt;要压缩的文件或文件夹&gt;</code>。</li>
+<li>解压（用 bzip2）：<code>tar xjf xxx.tar.bz2 -C &lt;目标目录&gt;</code>；用 tar ：<code>tar xf &lt;压缩文件.tar&gt; &lt;解压目录&gt;</code>。</li>
+</ul>
+<p>注意：要进入到被解压的目录下面，然后进行压缩命令，而不是输入压缩文件的全路径名，这样会连带把目录结构一同压缩！</p>
+<p><strong>高压工具：7z</strong></p>
+<ul>
+<li>工具安装：<code>sudo apt-get install p7zip</code>。</li>
+<li>解压：<code>7z x &lt;压缩包名.7z&gt;</code> 解压到压缩包命名的目录下。</li>
+<li>压缩：<code>7z a pack.7z 1.jpg dir1</code> 将 1.jpg 和 文件夹 dir1 压缩成一个 7z 包 pack.7z。</li>
+</ul>
+<p><strong>zip、rar</strong></p>
+<ul>
+<li>
+<p><code>rar a jpg.rar *.jpg</code> rar 格式的压缩，需要先下载 rar for linux；<code>unrar e file.rar</code> 解压 rar；</p>
+</li>
+<li>
+<p><code>zip jpg.zip *.jpg</code> zip 格式的压缩，需要先下载 zip for linux；<code>unzip file.zip</code> 解压 zip。</p>
+<p>zip 详细：</p>
+<p>压缩并指定目录，举例：<code>zip -r /home/kms/kms.zip /home/kms/server/kms</code>；</p>
+<p>解压并指定目录，举例：<code>unzip /home/kms/kms.zip -d /home/kms/server/kms</code>；</p>
+<p>删除压缩文件中 smart.txt 文件：<code>zip -d myfile.zip smart.txt</code>；</p>
+<p>向压缩文件中添加 rpm_info.txt 文件：<code>zip -m myfile.zip ./rpm_info.txt</code>。</p>
+</li>
+</ul>
+<h5 id="网络命令ifconfig-netstat">网络命令：ifconfig /netstat</h5>
+<ul>
+<li><code>ifconfig</code>：查看当前正在使用的网卡，及其 IP；-a 查看所有网卡。修改相应网卡的 IP 地址：<code>ifconfig &lt;网卡名&gt; 192.168.1.123</code> 。</li>
+<li>测试路由：<code>ping 8.8.8.8</code>。测试 DNS 服务：<code>ping www.baidu.com</code>。DNS 的设置比较简单，8.8.8.8 是好记好用的 DNS 服务器，修改 Ubuntu 中的 <code>/etc/resolv.conf</code> 文件，内容如下：<code>nameserver 8.8.8.8</code>。</li>
+<li>图形画界面的网络配置工具：<code>netconfig</code>，修改好后 <code>OK</code> 退出，还需要 <code>service network restart</code> 重新启动网络服务才会生效。 所有网络配置信息保存在 <code>ls /etc/sysconfig/network-scripts/</code> 里面，重启网络服务就是加载这个里面的文件信息。</li>
+<li><code>netstat</code>：查看网络状况。<code>netstat -lnp | head -n 30</code>，打印当前系统启动了哪些端口，显示前 30 行信息。<code>netstat -an | head -n 20</code>，打印网络连接状况，显示前 20 行信息。</li>
+</ul>
+<h5 id="查看文件类型filereadelf">查看文件类型：file/readelf</h5>
+<p><code>file &lt;文件名&gt;</code>确定其机器码是适合 x86 平台的，还是 arm 平台的。举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">file ~/.bashrc     为 ASCII 编码的 text 类型
+file ~/.vimrc      为 UTF-8 Unicode 编码的 text 类型
+file ~/Pictures/*  如图形文件 JPEG/PNG/BMP 格式
+file ~             为 directory 表明这是一个目录
+file /bin/pwd      出现 ELF 64-bit LSB executable，即为 ELF 格式的可执行文件
+file /dev/*        出现 character special <span class="o">(</span>字符设备文件<span class="o">)</span>、 block special <span class="o">(</span>块设备文件<span class="o">)</span> 等
+
+readelf -a &lt;elf 文件&gt; 解析并显示 elf 的 arm 可执行文件的详情
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="定位文件locate">定位文件：locate</h5>
+<p>全局查找文件，打印其位置：<code>locate install.log</code>。</p>
+<p>因为这个命令是从数据库中来搜索文件，这个数据库的更新速度是7天更新一次。  新建不久的文件搜索不到，需要更新一下数据库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">touch 001.txt
+locate 001.txt   <span class="c1"># 找不到</span>
+
+updatedb         <span class="c1"># 立即更新数据库，需要一段时间</span>
+locate 001.txt   <span class="c1"># 找到了</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>更多选项 <a href="https://www.runoob.com/linux/linux-comm-locate.html" target="_blank" rel="noopener noreffer">Linux locate 命令</a>。</p>
+<h5 id="查找应用程序位置which">查找应用程序位置：which</h5>
+<p><code>which pwd</code> 定位到 /bin/pwd；<code>which gcc</code> 定位到 /user/bin/gcc。</p>
+<p><code>whereis pwd</code> 可得到可执行程序的位置和手册页的位置。</p>
+<h5 id="任务后台执行--任务进程查看">任务后台执行 / 任务&amp;进程查看</h5>
+<p>前置知识：每个进程有个 ID（The task&rsquo;s unique process ID），为 PID（Process ID），同一个进程下的线程的 PID 均相同。LWP 即轻量级进程，就是线程了。</p>
+<ul>
+<li>
+<p>在命令的最后，加一个 <code>&amp;</code> 符号，即可放到后台运行，</p>
+<p>常用任务管理命令：</p>
+<p><code>jobs</code> 查看任务，返回任务编号 n 和进程号</p>
+<p><code>bg %n</code> 将编号为 n 的任务转后台，并运行</p>
+<p><code>fg %n</code> 将编号为 n 的任务转前台，并运行</p>
+<p><code>ctrl+z</code> 挂起当前任务</p>
+<p><code>ctrl+c</code> 结束当前任务</p>
+<p>例如：更多操作详情看<a href="https://blog.csdn.net/zxh2075/article/details/52932885" target="_blank" rel="noopener noreffer">这里</a>。</p>
+<p>执行 <code>ping www.baidu.com &amp;</code>，再按 ctrl + z，显示 <code>[1]+  Stopped    ping www.baidu.com</code>，表示此任务编号为 [ 1 ]，接着键入 <code>bg %1</code>，让此任务继续执行并转入后台执行，再键入 <code>fg %1</code>，将其转入前台执行，然后 ctrl + c 结束此任务。</p>
+</li>
+<li>
+<p><code>kill -9 &lt;进程 ID&gt;</code> 结束进程指定进程 ID 的进程。</p>
+</li>
+<li>
+<p>显示系统内存使用情况：<code>free -h</code>。</p>
+</li>
+<li>
+<p>查看 CPU 状况有很多方法，还有：<code>cat /proc/cpuinfo</code>。</p>
+</li>
+<li>
+<p>命令 <code>w</code> 查看系统整理负载，可显示更细节的命令 <code>vmstat</code>，后者可以查看到内存、磁盘的负载情况，<a href="https://blog.csdn.net/m0_38110132/article/details/84190319" target="_blank" rel="noopener noreffer"> Linux vmstat命令实战详解_浮生忆梦的博客-CSDN博客_vmstat</a>。</p>
+</li>
+<li>
+<p><code>ps -aux</code> 查看当前哪些任务在后台执行。详情如下图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e8%bf%9b%e7%a8%8b%e6%9f%a5%e7%9c%8bps.jpg"
+        data-srcset="assets/%e8%bf%9b%e7%a8%8b%e6%9f%a5%e7%9c%8bps.jpg, assets/%e8%bf%9b%e7%a8%8b%e6%9f%a5%e7%9c%8bps.jpg 1.5x, assets/%e8%bf%9b%e7%a8%8b%e6%9f%a5%e7%9c%8bps.jpg 2x"
+        data-sizes="auto"
+        alt="assets/进程查看ps.jpg"
+        title="进程查看 ps" /></p>
+<p><code>ps -xH</code>，这样可以查看所有存在的线程，也可以使用 grep 作进一步的过滤。</p>
+<p><code>ps -mq PID</code>，这样可以看到指定的进程产生的线程数目。</p>
+</li>
+<li>
+<p>动态的显示系统进程信息（相当于任务管理器界面）：<code>top -d  2</code>，-d 表示刷新时间，单位秒。详情如下图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e5%8a%a8%e6%80%81%e7%9a%84%e6%98%be%e7%a4%ba%e7%b3%bb%e7%bb%9f%e8%bf%9b%e7%a8%8b%e4%bf%a1%e6%81%aftop.jpg"
+        data-srcset="assets/%e5%8a%a8%e6%80%81%e7%9a%84%e6%98%be%e7%a4%ba%e7%b3%bb%e7%bb%9f%e8%bf%9b%e7%a8%8b%e4%bf%a1%e6%81%aftop.jpg, assets/%e5%8a%a8%e6%80%81%e7%9a%84%e6%98%be%e7%a4%ba%e7%b3%bb%e7%bb%9f%e8%bf%9b%e7%a8%8b%e4%bf%a1%e6%81%aftop.jpg 1.5x, assets/%e5%8a%a8%e6%80%81%e7%9a%84%e6%98%be%e7%a4%ba%e7%b3%bb%e7%bb%9f%e8%bf%9b%e7%a8%8b%e4%bf%a1%e6%81%aftop.jpg 2x"
+        data-sizes="auto"
+        alt="assets/动态的显示系统进程信息top.jpg"
+        title="动态的显示系统进程信息 top" /></p>
+<p><code>top -H</code>，加上 -H 这个选项，top 的每一行就不是显示一个进程，而是一个线程。</p>
+<p>top 命令详解 <a href="https://www.cnblogs.com/tamatama/p/13044402.html" target="_blank" rel="noopener noreffer">linux top命令查看内存及多核CPU的使用讲述 - tamatama - 博客园 (cnblogs.com)</a>。</p>
+</li>
+<li>
+<p>进程、信号、ps 和 top 详解：<a href="https://www.cnblogs.com/ashjo009/p/11912563.html" target="_blank" rel="noopener noreffer">关于Linux下进程的详解【进程查看与管理】 - AshJo - 博客园 (cnblogs.com)</a>。</p>
+</li>
+</ul>
+<h5 id="磁盘管理df--du--fdisk">磁盘管理：df / du / fdisk</h5>
+<p><a href="https://www.runoob.com/linux/linux-filesystem.html" target="_blank" rel="noopener noreffer">Linux 磁盘管理 | 菜鸟教程 (runoob.com)</a>。</p>
+<p><strong>文件系统挂载查看：df</strong></p>
+<p><code>df -Th</code> 列出文件系统类型、容量和哪个硬盘挂载在这里的情况。</p>
+<p>第一列指文件系统的名称，第二列指1KB为单位的总容量，第三列指以使用空间，第四列指剩余空间，最后一栏是磁盘挂载所在目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ df
+Filesystem     1K-blocks    Used      Available Use% Mounted on 
+/dev/sda6       <span class="m">29640780</span>    <span class="m">4320600</span>   <span class="m">23814492</span>  16%       / 
+...
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>分区查看和设置：fdisk</strong></p>
+<p>用时现学，网上资料足多。</p>
+<p><code>fdisk -l</code>，列出系统中所有存储设备，并显示其分区结构。设备名从 <code>/dev/sda</code> 、 <code>/dev/sdb</code> 开始延续。</p>
+<h5 id="文件系统挂载mount">文件系统挂载：mount</h5>
+<p>mount 命令用来挂载各种支持的文件系统协议到某个目录下。<a href="https://www.runoob.com/linux/linux-comm-mount.html" target="_blank" rel="noopener noreffer">Linux mount 命令-菜鸟教程</a></p>
+<p>举例：</p>
+<ul>
+<li>将 /dev/hda1 挂在 /mnt 之下 <code>mount /dev/hda1 /mnt</code>。</li>
+<li>将 /dev/hda1 用唯读模式挂在 /mnt 之下 <code>mount -o ro /dev/hda1 /mnt</code>。</li>
+<li>将 /tmp/image.iso 这个光碟的 image 档使用 loop 模式挂在 /mnt/cdrom之下。用这种方法可以将一般网络上可以找到的 Linux 光 碟 ISO 档在不烧录成光碟的情况下检视其内容 <code>mount -o loop /tmp/image.iso /mnt/cdrom</code>。</li>
+<li>卸载挂载 <code>umount /mnt</code>。</li>
+</ul>
+<h5 id="内核模块管理kmod">内核模块管理：kmod</h5>
+<p>Linux 有许多功能是通过模块的方式，你可以将这些功能编译成一个个单独的模块，待用时再分别载入它们到 kernel。这类可载入的模块，通常是设备驱动程序。</p>
+<ul>
+<li><code>lsmod</code> 列出已安装系统的模块。</li>
+<li><code>insmod kmod.ko</code> 用于手动安装模块；-f 强制（不检查目前 kernel 版本与模块编译时的 kernel 版本是否一致），更多命令：
+<ul>
+<li>-f 　不检查目前kernel版本与模块编译时的kernel版本是否一致，强制将模块载入。</li>
+<li>-k 　将模块设置为自动卸除。</li>
+<li>-m 　输出模块的载入信息。</li>
+<li>-o &lt;模块名称&gt; 　指定模块的名称，可使用模块文件的文件名。</li>
+<li>-p 　测试模块是否能正确地载入kernel。</li>
+<li>-s 　将所有信息记录在系统记录文件中。</li>
+<li>-v 　执行时显示详细的信息。</li>
+<li>-x 　不要汇出模块的外部符号。</li>
+<li>-X 　汇出模块所有的外部符号，此为预设置。</li>
+</ul>
+</li>
+<li><code>rmmod</code> 卸载某个已安装的模块。</li>
+<li><code>modinfo</code> 查看某个模块的详细信息。</li>
+<li><code>modprobe</code> 自动安装模块，并自动尝试解决依赖，比 insmod 聪明；-f 强制安装，-r 卸载模块，更多命令：
+<ul>
+<li>-a或&ndash;all 　载入全部的模块。</li>
+<li>-c或&ndash;show-conf 　显示所有模块的设置信息。</li>
+<li>-d或&ndash;debug 　使用排错模式。</li>
+<li>-l或&ndash;list 　显示可用的模块。</li>
+<li>-r或&ndash;remove 　模块闲置不用时，即自动卸载模块。</li>
+<li>-t或&ndash;type 　指定模块类型。</li>
+<li>-v或&ndash;verbose 　执行时（载入或者卸载）显示详细的信息。</li>
+<li>-V或&ndash;version 　显示版本信息。</li>
+<li>-help 　显示帮助。</li>
+</ul>
+</li>
+</ul>
+<h5 id="系统日志dmesg">系统日志：dmesg</h5>
+<p><a href="https://blog.csdn.net/carefree2005/article/details/120737841" target="_blank" rel="noopener noreffer">Linux命令之dmesg命令_恒悦sunsite的博客-CSDN博客</a>。</p>
+<p><a href="https://www.cnblogs.com/zhaoxuguang/p/7810651.html" target="_blank" rel="noopener noreffer">dmesg七种用法 - zhaoxuguang - 博客园 (cnblogs.com)</a>。</p>
+<p>例子：</p>
+<ul>
+<li>dmesg | less。</li>
+<li>dmesg | tail -20。</li>
+<li>watch &ldquo;dmesg | tail -20&rdquo;。</li>
+</ul>
+<h5 id="系统管理--杂项--日常">系统管理 / 杂项 / 日常</h5>
+<p>以下命令可用时现查。</p>
+<ul>
+<li>
+<p>who，显示登录到本地的用户。</p>
+</li>
+<li>
+<p>w，显示登录到本地的用户，并显示他们在做什么。</p>
+</li>
+<li>
+<p>whoami，显示当前用户的登录名。</p>
+</li>
+<li>
+<p>id，查看用户 id 和其它信息。</p>
+</li>
+<li>
+<p>last，查看最近登陆本机的用户。</p>
+</li>
+<li>
+<p>uname -a，显示本机和系统信息。</p>
+</li>
+<li>
+<p>uptime，查询 linux 系统的运行时间、当前用户数等信息。</p>
+</li>
+<li>
+<p>dmesg，查看开机信息。</p>
+</li>
+<li>
+<p>umask，控制新创建文件的默认权限。</p>
+</li>
+<li>
+<p>ulimit，查看和控制用户的资源限制。</p>
+</li>
+<li>
+<p>env，查看当前用户的环境变量。</p>
+</li>
+<li>
+<p>显示日期、日历：<code>data</code>，<code>cal</code>。打印程序执行时间：<code>time ./可执行程序</code>。</p>
+</li>
+<li>
+<p>查看 CPU 信息：<code>cat /proc/cpuinfo</code>。</p>
+</li>
+<li>
+<p>在 shell 中显示内核驱动使用 printk() 打印的信息（有些板子默认打开了）
+<code>echo &quot;7 4 1 7&quot; &gt; /proc/sys/kernel/printk</code>
+关闭内核打印信息
+<code>echo &quot;0 4 1 7&quot; &gt; /proc/sys/kernel/printk</code></p>
+</li>
+<li>
+<p>关机相关：</p>
+<ul>
+<li>
+<p>将存于 buffer 中的资料强制写入硬盘中：<code>sync</code>。Linux 系统中欲写入硬盘的资料有的时候为了效率起见，会写到 filesystem buffer 中，这个 buffer 是一块缓存空间，如果欲写入硬盘的资料存于此 buffer 中，而系统又突然断电的话，那么资料就会流失了，<code>sync</code> 指令会将存于 buffer 中的资料强制写入硬盘中。<code>sync</code> 命令在关闭 Linux 系统前使用。</p>
+</li>
+<li>
+<p>在关机前，可使用 <code>ps -aux</code> 查看还有哪些后台进程。</p>
+</li>
+<li>
+<p>关机：<code>halt</code> 停止机器；<code>halt -p</code> 关闭机器、关闭电源。</p>
+</li>
+<li>
+<p>重启：<code>reboot</code>。</p>
+</li>
+<li>
+<p>延时关机：<code>shutdown -t 10</code>，-t 表示关机倒计时，单位秒。<code>shutdown</code> 更多例子：常用 <code>shutdown -h now</code> 立即关机。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e5%85%b3%e6%9c%bashutdown%e5%91%bd%e4%bb%a4.png"
+        data-srcset="assets/%e5%85%b3%e6%9c%bashutdown%e5%91%bd%e4%bb%a4.png, assets/%e5%85%b3%e6%9c%bashutdown%e5%91%bd%e4%bb%a4.png 1.5x, assets/%e5%85%b3%e6%9c%bashutdown%e5%91%bd%e4%bb%a4.png 2x"
+        data-sizes="auto"
+        alt="assets/关机shutdown命令.png"
+        title="关机 shutdown 命令" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p><del>图形化系统设置工具，调整运行状态，运行 <code>setup</code> 这个综合工具。包括如图所示的五项：认证方式、防火墙配置、鼠标配置、网络配置、系统服务等。这里包含了各种系统服务。</del></p>
+</li>
+<li>
+<p>有趣的命令：</p>
+</li>
+<li>
+<p>hollywood 和 cmatrix：安装 <code>sudo apt-get install hollywood cmatrix</code>，效果执行后见。</p>
+</li>
+<li>
+<p>sl：为从右到左跑一遍字符画火车。安装同样使用 apt 工具。</p>
+</li>
+<li>
+<p>figlet：命令为字符画生成，详看 <a href="https://www.linuxidc.com/Linux/2018-12/155871.htm" target="_blank" rel="noopener noreffer">Linux终端也能玩出新境界：Figlet 和 Toilet命令_Linux教程_Linux公社-Linux系统门户网站 (linuxidc.com)</a>。</p>
+</li>
+</ul>
+<h5 id="设置开机运行脚本">设置开机运行脚本</h5>
+<ul>
+<li><a href="https://blog.csdn.net/guotianqing/article/details/108813689" target="_blank" rel="noopener noreffer">ubuntu18.04设置开机自动启动脚本_guotianqing的博客-CSDN博客</a>。</li>
+<li><a href="https://blog.csdn.net/t624124600/article/details/111085234" target="_blank" rel="noopener noreffer">ubuntu18.04设置开机启动命令/脚本的三种方法（可sudo）_ubuntu设置开机自启动_Sidney.Tan的博客-CSDN博客</a>。</li>
+<li><a href="https://www.linuxprobe.com/linux-open-sh.html" target="_blank" rel="noopener noreffer">Linux配置开机自启动执行脚本的两种方法 | 《Linux就该这么学》 (linuxprobe.com)</a>。</li>
+</ul>
+<h2 id="linux-下的开发">Linux 下的开发</h2>
+<ul>
+<li><strong>代码编辑：Vim、gedit（ubuntu 下）。</strong></li>
+<li><strong>编译工具：gcc，make，cmake（生成 makefile，网搜教程，本篇不涉及）。</strong></li>
+<li><strong>项目管理：git（网搜教程，本篇不涉及）。</strong></li>
+</ul>
+<h3 id="详细资料-重要">详细资料-重要</h3>
+<p>关于 Linux Shell 命令、GCC、Makefile/CMake、GDB/GDBServer、Vim 等工具的详细使用教程和使用经验，</p>
+<p>可见 本系类文章对应 仓库 <a href="https://github.com/Staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">Github 仓库</a> 或 <a href="https://gitee.com/staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">Gitee 仓库</a> 中：</p>
+<ul>
+<li><code>【1 GCC &amp; GDB &amp; GDBServer】</code>；</li>
+<li><code>【1 Linux 命令速查 &amp; Shell &amp; Vim】</code>；</li>
+<li><code>【1 Makefile &amp; CMake 教程及模板】</code>。</li>
+</ul>
+<p>这几个文件夹内！</p>
+<h3 id="vim-编辑器">Vim 编辑器</h3>
+<p>功能：打开、新建和保存文件；文本编辑；多行、列间复制、粘贴和删除；查找和替换。</p>
+<p>意义：开发中，尤其对于大型项目并不常用，但是在需要临时修改、现场调试和没有 GUI 形式的编辑器等等的时候，可以快速进行一些简单文本编辑。</p>
+<p><a href="https://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener noreffer">Linux vi/vim | 菜鸟教程 (runoob.com)</a>。</p>
+<h5 id="一图以蔽之">一图以蔽之</h5>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/Vi%e7%bc%96%e8%be%91%e5%99%a8%e4%bd%bf%e7%94%a8.png"
+        data-srcset="assets/Vi%e7%bc%96%e8%be%91%e5%99%a8%e4%bd%bf%e7%94%a8.png, assets/Vi%e7%bc%96%e8%be%91%e5%99%a8%e4%bd%bf%e7%94%a8.png 1.5x, assets/Vi%e7%bc%96%e8%be%91%e5%99%a8%e4%bd%bf%e7%94%a8.png 2x"
+        data-sizes="auto"
+        alt="assets/Vi编辑器使用.png"
+        title="Vi编辑器使用" /></p>
+<ul>
+<li>一般模式/普通模式：用于按各种快捷键进行光标移动、复制、粘贴和删除等。</li>
+<li>编辑模式/插入模式：用于敲字符输入/编辑。</li>
+<li>命令行模式：用于输入保存、退出、查找和替换 等 控制命令，在 一般模式 打一个冒号再输入命令。</li>
+</ul>
+<p>注：当不知道处于何种模式时，按 ESC 键返回到 一般模式。可以在 Ubuntu 中安装中文输入法。</p>
+<p>更多可参考 <a href="https://zhuanlan.zhihu.com/p/61515833" target="_blank" rel="noopener noreffer">vim命令大全 - 知乎 (zhihu.com)</a>。</p>
+<h5 id="在-一般模式-的快捷键">在 一般模式 的快捷键</h5>
+<ul>
+<li>i/a，在光标处的前/后进入 编辑模式。dw，删除一个单词；dd，删除光标所在行(d:delete) 。</li>
+<li>单击 o （字母 o）键，在当前光标所在行的下方新建一行，并进入编辑模式。</li>
+<li>单击 0（数字零） 光标移至当前行行首；$，光标移至当前行行末；%，在括号<code>（）、[]、{}</code>间移动。</li>
+<li>gg，跳到第一行，（xgg 就是跳到第x行的行首）；G，跳到文件结尾。</li>
+<li>ctrl + u/d 进行 半屏的前后滚动；ctrl + f/b 进行 全屏的 上下翻页。</li>
+<li>使用 v 进入可视模式，移动光标来 选定文本块内容；用 y 复制选定块到缓冲区，用 d 剪切选定块到缓冲区，用 p 粘贴缓冲区中的内容。</li>
+<li>u，撤销上一步操作；ctrl + r，恢复，回退到前一个命令。</li>
+<li>针对 Ubuntu 界面来说，ctrl + &ldquo;-&rdquo; ，减小字号；ctrl + shift + &ldquo;+&quot;，增大字号。</li>
+</ul>
+<h5 id="在-命令行模式-的命令">在 命令行模式 的命令</h5>
+<ul>
+<li>保存，<code>:w</code>；退出，<code>:q</code>；强制执行，在命令后加<code>!</code>；前面的命令可以组合。文件另存为，<code>:w &lt;filename&gt;</code>。重命名当前文件，<code>:f &lt;filename&gt;</code>。</li>
+<li>查找，<code>:/pattern</code> 从光标开始处向文件尾搜索字符串 &ldquo;pattern&rdquo;，后按 n （在同一个方向重复上一次搜索命令）或 N （在反方向重复上一次搜索命令）；从当前光标位置开始搜索，若光标在文件开头，则为全文搜索。</li>
+<li>替换，<code>:%s/p1/p2/g</code> 将文件中所有的 p1 均用 p2 替换；<code>:%s/p1/p2/gc</code> 替换时需要确认。释义，“ s“ 全称： substitute 替换；“ g“ 全称： global 全局；“ c“ 全称： confirm， 确认。</li>
+<li>纵向分屏 来 新打开一个文件 <code>:sp &lt;file&gt;</code> 或 横向分屏 <code>:vsp &lt;file&gt;</code>，此时会同屏新增一个窗口；切换这多个窗口的方法（循环移动）：<code>ctrl + w，w</code>（先按 ctrl + w，再按键 w），在多文件编程时，切换不同的窗口很实用。让鼠标可以在多个屏幕间切换：<code>:set mouse=a</code>；在某个窗口输入<code>:q</code>，为退出此窗口。</li>
+<li>跳转到第 n 行，<code>:n</code>。打印当前文件名和行数，<code>:f</code> 。</li>
+<li>从 a 到 b 行的内容写入 filename 文件，<code>:a,bw &lt;filename&gt;</code>。</li>
+<li>在 Vim 命令行执行 Shell 命令，<code>:！+ shell 命令</code>。</li>
+</ul>
+<p>一日，一人，代码前坐禅，贤者模式，顿悟，曰：整个键盘，都是 Vim 的快捷键。</p>
+<h5 id="恢复文件">恢复文件</h5>
+<p>vi 在编辑某一个文件时，会生成一个临时文件，这个文件以 . 开头并以 .swp 结尾。正常退出该文件自动删除，如果意外退出例如忽然断电，该文件不会删除，我们在下次编辑时可以选择一下命令处理：</p>
+<ul>
+<li>O 只读打开，不改变文件内容。</li>
+<li>E 继续编辑文件，不恢复 .swp 文件保存的内容。</li>
+<li>R 将恢复上次编辑以后未保存文件内容。</li>
+<li>Q 退出 vi。</li>
+<li>D 删除 .swp 文件。</li>
+<li>使用 <code>vi －r &lt;filename&gt;</code> 来恢复 filename 这个文件上次关闭前未保存的内容。</li>
+</ul>
+<h5 id="vim-命令行中的-选项">vim 命令行中的 选项</h5>
+<ul>
+<li>
+<p><code>-d</code>，Diff 模式 (同 &ldquo;vimdiff&rdquo;, 可迅速比较两文件不同处)。</p>
+</li>
+<li>
+<p><code>-R</code>，只读模式 (同 &ldquo;view&rdquo;)。</p>
+</li>
+<li>
+<p><code>-b</code>，二进制模式。</p>
+</li>
+<li>
+<p><code>-r &lt;filename&gt;</code>，恢复上次崩溃的文件 filename (Recover crashed session)。</p>
+</li>
+</ul>
+<h5 id="vim-编辑器的配置">vim 编辑器的配置</h5>
+<p>命令行键入<code>vim -version</code>可以看到几个 vim 的配置文件在哪，包括 系统级配置文件（对所有用户有效）system vimrc file 一般在 <code>/etc/vim/vimrc</code>，用户级配置文件（对当前用户有效）user vimrc file 一般在 <code>~/.vimrc</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">部分摘自 100ask，部分摘自 《嵌入式C语言的自我修养》
+vim ~/.vimrc
+在其中（选择性）加入如下内容：
+
+&#34; color scheme
+colorscheme molokai
+
+&#34; disply incomplete commands
+set showcmd
+
+&#34; set fileencodings 
+set fileencodings=ucs-bom,utf-8,cp936,gb2312,gb18030,big5
+set background=dark
+set encoding=utf-8
+set fenc=utf-8
+set smartindent
+set autoindent
+set cul
+set linespace=2
+set showmatch
+set lines=47 columns=90
+
+&#34; font and size
+&#34; set guifont=Andale Mono:h14
+&#34; set guifont=Monaco:hll
+set guifont=Menlo:h14
+
+&#34; Softtabs, 4 spaces
+&#34; 编辑时 backspace 键设置为2个空格
+set backspace=2
+&#34; 编辑时 tab 键设置为4个空格
+set tabstop=4
+&#34; 设置自动对齐为4个空格
+set shiftwidth=4
+set shiftround
+set softtabstop=4
+set expandtab
+set smarttab
+
+&#34; Highlight current line
+au Winleave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
+
+&#34; 底部显示光标所在行和列
+set ruler
+
+&#34; 显示行号
+set number
+&#34; 关闭行号为 set nonumber，即 &#34;option&#34; 前面加 &#34;un&#34; 前缀表失能此功能
+
+&#34; 搜索时不区分大小写
+set ignorecase
+
+&#34; 搜索时高亮显示
+set hlsearch
+
+&#34; 关闭兼容功能
+set nocompatible
+</code></pre></td></tr></table>
+</div>
+</div><p>vim配置通过按键映射实现括号补全：</p>
+<p><img src="assets/vim配置通过按键映射实现括号补全.jpg" alt="vim配置通过按键映射实现括号补全" style="zoom:67%;" /></p>
+<p>在 Vim 官网还有 很多 vim 扩展功能 .vim 文件 提供下载，放到<code>~/.vim/plugin</code>目录，再在<code>~/.vimrc</code>中对其进行配置即可使用。</p>
+<p>更多 Vim 配置和插件可参考 <a href="https://blog.csdn.net/daaikuaichuan/article/details/82288744" target="_blank" rel="noopener noreffer">Vim编辑器_~青萍之末~的博客-CSDN博客</a>。</p>
+<h3 id="gcc--命令详情">GCC  命令详情</h3>
+<h4 id="编译流程">编译流程</h4>
+<p>gcc 编译器可以通过 apt-get 安装 或者 在 GNU 官网下载。</p>
+<p>要使用 gcc 等编译器或交叉编译器，应先把编译器的可执行文件放在某个目录，然后给系统环境变量加此路径（Win平台为添加环境变量，Linux 为使用 export 命令，或者在 bashrc 文件中添加，具体步骤在 “换源 和 添加系统变量” 一节 里面的 “添加系统变量” 处），对于 Make 工具同理。可以在 命令行运行 <code>gcc -v</code> 即可使用。</p>
+<p>C/C++ 程序文件的编译过程图示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/C-C&#43;&#43;-%e7%a8%8b%e5%ba%8f%e6%96%87%e4%bb%b6%e7%9a%84%e7%bc%96%e8%af%91%e8%bf%87%e7%a8%8b%e5%9b%be%e7%a4%ba.png"
+        data-srcset="assets/C-C&#43;&#43;-%e7%a8%8b%e5%ba%8f%e6%96%87%e4%bb%b6%e7%9a%84%e7%bc%96%e8%af%91%e8%bf%87%e7%a8%8b%e5%9b%be%e7%a4%ba.png, assets/C-C&#43;&#43;-%e7%a8%8b%e5%ba%8f%e6%96%87%e4%bb%b6%e7%9a%84%e7%bc%96%e8%af%91%e8%bf%87%e7%a8%8b%e5%9b%be%e7%a4%ba.png 1.5x, assets/C-C&#43;&#43;-%e7%a8%8b%e5%ba%8f%e6%96%87%e4%bb%b6%e7%9a%84%e7%bc%96%e8%af%91%e8%bf%87%e7%a8%8b%e5%9b%be%e7%a4%ba.png 2x"
+        data-sizes="auto"
+        alt="assets/C-C&#43;&#43;-程序文件的编译过程图示.png"
+        title="C C&#43;&#43; 程序文件的编译过程图示" /></p>
+<h4 id="gcc-基本命令">gcc 基本命令</h4>
+<ul>
+<li>
+<p>预处理（-E）：<code>gcc -E main.c -o main.i</code>，仅预处理。（通过重定向）输出到指定文件：<code>gcc -E main.c &gt; main.i</code>。</p>
+</li>
+<li>
+<p>编译（-S）：<code>gcc -S main.c -o main.s</code>，编译到汇编文件。</p>
+</li>
+<li>
+<p>汇编（-c）：<code>gcc -c main.c -o main.o</code>，只生成目标文件（机器码），不进行链接。</p>
+</li>
+</ul>
+<p><strong>完成整个编译（-o filename）</strong></p>
+<ul>
+<li>单文件：<code>gcc main.c -o main</code>，编译输出最终可执行文件，<code>-o</code> 后面要紧跟 输出文件名。</li>
+<li>多文件：<code>gcc main.c sub.c add.c -o ouput</code>，其中 main.c 里面 #include 了 sub.h 和 add.h。</li>
+<li>输出所有警告：加上 <code>-W</code> 或 <code>-Wall</code> 选项。</li>
+</ul>
+<p><strong>文件编码指定</strong></p>
+<ul>
+<li>程序文件在保存的时候就选好编码（有 ANSI、GB2312、UNICODE，和很常用的并推荐的 UTF-8），使用 记事本 或者 notepad 可以选择和转换。</li>
+<li>使用 gcc 编译器，器对于 程序文件 和 编译出的 二进制可执行程序 都默认为 UTF-8 编码。</li>
+<li>若 程序文件 的编码 不为 UTF-8 编码，则应该指定：<code>-finput-charset=GB2312</code> 等。</li>
+<li>对于编译出来的可执行程序，可以指定它里面的字符是以什么方式编码：<code>-fexec-charset=GB2312</code> 等。注意，是指定/告知 而 不是转换的意思， gcc 不能转换编码。</li>
+<li>例子：<code>gcc -finput-charset=GB2312 -fexec-charset=UTF-8 -o test_charset_ansi test_charset_ansi.c</code>。告知 编译器 .c 文件为 GB2312 编码，编译出的程序应为 UTF-8 编码。</li>
+<li>在代码中使用汉字这类非 ASCII 码 字符 时，要特别留意编码格式。</li>
+</ul>
+<p><strong>头文件选项</strong></p>
+<ul>
+<li>
+<p>对于 <code>#include &lt;...&gt;</code> 的头文件（一般都是 标准库的头文件，比如 stdio.h、stdlib.h、string.h 等） 编译器在编译时会去 gcc 默认的路径中（编译器目录里面的 include 文件夹里）寻找头文件。可以通过 <code>echo 'main(){}'| arm-linux-gnueabihf-gcc -E -v -</code> 命令来 列出头文件目录、库目录（LIBRARY_PATH）。</p>
+</li>
+<li>
+<p>对于 <code>#include &quot;...&quot;</code> 的头文件去 <code>-I &lt;dirname&gt;</code> 这个选项所指定的目录（dirname 目录）中去找（如果不加 <code>-I</code> 选项则默认搜 当前目录），<code>-I &lt;dirname&gt;</code> 即是将 dirname 目录加入到头文件搜索目录列表中，用户引用除了 上面 的标准库头文件 而是 自己的头文件，就用这种方式。例如 main.c 目录中有 inc 文件夹，里面有 test.h 文件，并且 main.c 中通过 <code>#include &quot;test.h&quot;</code> 调用了 test.h 文件，则命令为：<code>gcc main.c -I inc -o main</code>。</p>
+</li>
+<li>
+<p>编译时寻找库文件：</p>
+<ul>
+<li>默认的系统目录：就是交叉编译工具链里的某个 lib 目录。</li>
+<li>自己指定添加库文件搜索目录：链接时（-L dirname）。</li>
+<li>自己指定添加某一个具体的库文件：加载库名选项（-l name），比如想链接 libabc.so，那链接时加上 <code>-labc</code>。</li>
+<li>静态库选项（-static）等选型 略。</li>
+</ul>
+</li>
+<li>
+<p>运行时寻找库文件：（程序运行时不需要再加载头文件，因为编译时已经编译进去了）</p>
+<ul>
+<li>系统目录：就是板子上的 /lib、/usr/lib 目录。</li>
+<li>自己指定：用环境变量 <code>LD_LIBRARY_PATH</code> 指定，比如 <code>export LD_LIBRARY_PATH=/xxx_dir</code>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>代码优化选项</strong></p>
+<ul>
+<li>-O 或 -O1：基本优化，使代码执行的更快。</li>
+<li>-O2 或 -O3：产生尽可能小和快的代码。如无特殊要求，不建议使用 O2 以上的优化。</li>
+<li>-Os：生成最小的可执行文件，适合用于嵌入式软件。</li>
+</ul>
+<p><strong>调试模式选项</strong></p>
+<ul>
+<li>输出带调试信息，可以用于 GDB 单步调试来 debug：加上<code>-g</code>选项。</li>
+<li>产生能被 GDB 调试器使用的调试信息：<code>gcc main.c -g -o main</code>。</li>
+<li>GDB 的命令行调试指令详情略（包括运行、单步执行、加删查断点、打印变量等命令）。</li>
+</ul>
+<p>下面引用 <a href="https://github.com/xiaowenxia/embedded-notes/blob/master/linux.md" target="_blank" rel="noopener noreffer">embedded-notes/linux.md at master · xiaowenxia/embedded-notes (github.com)</a>。</p>
+<p><strong>gcc工具链</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binutils</td>
+<td>由汇编器（as）产生的目标代码（*.o）是不能直接在computer上运行的，它必须经过链接器（ld）的处理才能生成可执行代码。</td>
+</tr>
+<tr>
+<td>add2line</td>
+<td>将地址转换成文件名或行号对，以便调试程序</td>
+</tr>
+<tr>
+<td>ar</td>
+<td>从文件中创建、修改、扩展文件</td>
+</tr>
+<tr>
+<td>gasp</td>
+<td>汇编宏处理器</td>
+</tr>
+<tr>
+<td>nm</td>
+<td>从目标文件列举所有变量</td>
+</tr>
+<tr>
+<td>objcopy</td>
+<td>使用GNU BSD库把目标文件的内容从一种文件格式复制到另一种格式的目标文件中。</td>
+</tr>
+<tr>
+<td>objdump</td>
+<td>显示目标文件信息可发编译二进制文件，也可以对对象文件进行反汇编，并查看机器代码。</td>
+</tr>
+<tr>
+<td>readelf</td>
+<td>显示elf文件信息</td>
+</tr>
+<tr>
+<td>ranlib</td>
+<td>生成索引以加快对归档文件的访问，并将其保存到这个归档文件中。</td>
+</tr>
+<tr>
+<td>size</td>
+<td>列出目标模块或文件的代码尺寸。</td>
+</tr>
+<tr>
+<td>strings</td>
+<td>打印可打印的目标代码符号（至少4个字符）</td>
+</tr>
+<tr>
+<td>strip</td>
+<td>放弃所有符号连接，一般应用程序最终都要strip处理</td>
+</tr>
+<tr>
+<td>C++filt</td>
+<td>链接器ld通过该命令可过滤C++符号和JAVA符号，防止重载函数冲突。</td>
+</tr>
+<tr>
+<td>gprof</td>
+<td>显示程序调用段的各种数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ld 交叉链接器</strong></p>
+<blockquote>
+<p>将多个编译后产生的过程文件连接为一个最终的可执行文件。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ld <span class="o">[</span>options<span class="o">]</span> 链接器脚本 -o 文件名.elf
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>readelf 交叉ELF文件查看器</strong></p>
+<blockquote>
+<p>用来查看一个可执行文件的相关信息</p>
+</blockquote>
+<p>可以查看elf文件的运行架构，大小端等信息:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">readelf -a 文件名.elf
+</code></pre></td></tr></table>
+</div>
+</div><p>显示程序需要的动态链接库:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">readelf -d 文件名.elf
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>objdump 交叉反汇编器</strong></p>
+<blockquote>
+<p>将一个可执行文件转换为汇编下的程序</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">-objdump -D -S elf文件名 &gt;目标文件
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>objcopy 交叉转换器</strong></p>
+<blockquote>
+<p>将elf格式文件转换成其他的格式</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">objcopy -O 目标文件格式 原ELF文件 目标文件
+</code></pre></td></tr></table>
+</div>
+</div><p>例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">objcopy -O binary a.elf a.bin
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="makefile-简述和模板">Makefile 简述和模板</h3>
+<p>解决问题：针对包含超多文件的工程；自动搜索被添加目录中的所有被调用的文件；在第二次全编译时，没有修改的文件只链接而不重复编译节省时间；等等。</p>
+<h4 id="基本格式">基本格式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">目标（target）：依赖（prerequisites）
+[Tab]命令（command）
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>target：需要生成的目标文件。</li>
+<li>prerequisites：生成该 target 所依赖的一些文件。</li>
+<li>command：生成该目标需要执行的 命令行的命令。</li>
+</ul>
+<p>在命令前加 &ldquo;@&rdquo; 符号，在 make 时不显示此条命令的执行过程，只显示结果。</p>
+<p>举一个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># 在命令行执行 make 或者 make all 即执行这里，这里是执行 hello，其描述在下面
+</span><span class="c"></span><span class="nf">all</span><span class="o">:</span><span class="n">hello</span>
+
+<span class="c"># 这是一个规则，包含 目标、依赖 和 命令
+</span><span class="c"># 表示 执行 hello 命令/目标 ，所用到的 文件/原材料 有 main.o sum.o，要执行的命令为 gcc -o hello main.o sum.o
+</span><span class="c"># 从 多个 源文件 来组合 生成 执行文件
+</span><span class="c"></span><span class="nf">hello</span><span class="o">:</span><span class="n">main</span>.<span class="n">o</span> <span class="n">sum</span>.<span class="n">o</span>
+	gcc -o hello main.o sum.o
+
+<span class="c"># 上面所依赖的 目标 main.o 要进行的命令
+</span><span class="c"></span><span class="nf">main.o</span><span class="o">:</span><span class="n">main</span>.<span class="n">c</span>
+	gcc -c main.c
+
+<span class="nf">sum.o</span><span class="o">:</span><span class="n">sum</span>.<span class="n">c</span>
+	gcc -c sum.c
+
+<span class="c"># 清理，命令行键入 make clean 即可执行此
+</span><span class="c"></span><span class="nf">clean</span><span class="o">:</span>
+	rm -f main.o sun.o hello
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="变量赋值--">变量赋值（ =、:=、?=、+= ）</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># Makefile 中的变量是字符串。
+</span><span class="c"></span><span class="nv">PARA</span> <span class="o">=</span> 100ask
+
+<span class="c"># 注，注释必须单独一行，不能写在语句后面
+</span><span class="c"></span>
+<span class="c"># =
+</span><span class="c"># 相当于 PARA 的指针给 CURPARA，之后 PARA 的值变，CURPARA 的值会跟着变。
+</span><span class="c"></span><span class="nv">CURPARA</span> <span class="o">=</span> <span class="k">$(</span>PARA<span class="k">)</span>
+
+<span class="c"># :=
+</span><span class="c"># 仅赋值，之后 PARA 的值变，CURPARA 的值不会跟着变。
+</span><span class="c"></span><span class="nv">CURPARA</span> <span class="o">:=</span> <span class="k">$(</span>PARA<span class="k">)</span>
+
+<span class="c"># ?=
+</span><span class="c"># 使用“?=”给变量设置值时，如果这个变量之前没有被设置过，那么“?=”才会起效果；如果曾经设置过这个变量，那么“?=”不会起效果。相当于函数定义时的 weak 修饰符。
+</span><span class="c"></span>
+<span class="c"># +=
+</span><span class="c"># 这样的结果是OBJ的值为：”main.o，add.o，sub.o“。说明“+=”用作与变量的追加。
+</span><span class="c"></span><span class="nv">OBJ</span> <span class="o">=</span> main.o add.o
+<span class="nv">OBJ</span> <span class="o">+=</span> sub.o
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="自动变量--">自动变量（ $@、$^、$&lt; ）</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">OBJ</span> <span class="o">=</span> main.o add.o sub.o
+<span class="nf">output</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJ</span><span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -o <span class="nv">$@</span> $^
+	<span class="c1"># $@：表示规则中的目标（target），即 output</span>
+	<span class="c1"># $^：表示规则中的所有依赖文件（All prerequisites），即 main.o add.o sub.o</span>
+
+<span class="nf">main.o</span><span class="o">:</span> <span class="n">main</span>.<span class="n">c</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -c $&lt;
+	<span class="c1"># $&lt;：表示规则中的第一个依赖文件（The first prerequisites），即 main.o 右边的第一个依赖，即 main.c</span>
+<span class="nf">add.o</span><span class="o">:</span> <span class="n">add</span>.<span class="n">c</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -c $&lt;
+<span class="nf">sub.o</span><span class="o">:</span> <span class="n">sub</span>.<span class="n">c</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -c $&lt;
+
+<span class="nf">clean</span><span class="o">:</span>
+	rm <span class="k">$(</span>OBJ<span class="k">)</span> output
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="模式规则-x-">模式规则（ %.x ）</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nv">CC</span> <span class="o">=</span> gcc
+<span class="nv">OBJ</span> <span class="o">=</span> main.o add.o sub.o
+<span class="nf">output</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJ</span><span class="k">)</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -o <span class="nv">$@</span> $^
+<span class="nf">%.o</span><span class="o">:</span> %.<span class="n">c</span>
+	<span class="k">$(</span>CC<span class="k">)</span> -c $&lt;
+<span class="c"># %.o: %.c 表示如下：
+</span><span class="c"># main.o 由 main.c 生成，add.o 由 add.c 生成，sub.o 由 sub.c 生成
+</span><span class="c"></span>
+<span class="nf">clean</span><span class="o">:</span>
+	rm <span class="k">$(</span>OBJ<span class="k">)</span> output
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="伪目标">伪目标</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># 在目标和文件名重名时，加上这句指令，便可以正常执行。用于避免执行命令的目标和工作目录下的实际文件出现名字冲突。
+</span><span class="c"></span><span class="nf">.PHONY</span><span class="o">:</span><span class="n">clean</span>
+<span class="nf">clean</span><span class="o">:</span>
+	rm <span class="k">$(</span>OBJ<span class="k">)</span> output
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="makefile-函数">Makefile 函数</h4>
+<p>经常使用的 Makefile 函数，主要有两个(wildcard，patsubst)。函数的调用格式 <code>$(function（空格或tab）arguments)</code>，这里 function 是函数名， arguments 是该函数的参数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># $(wildcard 指定文件类型) 用于查找指定目录下指定类型的文件
+</span><span class="c"># 这条规则表示，找到目录./src下所有后缀为.c的文件，并赋值给变量SRC。命令执行完，SRC变量的值：./src/ask.c ./src/100.c
+</span><span class="c"></span><span class="nv">SRC</span> <span class="o">=</span> <span class="k">$(</span>wildcard ./src/*.c<span class="k">)</span>
+
+<span class="c"># $(patsubst 原模式, 目标模式, 文件列表)  用于匹配替换
+</span><span class="c"># 这条规则表示，把变量 SRC 中所有后缀为.c的文件替换为.o。 命令执行完，OBJ变量的值：./src/ask.o ./src/100.o
+</span><span class="c"></span><span class="nv">OBJ</span> <span class="o">=</span> <span class="k">$(</span>patsubst %.c, %.o, <span class="k">$(</span>SRC<span class="k">))</span>
+
+<span class="c"># $(subst from,to,text)  字符串替换，在文本`text’中使用`to’替换每一处`from’。
+</span><span class="c"># 结果为‘fEEt on the strEEt’
+</span><span class="c"></span><span class="k">$(</span><span class="nv">subst</span> <span class="nv">ee</span>,<span class="nv">EE</span>,<span class="nv">feet</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">street</span><span class="k">)</span>
+
+<span class="c"># $(strip string)  去掉前导和结尾空格，并将中间的多个空格压缩为单个空格。
+</span><span class="c"># $(findstring find,in)  在字符串`in’中搜寻`find’，如果找到，则返回值是`find’，否则返回值为空。
+</span><span class="c"># $(filter pattern...,text)   返回在`text’中由空格隔开且匹配格式`pattern...’的字，去除不符合格式`pattern...’的字。
+</span><span class="c"># $(filter-out pattern...,text)  返回在`text’中由空格隔开且不匹配格式`pattern...’的字，去除符合格式`pattern...’的字。它是函数filter的反函数。
+</span><span class="c"># $(sort list)   将‘list’中的字按字母顺序排序，并去掉重复的字。输出由单个空格隔开的字的列表。
+</span><span class="c"></span>
+<span class="c"># 文件名函数 略
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="一个简易的-makefile-模板">一个简易的 Makefile 模板</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">该 Makefile 模板 针对的 文件夹 的 树形目录结构
+├── inc
+│  ├── add.h
+│  └── sub.h
+├── Makefile
+└── src
+  ├── add.c
+  ├── main.c
+  └── sub.c
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># 编译输出文件加尾缀 &#34;_VERSION&#34;
+</span><span class="c"></span><span class="nv">VERSION</span> <span class="o">=</span> 0.0.1
+<span class="c"># 源文件 .c 文件的所在的名为 src 的目录
+</span><span class="c"></span><span class="nv">SOURCE</span> <span class="o">=</span> <span class="k">$(</span>wildcard ./src/*.c<span class="k">)</span>
+<span class="c"># 增加一个名为 src1 的源文件所在目录
+</span><span class="c">#SOURCE += $(wildcard ./src1/*.c)
+</span><span class="c"></span>
+<span class="c"># 引用文件 .h 文件的所在的名为 inc 的目录
+</span><span class="c"></span><span class="nv">INCLUEDS</span> <span class="o">=</span> -I ./inc
+<span class="c"># 增加一个名为 inc1 的引用文件所在目录
+</span><span class="c">#INCLUEDS += -I ./inc1
+</span><span class="c"></span>
+<span class="c"># 编译输出目标文件的文件名
+</span><span class="c"></span><span class="nv">TARGET</span>    <span class="o">=</span> output
+<span class="c"># 编译输出目标文件所在的文件夹名
+</span><span class="c"></span><span class="nv">OUTPUTDIR</span> <span class="o">=</span> obj
+<span class="c"># 编译器全名
+</span><span class="c"></span><span class="nv">CC</span>        <span class="o">=</span> gcc
+
+<span class="c"># 以下都是固定的不用动
+</span><span class="c"></span>
+<span class="nv">CFLAGS</span>  <span class="o">=</span> -Wall -g
+<span class="nv">OBJECT</span>  <span class="o">=</span> <span class="k">$(</span>patsubst %.c, %.o, <span class="k">$(</span>SOURCE<span class="k">))</span>
+
+<span class="nf">$(TARGET)</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJECT</span><span class="k">)</span>
+	@mkdir -p <span class="k">$(</span>OUTPUTDIR<span class="k">)</span>/
+	<span class="k">$(</span>CC<span class="k">)</span> $^ <span class="k">$(</span>CFLAGES<span class="k">)</span> -o <span class="k">$(</span>OUTPUTDIR<span class="k">)</span>/<span class="k">$(</span>TARGET<span class="k">)</span>_<span class="k">$(</span>VERSION<span class="k">)</span>
+
+<span class="nf">%.o</span><span class="o">:</span> %.<span class="n">c</span>
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>INCLUEDS<span class="k">)</span> <span class="k">$(</span>CFLAGES<span class="k">)</span> -c $&lt; -o <span class="nv">$@</span>
+
+<span class="nf">.PHONY</span><span class="o">:</span><span class="n">clean</span>
+<span class="nf">clean</span><span class="o">:</span>
+	@rm -rf <span class="k">$(</span>OBJECT<span class="k">)</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span>/
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="更加通用的-makefile-模板">更加通用的 Makefile 模板</h4>
+<p>在文件 <code>【1 Makefile CMake 教程 及其模板】\general_Makefile.zip</code> 里。</p>
+<h3 id="ubuntu-下的包管理--apt工具">Ubuntu 下的包管理 / apt工具</h3>
+<p>包管理系统的功能和优点大致相同，但打包格式和工具会因平台（不同的 Linux 发行版）而异，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>操作系统</th>
+<th>格式</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Debian</td>
+<td>.deb</td>
+<td>apt, apt-cache, apt-get, dpkg</td>
+</tr>
+<tr>
+<td>Ubuntu</td>
+<td>.deb</td>
+<td>apt, apt-cache, apt-get, dpkg</td>
+</tr>
+<tr>
+<td>CentOS</td>
+<td>.rpm</td>
+<td>yum</td>
+</tr>
+<tr>
+<td>Fedora</td>
+<td>.rpm</td>
+<td>dnf</td>
+</tr>
+<tr>
+<td>FreeBSD</td>
+<td>Ports, .txz</td>
+<td>make, pkg</td>
+</tr>
+</tbody>
+</table>
+<p>一般来说 Ubuntu 下很多软件是需要先自行提供源码，使用源码自行编译，编译完成以后使用命令 “install” 来安装到系统中。当然 Ubuntu 下也有其它的软件安装方法，使用得最多的方法就是自行编译源码后进行安装，尤其是嵌入式 Linux 开发。</p>
+<p>自行对软件源码编译的一个好处是可以针对不同平台进行编译和部署。</p>
+<p>我们利用软件包管理系统可以直接下载并安装所有通过认证的软件，其中 Ubuntu 下我们用的最多的下载工具： APT 下载工具， APT 下载工具可以实现软件自动下载、配置、安装二进制或者源码的功能。  在我们使用 APT 工具下载安装或者更新软件的时候，首先会在下载列表中与本机软件进行对比，看一下需要下载哪些软件，或者升级哪些软件，默认情况下 APT 会下载并安装最新的软件包，被安装的软件包所依赖的其它软件也会被下载安装或者更新，非常智能省心。</p>
+<h4 id="包管理工具-apt">包管理工具 apt</h4>
+<p><a href="https://www.runoob.com/linux/linux-comm-apt.html" target="_blank" rel="noopener noreffer">Linux apt 命令 | 菜鸟教程 (runoob.com)</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># &#34;package&#34; 替换为 包名。</span>
+sudo apt-get update                         更新源
+sudo apt-get upgrade                        更新已安装的包
+sudo apt-get install package                安装包
+sudo apt-get remove package                 删除包
+
+sudo apt-cache search package               搜索软件包
+sudo apt-cache show package                 获取包的相关信息，例如说明、大小、脚本等
+
+sudo apt-get install package --reinstall    重新安装包
+sudo apt-get -f install                     修复安装
+sudo apt-get remove package --purge         删除包，包括配置文件等
+sudo apt-get build-dep package              安装相关的编译环境
+sudo apt-get dist-upgrade                   升级系统
+sudo apt-cache depends package              了解使用该包依赖那些包
+sudo apt-cache rdepends package             查看该包被那些包依赖
+sudo apt-get <span class="nb">source</span> package                 下载该包的源代码
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="换源-和-添加系统变量">换源 和 添加系统变量</h4>
+<p><strong>换源</strong></p>
+<p><a href="https://developer.aliyun.com/article/873082" target="_blank" rel="noopener noreffer">Ubuntu Ports更换成阿里云镜像源-阿里云开发者社区 (aliyun.com)</a>。</p>
+<ol>
+<li>
+<p>首先备份源列表：<code>sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup</code>；</p>
+</li>
+<li>
+<p>编辑 <code>/etc/apt/sources.list</code> 文件，在文件最前面添加镜像源：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 阿里源</span>
+deb https://mirrors.aliyun.com/ubuntu-ports/ xenial main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu-ports/ xenial-backports main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu-ports/ xenial-security main restricted universe multiverse
+<span class="c1"># deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span>
+<span class="c1"># deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span>
+<span class="c1"># deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span>
+<span class="c1"># deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span>
+<span class="c1"># deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span>
+<span class="c1"># deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span>
+<span class="c1"># deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span>
+<span class="c1"># deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span>
+<span class="c1"># deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span>
+<span class="c1"># deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span>
+
+<span class="c1"># 清华源</span>
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+
+<span class="c1"># 中科大源</span>
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+
+<span class="c1"># 163源</span>
+deb http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>更新源：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt update
+sudo apt upgrade
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p><strong>添加系统变量</strong></p>
+<ul>
+<li>临时：终端中键入 <code>export PATH=$PATH:&lt;目录/要添加的系统变量&gt;</code>，重启后丢失。</li>
+<li>永久（只对当前用户有效）：修改 <code>~/.bashrc</code> 文件，在行尾添加 <code>export PATH=$PATH:&lt;目录/要添加的系统变量&gt;</code>，然后终端键入 <code>source ~/.bashrc</code> 使之生效，即可。</li>
+</ul>
+<h4 id="ubuntu-下的卸载包">Ubuntu 下的卸载包</h4>
+<p>Ubuntu GUI 界面操作：</p>
+<ul>
+<li>
+<p>使用 Synaptic 软件包管理器进行卸载。系统里面若没有 Synaptic Pack Manager 软件，则在终端安装 <code>sudo apt-get install synaptic</code>；<a href="https://zh.wikihow.com/%E5%8D%B8%E8%BD%BDUbuntu%E8%BD%AF%E4%BB%B6" target="_blank" rel="noopener noreffer">具体使用方法</a>。</p>
+</li>
+<li>
+<p>使用 Ubuntu 的软件中心进行卸载。略。</p>
+</li>
+</ul>
+<p>Ubuntu 终端里操作：</p>
+<ul>
+<li>列出所有软件包，以可翻页的形式：<code>dpkg --list | less</code>；以搜索特定包名的形式：<code>dpkg --list | grep -n &quot;python&quot;</code>；还可以加通配符，很灵活。</li>
+<li>卸载程序和所有配置文件：<code>sudo apt-get --purge remove &lt;package-name&gt;</code>。</li>
+<li>只卸载程序但保留配置文件：<code>sudo apt-get remove &lt;package-name&gt;</code>。</li>
+<li>删除没用的依赖包：<code>sudo apt-get autoremove &lt;package-name&gt;</code>，加上 <code>--purge</code> 选项就是程序和配置文件都删除。资源不紧张时，此条慎用。</li>
+</ul>
+<h2 id="linux-驱动和应用的体验">Linux 驱动和应用的体验</h2>
+<h3 id="ubuntu-主机-的配置工作">Ubuntu 主机 的配置工作</h3>
+<ul>
+<li>
+<p>首先换源，参考前面 “换源 和 添加系统变量” 一节。</p>
+</li>
+<li>
+<p>配置 100ask Ubuntu 主机 的环境，执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget --no-check-certificate -O Configuring_ubuntu.sh https://weidongshan.coding.net/p/DevelopmentEnvConf/d/DevelopmentEnvConf/git/raw/master/Configuring_ubuntu.sh <span class="o">&amp;&amp;</span> sudo chmod +x Configuring_ubuntu.sh <span class="o">&amp;&amp;</span> sudo ./Configuring_ubuntu.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>这个会配置/安装一些基本应用如 NFS/TFTP 等，还建立 /home/book 目录，book 用户 等，具体看其 shell 程序。</p>
+</li>
+<li>
+<p>百问网的 imx6ull pro 开发板的 SDK包（包括 Linux、uboot、buildroot 等源码和工具链，<strong>这个需要 windows 电脑 和 虚拟机 ubuntu 各存一份，前者用来阅读，后者用来编译</strong>）两个下载途径：</p>
+<ol>
+<li>
+<p>本地拷贝法：<a href="http://download.100ask.net/boards/Nxp/100ask_imx6ull_pro/index.html" target="_blank" rel="noopener noreffer">百问网 imx6ull pro 开发板 页面</a>，找到 100ask_imx6ull_pro_2020.02.29_v2.0（这个很大，网盘下载），里面有固件、SDK包、原理图（底板+核心板）、应用例程、工具软件等等。其中 SDK包（包括 Linux、uboot、buildroot 等源码和工具链）在 07_Bsp_sdk (系统源码，包含uboot kernel rootfs 工具链 测试代码等)) 里面，自行拷贝到虚拟机 ubuntu 里面并解压。但是这是本地拷贝的不是最新的，最新的可以 git 下载（注意很大），看下面 “在线下载&amp;更新法”。</p>
+</li>
+<li>
+<p>在线下载&amp;更新法：参考 百问网的《嵌入式Linux应用开发完全手册》里面 第二篇 的 《8.2 使用repo获取内核及工具链等》 里面的 《8.2.2 在线下载》。</p>
+<ol>
+<li>
+<p>配置 Git 邮箱和用户名：<code>git config --global user.email &quot;user@100ask.com&quot;</code>、<code>git config --global user.name &quot;100ask&quot;</code>。</p>
+</li>
+<li>
+<p>执行四条命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://e.coding.net/codebug8/repo.git
+
+mkdir -p 100ask_imx6ull-sdk <span class="o">&amp;&amp;</span> <span class="nb">cd</span> 100ask_imx6ull-sdk
+
+../repo/repo init -u https://gitee.com/weidongshan/manifests.git -b linux-sdk -m imx6ull/100ask_imx6ull_linux4.9.88_release.xml --no-repo-verify
+
+../repo/repo sync -j4
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>今后可以直接在 <code>100ask_imx6ull-sdk</code> 目录下执行 <code>../repo/repo sync -c</code> 进行同步更新最新代码！</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>推荐在 windows 端 使用 Source Insight 来阅读 Linux 内核源码，详见 百问网的《嵌入式Linux应用开发完全手册》里面 第二篇 的《8.4 使用Source Insight阅读Linux内核源码》。</p>
+</li>
+</ul>
+<h3 id="获取交叉编译工具链">获取交叉编译工具链</h3>
+<p>这里提供三个获取方式。</p>
+<h4 id="用开发板厂家提供的-sdk-里的工具链">用开发板厂家提供的 SDK 里的工具链</h4>
+<p>这里是 百问网的 imx6ull pro 开发板 的 SDK 中的工具链，在 <code>/.../100ask_imx6ull-sdk/ToolChain/arm-buildroot-linux-gnueabihf_sdk-buildroot/bin</code> 里面，使用 Vim 工具编辑 <code>~/.bashrc</code> 文件，在最后添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="nb">export</span> <span class="nv">CROSS_COMPILE</span><span class="o">=</span>arm-buildroot-linux-gnueabihf-
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/.../100ask_imx6ull-sdk/ToolChain/arm-buildroot-linux-gnueabihf_sdk-buildroot/bin
+</code></pre></td></tr></table>
+</div>
+</div><p>并在终端键入 <code>source ~/.bashrc</code> 使其生效。</p>
+<p>然后在终端测试一下 <code>arm-buildroot-linux-gnueabihf-gcc -v</code>。</p>
+<h4 id="arm-官网下载-合适的工具链">ARM 官网下载 合适的工具链</h4>
+<ol>
+<li>
+<p>ARM GUN-A 官方编译器下载页面： <a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads" target="_blank" rel="noopener noreffer">GNU Toolchain | GNU-A Downloads – Arm Developer</a>。下面几个连接是对各个编译器命名的说明，必看。</p>
+<ul>
+<li><a href="https://blog.csdn.net/Namcodream521/article/details/88379307" target="_blank" rel="noopener noreffer">arm-linux-gnueabihf、aarch64-linux-gnu等ARM交叉编译GCC的区别_Namcodream521的博客-CSDN博客</a>。</li>
+<li><a href="https://blog.csdn.net/Beyoungbehappy/article/details/80005573" target="_blank" rel="noopener noreffer">转：ARM交叉编译工具链分类说明 arm-linux-gnueabi和arm-linux-gnueabihf 的区别_Beyoungbehappy的博客-CSDN博客</a>。</li>
+<li><a href="https://www.cnblogs.com/deng-tao/p/6432578.html" target="_blank" rel="noopener noreffer">arm交叉编译器gnueabi、none-eabi、arm-eabi、gnueabihf等的区别 - 涛少&amp; - 博客园 (cnblogs.com)</a>。</li>
+<li>带有 “bare-metal” 的为不支持操作系统的。</li>
+<li>总的来说：
+<ul>
+<li>经过 Codesourcery 公司基于GCC优化，带有 none 标识的编译器。
+<ul>
+<li>ARM GUN-A 官方编译器下载页面 <a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads">https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads</a>。要下载的编译器要运行在 x86_x64 机器的虚拟机里面的ubuntu 18.04 里面，因此找到 x86_64 Linux hosted cross toolchains 下面的各个编译器版本。</li>
+<li>AArch32 target with hard float (arm-none-linux-gnueabihf) —— 可用于交叉编译ARMv7 32位 目标系统中所有环节的代码，包括裸机程序、u-boot、Linux kernel、filesystem和App应用程序。</li>
+<li>AArch64 GNU/Linux target (aarch64-none-linux-gnu) —— 可用于交叉编译ARMv8 64位目标中的裸机程序、u-boot、Linux kernel、filesystem和App应用程序。</li>
+</ul>
+</li>
+<li>由 Linaro 公司基于GCC推出。
+<ul>
+<li>Linaro Releases 页面 <a href="https://releases.linaro.org/components/toolchain/binaries/">https://releases.linaro.org/components/toolchain/binaries/</a>。</li>
+<li>arm-linux-gnueabihf-gcc：可用于交叉编译ARMv7 32位 目标系统中所有环节的代码，包括裸机程序、u-boot、Linux kernel、filesystem和App应用程序。</li>
+<li>aarch64-linux-gnu-gcc：可用于交叉编译ARMv8 64位目标中的裸机程序、u-boot、Linux kernel、filesystem和App应用程序。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>在 <code>x86_64 Linux hosted cross compilers</code>下面找到 <code>AArch32 target with hard float (arm-none-linux-gnueabihf)</code>（i.mx6ull 为 A7 内核，即为 32 位的 armv7 指令集），并下载；（<code>AArch64 Linux hosted cross compilers</code>下的编译器可以运行在 64位的 嵌入式板子 SoC 的 Linux 上）；</p>
+</li>
+<li>
+<p>使用 <code>tar xvf</code> 命令解压。</p>
+</li>
+</ol>
+<p>最后，添加环境变量。使用 Vim 工具编辑 <code>~/.bashrc</code> 文件，在最后添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="nb">export</span> <span class="nv">CROSS_COMPILE</span><span class="o">=</span>arm-none-linux-gnueabihf-     <span class="c1"># 添加名为 CROSS_COMPILE、ARCH 环境变量，写 makefile 用 make 工具编译的时候会用到</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/&lt;交叉编译器工具链的目录&gt;/bin       <span class="c1"># 交叉编译器工具链的 路径，可以直接在 shell 中 打编译器的名字来 执行编译器 bin 应用</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>并在终端键入 <code>source ~/.bashrc</code> 使其生效。</p>
+<p>然后在终端测试一下 <code>arm-none-linux-gnueabihf-gcc -v</code>。</p>
+<p>使用交叉编译工具链编译程序产生 固件/应用 后，通过 “PC 与 嵌入式板 传输文件的方式汇总” 一节提供的方法，传给 嵌入式 linux 开发板，再执行，也许需要添加执行的权限：<code>chmod +x &lt;应用&gt;</code>。</p>
+<h4 id="使用-linaro-gcc-编译器">使用 Linaro GCC 编译器</h4>
+<p><em>p.s 这里作者没有试验，只是把说明放在这里。</em></p>
+<p>正点原子的文章<code>【正点原子】I.MX6U嵌入式Linux驱动开发指南V1.5.1</code>在 <code>4.3.1.2 小节</code>里说到个别版本能编译通过但是不能运行，多换换版本试试。</p>
+<p>到 <a href="https://releases.linaro.org/components/toolchain/binaries/" target="_blank" rel="noopener noreffer">Linaro Releases</a> 下载适合的编译器，使用方法与上面类似。Linaro 的编译器对应的名字为 <code>arm-linux-gnueabihf-</code>。</p>
+<h3 id="第一个应用">第一个应用</h3>
+<p>略，略略略~。（在 <a href="http://download.100ask.net/boards/Nxp/100ask_imx6ull_pro/index.html" target="_blank" rel="noopener noreffer">百问网 imx6ull pro 开发板 页面</a> 中的《2.2 全系列Linux教程：在线视频与配套资料》里面的 <code>\01_all_series_quickstart\04_嵌入式Linux应用开发基础知识\source</code> 里面）</p>
+<h3 id="第一个驱动">第一个驱动</h3>
+<p>注意：</p>
+<ul>
+<li>驱动程序用到 Linux 内核的 API，编译驱动程序之前要先编译内核。</li>
+<li>编译驱动时用的内核和嵌入式板子上运行的内核，要一致（不一致的话，不能正常安装 .ko 模块，强装会有意想不到的问题）。</li>
+<li>板子使用新编译出来的内核时，板子上原来的其他驱动也要更换为新编译出来的。</li>
+</ul>
+<h4 id="编译内核">编译内核</h4>
+<p>不同的开发板对应不同的配置文件，配置文件位于内核源码 <code>arch/arm/configs/</code> 目录。</p>
+<p>在 Linux 源码目录里执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make mrproper
+make xxx_imx6ull_defconfig
+make zImage -j4
+make dtbs
+</code></pre></td></tr></table>
+</div>
+</div><p>释义：</p>
+<ul>
+<li><code>make mrproper</code> 命令会删除所有的编译生成文件、内核配置文件(.config文件)和各种备份文件，所以几乎只在第一次执行内核编译前才用这条命令。<code>make clean</code> 命令则是用于删除大多数的编译生成文件，但是会保留内核的配置文件 .config，还有足够的编译支持来建立扩展模块。所以你若只想删除前一次编译过程的残留数据，只需执行 make clean 命令。总而言之，make mrproper 删除的范围比 make clean 大，实际上，make mrproper 在具体执行时第一步就是调用 make clean。</li>
+</ul>
+<p>得到 内核文件 和 设备树文件 这两个文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">arch/arm/boot/zImage
+arch/arm/boot/dts/100ask_imx6ull-14x14.dtb
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="编译内核模块">编译内核模块</h4>
+<p>在 Linux 源码目录里执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make <span class="nv">ARCH</span><span class="o">=</span>arm <span class="nv">CROSS_COMPILE</span><span class="o">=</span>&lt;选择一个编译器，比如 Linaro 的 arm-linux-gnueabihf-&gt; modules
+sudo make <span class="nv">ARCH</span><span class="o">=</span>arm <span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/book/nfs_rootfs modules_install <span class="c1"># 编译出的模块 都装存到 /home/book/nfs_rootfs 下，自行更换</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>释义：</p>
+<ul>
+<li>第一条，如果设置好了 ARCH 和 CROSS_COMPILE 环境变量，直接键入 <code>make modules</code> 也可。</li>
+<li>第二条命令是把模块安装到 <code>/home/book/nfs_rootfs</code> 目录下备用 ， 会得到 <code>/home/book/nfs_rootfs/lib/modules</code> 目录。</li>
+</ul>
+<h4 id="更新目标板">更新目标板</h4>
+<p>有很多种方式传输文件，详见 &ldquo;PC 与 嵌入式板 传输文件的方式汇总&rdquo; 章节。将 zImage 、100ask_imx6ull-14x14.dtb 和 内核模块的 lib 目录 这三者 分别放到嵌入式板子的 /boot 、 /boot 和 /lib 目录，比如使用方便的 nfs 文件系统；然后存储 <code>sync</code>，重启 <code>reboot</code>。</p>
+<h4 id="编写编译驱动">编写、编译驱动</h4>
+<p>按照驱动程序的编写规则，写好驱动程序（hello_drv.c）和 对其进行编译的 Makefile 文件，以及 相应的 应用程序/测试程序（hello_drv_test.c）。</p>
+<p>举例 Makefile 文件（这里面也同时将 测试程序 给编译了）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-makefile" data-lang="makefile"><span class="c"># 修改为 Linux 内核所在目录
+</span><span class="c"></span><span class="nv">KERN_DIR</span> <span class="o">=</span> /home/book/100ask_roc-rk3399-pc/linux-4.4
+
+<span class="nf">all</span><span class="o">:</span>
+	make -C <span class="k">$(</span>KERN_DIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> modules 
+	<span class="k">$(</span>CROSS_COMPILE<span class="k">)</span>gcc -o hello_drv_test hello_drv_test.c <span class="c1"># 这里就用到 环境变量 CROSS_COMPILE 了</span>
+
+<span class="nf">clean</span><span class="o">:</span>
+	make -C <span class="k">$(</span>KERN_DIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> modules clean
+	rm -rf modules.order
+	rm -f hello_drv_test
+
+<span class="nv">obj-m</span>	<span class="o">+=</span> hello_drv.o
+</code></pre></td></tr></table>
+</div>
+</div><p>确保三个环境变量 ARCH、CROSS_COMPILE 和 PATH（交叉编译器的 /bin 目录）都以就绪。</p>
+<ol>
+<li>执行 <code>make</code> 或 <code>make all</code>。产生 驱动程序的内核模块（hello_drv.ko）和 测试程序 ARM 端的二进制可执行文件，共两个文件，转移其到 嵌入式目标板子上。</li>
+<li>在嵌入式 Linux 开发板上 安装驱动程序模块 <code>insmod hello_drv.ko</code>。</li>
+<li>在 <code>lsmod</code> 命令下可以看到 <code>hello_drv</code> 模块；执行 <code>cat /proc/devices</code> 可以看到 对应的设备及其主设备号；执行 <code>ls -l /dev/&lt;设备名称&gt;</code> 可以看到此设备的主、此设备号等更多信息。</li>
+<li>执行测试程序进行验证。</li>
+</ol>
+<h4 id="linux内核编译操作">linux内核编译操作</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">make bzImage                    <span class="c1"># 编译生成压缩的内核二进制文件</span>
+make vmlinux                    <span class="c1"># 编译生成二进制内核文件</span>
+make modules                    <span class="c1"># 编译生成内核模块</span>
+make modules_install            <span class="c1"># 安装模块</span>
+make bzdisk<span class="p">|</span>fdimage<span class="p">|</span>isoimage    <span class="c1"># 编译生成启动软盘镜像或者光盘镜像</span>
+make install                    <span class="c1"># 安装内核文件</span>
+make all                        <span class="c1"># 相当于vmlinux+modules+bzImage</span>
+make rpm                        <span class="c1"># 构建内核rpm包</span>
+make foo/bar/foobar.ko          <span class="c1"># 编译单个驱动</span>
+make header_install             <span class="c1"># 安装内核头文件</span>
+make <span class="nv">M</span><span class="o">=</span>some/sub/dir             <span class="c1"># 编译指定目录</span>
+make <span class="nv">O</span><span class="o">=</span>/path/to/some/dir        <span class="c1"># 指定生成的文件放到该目录</span>
+make kernelversion              <span class="c1"># 输出内核版本信息</span>
+make kernelrelease              <span class="c1"># 输出内核发行标识</span>
+make rpm-pkg<span class="p">|</span>deb-pkg<span class="p">|</span>tar-pkg<span class="p">|</span>targz-pkg<span class="p">|</span>tarbz2-pkg   <span class="c1"># 构建这种格式的内核包</span>
+make clean                      <span class="c1"># 清除生成文件（保留.config和部分模块文件）</span>
+make mrproper                   <span class="c1"># 清除全部文件（包括.config和备份文件）</span>
+make distclean                  <span class="c1"># 在make mrproper上还清除编辑器其他的备份文件</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="学至此的一点启示">学至此的一点启示</h3>
+<p>芯片厂家（大概）应该都会提供完整的 U-boot、 Linux 内核、芯片上硬件资源的驱动程序。</p>
+<p>看韦东山的 imx6ull 板子的裸机开发源码，可以得知，启动文件 .s 文件需要看懂，都大同小异，然后官网会提供所有寄存器的 .h 文件及其结构体，然后每个外设似乎还会提供初始化、配置的代码（因为韦的源码里面，外设底层配置代码为英文注释的，99%的概率是官方提供的），这样就好了嘛，外设的底层驱动可以都扒官方例程。</p>
+<h3 id="构建系统简约步骤">构建系统简约步骤</h3>
+<p>这里只简约说明编译步骤，并非详细使用说明（以后的系列文章可能会有）。</p>
+<h4 id="每个部分单独手动简约步骤">每个部分单独手动简约步骤</h4>
+<p>以下工作进行前，先配置好环境变量和开发链工具等工作，详见 &ldquo;准备交叉编译工具链&rdquo; 章节。</p>
+<p>1、编译 u-boot，配置文件位于 u-boot 源码的 configs/ 目录，生成 u-boot 启动镜像 u-boot-dtb.imx。在 Uboot 目录下执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make distclean
+make mx6ull_14x14_evk_defconfig
+make
+</code></pre></td></tr></table>
+</div>
+</div><p>2、编译内核，配置文件位于内核源码 arch/arm/configs/ 目录，生成 arch/arm/boot/zImage 内核文件 和 arch/arm/boot/dts/xxx_imx6ull-14x14.dtb 设备树文件。在 Linux 内核目录下执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Linux-4.9.88$ make mrproper
+Linux-4.9.88$ make xxx_imx6ull_defconfig
+Linux-4.9.88$ make zImage -j4
+Linux-4.9.88$ make dtbs
+</code></pre></td></tr></table>
+</div>
+</div><p>3、编译内核模块，并把模块文件导入 /home/book/nfs_rootfs/lib/modules 目录。在 Linux 内核目录下执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make <span class="nv">ARCH</span><span class="o">=</span>arm <span class="nv">CROSS_COMPILE</span><span class="o">=</span>arm-linux-gnueabihf- modules
+sudo make <span class="nv">ARCH</span><span class="o">=</span>arm <span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span>/home/book/nfs_rootfs modules_install
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用-buildroot-构建系统简约步骤">使用 Buildroot 构建系统简约步骤</h4>
+<p>Linux 平台上有许多开源的嵌入式 linux 系统构建框架，这些框架极大的方便了开发者进行嵌入式系统的定制化构建，目前比较常见的有 OpenWrt, Buildroot, Yocto 等等。其中 Buildroot 功能强大，使用简单，而且采用了类似于 linux kernel 的配置和编译框架。</p>
+<p>制作根文件系统方法比较：</p>
+<ul>
+<li>Busybox。Busybox 本身包含了很了 Linux 命令，但是要编译其他程序的话需要手工下载、编译，如果它需要某些依赖库，你还需要手工下载、编译这些依赖库。如果想做一个极简的文件系统，可以使用 Busybox 手工制作。</li>
+<li>Buildroot。它是一个自动化程序很高的系统，可以在里面配置、编译内核，配置编译 u-boot、配置编译根文件系统。在编译某些APP时，它会自动去下载源码、下载它的依赖库，自动编译这些程序。Buildroot 的语法跟一般的 Makefile 语法类似，很容易掌握。</li>
+<li>Yocto。NXP、 ST 等公司的官方开发包是使用 Yocto，Yocto 语法复杂，容量大（10GB 以上），编译时间长。</li>
+</ul>
+<p>Buildroot 是一组 Makefile 和补丁，可简化并自动化地为嵌入式系统构建完整的、可启动的 Linux 环境（包括 bootloader、 Linux 内核、包含各种 APP 的文件系统）。 Buildroot 运行于 Linux 平台，可以使用交叉编译工具为多个目标板构建嵌入式 Linux 平台。 Buildroot 可以自动构建所需的交叉编译工具链，创建根文件系统，编译 Linux 内核映像，并生成引导加载程序用于目标嵌入式系统，或者它可以执行这些步骤的任何独立组合。例如，可以单独使用已安装的交叉编译工具链，而 Buildroot 仅创建根文件系统。</p>
+<p><a href="http://wiki.100ask.org/Buildroot" target="_blank" rel="noopener noreffer">学习更多关于 Buildroot 知识请参考这里</a>。</p>
+<p>扩展学习：</p>
+<ul>
+<li>buildroot 下进入 menuconfig 包选择配置配置界面 <code>make menuconfig</code>。</li>
+<li>buildroot 下单独编译 u-boot <code>make uboot-rebuild</code>。</li>
+<li>buildroot 下进入内核 make menuconfig 配置选项界面 <code>make linux-menuconfig</code>。</li>
+<li>buildroot 下单独编译某个软件包 <code>make &lt;pkg&gt;-rebuild</code>。</li>
+<li>buildroot 下进入 busybox 配置界面 <code>make busybox-menuconfig</code>。</li>
+<li>buildroot 下生成系统 sdk，最后生成的目录在 output/images/ 目录下 <code>make sdk</code>。</li>
+</ul>
+<p>构建根文件系统：</p>
+<p>在 Buildroot 目录下执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make clean
+make xxx_imx6ull_defconfig
+make all
+</code></pre></td></tr></table>
+</div>
+</div><p>漫长长长（2~6个小时，视电脑性能）的等待后编译完成。</p>
+<p>可以配置多个不同的配置文件 xxx_imx6ull_defconfig，比如有的带 qt5 ，有的用于构建最精简的文件系统，有的用于另一块板子等待。</p>
+<p>编译成功后文件输出路径为 output/images：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">buildroot 20xx.xx
+├── output
+    ├── images
+        ├── xxx_imx6ull-14x14.dtb             &lt;--设备树文件
+        ├── rootfs.ext2                       &lt;--ext2 格式根文件系统
+        ├── rootfs.ext4 -&gt; rootfs.ext2        &lt;--ext2 格式根文件系统
+        ├── rootfs.tar
+        ├── rootfs.tar.bz2                    &lt;--打包并压缩的根文件系统，用于 NFSROOT 启动
+        ├── sdcard.img                        &lt;--完整的 SD 卡系统镜像
+        ├── u-boot-dtb.imx                    &lt;--u-boot 镜像
+        └── zImage                            &lt;--内核镜像
+</code></pre></td></tr></table>
+</div>
+</div><p>对应的文件更新到嵌入式板子的对应位置，或者使用 sdcard.img 或者 emmc.img 完整系统映像文件烧入 sd卡 或 emmc。</p>
+<h2 id="pc-与-嵌入式板-传输文件的方式汇总日常补充">PC 与 嵌入式板 传输文件的方式汇总（日常补充）</h2>
+<h3 id="网络传输ethwifi">网络传输：ETH/WiFi</h3>
+<p>通过网络的方式来进行 登陆/操作/传递文件等 为最常用的。SSH、NFS、tftp</p>
+<h4 id="ssh">SSH</h4>
+<p>使用 MobaXterm 或 FileZilla 等等，通过 SSH 连接 Linux 板，进行文件传输（可以使用拖拽上传）。比较基础，具体方法略。</p>
+<h4 id="nfs">NFS</h4>
+<p>NFS 将服务端的文件系统目录树映射到客户端，而在客户端访问该目录树与访问本地文件系统没有任何差别。</p>
+<p><strong>在 Ubuntu 中安装、配置 NFS</strong></p>
+<ul>
+<li>
+<p>确保安装：<code>sudo apt-get install nfs-kernel-server</code>。</p>
+</li>
+<li>
+<p>设定目录，例如允许开发板通过 NFS 访问 Ubuntu 的 <code>/home/book</code> 目录，则在 <code>/etc/exports</code> 文件中添加以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/home/book/  *<span class="o">(</span>rw,nohide,insecure,no_subtree_check,async,no_root_squash<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重启 NFS 服务：<code>sudo service nfs-kernel-server restart</code>。</p>
+</li>
+<li>
+<p>可以在 Ubuntu 上通过 NFS 挂载自己，验证一下 NFS 可用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mount -t nfs -o nolock,vers<span class="o">=</span><span class="m">3</span> 127.0.0.1:/home/book /mnt
+ls  /mnt
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><strong>NFS 使用</strong></p>
+<p>如果你使用的是 VMware NAT 方式，假设 Windows IP 为192.168.1.100，在嵌入式 Linux 板子上执行以下命令(注意：必须指定 port 为2049、 mountport 为9999)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mount -t nfs -o nolock,vers<span class="o">=</span>3,port<span class="o">=</span>2049,mountport<span class="o">=</span><span class="m">9999</span> 192.168.1.100:/home/book/nfs_rootfs /mnt
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你使用的是 VMware 桥接方式，假设 Ubuntu IP 为192.168.1.100，确保 嵌入式 Linux 板子 能 ping 通 ubuntu 后，在嵌入式 Linux 板子上执行以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mount -t nfs -o nolock,vers<span class="o">=</span><span class="m">3</span> 192.168.1.100:/home/book/nfs_rootfs /mnt
+</code></pre></td></tr></table>
+</div>
+</div><p>mount 成功之后 ， 嵌入式 Linux 板子在 /mnt 目录下读写文件时， 实际上访问的就是 Ubuntu 中的 /home/book/nfs_rootfs 目录，可以在 Ubuntu 上把文件放到 /home/book/nfs_rootfs 目录中，在开发板上可以从 /mnt 目录中访问该文件。所以嵌入式 Linux 板子和 Ubuntu 之间通过 NFS 可以很方便地共享文件。</p>
+<h4 id="tftp">tftp</h4>
+<ul>
+<li>在 Ubuntu 启动 TFTP 服务，开发板通过 tftp 命令和 Ubuntu 互传文件。</li>
+<li>在 Windows 启动 TFTP 服务，开发板通过 tftp 命令和 Windows 互传文件。</li>
+</ul>
+<p><strong>Ubuntu 安装 TFTP 服务</strong></p>
+<ul>
+<li>
+<p>确保·安装：<code>sudo apt-get install tftp-hpa tftpd-hpa</code>。</p>
+</li>
+<li>
+<p>创建 TFTP 服务器工作目录，并打开 TFTP 服务配置文件，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p /home/book/tftpboot
+sudo chmod <span class="m">777</span> /home/book/tftpboot
+sudo vim /etc/default/tftpd-hpa
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在配置文件<code>/etc/default/tftpd-hpa</code>中，添加以下字段：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">TFTP_DIRECTORY</span><span class="o">=</span><span class="s2">&#34;/home/book/tftpboot&#34;</span>
+<span class="nv">TFTP_OPTIONS</span><span class="o">=</span><span class="s2">&#34;-l -c -s&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重启 TFTP 服务：<code>sudo service tftpd-hpa restart</code>。</p>
+</li>
+<li>
+<p>查看 TFTP 服务是否在运行：<code>ps -aux | grep “tftp”</code>。</p>
+</li>
+</ul>
+<p>在 Windows 安装 TFTP 服务 可用时再看（百问网的《嵌入式Linux应用开发完全手册》的 <code>7.4.3 在Windows安装TFTP服务</code> 一节、<code>7.6.2 开发板通过tftp传输Ubuntu文件</code> 一节）。</p>
+<h3 id="usb-传输">USB 传输</h3>
+<p>最 低效 的方法 U 盘拷贝。</p>
+<p>NXP 公司给 IMX6ULL 提供了烧写工具： mfgtools。或者对于 imx6ull 使用 100ask 开发的 <code>100ask_imx6ull_flashing_tool</code>（详看 百问网的《嵌入式Linux应用开发完全手册》）。</p>
+<h3 id="串口传输rzsz-命令">串口传输：rz/sz 命令</h3>
+<p>在 “工地” 现场上 网口、USB 口 统统没有，那我们还可以使用串口。</p>
+<p>这里使用的上位机是 MobaXterm，要先设置 MobaXterm 取消 “右击粘贴”，这样鼠标右击的时候才会出现菜单。</p>
+<p>注意：串口传输非常非常的慢，KB 级别的文件还可以，MB 级别的传输十分漫长（十几分钟到一个小时），优先用网络吧。</p>
+<p>注意： rz/sz 命令不稳定，不可靠，在没有其他办法的情况下再用它。 rz/sz 命令传输速率太小，适合传输小文件，不适合大文件。</p>
+<h4 id="上位机往板子发rz">上位机往板子发：rz</h4>
+<p>在 MobaXterm 里面通过串口连接并登录 嵌入式 Linux 板子，然后输入 <code>rz</code> 命令，此时终端会提示等待接收，此时在 MobaXterm 里面鼠标右键会弹出一个选择框，点击 <code>Send file using Z-modem</code> 来选择要传输文件。</p>
+<h4 id="板子往上位机发sz">板子往上位机发：sz</h4>
+<p>嵌入式 Linux 板子启动进入 Linux 后，在串口中执行命令 <code>sz &lt;要发送的文件&gt;</code>，然后按住 shift 键的同时，用鼠标右键点击串口界面，选择 <code>Receive file using Z-modem</code>，最后在弹出的文件框保存文件。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-05-27</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-title="【主线剧情02】ARM Linux 基础学习记录" data-hashtags="ARM,Linux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-hashtag="ARM"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-title="【主线剧情02】ARM Linux 基础学习记录" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/arm/">ARM</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%80%BB%E8%A7%88%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%86%85%E5%AE%B9/" class="prev" rel="prev" title="【目录贴】总览软硬件规范化的意义和内容"><i class="fas fa-angle-left fa-fw"></i>【目录贴】总览软硬件规范化的意义和内容</a>
+            <a href="/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" class="next" rel="next" title="【读标准02】IEEE 1451.5 智能无线传感器标准介绍">【读标准02】IEEE 1451.5 智能无线传感器标准介绍<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

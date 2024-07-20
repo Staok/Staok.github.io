@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【未来的动力】BLDC的六步法&amp;PMSM的FOC法综合 - 欢迎来到 瞰百Staok</title><meta name="Description" content="BLDC 六步法 &amp; PMSM  FOC 法 综合啊~"><meta property="og:title" content="【未来的动力】BLDC的六步法&amp;PMSM的FOC法综合" />
+<meta property="og:description" content="BLDC 六步法 &amp; PMSM  FOC 法 综合啊~" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-24T09:15:14+08:00" />
+<meta property="article:modified_time" content="2021-12-24T09:15:14+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【未来的动力】BLDC的六步法&amp;PMSM的FOC法综合"/>
+<meta name="twitter:description" content="BLDC 六步法 &amp; PMSM  FOC 法 综合啊~"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/" /><link rel="prev" href="https://staok.github.io/17%E6%89%B9%E5%88%A4%E4%B8%8E%E6%89%B6%E6%AD%A3%E6%AD%AA%E6%B0%94/" /><link rel="next" href="https://staok.github.io/15%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【未来的动力】BLDC的六步法\u0026PMSM的FOC法综合",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "无刷电机驱动","wordcount":  5311 ,
+        "url": "https:\/\/staok.github.io\/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88\/","datePublished": "2021-12-24T09:15:14+08:00","dateModified": "2021-12-24T09:15:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "BLDC 六步法 \u0026 PMSM  FOC 法 综合啊~"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【未来的动力】BLDC的六步法&amp;PMSM的FOC法综合</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%9B%B4%E8%BE%BE%E6%9C%AC%E8%B4%A8%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/"><i class="far fa-folder fa-fw"></i>【直达本质入门】系列</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-24">2021-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5311 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#网络教程">网络教程</a></li>
+    <li><a href="#原理详解">原理详解</a>
+      <ul>
+        <li><a href="#方波-bldc-六步换向法">方波 BLDC 六步换向法</a></li>
+        <li><a href="#方波-bldc-控制器实施">方波 BLDC 控制器实施</a></li>
+        <li><a href="#正弦波-pmsm-foc-法">正弦波 PMSM FOC 法</a></li>
+        <li><a href="#foc-算法实现细节">FOC 算法实现细节</a></li>
+        <li><a href="#正弦波-pmsm-控制器实施">正弦波 PMSM 控制器实施</a></li>
+      </ul>
+    </li>
+    <li><a href="#未来需求">未来需求</a></li>
+    <li><a href="#方案收集">方案收集</a>
+      <ul>
+        <li><a href="#大厂库">大厂库</a>
+          <ul>
+            <li><a href="#infineon">infineon</a></li>
+            <li><a href="#ti">TI</a></li>
+            <li><a href="#st">ST</a></li>
+          </ul>
+        </li>
+        <li><a href="#开源项目">开源项目</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="bldc-六步法--pmsm--foc-法-综合">BLDC 六步法 &amp; PMSM  FOC 法 综合</h1>
+<p>查阅 n^2 的各方资料，对 BLDC&amp;PMSM 进行一个大综合、大整理，查阅、比较和整理 大量的 网络教程、大厂手册、开源解决方案，在这里形成 原理和解决方案 的打通式介绍。</p>
+<p>我的相关项目的开源部分 <a href="https://github.com/Staok/iBLDC" target="_blank" rel="noopener noreffer">iBLDC 项目仓库</a>，包括 方案原理的详细介绍、原理图、Multisim 仿真 等丰富资料。本文所分享的资料：</p>
+<ul>
+<li>
+<p>搜集大量的教程文档、大厂手册：链接：https://pan.baidu.com/s/1LtJ5qIsCgXu5O3LZAy3UHA 提取码：XHYD （侵删）（497MB）</p>
+</li>
+<li>
+<p>搜集的 大厂方案 + Github 开源项目：链接：https://pan.baidu.com/s/1G76TcIt1bzDZkOVQ3Zhn7A 提取码：XHYL （侵删）（944MB）</p>
+</li>
+</ul>
+<hr>
+<h2 id="网络教程">网络教程</h2>
+<ul>
+<li>
+<p>入门文章，首先看：<a href="http://www.360doc.com/content/19/0613/13/6932394_842187623.shtml" target="_blank" rel="noopener noreffer">无刷电机的工作原理图解 (360doc.com)</a>、<a href="https://blog.csdn.net/duoduo_bu/article/details/96473902" target="_blank" rel="noopener noreffer">【学习】无刷直流电机的基本结构及工作原理_duoduo_bu的博客-CSDN博客_无刷直流电机工作原理</a>、<a href="https://www.diangon.com/thread-42532-1-1.html" target="_blank" rel="noopener noreffer">无刷直流电机系统基础知识 - 电工基础知识_电工学习网 (diangon.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/qq_42415953/article/details/111150487" target="_blank" rel="noopener noreffer">BLDC驱动学习_ 啥也不会唉的博客 -CSDN博客_bldc驱动</a>。</p>
+</li>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/147659820" target="_blank" rel="noopener noreffer">【自制FOC驱动器】深入浅出讲解FOC算法与SVPWM技术 - 知乎 (zhihu.com)</a> 该文对于 BLDC 和 PMSM 的介绍和区别 讲的比较好。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/linzhe_deep/article/details/105849395" target="_blank" rel="noopener noreffer"> 永磁同步电机控制笔记：foc控制原理通俗讲义_ 搞机的博客 -CSDN博客 _foc原理</a>。</p>
+</li>
+<li>
+<p>对于两个变换的一些形象演示的动图，比较直观：</p>
+<ul>
+<li>
+<p><a href="https://great.blog.csdn.net/article/details/103672042" target="_blank" rel="noopener noreffer">FOC中的Clarke变换和Park变换详解（动图+推导+仿真+附件代码）_ GREYWALL-CSDN博客 _clarke变换</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/linzhe_deep/article/details/105162221" target="_blank" rel="noopener noreffer">永磁同步电机控制笔记：clark变换park变换示意图_ 搞电机的博客-CSDN博客 _电流clark变换</a>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>一个 FOC 相关的文章集 <a href="https://blog.csdn.net/linzhe_deep/category_9827913.html" target="_blank" rel="noopener noreffer">永磁同步电机_搞电机的博客-CSDN博客</a>。</p>
+</li>
+<li>
+<p>完整展示 SVPWM 的计算过程 <a href="https://blog.csdn.net/weixin_39631689/article/details/111106063" target="_blank" rel="noopener noreffer">svpwm仿真_ 基于Simulink的SVPWM仿真模块 _weixin_39631689的博客-CSDN博客</a>。</p>
+</li>
+</ul>
+<p>对于无刷电机的 概念基础知识 和 与 有刷电机的比较：<a href="https://baike.baidu.com/item/%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba/6255414?fr=aladdin" target="_blank" rel="noopener noreffer">无刷电机_百度百科 (baidu.com)</a>；<a href="http://www.360doc.com/content/16/0824/22/35813754_585692004.shtml" target="_blank" rel="noopener noreffer">(原创）让你真正了解手里的无刷电机 (360doc.com)</a>。</p>
+<blockquote>
+<p>引自：<a href="https://baike.baidu.com/item/%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba/6255414?fr=aladdin" target="_blank" rel="noopener noreffer">无刷电机_百度百科 (baidu.com)</a>、<a href="http://www.360doc.com/content/16/0824/22/35813754_585692004.shtml" target="_blank" rel="noopener noreffer">(原创）让你真正了解手里的无刷电机 (360doc.com)</a>、<a href="http://www.360doc.com/content/18/0113/13/18790424_721569057.shtml" target="_blank" rel="noopener noreffer">无刷电机基础知识 (360doc.com)</a>，摘一些句子，侵删。</p>
+<p>无刷电机优点：低干扰、低噪音、寿命/工作时间长、低维护成本、可控性好、高速、节能、功率密度大等等。其的一些缺点：驱动器成本较高、永磁体不适用于高温、转矩波动等需要控制好（较难）才能用于高性能/低速/位置控制的伺服系统。</p>
+<p>无刷电机的换向模式分为方波和正弦波驱动，就其位置传感器和控制电路来说，方波驱动相对简单、价廉而得到广泛利用。目前，绝大多数无刷电机采用方波驱动，目前市场上的模型电机全部是方波驱动。</p>
+<p>电机的转矩和转速在同一个电机内永远是一个此消彼长的关系，基本可以认为转矩和转速的乘积是一个定数。导体的发热与电流的平方是正比关系，在更高的电压下，如果是同样的功率，电流将下降导致发热减少，使得最大功率增加。这也解释了为什么在专业的航拍飞行器上，大量使用22.2V甚至30V电池来驱动多轴飞行器，高压下的无刷电机，电流小、发热小、效率更高。</p>
+<p><strong>槽极结构 （N：槽数，P：极数）</strong>
+模型常见的内转子无刷电机结构有：3N2P（有感电机常用）、12N4P（大部分内转子电机）
+模型常见的外转子无刷电机结构有：9N6P、9N12P、12N8P、12N10P、12N14P、18N16P、24N20P。
+模型用内转子无刷电机极数不高的原因：目前内转子电机多用于减速使用，所以要求的转速都比较高。电子（电角度）转速=实际转速*电机极对数，电子控制器支持的最高电子转速往往都是一个定数，所以如果电机极对数太高的话，支持的最高电机转速就会下降，所以目前的内转子电机极数都是4以内。
+关于12N4P内转子电机：属于整数槽电机，大量使用于模型内转子电机，电机使用单层绕组分布绕线。
+模型用外转子电机都是分数槽电机，其结构特点和性能如下：</p>
+<ul>
+<li>N必须是3的倍数，P必须是偶数（磁钢必须是成对的，所以必须是偶数）。</li>
+<li>P数越小，最高转速越高。例如12N10P的最高转速肯定低于12N16P，反之亦然。</li>
+<li>N比P大，则相对转速更高。9N6P最高转速肯定高于9N12P，反之亦然。</li>
+<li>同样的N，P越大扭力越强。扭力，12N16P大于12N14P大于12N10P。</li>
+<li>N和P之间不能整除，比如12N6P。</li>
+</ul>
+<p>外转子槽极结构与应用领域：9N6P减速使用于400-500级别的直升机模型以及小型涵道、9N12P直驱使用于小型固定翼或者其他模型、12N8P减速使用于500-700直升机模型或者直驱使用于中大型涵道、12N10P减速使用于600-800直升机模型、12N14P直驱使用于大部分固定翼和船模，高于12槽结构的无刷电机多见于多轴飞行器。</p>
+<p><strong>有感电机与无感电机</strong>（即有、无传感器的）</p>
+<p>有感电机的优势：运转精度高、启动平稳</p>
+<p>有感电机的劣势：</p>
+<ul>
+<li>在高温、振动等条件下由于传感器的存在使系统的可靠性降低。</li>
+<li>传感器连接线多不便安装、易引起电磁干扰。</li>
+<li>传感器的安装精度直接影响电机运行性能，特别是在多极电机安装精度难以保证。</li>
+<li>占用空间，限制电机小型化。</li>
+</ul>
+<p>无感电机的优点：结构简单、成本较低、安装方便</p>
+<p>无感电机的缺点：转子位置检测精度降低，运转精度降低，启动不如有感电机平稳。</p>
+<p>什么是有感电机：传统的无刷电机都安装有霍尔传感器，利用霍尔传感器检测转子位置实现转向。</p>
+<p>什么是无感电机：去除霍尔传感器，利用电子控制器检测电机的反电动势变化从而确定转子位置实现转向。</p>
+<p><strong>外转子无刷与内转子无刷</strong></p>
+<p>外转子无刷电机的优点：转动惯量大、转动平稳、转矩大、磁铁好固定。</p>
+<p>外转子无刷电机的缺点：定子热量无法排出、内部工作环境部封闭，外部杂物可能进入电机内部影响运转。</p>
+<p>内转子无刷电机的优点：绕组与外壳直接接触，热量可直接排出，电机内部与外部隔绝，避免外部杂物进入内部。</p>
+<p>内转子无刷电机的缺点：扭矩不如外转子无刷电机、磁铁固定较为复杂。</p>
+</blockquote>
+<p>搜集大量的教程文档、大厂手册：</p>
+<p>链接：https://pan.baidu.com/s/1LtJ5qIsCgXu5O3LZAy3UHA 提取码：XHYD  &ndash;来自百度网盘超级会员V4的分享（侵删）（497MB）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e6%90%9c%e9%9b%86%e5%a4%a7%e9%87%8f%e7%9a%84%e6%95%99%e7%a8%8b%e6%96%87%e6%a1%a3%e3%80%81%e5%a4%a7%e5%8e%82%e6%89%8b%e5%86%8c.png"
+        data-srcset="assets/%e6%90%9c%e9%9b%86%e5%a4%a7%e9%87%8f%e7%9a%84%e6%95%99%e7%a8%8b%e6%96%87%e6%a1%a3%e3%80%81%e5%a4%a7%e5%8e%82%e6%89%8b%e5%86%8c.png, assets/%e6%90%9c%e9%9b%86%e5%a4%a7%e9%87%8f%e7%9a%84%e6%95%99%e7%a8%8b%e6%96%87%e6%a1%a3%e3%80%81%e5%a4%a7%e5%8e%82%e6%89%8b%e5%86%8c.png 1.5x, assets/%e6%90%9c%e9%9b%86%e5%a4%a7%e9%87%8f%e7%9a%84%e6%95%99%e7%a8%8b%e6%96%87%e6%a1%a3%e3%80%81%e5%a4%a7%e5%8e%82%e6%89%8b%e5%86%8c.png 2x"
+        data-sizes="auto"
+        alt="assets/搜集大量的教程文档、大厂手册.png"
+        title="搜集大量的教程文档、大厂手册" /></p>
+<h2 id="原理详解">原理详解</h2>
+<p>高清原图在 <a href="https://github.com/Staok/iBLDC" target="_blank" rel="noopener noreffer">iBLDC 项目仓库</a> 内可下载。</p>
+<h3 id="方波-bldc-六步换向法">方波 BLDC 六步换向法</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_1.png"
+        data-srcset="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_1.png, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_1.png 1.5x, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_1.png 2x"
+        data-sizes="auto"
+        alt="assets/直流无刷电机驱动-方案总图_页面_1.png"
+        title="直流无刷电机驱动-方案总图_页面_1" /></p>
+<h3 id="方波-bldc-控制器实施">方波 BLDC 控制器实施</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_3.png"
+        data-srcset="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_3.png, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_3.png 1.5x, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_3.png 2x"
+        data-sizes="auto"
+        alt="assets/直流无刷电机驱动-方案总图_页面_3.png"
+        title="直流无刷电机驱动-方案总图_页面_3" /></p>
+<h3 id="正弦波-pmsm-foc-法">正弦波 PMSM FOC 法</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_5.png"
+        data-srcset="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_5.png, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_5.png 1.5x, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_5.png 2x"
+        data-sizes="auto"
+        alt="assets/直流无刷电机驱动-方案总图_页面_5.png"
+        title="直流无刷电机驱动-方案总图_页面_5" /></p>
+<h3 id="foc-算法实现细节">FOC 算法实现细节</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_6.png"
+        data-srcset="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_6.png, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_6.png 1.5x, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_6.png 2x"
+        data-sizes="auto"
+        alt="assets/直流无刷电机驱动-方案总图_页面_6.png"
+        title="直流无刷电机驱动-方案总图_页面_6" /></p>
+<h3 id="正弦波-pmsm-控制器实施">正弦波 PMSM 控制器实施</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_7.png"
+        data-srcset="assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_7.png, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_7.png 1.5x, assets/%e7%9b%b4%e6%b5%81%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba%e9%a9%b1%e5%8a%a8-%e6%96%b9%e6%a1%88%e6%80%bb%e5%9b%be_%e9%a1%b5%e9%9d%a2_7.png 2x"
+        data-sizes="auto"
+        alt="assets/直流无刷电机驱动-方案总图_页面_7.png"
+        title="直流无刷电机驱动-方案总图_页面_7" /></p>
+<h2 id="未来需求">未来需求</h2>
+<p>关于未来无刷电机驱动的技术满足要求（p.s 画饼什么的，最快乐了），这是美国能源部的数据，如下表，主要是针对汽车应用：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba-%e6%96%b0%e6%8a%80%e6%9c%af%e8%a6%81%e6%b1%82.jpg"
+        data-srcset="assets/%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba-%e6%96%b0%e6%8a%80%e6%9c%af%e8%a6%81%e6%b1%82.jpg, assets/%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba-%e6%96%b0%e6%8a%80%e6%9c%af%e8%a6%81%e6%b1%82.jpg 1.5x, assets/%e6%97%a0%e5%88%b7%e7%94%b5%e6%9c%ba-%e6%96%b0%e6%8a%80%e6%9c%af%e8%a6%81%e6%b1%82.jpg 2x"
+        data-sizes="auto"
+        alt="assets/无刷电机-新技术要求.jpg"
+        title="无刷电机 新技术要求" /></p>
+<p>我的无刷电机驱动板子（<a href="https://github.com/Staok/iBLDC" target="_blank" rel="noopener noreffer">iBLDC</a>），尺寸在 3cm * 4cm * 1cm，按照上图来讲，2020年要达到高于 94% 效率，并且功率大于160W（远已经达到），2025年要达到1200W，效率要高于98%。</p>
+<p>另外，这个表的成本要求非常高；还有提高频率来减小器件体积封装，先进封装，提升散热效率等；更先进的门机驱动提升安全性，完善的保护电路；采用更鲁棒的算法。</p>
+<h2 id="方案收集">方案收集</h2>
+<p>搜集的 大厂方案 + Github 开源项目：</p>
+<p>链接：https://pan.baidu.com/s/1G76TcIt1bzDZkOVQ3Zhn7A 提取码：XHYL  &ndash;来自百度网盘超级会员V4的分享（侵删)（944MB）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e6%90%9c%e9%9b%86%e7%9a%84%e5%a4%a7%e5%8e%82%e6%96%b9%e6%a1%88&#43;Github%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae.png"
+        data-srcset="assets/%e6%90%9c%e9%9b%86%e7%9a%84%e5%a4%a7%e5%8e%82%e6%96%b9%e6%a1%88&#43;Github%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae.png, assets/%e6%90%9c%e9%9b%86%e7%9a%84%e5%a4%a7%e5%8e%82%e6%96%b9%e6%a1%88&#43;Github%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae.png 1.5x, assets/%e6%90%9c%e9%9b%86%e7%9a%84%e5%a4%a7%e5%8e%82%e6%96%b9%e6%a1%88&#43;Github%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae.png 2x"
+        data-sizes="auto"
+        alt="assets/搜集的大厂方案&#43;Github开源项目.png"
+        title="搜集的 大厂方案 &#43; Github 开源项目" /></p>
+<h3 id="大厂库">大厂库</h3>
+<h4 id="infineon">infineon</h4>
+<p>电机控制芯片选型：<a href="https://www.infineon.com/cms/cn/product/power/motor-control-ics/" target="_blank" rel="noopener noreffer">电机控制芯片 - Infineon Technologies</a>。</p>
+<p>英飞凌有一些 带 MOS 预驱的 M3 MCU 选型，如 <a href="https://www.infineon.com/cms/cn/product/microcontroller/embedded-power-ics-system-on-chip-/3-phase-bridge-driver-integrated-arm-cortex-m3/" target="_blank" rel="noopener noreffer">集成 Arm® Cortex® M3 的 3 相桥式驱动器 - Infineon Technologies</a>，另还有许多 BLDC 电机评估版，并配套了 软件库 等全套东西，比如 <a href="https://www.infineon.com/cms/cn/product/evaluation-boards/bldc_shield_tle9879/" target="_blank" rel="noopener noreffer">BLDC_SHIELD_TLE9879 - Infineon Technologies</a>。</p>
+<h4 id="ti">TI</h4>
+<p>TI 电机驱动器 选型：<a href="https://www.ti.com.cn/zh-cn/motor-drivers/brushless-dc-bldc-drivers/overview.html" target="_blank" rel="noopener noreffer">无刷直流 (BLDC) 驱动器 | 概述 | 电机驱动器 | 德州仪器 TI.com.cn</a>。</p>
+<p>搜索 TI 的参考设计库，有非常丰富的 BLDC&amp;PMSM 参考设计，原理图、软件库均公开：<a href="https://www.ti.com.cn/cn/reference-designs/index.html#search?keyword=BLDC" target="_blank" rel="noopener noreffer">TI 参考设计库：BLDC</a>。</p>
+<p>评估板 的软件包 和 FOC 算法软件 具体在每一个 BLDC&amp;PMSM 参考设计页面均提供下载。</p>
+<blockquote>
+<p>可以使用 其 IQmath 库：<a href="https://zhuanlan.zhihu.com/p/358420266" target="_blank" rel="noopener noreffer">基于STM32实现SVPWM调制算法 - 知乎 (zhihu.com)</a>；<a href="https://zhuanlan.zhihu.com/p/359136874" target="_blank" rel="noopener noreffer">基于C语言的Q格式使用详解 - 知乎 (zhihu.com)</a>；</p>
+</blockquote>
+<h4 id="st">ST</h4>
+<p>ST 的无刷直流电机驱动选型：<a href="https://www.st.com/zh/motor-drivers/brushless-dc-motor-drivers.html" target="_blank" rel="noopener noreffer">无刷直流电机驱动器 - STMicroelectronics</a>。</p>
+<p>评估板：<a href="https://www.st.com/zh/applications/industrial-motor-control/3-phase-6-step-control.html#hw-evaluation-tools" target="_blank" rel="noopener noreffer">3相6步控制 - STMicroelectronics</a>；<a href="https://www.st.com/zh/applications/industrial-motor-control/3-phase-field-oriented-control-foc.html#hw-evaluation-tools" target="_blank" rel="noopener noreffer">三相磁场定向控制FOC - STMicroelectronics</a>。</p>
+<p>运动和驱动解决方案：<a href="https://www.st.com/zh/solutions-reference-designs/industrial-motor-control-solutions.html#products" target="_blank" rel="noopener noreffer">运动和驱动解决方案 - STMicroelectronics</a>。</p>
+<p>ST 的 电机软件库 使用 ST MCSDK，其作为 X-CUBE-MCSDK 部件，其自带 上位机界面 进行曲线查看和参数调试等。下载页面 <a href="https://www.st.com/zh/embedded-software/x-cube-mcsdk.html" target="_blank" rel="noopener noreffer">X-CUBE-MCSDK - STM32电机控制软件开发套件（MCSDK） - STMicroelectronics</a>，其更多文档下载 <a href="https://www.stmcu.com.cn/ecosystem/app/Motor-control" target="_blank" rel="noopener noreffer">stmcu.com.cn X-CUBE-MCSDK 页面</a>，更多培训视频 <a href="https://c.51diantang.com/columndetail?id=126b8417f88949799f4caf99e98e2ee1" target="_blank" rel="noopener noreffer">基于MC SDK V5.4电机库的STM32电机控制理论与实践-电堂科技 (51diantang.com)</a>、<a href="https://c.51diantang.com/columndetail?id=2ab86a9228814c09a9621d3a970b21ac" target="_blank" rel="noopener noreffer">STM32电动机控制应用系列讲座-电堂科技 (51diantang.com)</a>、<a href="https://c.51diantang.com/columndetail?id=c1de7395091c4524ab7cbe2ea56cc982" target="_blank" rel="noopener noreffer">STM32 TALK (电机控制私享会)-电堂科技 (51diantang.com)</a>。</p>
+<p>ST MCSDK 网络文章教程：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/97748533" target="_blank" rel="noopener noreffer">STM32G4板卡分享—STM32G4在电机控制中的应用 - 知乎 (zhihu.com)</a>。</li>
+<li><a href="https://blog.csdn.net/weixin_35282085/article/details/112738615" target="_blank" rel="noopener noreffer">如何拷贝工程_工程师笔记 | 如何结合STM32CubeMX与MC Workbench生成修改未包含的芯片程序&hellip;_喵仔冲鸭的博客-CSDN博客</a>。</li>
+<li><a href="https://blog.csdn.net/weixin_39630247/article/details/111681443" target="_blank" rel="noopener noreffer">type=file 把默认的未选择文件换成别的_工程师笔记：如何结合STM32CubeMX与MC Workbench生成修改未包含的芯片程序&hellip;_weixin_39630247的博客-CSDN博客</a>。</li>
+</ul>
+<blockquote>
+<p>对于 STM32 F4 的 DSP 和 一些 数学函数 的使用，使用 CMSIS 的 DSP，可以参看 <strong>安富莱</strong> 对于 STM32 DSP 的丰富教程。</p>
+</blockquote>
+<h3 id="开源项目">开源项目</h3>
+<p>选择一个去看手册和源码去实现即可。</p>
+<ul>
+<li>
+<p>国内做 BLDC&amp;PMSM 教程开发板的，举例两家 <strong>硬石</strong> 和 <strong>匠心</strong>，淘宝搜即可，前者资料开源，后者的资料其实也 被 “开源了”。</p>
+</li>
+<li>
+<p>ODrive：官网 <a href="https://odriverobotics.com/" target="_blank" rel="noopener noreffer">ODrive (odriverobotics.com)</a>；<a href="https://github.com/odriverobotics/ODrive" target="_blank" rel="noopener noreffer">odriverobotics/ODrive: High performance motor control (github.com)</a>；<a href="https://github.com/madcowswe/ODriveHardware" target="_blank" rel="noopener noreffer">madcowswe/ODriveHardware: High performance motor control (github.com)</a>。</p>
+</li>
+<li>
+<p>VESC（国内常称 “本杰明方案”）：<a href="https://vesc-project.com/" target="_blank" rel="noopener noreffer">VESC Project (vesc-project.com)</a>；<a href="https://github.com/vedderb/bldc/" target="_blank" rel="noopener noreffer">vedderb/bldc: The code for my custom BLDC controller. (github.com)</a>；<a href="https://github.com/vedderb/bldc-hardware" target="_blank" rel="noopener noreffer">vedderb/bldc-hardware: Brushless DC Motor controller from Benjamin Vedder (github.com)</a>；<a href="https://github.com/vedderb/bldc-hardware" target="_blank" rel="noopener noreffer">vedderb/bldc-hardware: Brushless DC Motor controller from Benjamin Vedder (github.com)</a>。</p>
+<p>基于VESC的衍生开源项目 举例：</p>
+<ul>
+<li><a href="https://github.com/shamansystems/Cheap-FOCer-2" target="_blank" rel="noopener noreffer">shamansystems/Cheap-FOCer-2: Low-Cost Motor Controller based on the VESC 6 (github.com)</a>；</li>
+<li><a href="https://github.com/aramaerospace/Micro-VESC-6" target="_blank" rel="noopener noreffer">aramaerospace/Micro-VESC-6: Micro VESC-6 (github.com)</a>；</li>
+<li>BMS <a href="https://github.com/mpater/bldc-BMS" target="_blank" rel="noopener noreffer">mpater/bldc-BMS: Battery management system for a VESC (github.com)</a>；<a href="https://github.com/vedderb/vesc_bms_fw" target="_blank" rel="noopener noreffer">vedderb/vesc_bms_fw: The VESC BMS Firmware (github.com)</a>。</li>
+</ul>
+</li>
+<li>
+<p>SimpleFOC：<a href="https://docs.simplefoc.com/" target="_blank" rel="noopener noreffer">Home | Arduino-FOC (simplefoc.com)</a>。</p>
+<ul>
+<li>中文网页手册 <a href="https://github.com/simplefoc/docs_chinese" target="_blank" rel="noopener noreffer">simplefoc/docs_chinese: SimpleFOC docs website translated to Chinese (github.com)</a>；</li>
+<li><a href="https://github.com/simplefoc/Arduino-FOC" target="_blank" rel="noopener noreffer">simplefoc/Arduino-FOC: Arduino FOC for BLDC and Stepper motors - Arduino Based Field Oriented Control Algorithm Library (github.com)</a>；</li>
+<li>&lt; 5A 版本：<a href="https://github.com/simplefoc/Arduino-SimpleFOCShield" target="_blank" rel="noopener noreffer">simplefoc/Arduino-SimpleFOCShield: Arduino Shiled for running Gimbal BLDC motors with FOC algorithm (github.com)</a>；</li>
+<li>&lt; 30A 版本：<a href="https://github.com/simplefoc/Arduino-SimpleFOC-PowerShield" target="_blank" rel="noopener noreffer">simplefoc/Arduino-SimpleFOC-PowerShield: A powerful Arduino shield for running BLDC motors using the FOC algorithm (github.com)</a>。</li>
+</ul>
+</li>
+<li>
+<p>更多开源项目：</p>
+<ul>
+<li>
+<p>FOC 算法经过优化、合并精简的一个自实现：<a href="https://github.com/ZhuYanzhen1/miniFOC" target="_blank" rel="noopener noreffer">ZhuYanzhen1/miniFOC: 你还在为有刷电机的高噪声、低响应速度和低寿命而烦恼吗？这个项目是一个20块钱就能搞定的FOC无刷电机控制方案！This project is a FOC (Field Oriented Control) BLDC Motor control scheme that can be done for 3$! (github.com)</a>。</p>
+</li>
+<li>
+<p>一个 无感 FOC 实现：<a href="https://github.com/NYCParker/sensorless_foc" target="_blank" rel="noopener noreffer">NYCParker/sensorless_foc: 电机驱动开发项目：sensorless_foc (github.com)</a>。</p>
+</li>
+<li>
+<p>使用 ST MCSDK 库生成工程：<a href="https://github.com/dtltljb/FOC-MOTOR-CONTROLLER" target="_blank" rel="noopener noreffer">dtltljb/FOC-MOTOR-CONTROLLER: 基于STM32有感直流无刷电机驱动控制程序，集成CANopen通讯电机控制子集协议 和 MONDBUS 协议。 (github.com)</a>。</p>
+</li>
+<li>
+<p>一个 C++ 实现 FOC：<a href="https://github.com/BetzDrive/bldc-controller" target="_blank" rel="noopener noreffer">BetzDrive/bldc-controller: Motor controller firmware! (github.com)</a>；硬件：<a href="https://github.com/BetzDrive/bldc-controller-hardware" target="_blank" rel="noopener noreffer">BetzDrive/bldc-controller-hardware: Hardware design files for BLDC servo controller (github.com)</a>。</p>
+</li>
+<li>
+<p>基于Hall估计角度的FOC，Matlab仿真并生成c文件的方案：FOC 算法的 Matlab 仿真 <a href="https://github.com/EFeru/bldc-motor-control-FOC" target="_blank" rel="noopener noreffer">EFeru/bldc-motor-control-FOC: Field Oriented Control (FOC) for BLDC motors (github.com)</a>；FOC 仿真后部署在 板子上 <a href="https://github.com/EFeru/hoverboard-firmware-hack-FOC" target="_blank" rel="noopener noreffer">EFeru/hoverboard-firmware-hack-FOC: With Field Oriented Control (FOC) (github.com)</a>。</p>
+</li>
+<li>
+<p>SimpleFOC 实现 <a href="https://github.com/ChenDMLSY/FOC-SimpleFOC-MotorDriveDevelopmentBoard" target="_blank" rel="noopener noreffer">ChenDMLSY/FOC-SimpleFOC-MotorDriveDevelopmentBoard: drive a brush motor，drive brushless motor (github.com)</a>；</p>
+<p>方波BLDC六步法 <a href="https://github.com/ChenDMLSY/ZM_Xdrive_1.0" target="_blank" rel="noopener noreffer">ChenDMLSY/ZM_Xdrive_1.0: 该驱动板支持：霍尔无刷驱动、感应电动势无刷驱动、simpleFOC、直流减速电机改舵机，多样性功能，性价比高 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/zhutongwen/BLDCM_square_wave" target="_blank" rel="noopener noreffer">zhutongwen/BLDCM_square_wave: 无刷直流电机方波驱动程序，stm32f4驱动两个无刷电机 (github.com)</a>；<a href="https://github.com/zhutongwen/BLDCM_sine_wave" target="_blank" rel="noopener noreffer">zhutongwen/BLDCM_sine_wave: 有感无刷直流电机驱动程序，一个stm32同时驱动两个无刷电机，正弦波驱动 (github.com)</a>。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-12-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/" data-title="【未来的动力】BLDC的六步法&amp;PMSM的FOC法综合" data-hashtags="无刷电机驱动"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/" data-hashtag="无刷电机驱动"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/16bldc%E7%9A%84%E5%85%AD%E6%AD%A5%E6%B3%95pmsm%E7%9A%84foc%E6%B3%95%E7%BB%BC%E5%90%88/" data-title="【未来的动力】BLDC的六步法&amp;PMSM的FOC法综合" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%97%A0%E5%88%B7%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8/">无刷电机驱动</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/17%E6%89%B9%E5%88%A4%E4%B8%8E%E6%89%B6%E6%AD%A3%E6%AD%AA%E6%B0%94/" class="prev" rel="prev" title="批判与扶正歪气"><i class="fas fa-angle-left fa-fw"></i>批判与扶正歪气</a>
+            <a href="/15%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/" class="next" rel="next" title="（大集合）数据结构与算法简述和CS综合">（大集合）数据结构与算法简述和CS综合<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

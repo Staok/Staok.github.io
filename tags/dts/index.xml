@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>dts - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/dts/</link>
+        <description>dts - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Sun, 23 May 2021 16:46:10 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/dts/" rel="self" type="application/rss+xml" /><item>
+    <title>【主线剧情 番外02】设备树详解</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9602-%E8%AE%BE%E5%A4%87%E6%A0%91%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Sun, 23 May 2021 16:46:10 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9602-%E8%AE%BE%E5%A4%87%E6%A0%91%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[设备树详解 本文 续接 《【主线剧情03】NXP i.MX 系列 u-boot 移植基础详解》 一文中移植过程小节中有关设备树的内容。 编辑整理 By Staok，如有错误恭谢指出]]></description>
+</item></channel>
+</rss>

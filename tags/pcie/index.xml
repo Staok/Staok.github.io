@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PCIe - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/pcie/</link>
+        <description>PCIe - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Mon, 24 May 2021 16:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/pcie/" rel="self" type="application/rss+xml" /><item>
+    <title>PCIe接口及其衍生接口大总结</title>
+    <link>https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Mon, 24 May 2021 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[注，相关的介绍网上有很多，这里是一个总结文（用时再查），不是科普文。 参考： 搜索标准接口定义的网站：https://pinouts.ru/。 一]]></description>
+</item></channel>
+</rss>

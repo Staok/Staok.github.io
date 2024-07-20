@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【主线剧情 番外01】ARM 系列快速鸟瞰 - 欢迎来到 瞰百Staok</title><meta name="Description" content="介绍 ARM 内核的主要芯片大厂的各个 SoC 系列"><meta property="og:title" content="【主线剧情 番外01】ARM 系列快速鸟瞰" />
+<meta property="og:description" content="介绍 ARM 内核的主要芯片大厂的各个 SoC 系列" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-01T12:01:16+08:00" />
+<meta property="article:modified_time" content="2021-05-23T17:48:42+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【主线剧情 番外01】ARM 系列快速鸟瞰"/>
+<meta name="twitter:description" content="介绍 ARM 内核的主要芯片大厂的各个 SoC 系列"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/" /><link rel="prev" href="https://staok.github.io/3%E8%80%83%E7%A0%94%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" /><link rel="next" href="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【主线剧情 番外01】ARM 系列快速鸟瞰",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "ARM","wordcount":  813 ,
+        "url": "https:\/\/staok.github.io\/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0\/","datePublished": "2021-05-01T12:01:16+08:00","dateModified": "2021-05-23T17:48:42+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "介绍 ARM 内核的主要芯片大厂的各个 SoC 系列"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【主线剧情 番外01】ARM 系列快速鸟瞰</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85linux-%E7%B3%BB%E5%88%97/"><i class="far fa-folder fa-fw"></i>【主线剧情】Linux 系列</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-01">2021-05-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 813 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#零-鸟瞰">零 鸟瞰</a>
+      <ul>
+        <li><a href="#arm-cortex-系列框图">ARM Cortex 系列框图</a></li>
+        <li><a href="#arm-体系结构的几大分类">ARM 体系结构的几大分类</a></li>
+      </ul>
+    </li>
+    <li><a href="#一-定位">一 定位</a>
+      <ul>
+        <li><a href="#arm-cortex-a-系列对比">ARM Cortex-A 系列对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#二-展望">二 展望</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="arm--soc-系列快速鸟瞰">ARM &amp; SOC 系列快速鸟瞰</h1>
+<p>编辑整理 By <a href="https://github.com/Staok" target="_blank" rel="noopener noreffer">Staok</a>，如有错误恭谢指出，侵删。CC-BY-NC-SA 4.0。</p>
+<hr>
+<h2 id="零-鸟瞰">零 鸟瞰</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/0-%e9%b8%9f%e7%9e%b0.png"
+        data-srcset="assets/0-%e9%b8%9f%e7%9e%b0.png, assets/0-%e9%b8%9f%e7%9e%b0.png 1.5x, assets/0-%e9%b8%9f%e7%9e%b0.png 2x"
+        data-sizes="auto"
+        alt="assets/0-鸟瞰.png"
+        title="0 鸟瞰" /></p>
+<h3 id="arm-cortex-系列框图">ARM Cortex 系列框图</h3>
+<p>图中包含现今主流处理器架构和内核层，ARM架构处理器的架构层、内核层和具体芯片（举例）三个维度的进化/迭代示意。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/ARM%e5%86%85%e6%a0%b8%e7%b3%bb%e5%88%97%e6%a1%86%e5%9b%be.jpg"
+        data-srcset="assets/ARM%e5%86%85%e6%a0%b8%e7%b3%bb%e5%88%97%e6%a1%86%e5%9b%be.jpg, assets/ARM%e5%86%85%e6%a0%b8%e7%b3%bb%e5%88%97%e6%a1%86%e5%9b%be.jpg 1.5x, assets/ARM%e5%86%85%e6%a0%b8%e7%b3%bb%e5%88%97%e6%a1%86%e5%9b%be.jpg 2x"
+        data-sizes="auto"
+        alt="assets/ARM内核系列框图.jpg"
+        title="ARM内核系列框图" /></p>
+<h3 id="arm-体系结构的几大分类">ARM 体系结构的几大分类</h3>
+<ul>
+<li>ARM7 处理器；</li>
+<li>ARM9、ARM9E 处理器；</li>
+<li>ARM10E 处理器；</li>
+<li>SecurCore 处理器；</li>
+<li>StrongARM 处理器；</li>
+<li>ARM11 处理器；</li>
+<li>Cortex 系列处理器。</li>
+</ul>
+<h2 id="一-定位">一 定位</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/1-%e5%ae%9a%e4%bd%8d.png"
+        data-srcset="assets/1-%e5%ae%9a%e4%bd%8d.png, assets/1-%e5%ae%9a%e4%bd%8d.png 1.5x, assets/1-%e5%ae%9a%e4%bd%8d.png 2x"
+        data-sizes="auto"
+        alt="assets/1-定位.png"
+        title="1 定位" /></p>
+<h3 id="arm-cortex-a-系列对比">ARM Cortex-A 系列对比</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94.jpg"
+        data-srcset="assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94.jpg, assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94.jpg 1.5x, assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94.jpg 2x"
+        data-sizes="auto"
+        alt="assets/ARM-Cortex-A-系列对比.jpg"
+        title="ARM Cortex-A 系列对比" /></p>
+<p>更详细的介绍参看：</p>
+<ul>
+<li><a href="https://news.znds.com/article/13324.html" target="_blank" rel="noopener noreffer">ARM Cortex-A系列处理器性能分类比较ARM处理器排名_ZNDS资讯</a></li>
+<li><a href="https://blog.csdn.net/thisway_diy/article/details/84100076" target="_blank" rel="noopener noreffer">ARM版本系列及家族成员梳理_ 韦东山嵌入式专栏-CSDN博客 _arm系列</a></li>
+<li><a href="https://blog.csdn.net/water1730/article/details/70176661" target="_blank" rel="noopener noreffer">哪种ARM Cortex内核更适合我的应用：A系列、R系列、还是M系列？_water1730的博客-CSDN博客</a></li>
+<li><a href="https://wenku.baidu.com/view/732d2dbc6337ee06eff9aef8941ea76e58fa4acd.html" target="_blank" rel="noopener noreffer">ARMCortex各系列处理器分类比较 - 百度文库 (baidu.com)</a></li>
+</ul>
+<p>引用：</p>
+<blockquote>
+<p>如图所示，绿色的部分都是v7-A的架构，蓝色的是v8-A架构，基本上绿色都是可以支持到32和64位的，除了A32，只支持到32位。在右边的每个部分，比如说需要高效能的最上面的A15-A73这个部分是最高效的，接下来就是比较注重整个效率的部分了，中间那个部分是比较高效率的，最下面那栏的是效率最好的，在电池的效能方面达到了最好的标准。</p>
+<p>如果非要给他们一个排序的话，从高到低大体上可排序为：Cortex-A73处理器、Cortex-A72处理器、Cortex-A57处理器、Cortex-A53处理器、Cortex-A35处理器、Cortex-A32处理器、Cortex-A17处理器、Cortex-A15处理器、Cortex-A7处理器、Cortex-A9处理器、Cortex-A8处理器、Cortex-A5处理器。</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94-2.jpg"
+        data-srcset="assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94-2.jpg, assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94-2.jpg 1.5x, assets/ARM-Cortex-A-%e7%b3%bb%e5%88%97%e5%af%b9%e6%af%94-2.jpg 2x"
+        data-sizes="auto"
+        alt="assets/ARM-Cortex-A-系列对比-2.jpg"
+        title="ARM Cortex-A 系列对比 2" /></p>
+<p><img src="assets/ARM-Cortex-A-系列对比-3.png" alt="ARM Cortex-A 系列对比 3" style="zoom:80%;" /></p>
+<h2 id="二-展望">二 展望</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/2-%e5%b1%95%e6%9c%9b.png"
+        data-srcset="assets/2-%e5%b1%95%e6%9c%9b.png, assets/2-%e5%b1%95%e6%9c%9b.png 1.5x, assets/2-%e5%b1%95%e6%9c%9b.png 2x"
+        data-sizes="auto"
+        alt="assets/2-展望.png"
+        title="2 展望" /></p>
+<p>基于 Linux 系统方案的优势：</p>
+<ul>
+<li>更高性能，可以运行复杂的算法；</li>
+<li>高效开发，专注于梳理任务，应用以 APP 形式编写和更新；</li>
+<li>智能终端，可以外接触摸屏，运行 Qt 上位机做人机界面；</li>
+<li>协议丰富，使高级接口如网络、USB 等更易于开发；</li>
+<li>平台通用，开发形式更加固定。</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-05-23</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/" data-title="【主线剧情 番外01】ARM 系列快速鸟瞰" data-hashtags="ARM"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/" data-hashtag="ARM"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/" data-title="【主线剧情 番外01】ARM 系列快速鸟瞰" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/arm/">ARM</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/3%E8%80%83%E7%A0%94%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" class="prev" rel="prev" title="【考研】噫嘘唏，考研个人经验汇总"><i class="fas fa-angle-left fa-fw"></i>【考研】噫嘘唏，考研个人经验汇总</a>
+            <a href="/%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/" class="next" rel="next" title="【读标准03】IEEE1451.5标准协议尝鲜实现">【读标准03】IEEE1451.5标准协议尝鲜实现<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

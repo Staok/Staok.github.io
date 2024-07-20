@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>【主线剧情】Linux 系列 - 分类 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/categories/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85linux-%E7%B3%BB%E5%88%97/</link>
+        <description>【主线剧情】Linux 系列 - 分类 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Sat, 04 Jun 2022 16:46:10 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/categories/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85linux-%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>必先看：主线剧情系列的循序渐进的查看顺序</title>
+    <link>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</link>
+    <pubDate>Sat, 04 Jun 2022 16:46:10 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</guid>
+    <description><![CDATA[必先看：主线剧情 系列 的循序渐进的查看顺序 【主线剧情】Linux 系列，为嵌入式 Linux 的学习记录。 每一篇文章的内容、以及仓库的内容都极其丰富~ 仓库地]]></description>
+</item><item>
+    <title>【主线剧情01】ARM IMX6ULL 基础学习记录</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Fri, 02 Apr 2021 13:26:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[ARM &amp; i.MX6ULL 基础学习记录 编辑整理 by Staok。 本文大部分内容摘自“100ask imx6ull”开发板的配套资料（如《IMX6ULL裸机开发完全手册]]></description>
+</item><item>
+    <title>【主线剧情02】ARM Linux 基础学习记录</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Mon, 05 Apr 2021 12:20:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[ARM &amp; Linux 基础学习记录 编辑整理 by Staok。 本文部分内容摘自 “100ask imx6ull” 开发板的配套资料（如 百问网的《嵌入式Linux应用开发]]></description>
+</item><item>
+    <title>【主线剧情 番外01】ARM 系列快速鸟瞰</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/</link>
+    <pubDate>Sat, 01 May 2021 12:01:16 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9601-arm%E7%B3%BB%E5%88%97%E5%BF%AB%E9%80%9F%E9%B8%9F%E7%9E%B0/</guid>
+    <description><![CDATA[ARM &amp; SOC 系列快速鸟瞰 编辑整理 By Staok，如有错误恭谢指出，侵删。CC-BY-NC-SA 4.0。 零 鸟瞰 ARM Cortex 系列框图 图中包含现今主流处理器架构和]]></description>
+</item><item>
+    <title>【主线剧情03】NXP i.MX 系列 u-boot 移植基础详解</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8503-nxp-i.mx%E7%B3%BB%E5%88%97%E7%9A%84u-boot%E7%A7%BB%E6%A4%8D%E5%9F%BA%E7%A1%80%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Sat, 10 Apr 2021 22:09:57 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8503-nxp-i.mx%E7%B3%BB%E5%88%97%E7%9A%84u-boot%E7%A7%BB%E6%A4%8D%E5%9F%BA%E7%A1%80%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[u-boot 移植基础详解 本文系广泛撷取、借鉴和整理（相关的内容在网络上有很多，但很多相互抄，或者是版本太老，或者就是不通用的非常有平台针对性的步骤，碎]]></description>
+</item><item>
+    <title>【主线剧情 番外02】设备树详解</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9602-%E8%AE%BE%E5%A4%87%E6%A0%91%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Sun, 23 May 2021 16:46:10 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85-%E7%95%AA%E5%A4%9602-%E8%AE%BE%E5%A4%87%E6%A0%91%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[设备树详解 本文 续接 《【主线剧情03】NXP i.MX 系列 u-boot 移植基础详解》 一文中移植过程小节中有关设备树的内容。 编辑整理 By Staok，如有错误恭谢指出]]></description>
+</item><item>
+    <title>【主线剧情0.0】Linux 学习资源大综合</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%850.0-linux%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%A4%A7%E7%BB%BC%E5%90%88/</link>
+    <pubDate>Thu, 24 Mar 2022 13:26:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%850.0-linux%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%A4%A7%E7%BB%BC%E5%90%88/</guid>
+    <description><![CDATA[Linux 学习资源大综合 对收集到的比较丰富的 Linux 学习相关的资料进行整理。注，如果链接挂了请告诉我，如果链接里的内容被删了那么直接搜文章名字试试也许会搜]]></description>
+</item><item>
+    <title>【主线剧情08】Linux 应用编程-学习总结备查</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>
+    <pubDate>Fri, 25 Mar 2022 21:12:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</guid>
+    <description><![CDATA[Linux 应用编程- 学习总结备查 记 Linux 应用 相关的基本概念和流程，便于 备查 / 复习。p.s Linux 系统性的入门与学习的 路线和途径 推荐去看 【主线剧情 0.0】Lin]]></description>
+</item><item>
+    <title>【主线剧情07.1】Linux驱动编程-基本字符设备和设备树维护</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8507.1-linux%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B-%E5%9F%BA%E6%9C%AC%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E5%92%8C%E8%AE%BE%E5%A4%87%E6%A0%91%E7%BB%B4%E6%8A%A4/</link>
+    <pubDate>Sun, 17 Apr 2022 21:12:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8507.1-linux%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B-%E5%9F%BA%E6%9C%AC%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E5%92%8C%E8%AE%BE%E5%A4%87%E6%A0%91%E7%BB%B4%E6%8A%A4/</guid>
+    <description><![CDATA[Linux 驱动编程 - 基本字符设备和设备树维护 教程可参考 100ask的 《嵌入式Linux应用开发完全手册V4.0_韦东山全系列视频文档-IMX6ULL]]></description>
+</item><item>
+    <title>【主线剧情07.2】Linux驱动编程-各种内核机制总结</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8507.2-linux%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B-%E5%90%84%E7%A7%8D%E5%86%85%E6%A0%B8%E6%9C%BA%E5%88%B6%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Wed, 20 Apr 2022 21:12:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8507.2-linux%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B-%E5%90%84%E7%A7%8D%E5%86%85%E6%A0%B8%E6%9C%BA%E5%88%B6%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[Linux 驱动编程 - 各种内核机制总结 本文系学习 100ask 手册而做的备查笔记，我优化了一些逻辑，循序渐进，并扩展了一些，适合复习、备查来看，而非新学来看。 在 Github]]></description>
+</item></channel>
+</rss>

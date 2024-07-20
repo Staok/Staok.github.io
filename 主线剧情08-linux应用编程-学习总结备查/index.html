@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【主线剧情08】Linux 应用编程-学习总结备查 - 欢迎来到 瞰百Staok</title><meta name="Description" content="记 Linux 应用 相关的基本概念和流程，便于 备查 / 复习"><meta property="og:title" content="【主线剧情08】Linux 应用编程-学习总结备查" />
+<meta property="og:description" content="记 Linux 应用 相关的基本概念和流程，便于 备查 / 复习" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-25T21:12:00+08:00" />
+<meta property="article:modified_time" content="2022-06-04T21:12:00+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【主线剧情08】Linux 应用编程-学习总结备查"/>
+<meta name="twitter:description" content="记 Linux 应用 相关的基本概念和流程，便于 备查 / 复习"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" /><link rel="prev" href="https://staok.github.io/7%E8%BF%87%E5%BE%80%E6%97%B6%E6%9C%9F/" /><link rel="next" href="https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【主线剧情08】Linux 应用编程-学习总结备查",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "ARM, Linux","wordcount":  3103 ,
+        "url": "https:\/\/staok.github.io\/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5\/","datePublished": "2022-03-25T21:12:00+08:00","dateModified": "2022-06-04T21:12:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "记 Linux 应用 相关的基本概念和流程，便于 备查 / 复习"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【主线剧情08】Linux 应用编程-学习总结备查</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85linux-%E7%B3%BB%E5%88%97/"><i class="far fa-folder fa-fw"></i>【主线剧情】Linux 系列</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-25">2022-03-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3103 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#-linux-开发-基本工具的使用">① Linux 开发 基本工具的使用</a></li>
+    <li><a href="#-编译--交叉编译-工具的获取">② 编译 / 交叉编译 工具的获取</a></li>
+    <li><a href="#-linux-系统调用各层调用关系">③ Linux 系统调用（各层调用关系）</a></li>
+    <li><a href="#-linux-一般开发流程">④ Linux 一般开发流程</a></li>
+    <li><a href="#-主机端-与-嵌入式-linux-板端-相互传文件">⑤ 主机端 与 嵌入式 Linux 板端 相互传文件</a></li>
+    <li><a href="#-期待美好发生">⑥ 期待美好发生</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#参考源">参考源</a>
+      <ul>
+        <li><a href="#通过手册的-查看-api-详细描述参考">通过手册的 查看 API 详细描述参考</a></li>
+        <li><a href="#通过命令行的-查看命令api--描述参考">通过命令行的 查看命令、API  描述参考</a></li>
+        <li><a href="#linux-应用开发--学习--备查-参考源">Linux 应用开发 / 学习 / 备查 参考源</a></li>
+      </ul>
+    </li>
+    <li><a href="#标准-api-富集">标准 API 富集</a></li>
+    <li><a href="#linux-应用的基本编程思想">Linux 应用的基本编程思想</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="linux-应用编程--学习总结备查">Linux 应用编程- 学习总结备查</h1>
+<p>记 Linux 应用 相关的基本概念和流程，便于 备查 / 复习。<em>p.s Linux 系统性的入门与学习的 路线和途径 推荐去看 <a href="https://zhuanlan.zhihu.com/p/486903467" target="_blank" rel="noopener noreffer">【主线剧情 0.0】Linux 学习资源大综合 - 知乎 (zhihu.com)</a>（<a href="https://blog.csdn.net/Staokgo/article/details/123717871#t7" target="_blank" rel="noopener noreffer">CSDN 链接</a>） 里面的 <code>!学习来源!</code> 、 <code>书籍推荐</code> 和 <code>Linux 应用编程内容补充</code>这几节！</em>。</p>
+<p>注：<a href="https://github.com/Staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">在 Github 上的原版文章日后可能会更新</a>，但这里不会跟进。<a href="https://gitee.com/staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">文章的 Gitee 仓库地址，Gitee 访问更流畅</a>。</p>
+<hr>
+<h1 id="地基">地基</h1>
+<h2 id="-linux-开发-基本工具的使用">① Linux 开发 基本工具的使用</h2>
+<p>代码编辑：Vim、gedit（ubuntu 下）。编译工具：gcc，make，cmake（生成 makefile），gdb。项目管理：git。文本编辑：Windows 端的如 source insight、Notepad、VsCode 等；Linux 端的如 gedit（Ubuntu 端）、VsCode 等。</p>
+<p>引 <a href="https://blog.csdn.net/Staokgo/article/details/123693110#t7" target="_blank" rel="noopener noreffer">主线剧情02-ARM-Linux基础学习记录_Real-Staok的博客-CSDN博客</a> 里面的 <code>Linux 下的开发</code> 一节的内容。</p>
+<h2 id="-编译--交叉编译-工具的获取">② 编译 / 交叉编译 工具的获取</h2>
+<p>引 <a href="https://blog.csdn.net/Staokgo/article/details/123693110#t14" target="_blank" rel="noopener noreffer">主线剧情02-ARM-Linux基础学习记录_Real-Staok的博客-CSDN博客</a> 里面的 <code>获取交叉编译工具链</code> 一节的内容。其中 举出三个方法：用开发板厂家提供的 SDK 里的工具链、ARM 官网下载 合适的工具链、使用 Linaro GCC 编译器。</p>
+<p>另外，在构建 rootfs 时候使用 buildroot 或 yocto 时候可以构建 交叉编译器。</p>
+<h2 id="-linux-系统调用各层调用关系">③ Linux 系统调用（各层调用关系）</h2>
+<ul>
+<li><a href="https://blog.csdn.net/daaikuaichuan/article/details/82729483" target="_blank" rel="noopener noreffer">Linux系统相关的基础问题（空间、内存、库、链接、环境变量）_~青萍之末~的博客-CSDN博客</a>。</li>
+<li><a href="https://blog.csdn.net/daaikuaichuan/article/details/82902407" target="_blank" rel="noopener noreffer">Linux系统调用_~青萍之末~的博客-CSDN博客_linux系统调用</a>。<a href="https://www.bilibili.com/video/BV1kk4y117Tu?p=13" target="_blank" rel="noopener noreffer">【第4篇】嵌入式Linux应用开发基础知识_哔哩哔哩_bilibili</a>，其中 <code>4-2_ 文件IO _系统接口</code> 这一个节讲解 系统调用怎么进入内核。</li>
+<li><a href="https://blog.csdn.net/daaikuaichuan/article/details/82957655" target="_blank" rel="noopener noreffer">Linux内核的五大模块_~青萍之末~的博客-CSDN博客_linux内核模块</a>，进程调度，进程间通信模块（包括管道、命名管道、消息队列、信号量和共享内存等），内存管理模块，文件系统模块，网络接口模块。</li>
+<li>etc.</li>
+</ul>
+<h2 id="-linux-一般开发流程">④ Linux 一般开发流程</h2>
+<p>引 <a href="https://blog.csdn.net/Staokgo/article/details/123693110#t2" target="_blank" rel="noopener noreffer">主线剧情02-ARM-Linux基础学习记录_Real-Staok的博客-CSDN博客</a> 里面的 <code>Linux 一般开发步骤</code> 一节的内容：</p>
+<blockquote>
+<p>Bootloader、Linux 内核、根文件系统、APP 等等软件，需要在 Ubuntu 中编译；但是阅读、修改这些源码时，在 Windows 下会比较方便。</p>
+<p>所以工作日常开发流程如下：</p>
+<p>PC 端，使用 source insight 编、改源码 —&gt;传—&gt; Ubuntu 端，对修改好的源码进行编译、制作 —&gt;下载—&gt; 嵌入式板端，在 Linux 板子上运行、测试。</p>
+<p>分步来说就是：</p>
+<p>在 Windows 上阅读、研究、修改，修改后，上传（推荐 FileZilla）到 Ubuntu ；</p>
+<p>在 Ubuntu 上编译、制作（推荐使用 MobaXterm 通过 SSH 远程登陆 Ubuntu）；</p>
+<p>把制作好的可执行程序下载到开发板上运行、测试。</p>
+<p>u-boot、Linux内核，在 Windows 和 Ubuntu 各存一份。根文件系统使用 buildroot （或 Busybox 或 Yocto）制作，它无需放在 Windows 上。</p>
+</blockquote>
+<h2 id="-主机端-与-嵌入式-linux-板端-相互传文件">⑤ 主机端 与 嵌入式 Linux 板端 相互传文件</h2>
+<p>引 [主线剧情02-ARM-Linux基础学习记录_Real-Staok的博客-CSDN博客](<a href="https://blog.csdn.net/Staokgo/article/details/123693110" target="_blank" rel="noopener noreffer">(40条消息) 主线剧情02-ARM-Linux基础学习记录_Real-Staok的博客-CSDN博客</a>) 里面的 <code>PC 与 嵌入式板 传输文件的方式汇总</code> 一节的内容。这一块内容会只在 <a href="https://github.com/Staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">Github</a>/<a href="https://gitee.com/staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">Gitee</a> 仓库内更新：</p>
+<ul>
+<li>网络传输：ETH / WiFi。通过 SSH、NFS、TFTP 等。</li>
+<li>USB 传输：<del>U 盘拷贝</del>，芯片官方 配套的 USB 传输 / 烧写 工具。</li>
+<li>串口传输：rz / sz 命令。</li>
+</ul>
+<h2 id="-期待美好发生">⑥ 期待美好发生</h2>
+<p>这儿的能力是靠 多做项目、多积累经验，量变出质变。</p>
+<h1 id="开发">开发</h1>
+<h2 id="参考源">参考源</h2>
+<h3 id="通过手册的-查看-api-详细描述参考">通过手册的 查看 API 详细描述参考</h3>
+<p>引 <a href="https://blog.csdn.net/Staokgo/article/details/122451567#t20" target="_blank" rel="noopener noreffer">【规范】万字集大成的C编写规范_Real-Staok的博客-CSDN博客</a> 中的 <code>7 C 标准库的使用</code> 一节内容，即 各种C标准库详解和用例，其中包括了 C/C++ 的常用标准库 的 API 使用的详细描述，还包括 Linux_C（<a href="https://gitee.com/zhaixuebuluo/glibc_man_cn" target="_blank" rel="noopener noreffer">glibc_man_cn</a>）、POSIX-C 等的 API 的完整描述文档（包括中文），便于速查，其 仓库在 <a href="https://gitee.com/staok/coding-style-and-more/tree/main/%e9%a2%9d%e5%a4%96%e6%96%87%e6%a1%a3/%e5%90%84%e7%a7%8dC%e6%a0%87%e5%87%86%e5%ba%93%e8%af%a6%e8%a7%a3%e5%92%8c%e7%94%a8%e4%be%8b" target="_blank" rel="noopener noreffer">额外文档/各种C标准库详解和用例 · 瞰百/coding-style-and-more - 码云 - 开源中国 (gitee.com)</a>（<a href="https://github.com/Staok/coding-style-and-more/tree/main/%E9%A2%9D%E5%A4%96%E6%96%87%E6%A1%A3/%E5%90%84%E7%A7%8DC%E6%A0%87%E5%87%86%E5%BA%93%E8%AF%A6%E8%A7%A3%E5%92%8C%E7%94%A8%E4%BE%8B" target="_blank" rel="noopener noreffer">Gituhb 仓库地址</a>）。</p>
+<p>其中包括文件如：C语言标准函数库速查.pdf、C语言函数大全语法着色版.pdf、Linux函数大全.chm、POSIX-C函数速查.chm 等等。</p>
+<h3 id="通过命令行的-查看命令api--描述参考">通过命令行的 查看命令、API  描述参考</h3>
+<p>help、man 和 info 命令。</p>
+<ul>
+<li>
+<p>help 只能用于查看某个命令的用法。</p>
+</li>
+<li>
+<p>man 命令既可以查看命令的用法，还可以查看函数的详细介绍等等。</p>
+<blockquote>
+<p>（引自 百问网）</p>
+<p>比如想查看 open() 函数的用法时，可以直接执行 <code>man open</code> ，发现这不是想要内容时再执行 <code>man 2 open</code>。</p>
+<p>在 man 命令中可以及时按“h”查看帮助信息了解快捷键。常用的快捷键是：</p>
+<ul>
+<li><code>f</code> 往前翻一页。</li>
+<li><code>b</code> 往后翻一页。</li>
+<li><code>/&lt;patten&gt;</code> 往前搜 <code>patten</code> 字符。</li>
+<li><code>?&lt;patten&gt;</code> 往后搜。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>info 命令会显示最全面的信息，一般 <code>man</code> 命令就够了，故 <code>info</code> 命令介绍 暂时略。</p>
+</li>
+</ul>
+<h3 id="linux-应用开发--学习--备查-参考源">Linux 应用开发 / 学习 / 备查 参考源</h3>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/486903467" target="_blank" rel="noopener noreffer">【主线剧情 0.0】Linux 学习资源大综合 - 知乎 (zhihu.com)</a>（<a href="https://blog.csdn.net/Staokgo/article/details/123717871#t7" target="_blank" rel="noopener noreffer">CSDN 链接</a>） 里面的 <code>!学习来源!</code> 一节！</li>
+<li><a href="https://zhuanlan.zhihu.com/p/486903467" target="_blank" rel="noopener noreffer">【主线剧情 0.0】Linux 学习资源大综合 - 知乎 (zhihu.com)</a>（<a href="https://blog.csdn.net/Staokgo/article/details/123717871#t7" target="_blank" rel="noopener noreffer">CSDN 链接</a>） 里面的 <code>书籍推荐</code> 一节。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/486903467" target="_blank" rel="noopener noreffer">【主线剧情 0.0】Linux 学习资源大综合 - 知乎 (zhihu.com)</a>（<a href="https://blog.csdn.net/Staokgo/article/details/123717871#t7" target="_blank" rel="noopener noreffer">CSDN 链接</a>） 里面的 <code>Linux 应用编程内容补充</code> 一节。</li>
+</ul>
+<h2 id="标准-api-富集">标准 API 富集</h2>
+<p>这里就是日常用到的 API 的积累和整理，最详细、全面的 API 参考 见 上面 <code>通过手册的 API 详细描述参考</code> 一节。</p>
+<p>日常用到的 标准 API 富集 单独放在了 <code>【Linux 通用应用开发】</code> （<strong>仓库地址 <a href="https://github.com/Staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">Github</a>、<a href="https://gitee.com/staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer">Gitee</a></strong>）文件夹 里面，包括：</p>
+<ul>
+<li>
+<p>文件 IO、字符流收发 和 字符串处理相关的 API 收集积累。</p>
+</li>
+<li>
+<p>一些 Shell 命令 API 收集积累。</p>
+</li>
+<li>
+<p>输入设备框架，读取驱动程序按照 input event 框架上传的信息。</p>
+</li>
+<li>
+<p>文件 IO 读写的基本四种机制（阻塞、非阻塞、poll/select 和 异步通知（通过信号机制））。</p>
+</li>
+<li>
+<p>Socket TCP / UDP 编程。</p>
+</li>
+<li>
+<p>进程 和 线程 的设计和编程。包括 进程和线程的分配策略、进程和线程的 API 用法 等：</p>
+<ul>
+<li>进程 相关 API（fork()、exec、wait() 等等）。</li>
+<li>进程间通讯（管道、命名管道、信号、信号量、消息队列、共享内存、内存映射 和 套接字）。</li>
+<li>pthread 线程编程库 相关 POSIX API（pthread_create()、（后面省略 “pthread_”）exit / cancel 和 join / tryjoin_np、self()、attr_setxxx() / attr_getxxx()、）。</li>
+<li>线程间通讯、同步的机制（锁机制（互斥锁、读写锁 和 自旋锁）、信号量机制、条件变量机制 和 信号（与 IPC 的信号使用上有区别））。</li>
+</ul>
+</li>
+<li>
+<p>串口收发编程、I2C编程。</p>
+<p>实质上就是对各种设备驱动文件 进行 open/read/write/ioctl/close 来配置和读写，有一些标准接口有标准的信息结构，因此有专门的 库，通过这些库来间接的 配置 和 读写设备驱动文件，比如 tslib、i2ctool 等等。</p>
+</li>
+<li>
+<p>等等其它，用时补充。比如 进程高级编程、内存管理、Linux 高并发编程 epoll 等等。</p>
+</li>
+</ul>
+<h2 id="linux-应用的基本编程思想">Linux 应用的基本编程思想</h2>
+<p>大的思想就是，主要对设备文件使用 read/write/ioctl 和 mmap，以下举例：</p>
+<ul>
+<li>
+<p>uart（ttyxxx）/i2c/spi设备文件，先用ioctl读出信息和写入配置，然后用read/write来接收和发送（涉及到四种机制：阻塞、非阻塞、poll/select、异步通知）。</p>
+</li>
+<li>
+<p>屏幕，名为fb的设备，通常用帧缓冲，mmap之后，对一块内存用指针直接进行读写，就是读屏和写屏。</p>
+</li>
+<li>
+<p>对于摄像头/图像/视频设备，名为videoxxx的设备，read就是读一帧图像/截图。</p>
+</li>
+<li>
+<p>音频设备，同样是read来录音，write就是播放（如果支持的话）。</p>
+</li>
+</ul>
+<p>对于不同的设备，read 和 write 的使用比较符合直觉，清楚这个编程模式后面看程序，思路就比较清晰。</p>
+<p>再有就是各种高级编程，包括进程/线程以及其间的通讯/同步（需要大量实验和经验），网络编程，内存管理，高并发 epoll 等等。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-06-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" data-title="【主线剧情08】Linux 应用编程-学习总结备查" data-hashtags="ARM,Linux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" data-hashtag="ARM"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8508-linux%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" data-title="【主线剧情08】Linux 应用编程-学习总结备查" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/arm/">ARM</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/7%E8%BF%87%E5%BE%80%E6%97%B6%E6%9C%9F/" class="prev" rel="prev" title="【杂谈】过往时期"><i class="fas fa-angle-left fa-fw"></i>【杂谈】过往时期</a>
+            <a href="/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/" class="next" rel="next" title="PCIe接口及其衍生接口大总结">PCIe接口及其衍生接口大总结<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

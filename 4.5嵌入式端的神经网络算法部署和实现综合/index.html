@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>（大集合）嵌入式端的神经网络算法部署和实现综合 - 欢迎来到 瞰百Staok</title><meta name="Description" content="介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现"><meta property="og:title" content="（大集合）嵌入式端的神经网络算法部署和实现综合" />
+<meta property="og:description" content="介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-12T16:15:14+08:00" />
+<meta property="article:modified_time" content="2021-10-10T16:17:18+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="（大集合）嵌入式端的神经网络算法部署和实现综合"/>
+<meta name="twitter:description" content="介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/" /><link rel="prev" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8503-nxp-i.mx%E7%B3%BB%E5%88%97%E7%9A%84u-boot%E7%A7%BB%E6%A4%8D%E5%9F%BA%E7%A1%80%E8%AF%A6%E8%A7%A3/" /><link rel="next" href="https://staok.github.io/%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "（大集合）嵌入式端的神经网络算法部署和实现综合",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "软件, 神经网络","wordcount":  5454 ,
+        "url": "https:\/\/staok.github.io\/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88\/","datePublished": "2021-04-12T16:15:14+08:00","dateModified": "2021-10-10T16:17:18+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">（大集合）嵌入式端的神经网络算法部署和实现综合</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/"><i class="far fa-folder fa-fw"></i>随机技术情报</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-12">2021-04-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5454 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#微控制器-mcu-端">微控制器 MCU 端</a>
+      <ul>
+        <li><a href="#awesome-embedded-repository">Awesome-Embedded Repository</a></li>
+        <li><a href="#网友自实现的轮子">网友自实现的轮子</a></li>
+        <li><a href="#kendryte-k210">Kendryte K210</a></li>
+        <li><a href="#edge-impulse">Edge Impulse</a></li>
+        <li><a href="#st-x-cube-ai">ST X-Cube-AI</a></li>
+        <li><a href="#cmsis-nn">CMSIS-NN</a></li>
+        <li><a href="#tensorflowlite">TensorFlowLite</a></li>
+        <li><a href="#tinyml-projects">TinyML Projects</a></li>
+      </ul>
+    </li>
+    <li><a href="#微处理器-mpu-端">微处理器 MPU 端</a>
+      <ul>
+        <li><a href="#arm-compute-library">ARM Compute Library</a></li>
+        <li><a href="#arm-nn">ARM NN</a></li>
+        <li><a href="#pyarmnn">PyArmNN</a></li>
+        <li><a href="#mace">MACE</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#其它嵌入式ai算法实现库">其它嵌入式AI算法实现库</a></li>
+    <li><a href="#其他平台">其他平台</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="嵌入式端的神经网络算法部署和实现">嵌入式端的神经网络算法部署和实现</h1>
+<p>介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现。神经网络的调教（训练）还是在 PC 端，神经网络参数训练好之后，在嵌入式端进行部署（本文的中心），经过在嵌入式端部署进去的神经网络算法对给定数据进行计算从而得出结果，实现算法的嵌入式端部署和运行，这么一个过程。</p>
+<p>嵌入式 AI 概念：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e6%a6%82%e5%bf%b5.png"
+        data-srcset="assets/%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e6%a6%82%e5%bf%b5.png, assets/%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e6%a6%82%e5%bf%b5.png 1.5x, assets/%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e6%a6%82%e5%bf%b5.png 2x"
+        data-sizes="auto"
+        alt="assets/嵌入式AI概念.png"
+        title="嵌入式AI概念" /></p>
+<p>更多参考 <a href="https://www.zhihu.com/question/382207885/answer/1184193490" target="_blank" rel="noopener noreffer">如何将训练好的神经网络部署到嵌入式芯片上，如arduino和树莓派等？ - 知乎 (zhihu.com)</a>。</p>
+<p><strong>本文提及的 开源库 和 资料 均放在了 <a href="https://github.com/Staok/Awesome-Embeded-AI" target="_blank" rel="noopener noreffer">Github</a>/<a href="https://gitee.com/staok/Awesome-Embeded-AI" target="_blank" rel="noopener noreffer">Gitee</a> 仓库内。</strong></p>
+<hr>
+<h2 id="目录">目录</h2>
+<p>[TOC]</p>
+<hr>
+<h2 id="微控制器-mcu-端">微控制器 MCU 端</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/483288607" target="_blank" rel="noopener noreffer">人工智能的下一轮革命？关于TinyML的一切 - 知乎 (zhihu.com)</a>。</p>
+<h3 id="awesome-embedded-repository">Awesome-Embedded Repository</h3>
+<p>nhivp/Awesome-Embedded 开源项目下的 Machine Learning &amp; AI on MCU 小节，总结的很好。</p>
+<p><a href="https://github.com/nhivp/Awesome-Embedded#machine-learning--ai-on-mcu" target="_blank" rel="noopener noreffer">nhivp/Awesome-Embedded: A curated list of awesome embedded programming. (github.com)</a>，其源文如下：</p>
+<ul>
+<li><a href="https://github.com/majianjia/nnom" target="_blank" rel="noopener noreffer">nnom</a> - A higher-level Neural Network library for microcontrollers.</li>
+<li><a href="https://github.com/correlllab/nn4mp" target="_blank" rel="noopener noreffer">nn4mp</a></li>
+<li><a href="https://github.com/Microsoft/ELL" target="_blank" rel="noopener noreffer">Embedded Learning Library (ELL)</a> - Microsoft&rsquo;s library to deploy intelligent machine-learned models onto resource constrained platforms and small single-board computers.</li>
+<li><a href="https://developer.qualcomm.com/software/qualcomm-neural-processing-sdk" target="_blank" rel="noopener noreffer">Qualcomm Neural Processing SDK for AI</a> - Libraries to developers run NN models on Snapdragon mobile platforms taking advantage of the CPU, GPU and/or DSP.</li>
+<li><a href="https://arm-software.github.io/CMSIS_5/NN/html/index.html" target="_blank" rel="noopener noreffer">CMSIS NN</a> - A collection of efficient neural network kernels developed to maximize the performance and minimize the memory footprint of neural networks on Cortex-M processor cores.在后文会介绍到</li>
+<li><a href="https://developer.arm.com/technologies/compute-library" target="_blank" rel="noopener noreffer">ARM Compute Library</a> - Set of optimized functions for image processing, computer vision, and machine learning.</li>
+<li><a href="https://github.com/uTensor/uTensor" target="_blank" rel="noopener noreffer">uTensor</a> - AI inference library based on mbed (an RTOS for ARM chipsets) and TensorFlow.</li>
+<li><a href="https://github.com/boralt/EmbeddedAI" target="_blank" rel="noopener noreffer">EmbededAI</a> - A library that provides elements of AI to C++ applications.</li>
+<li><a href="https://github.com/attractivechaos/kann" target="_blank" rel="noopener noreffer">kann</a> - A lightweight C library for artificial neural networks</li>
+</ul>
+<h3 id="网友自实现的轮子">网友自实现的轮子</h3>
+<p>这里只是举例网上有很多开源的网友自己实现的玩具轮子，比如这里介绍的 BP 神经网络，可以直接跑在 MCU 上。</p>
+<ul>
+<li>BP神经网络的C语言实现-只有三层：<a href="https://zhuanlan.zhihu.com/p/27110594" target="_blank" rel="noopener noreffer">BP神经网络及其C语言实现 - 知乎 (zhihu.com)</a>；<a href="https://github.com/ThreeClassMrWang/c-bpnn" target="_blank" rel="noopener noreffer">ThreeClassMrWang/c-bpnn: BP神经网络的C语言实现 (github.com)</a>。</li>
+<li>可以运行在STM32的BP算法实现-任意层：<a href="https://blog.csdn.net/qq_39545674/article/details/82495569" target="_blank" rel="noopener noreffer">(BP神经网络C语言实现_一朝英雄拔剑起的博客-CSDN博客_bp神经网络c语言实现</a>；</li>
+<li>STM32 运行 三层BP：<a href="https://github.com/sertreet/BPNeuralNetwork" target="_blank" rel="noopener noreffer">sertreet/BPNeuralNetwork: STM32F407ZGT6 Run BP Neural Network Handwritten Digit Recognition (github.com)</a>。</li>
+<li>etc.</li>
+</ul>
+<p>如果链接挂了请告诉我。</p>
+<h3 id="kendryte-k210">Kendryte K210</h3>
+<p>K210 是 RISC-V 64 位双核处理器，集成了可运行神经网络算法的硬件 IP 核，以及其它常用外设。其可直接跑 kmodel 格式模型，此模型可从 TensorFlow 模型转换为 TFlite 模型、TFLite 模型转换为 K210 的 kmodel 模型 而得到。</p>
+<p>我的<a href="https://github.com/Staok/Awesome-K210" target="_blank" rel="noopener noreffer">Github 仓库-Awesome-K210</a>收集了关于 K210 的 MaixPy 开发和 SDK IDE 开发等的软、硬件入门资料，帮助初学者快速了解、学习和入门 K210。</p>
+<p>这款芯片的生态已经做起来了，相关的开发板、kendryte 官方和 sipeed 官方的资料和例程、各路网友大佬的例程、网络训练以及模型开源等等已经非常丰富。甚至<a href="https://github.com/LZBUAV/K210_Python" target="_blank" rel="noopener noreffer">北航高校已经应用部署到无人机产品上</a>了，其项目的描述如下。</p>
+<blockquote>
+<p>该项目是 Kendryte K210 AI芯片应用程序的集合，其中包括面部检测，颜色检测，目标检测和分类，QR码和Apriltag码检测以及与ArduPilot飞行软件的通信。 最后，我们可以将这些应用程序部署到无人机终端，使无人机更加智能。</p>
+<p>所实现的应用主要分为两类，第一个是机器视觉应用，该类应用基于openmv机器视觉库；第二类是深度学习应用，该类主要基于Tensorflow和yolov2。详细功能参见用户手册。</p>
+<p>本K210项目为Vision_MAV项目的配套项目，Vision_MAV项目旨在设计并实现一个依托深度学习和图像处理技术的基于视觉的微型无人机系统，能够实现在无GPS环境下的自主视觉导航、目标检测与追踪，该项目由北航无人系统研究院李大伟副教授课题组创立并进行研究，并将在项目没有保密需求后进行开源。本仓库的K210项目是Vision_MAV的一个配套项目，基于<a href="https://canaan-creative.com/" target="_blank" rel="noopener noreffer">嘉楠科技公司</a>生产的边缘AI芯片<a href="https://canaan-creative.com/product/kendryteai" target="_blank" rel="noopener noreffer">K210</a>，来实现目标检测与追踪，为Vision_MAV项目提供一个可选的视觉解决方案。该项目采用了一块<a href="https://www.sipeed.com/" target="_blank" rel="noopener noreffer">矽速科技公司</a>生产的MAXI DOCK K210评估板，来验证K210芯片的AI计算能力。在本项目中，采用传统机器视觉方法实现了最大色块识别、二维码识别、Apriltag码识别、圆形识别，采用深度学习方法实现了人脸识别、人体识别、口罩识别等，并开发了K210和<a href="https://github.com/ArduPilot/ardupilot" target="_blank" rel="noopener noreffer">Ardupilot</a>飞控固件之间的<a href="https://github.com/ArduPilot/mavlink" target="_blank" rel="noopener noreffer">MAVlink</a>通讯接口，来实时的将K210视觉模组解算出的目标位置信息发送给飞控来控制无人机运动。</p>
+</blockquote>
+<h3 id="edge-impulse">Edge Impulse</h3>
+<p>可以在线训练各种传感器数据的神经网络模型，处理 图像，语音 or others，然后部署到 自己 MCU 上。</p>
+<ul>
+<li>官方文档 <a href="https://docs.edgeimpulse.com/docs" target="_blank" rel="noopener noreffer">Getting Started - Edge Impulse Documentation</a> 第一手资料。</li>
+<li>导出模型和库 并部署在自己 MCU 上 <a href="https://docs.edgeimpulse.com/docs/deployment/running-your-impulse-locally" target="_blank" rel="noopener noreffer">C++ library - Edge Impulse Documentation</a>。</li>
+<li>API 手册 <a href="https://docs.edgeimpulse.com/reference/edge-impulse-api/edge-impulse-api" target="_blank" rel="noopener noreffer">Edge Impulse API - Edge Impulse API</a>。</li>
+</ul>
+<p>自己使用的总结，以 ESP32 为例：</p>
+<ol>
+<li>提前准备好 ESP32 的 ESP-IDF 编译环境，并且会用，参考 我的相关仓库 <a href="https://github.com/Staok/esp8266-esp32-development/tree/master/ESP-IDF-IDE%e7%bc%96%e7%a8%8b" target="_blank" rel="noopener noreffer">esp8266-esp32-development/ESP-IDF-IDE编程 at master · Staok/esp8266-esp32-development (github.com)</a>，Gitee 地址 <a href="https://gitee.com/staok/esp8266-esp32-development/tree/master/ESP-IDF-IDE%e7%bc%96%e7%a8%8b" target="_blank" rel="noopener noreffer">ESP-IDF-IDE编程 · 瞰百/esp8266-esp32-development - 码云 - 开源中国 (gitee.com)</a>。</li>
+<li>按照<a href="https://docs.edgeimpulse.com/docs" target="_blank" rel="noopener noreffer">官网 Getting Started 手册的步骤</a>，官网注册账户、新建工程、输入数据、构建模型、在线训练、导出 Edge Impulse C++ 库。</li>
+<li>参考 <a href="https://docs.edgeimpulse.com/docs/deployment/running-your-impulse-locally/running-your-impulse-esp32" target="_blank" rel="noopener noreffer">On your Espressif ESP-EYE (ESP32) development board - Edge Impulse Documentation</a>，首先做一个最小工程，按照这个链接里面的步骤。</li>
+<li>更多详细参考 本仓库下 <code>\Edge Impulses</code> 文件夹内 说明，可以顺利编译 带 Edge Impulse 库的工程。</li>
+<li>一个官方提供的样板工程，可直接编译，<a href="https://github.com/edgeimpulse/firmware-espressif-esp32" target="_blank" rel="noopener noreffer">edgeimpulse/firmware-espressif-esp32: Edge Impulse firmware for the Espressif ESP-EYE(ESP32) Development board (github.com)</a>。</li>
+</ol>
+<p>一些网友教程：</p>
+<ul>
+<li><a href="https://blog.csdn.net/m0_56041246/article/details/118912412" target="_blank" rel="noopener noreffer">零基础的嵌入式机器学习：Edge Impulse使用教程之训练模型浅析(1)——分类模型_方恪的博客-CSDN博客</a>。</li>
+<li><a href="https://blog.csdn.net/m0_56041246/article/details/118937781" target="_blank" rel="noopener noreffer">零基础的嵌入式机器学习：Edge Impulse使用教程之训练模型浅析(2)——回归(预测)模型_方恪的博客-CSDN博客</a>。</li>
+</ul>
+<p>与常见 MCU 结合：</p>
+<ul>
+<li><a href="https://blog.csdn.net/m0_56041246/article/details/118862272" target="_blank" rel="noopener noreffer">零基础的嵌入式机器学习：Edge Impulse训练模型移植STM32F407ZGT6实例_方恪的博客-CSDN博客_stm32运行训练好的模型</a>。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/420887314" target="_blank" rel="noopener noreffer">使用 Edge Impulse 在 ESP32 上运行机器学习算法 - 知乎 (zhihu.com)</a>。<a href="https://www.espressif.com.cn/zh-hans/news/ESP32_EdgeImpulse?position=5&amp;list=zxpdcK3NOKbbbxj_ypHZpjgl6d1eLQ-Et_ESte4r-us" target="_blank" rel="noopener noreffer">使用 Edge Impulse 在 ESP32 上运行机器学习算法 | 乐鑫科技 (espressif.com.cn)</a>。</li>
+<li>但这是生成 Arduino 库，<a href="https://www.survivingwithandroid.com/tinyml-esp32-cam-edge-image-classification-with-edge-impulse/" target="_blank" rel="noopener noreffer">TinyML ESP32-CAM: Edge Image classification with Edge Impulse (survivingwithandroid.com)</a>。</li>
+</ul>
+<h3 id="st-x-cube-ai">ST X-Cube-AI</h3>
+<p>通过 STM32Cube.AI ，开发人员现在可以将预先训练的神经网络转换为 C 代码，该代码可以调用在 STM32 MCU 上运行的优化库中的函数。这是 ST 公司针对 STM32CubeMX IDE 的一个扩展软件库，下载安装 STM32Cube 后可以在其内下载安装 X-Cube-AI 组件，进而可以进行 神经网络的配置，然后由  STM32CubeMX IDE 产生 STM32 MCU 的 软件开发工程。</p>
+<p>用 ST X-Cube-AI 是把 Keras、TF lite、ONNX、Lasagne、Caffe、ConvNetJS 等框架训练的神经网络模型转换为 内存优化的、可在 STM32 上运行的程序/数据结构，建议全程在 CubeMX 软件里面操作，直接生成工程。</p>
+<p>特点：</p>
+<ul>
+<li>从预先训练的神经网络模型生成 STM32 优化的库；</li>
+<li>支持各种深度学习框架，如 Keras、TF lite、ONNX、Lasagne、Caffe、ConvNetJS 等；</li>
+<li>通过 STM32Cube™ 集成，可轻松在不同 STM32 微控制器系列实现，并生成软件工程；</li>
+<li>允许多个人工神经网络在单个STM32 MCU上运行；</li>
+<li>完全支持超低功耗STM32 MCU；</li>
+<li>免费，用户友好的许可条款。</li>
+</ul>
+<p>相关网页：</p>
+<ul>
+<li><a href="https://www.st.com/content/st_com/zh/ecosystems/stm32-ann.html#stm32-sann-featuredcontentcontainer" target="_blank" rel="noopener noreffer">ST 官网 X-Cube-AI 首页 STM32 solutions for Artificial Neural Networks</a>。</li>
+<li><a href="https://www.st.com/zh/embedded-software/x-cube-ai.html" target="_blank" rel="noopener noreffer">ST 官网 X-CUBE-AI 下载页</a>。推荐不要单独下载，在 STM32CubeMX IDE 中安装组件并直接产生程序工程。</li>
+<li><a href="https://www.stmcu.com.cn/ecosystem/app/ai" target="_blank" rel="noopener noreffer">ST Cude.AI 介绍页 (stmcu.com.cn)</a>。</li>
+<li><a href="https://www.st.com/content/st_com/zh/support/learning/stm32-education/stm32-moocs/Introduction_to_STM32CubeAI_MOOC.html" target="_blank" rel="noopener noreffer">ST 官网 X-CUBE-AI 慕课</a>。</li>
+</ul>
+<p>网络教程：</p>
+<ul>
+<li><a href="https://www.icode9.com/content-4-640741.html" target="_blank" rel="noopener noreffer">STM32CubeMX AI尝尝鲜</a>。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/64353677" target="_blank" rel="noopener noreffer">嵌入式MCU也能跑AI？STM32 Cube.AI工具包使用初探</a>。</li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2NTY1OTA3Nw==&amp;mid=2247484272&amp;idx=1&amp;sn=4dadc390c97a1552f60ca3fd68007f36&amp;chksm=ce57f2daf9207bcc452735449a996d4ad1d72e006908fe7bc161f2e29b191de79dea5f1f826b&amp;scene=178&amp;cur_album_id=2084907594690674690#rd" target="_blank" rel="noopener noreffer">【嵌入式AI开发】篇四|部署篇：STM32cubeIDE上部署神经网络之模型部署 (qq.com)</a>。</li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg2NTY1OTA3Nw==&amp;mid=2247484307&amp;idx=1&amp;sn=3cae454a376dc51adc11587f099dd87e&amp;chksm=ce57f239f9207b2f3f5700d975325abefbe342ef0b8b78661c8caf3a34b439ecd853c0203d1f&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer">【嵌入式AI开发】篇五|实战篇一：STM32cubeIDE上部署神经网络之pytorch搭建指纹识别模型.onnx (qq.com)</a>。</li>
+<li><a href="https://zhuanlan.zhihu.com/p/449335680" target="_blank" rel="noopener noreffer">我在STM32单片机上跑神经网络算法(文章结尾有学习资料和学习群) - 知乎 (zhihu.com)</a>。</li>
+<li><a href="https://www.bilibili.com/video/BV1uK411D79q/" target="_blank" rel="noopener noreffer">在STM32上部署神经网络实现人体活动识别_哔哩哔哩_bilibili</a>。</li>
+</ul>
+<h3 id="cmsis-nn">CMSIS-NN</h3>
+<p>CMSIS (Cortex Microcontroller Software Interface Standard) 是针对 Cortex-M MCU 和 Cortex-A5/A7/A9 处理器的一组软件应用框架，是标准化软件组件库，抽离出公共部分组件和启动文件等，简化开发，并提供很多高效的软件实现。下图示意其组成部件。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/cmsis.png"
+        data-srcset="assets/cmsis.png, assets/cmsis.png 1.5x, assets/cmsis.png 2x"
+        data-sizes="auto"
+        alt="assets/cmsis.png"
+        title="CMSIS Version 5.3" /></p>
+<p><a href="https://github.com/ARM-software/CMSIS_5" target="_blank" rel="noopener noreffer">CMSIS 的 Github 仓库</a>；<a href="https://arm-software.github.io/CMSIS_5/General/html/index.html" target="_blank" rel="noopener noreffer">CMSIS 的使用文档</a>。</p>
+<p>其中这里最关心 CMSIS-NN。</p>
+<p><strong>介绍</strong></p>
+<p>Collection of efficient neural network kernels，Neural networks and machine learning are functions that are being pushed into the end node if IoT applications.</p>
+<p>The neural network kernels of the <a href="https://arm-software.github.io/CMSIS_5/NN/html/index.html" target="_blank" rel="noopener noreffer"><strong>CMSIS-NN</strong></a> library help to maximize the performance and minimize the memory footprint of neural networks on Cortex-M processor cores.</p>
+<p><strong>提供的函数库</strong></p>
+<p>The library is divided into a number of functions each covering a specific category：</p>
+<ul>
+<li>Convolution Functions；</li>
+<li>Activation Functions；</li>
+<li>Fully-connected Layer Functions；</li>
+<li>Pooling Functions；</li>
+<li>Softmax Functions；</li>
+<li>Basic math Functions。</li>
+</ul>
+<p>The functions can be classified into two segments：</p>
+<ul>
+<li>Legacy functions supporting ARM&rsquo;s internal symmetric quantization(8 bits).</li>
+<li>Functions that support TensorFlow Lite framework with symmetric quantization(8 bits).</li>
+</ul>
+<p>The legacy functions can be identified with their suffix of _q7 or _q15 and are no new development is done there. The article in [2] describes in detail how to run a network using the legacy functions.</p>
+<p>The functions supporting TensorFlow Lite framework is identified by the _s8 suffix and can be invoked from TFL micro. The functions are bit exact to TensorFlow Lite. Refer to the TensorFlow&rsquo;s documentation in [3] on how to run a TensorFlow Lite model using optimized CMSIS-NN kernels.</p>
+<p><strong>源码、手册和例程</strong></p>
+<p><a href="https://github.com/ARM-software/CMSIS_5/tree/develop/CMSIS/NN" target="_blank" rel="noopener noreffer">CMSIS-NN 官方 Github 仓库，包含手册、例程等</a>。</p>
+<p><a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides#cortex-m" target="_blank" rel="noopener noreffer">官方教程集：CMSIS-NN 在 Arm Cortex-M 的应用</a>。</p>
+<p><a href="http://www.armbbs.cn/forum.php?mod=viewthread&amp;tid=94547" target="_blank" rel="noopener noreffer">安富莱的 CMSIS-NN 开源教程和例程（暂时还没出）</a>。</p>
+<p><strong>总结</strong></p>
+<p>这里 CMSIS-NN 是结合 CMSIS DSP库，二者一块完成一些机器学习基本算子函数的库，可以在ARM Cortex M 的 MCU 开发中直接 include 然后调用 API 进行神经网络搭建；还可以使用 CMSIS-NN kernels 来运行 TensorFlow Lite 模型。</p>
+<p><strong>CMSIS-DSP 的介绍</strong></p>
+<p>CMSIS-DSP: Fast implementation of digital signal processing</p>
+<p>Developing a real-time digital signal processing (DSP) system is not trivial as the DSP algorithms heavily rely on complex mathematical operations that are even time-critical.</p>
+<p><a href="https://arm-software.github.io/CMSIS_5/DSP/html/index.html" target="_blank" rel="noopener noreffer"><strong>CMSIS-DSP</strong></a> library is a rich collection of DSP functions that are optimized by ARM for the various Cortex-M processor cores. CMSIS-DSP is widely used in the industry and enables also optimized C code generation from <a href="https://www.mathworks.com/hardware-support/arm-cortex-m-cmsis.html" target="_blank" rel="noopener noreffer">MATLAB®</a>. The <a href="https://www2.keil.com/mdk5/cmsis/asnfd" target="_blank" rel="noopener noreffer">ASN Filter Designer</a> generates CMSIS-DSP code that you can directly use in your application.</p>
+<p>关于 CMSIS-DSP 的学习和使用，&ldquo;安富莱&quot;进行了不少的摸索和验证，并出了几百页的教程，对于初学者足够够的了。</p>
+<p><a href="http://www.armbbs.cn/" target="_blank" rel="noopener noreffer">安富莱的 硬汉嵌入式论坛</a>；<a href="http://www.armfly.com/" target="_blank" rel="noopener noreffer">安富莱官网</a>；<a href="http://www.armbbs.cn/forum.php?mod=viewthread&amp;tid=94547" target="_blank" rel="noopener noreffer">安富莱的 CMSIS-DSP 开源教程和例程</a>；<a href="https://github.com/ARM-software/CMSIS_5/tree/develop/CMSIS/DSP/Examples/ARM" target="_blank" rel="noopener noreffer">CMSIS-DSP 官方例子（Github）</a>。</p>
+<h3 id="tensorflowlite">TensorFlowLite</h3>
+<p>TensorFlowLite 可被用于微控制器（MCU）和其它只有千字节内存的设备。（这里有待补充更多信息和官网网页）</p>
+<p>特点：</p>
+<ul>
+<li>不需要操作系统支持，可以移植和 “裸机” 运行在 Cortex-M3\M4 等内核的 MCU 上，20KB ~ 1MB 量级的容量占用。</li>
+<li>官方有支持 STM32F746 的 Discover 板等。<a href="https://tensorflow.google.cn/lite/microcontrollers?hl=zh-cn" target="_blank" rel="noopener noreffer">适用于微控制器的 TensorFlow Lite (google.cn)</a>。</li>
+<li>适合嵌入式开发，代码库小，模块化，入门容易，有移植各平台示例。</li>
+</ul>
+<h3 id="tinyml-projects">TinyML Projects</h3>
+<p>网络文章介绍：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2NTY1OTA3Nw==&amp;mid=2247484333&amp;idx=1&amp;sn=9313a25db99a3a70402a92386e86ecf3&amp;chksm=ce57f207f9207b11dab79ba7e8dca94a4c9b3d8ec3acc6caa6d32602465c570e1605ee09e34e&amp;scene=178&amp;cur_album_id=2084907594690674690#rd" target="_blank" rel="noopener noreffer">【嵌入式AI开发】MCUNet: Tiny Deep Learning on IoT Devices-微型机器学习时代已经到来了 (qq.com)</a>。</p>
+<p><a href="https://hanlab.mit.edu/projects/tinyml/" target="_blank" rel="noopener noreffer">Tiny Machine Learning 项目主页</a>。</p>
+<p>TinyML Projects 分为两个部分：</p>
+<ul>
+<li><a href="https://hanlab.mit.edu/projects/tinyml/mcunet/" target="_blank" rel="noopener noreffer">MCUNet (inference, microcontrollers)</a>。</li>
+<li><a href="https://hanlab.mit.edu/projects/tinyml/tinyTL/" target="_blank" rel="noopener noreffer">TinyTL (on-device learning, memory-efficient transfer learning)</a>。</li>
+</ul>
+<p>论文、PPT、海报和源码等均已开源，商业权被大公司以超超高价买下。</p>
+<p>MCUNet 实验结论：</p>
+<p><img src="assets/exp.png" alt="img" style="zoom:80%;" /></p>
+<hr>
+<h2 id="微处理器-mpu-端">微处理器 MPU 端</h2>
+<p>这里的微处理器 MPU 暂指 ARM Cortex-A 内核的。</p>
+<h3 id="arm-compute-library">ARM Compute Library</h3>
+<p><a href="https://developer.arm.com/ip-products/processors/machine-learning/compute-library" target="_blank" rel="noopener noreffer">ARM Compute Library 官网介绍主页</a>。</p>
+<blockquote>
+<p>The Arm Compute Library is a collection of low-level machine learning functions optimized for Cortex-A CPU and Mali GPU architectures. The library provides ML acceleration on Cortex-A CPU through Neon, or SVE and acceleration on Mali GPU through Open CL.</p>
+<p>Key features：</p>
+<ul>
+<li>Over 100 machine learning functions for CPU and GPU</li>
+<li>Multiple convolution algorithms (GEMM, Winograd, FFT, and Direct)</li>
+<li>Support for multiple data types: FP32, FP16, int8, uint8, BFloat16</li>
+<li>Micro-architecture optimization for key ML primitives</li>
+<li>Highly configurable build options</li>
+</ul>
+<p>Supported Architectures/Technologies：</p>
+<ul>
+<li>Arm® CPUs:
+<ul>
+<li>Arm® Cortex®-A processor family using Arm® Neon™ technology</li>
+<li>Arm® Cortex®-R processor family with Armv8-R AArch64 architecture using Arm® Neon™ technology</li>
+<li>Arm® Cortex®-X1 processor using Arm® Neon™ technology</li>
+</ul>
+</li>
+<li>Arm® Mali™ GPUs:
+<ul>
+<li>Arm® Mali™-G processor family</li>
+<li>Arm® Mali™-T processor family</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>基本的，ARM Compute Library 为 ARM Cortex-A 处理器提供了针对性优化的一打的机器学习算法函数，可以使用这些 API 直接构建起神经网络模型，训练或者运行。</p>
+<blockquote>
+<p>Tutorials:</p>
+<ul>
+<li><a href="https://community.arm.com/graphics/b/blog/posts/cartoonifying-images-on-raspberry-pi-with-the-compute-library" target="_blank" rel="noopener noreffer">Tutorial: Cartoonifying Images on Raspberry Pi with the Compute Library</a></li>
+<li><a href="https://community.arm.com/processors/b/blog/posts/running-alexnet-on-raspberry-pi-with-compute-library" target="_blank" rel="noopener noreffer">Tutorial: Running AlexNet on Raspberry Pi with Compute Library</a></li>
+</ul>
+</blockquote>
+<p>Github 仓库 <a href="https://github.com/ARM-software/ComputeLibrary" target="_blank" rel="noopener noreffer">ARM-software/ComputeLibrary: The Compute Library is a set of computer vision and machine learning functions optimised for both Arm CPUs and GPUs using SIMD technologies. (github.com)</a>。</p>
+<p>官方手册 <a href="https://arm-software.github.io/ComputeLibrary/latest/" target="_blank" rel="noopener noreffer">Compute Library: Introduction (arm-software.github.io)</a>。</p>
+<h3 id="arm-nn">ARM NN</h3>
+<p>ARM NN 是 <a href="https://github.com/ARM-software/ComputeLibrary" target="_blank" rel="noopener noreffer">ARM Compute Library</a> 的高级封装，ARM Compute Library 提供对 ARM Cortex-A 优化的神经网络基本算子，可以使用 ARM Compute Library 的 API 直接自己搭建神经网络算法，或者使用在这里介绍的 ARM NN，转化主流神经网络框架训练好的模型并使用。ARM NN 是 ARM 公司 在 Cortex-A 嵌入式端  &ldquo;<a href="https://developer.arm.com/solutions/machine-learning-on-arm" target="_blank" rel="noopener noreffer">AI and Machine Learning</a>&rdquo; 主题的 关键项目。</p>
+<p>Github 仓库 <a href="https://github.com/arm-software/armnn" target="_blank" rel="noopener noreffer">ARM-software/armnn: Arm NN ML Software. The code here is a read-only mirror of https://review.mlplatform.org/admin/repos/ml/armnn (github.com)</a>。</p>
+<blockquote>
+<p>The Arm NN SDK is a set of open-source software and tools that enables machine learning workloads on power-efficient devices. It provides a bridge between existing neural network frameworks and power-efficient Cortex-A CPUs, Arm Mali GPUs and Arm Ethos NPUs.</p>
+<p>Arm NN SDK utilizes the Compute Library to target programmable cores, such as Cortex-A CPUs and Mali GPUs, as efficiently as possible.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/imageARMNN.png"
+        data-srcset="assets/imageARMNN.png, assets/imageARMNN.png 1.5x, assets/imageARMNN.png 2x"
+        data-sizes="auto"
+        alt="assets/imageARMNN.png"
+        title="imageARMNN" /></p>
+</blockquote>
+<p>ARM NN 是 使用C++语言，可以直接载入如 tensorflow lite 框架生成的神经网络模型文件，然后对模型进行分析和优化，使之底层调用适合 ARM 内核的指令或者 NPU 单元 实现运算加速，然后再使用 ARM NN 的 API 载入优化过的模型，进行推理计算，得到结果。</p>
+<blockquote>
+<p>The machine learning platform libraries – Arm NN and Arm Compute Library – bridge the gap between existing neural network (NN) frameworks, such as TensorFlow, TensorFlow Lite, Caffe and ONNX, and the underlying IP.</p>
+<p>They enable efficient translation of these NN frameworks, allowing them to run efficiently – without modification – across Arm Cortex-A CPUs, Arm Mali GPUs and the Arm ML processor.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/ml-home-graphic-814-75fde4.webp"
+        data-srcset="assets/ml-home-graphic-814-75fde4.webp, assets/ml-home-graphic-814-75fde4.webp 1.5x, assets/ml-home-graphic-814-75fde4.webp 2x"
+        data-sizes="auto"
+        alt="assets/ml-home-graphic-814-75fde4.webp"
+        title="ML Platform flow chart image" /></p>
+</blockquote>
+<p>官方生态文章和实例：</p>
+<ul>
+<li><a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides#armnn" target="_blank" rel="noopener noreffer">ARM NN 官方的应用文章</a>。</li>
+<li><a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides#mlrpi" target="_blank" rel="noopener noreffer">ARM NN 官方的在树莓派上使用</a>。</li>
+<li><a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/white-papers-and-research-papers" target="_blank" rel="noopener noreffer">ARM 官网 - AI and Machine Learning 白皮书 各种应用介绍</a>。</li>
+</ul>
+<p>网友实例：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/71369040" target="_blank" rel="noopener noreffer">被低估的ArmNN（一）如何编译</a>。</li>
+<li><a href="https://blog.csdn.net/qq_33446100/article/details/114024776" target="_blank" rel="noopener noreffer">【树莓派/目标检测】(二)armnn编译</a>。</li>
+<li>看来目前还不是很多。</li>
+</ul>
+<h3 id="pyarmnn">PyArmNN</h3>
+<p><a href="https://github.com/NXPmicro/pyarmnn-release" target="_blank" rel="noopener noreffer">PyArmNN 的 Github 仓库</a>。</p>
+<p>PyArmNN 是 ARM NN 的 Python 实现，使用 Python 语言，干的活和 ARM NN 一样。</p>
+<p>网友实例：</p>
+<ul>
+<li><a href="https://community.arm.com/developer/ip-products/processors/b/ml-ip-blog/posts/ml-inference-x-ray-detection-edge-raspberry-pi-pyarmnn" target="_blank" rel="noopener noreffer">Accelerating ML inference on X-Ray detection at edge using Raspberry Pi with PyArmNN</a>。</li>
+<li>看来目前还不是很多。</li>
+</ul>
+<h3 id="mace">MACE</h3>
+<ul>
+<li><a href="https://github.com/zhy520xp/mace-makefile-project" target="_blank" rel="noopener noreffer">zhy520xp/mace-makefile-project: makefile 交叉编译 libmace.a，并能在嵌入式端调用GPU来跑深度学习模型 (github.com)</a>.</li>
+<li>MACE 介绍自搜 <a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=libmace" target="_blank" rel="noopener noreffer">libmace_百度搜索 (baidu.com)</a>。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<ul>
+<li>
+<p>stm32 这种 ARM Cortex-M 的单片机应该用 CMSIS-NN 去复现（或者运行 TensorFlow Lite）神经网络模型，或者使用 Awesome-Embedded Repository 等小节介绍的轮子；</p>
+</li>
+<li>
+<p>而到了ARM Cortex-A 系列的运行 Linux 的平台，就使用 ARM NN 这个库，导入 TF 或者 Pytorch 的模型，进行优化加速。</p>
+</li>
+</ul>
+<p>所以都属于转化，主要还是算法设计。</p>
+<h2 id="其它嵌入式ai算法实现库">其它嵌入式AI算法实现库</h2>
+<ul>
+<li>
+<p><a href="https://github.com/uingrd/EmbeddedML" target="_blank" rel="noopener noreffer">uingrd/EmbeddedML: 《AI嵌入式系统——算法优化与实现》软件工具、例程及教学辅助材料 (github.com)</a>。</p>
+<p>已经离线在 <code>/uingrd-EmbeddedML</code> 文件夹里面</p>
+</li>
+<li>
+<p>.etc</p>
+</li>
+</ul>
+<h2 id="其他平台">其他平台</h2>
+<p>不太熟悉，只是罗列。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/%e5%85%b6%e4%bb%96%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e5%bc%80%e5%8f%91%e5%b9%b3%e5%8f%b0.jpg"
+        data-srcset="assets/%e5%85%b6%e4%bb%96%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e5%bc%80%e5%8f%91%e5%b9%b3%e5%8f%b0.jpg, assets/%e5%85%b6%e4%bb%96%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e5%bc%80%e5%8f%91%e5%b9%b3%e5%8f%b0.jpg 1.5x, assets/%e5%85%b6%e4%bb%96%e5%b5%8c%e5%85%a5%e5%bc%8fAI%e5%bc%80%e5%8f%91%e5%b9%b3%e5%8f%b0.jpg 2x"
+        data-sizes="auto"
+        alt="assets/其他嵌入式AI开发平台.jpg"
+        title="其他嵌入式AI开发平台" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-10-10</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/" data-title="（大集合）嵌入式端的神经网络算法部署和实现综合" data-hashtags="软件,神经网络"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/" data-hashtag="软件"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/" data-title="（大集合）嵌入式端的神经网络算法部署和实现综合" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a>,&nbsp;<a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8503-nxp-i.mx%E7%B3%BB%E5%88%97%E7%9A%84u-boot%E7%A7%BB%E6%A4%8D%E5%9F%BA%E7%A1%80%E8%AF%A6%E8%A7%A3/" class="prev" rel="prev" title="【主线剧情03】NXP i.MX 系列 u-boot 移植基础详解"><i class="fas fa-angle-left fa-fw"></i>【主线剧情03】NXP i.MX 系列 u-boot 移植基础详解</a>
+            <a href="/%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83/" class="next" rel="next" title="【规范】SCH &amp; PCB 设计规范、技巧以及 AD 的使用">【规范】SCH &amp; PCB 设计规范、技巧以及 AD 的使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【简明自控】聊聊啥是自控和特征方程 - 欢迎来到 瞰百Staok</title><meta name="Description" content="简明自动控制——为什么特征方程如此重要"><meta property="og:title" content="【简明自控】聊聊啥是自控和特征方程" />
+<meta property="og:description" content="简明自动控制——为什么特征方程如此重要" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-22T13:21:00+08:00" />
+<meta property="article:modified_time" content="2020-03-22T13:21:00+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【简明自控】聊聊啥是自控和特征方程"/>
+<meta name="twitter:description" content="简明自动控制——为什么特征方程如此重要"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" /><link rel="next" href="https://staok.github.io/publicstuffs/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【简明自控】聊聊啥是自控和特征方程",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "自动控制","wordcount":  3477 ,
+        "url": "https:\/\/staok.github.io\/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B\/","datePublished": "2020-03-22T13:21:00+08:00","dateModified": "2020-03-22T13:21:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "简明自动控制——为什么特征方程如此重要"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【简明自控】聊聊啥是自控和特征方程</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%9B%B4%E8%BE%BE%E6%9C%AC%E8%B4%A8%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/"><i class="far fa-folder fa-fw"></i>【直达本质入门】系列</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-22">2020-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3477 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前序">前序</a></li>
+    <li><a href="#传统艺能一言以蔽之">传统艺能，一言以蔽之</a></li>
+    <li><a href="#指标的概念">指标的概念</a></li>
+    <li><a href="#这本书">这本书</a></li>
+    <li><a href="#建立数学模型">建立数学模型</a></li>
+    <li><a href="#正片开始分析稳准快指标与特征根的关系">正片开始：分析“稳准快”指标与特征根的关系</a></li>
+    <li><a href="#自控原理总结">自控原理总结</a></li>
+    <li><a href="#z变换一般方法简析">Z变换一般方法简析</a></li>
+    <li><a href="#后记">后记</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="简明自控-聊聊啥是自控和特征方程">简明自控-聊聊啥是自控和特征方程</h1>
+<p>简明自动控制——为什么特征方程如此重要。</p>
+<p>热场视频：</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/av73904821" target="_blank" rel="noopener noreffer">自平衡杆-双轴反作用轮倒立摆_哔哩哔哩_bilibili</a>。</li>
+<li><a href="https://www.bilibili.com/video/av80707591" target="_blank" rel="noopener noreffer">顶个棍子！具有主动脚轮的全向移动机器人_哔哩哔哩_bilibili</a>。</li>
+<li><a href="https://www.bilibili.com/video/av78229302" target="_blank" rel="noopener noreffer">我自行车怎么少个轱辘啊&ndash;球轮控制系统_哔哩哔哩_bilibili</a>。</li>
+<li><a href="https://www.bilibili.com/video/av73220745" target="_blank" rel="noopener noreffer">及其富有科技感的&ndash;桌面级旋转倒立摆2_哔哩哔哩_bilibili</a>。</li>
+</ul>
+<p><strong>文章结构：前序-&gt;一言以蔽之-&gt;建模-&gt;时域分析-&gt;Z变换-&gt;后记</strong></p>
+<p>解决问题：啥是自控？怎么建模？怎么分析？</p>
+<p>如果中间不想看，请看一下<strong>后记</strong>部分吧！</p>
+<h2 id="前序">前序</h2>
+<p>自动控制，简短截说：</p>
+<ul>
+<li>要让家里的室灯的关和开随着日起日落自动变化，上自动控制，你看，自动控制是把曾经需要人观察然后调整到合适的事情让机器自己调整，自动运行起来，这种粗活的去人化；</li>
+<li>一个电机带动履带旋转运送东西，众所周知，当运送的东西很重时，由于摩擦力会阻滞电机的转动，从而可能造成转速下降，如何让电机在不同负载时保持同一个转速，上自动控制，你看，自动控制就是人给一个设定值（比如转速、温度、角度等）然后就不用管了，机器会稳定的执行到达你的设定值，无论它受到什么阻碍；</li>
+<li>以前，所有的船需要抛瞄从而在茫茫大洋中留在原地，现在的一些船，通过GPS获取自己的位置，如果船向东偏了，船上的动力会自动的将船向西挪挪使之保持在原地；</li>
+<li>发射一个导弹，无论是在什么地方发射的，在深远的内陆，亦或在海上、海内和空中，都可以命中目标，因为自动控制，设定目标，导弹自己会到达目标。</li>
+</ul>
+<p>以上是一些简化的描述，从以上的过程总结一下有哪些共同之处，一个能够自动控制的系统，都需要设定值，都需要获取要控制的量的实时值（对于电机，要控制的量就是电机转速，对于船，要控制的量就是位置，对于导弹，要控制的量就是飞行方向），以及一些机制或者算法，让要控制的量去自动的跟踪设定值。所谓去人化，就是这一个个机器实现了自动化。</p>
+<p>《自动控制原理》和《现代控制理论》这两本书，我完整的翻了不下好几遍。</p>
+<p>首先就基础的这本《自动控制原理》而言，一上来，举例和定义很抽象，然后讲系统的分类，后面满书就是纯数学的东西，直接地说，这就不是给初学者看的书，这是适合已经有基础来巩固深化的书；看完之后有的人会说，我理解和尊重科学知识用到了生产生活里面，但我不知道具体是怎么用的，这些书，让我感觉尬尬的。</p>
+<p>这本书分为三块，线性连续系统、线性离散系统和非线性系统。离散系统与连续很类似，本文后面只讲时域到离散域转化的一种直观方法；非线性分析部分很基础，如果会了连续系统分析这部分就能看。</p>
+<p>本文的目的，就是先不要看书，看我这篇，然后再去看书，被概念绊住，被方法卡主，被找不着方向的几率小很多。（PS.但当我写完本文回头来看，概念和数学介绍起来不是那么简单）</p>
+<p>这期是水一期，我从头到尾给你讲一下，传递函数中的特征方程为啥那么重要，这只是自控的自洽完备的理论体系里面的一小点，且在这里碎片化的提一下，给个印象，不是高效的系统性总结，所以是水一期。</p>
+<h2 id="传统艺能一言以蔽之">传统艺能，一言以蔽之</h2>
+<p>这里放个图：控制系统抽象出的结构框图（圆叉符号表示加和，控制器的描述为A（理解为放大倍数，增益或者一个函数）被控对象的描述这里暂定为1）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-00c3b7c7ba647f136b9e86dd5b8dafa4_720w.jpg"
+        data-srcset="assets/v2-00c3b7c7ba647f136b9e86dd5b8dafa4_720w.jpg, assets/v2-00c3b7c7ba647f136b9e86dd5b8dafa4_720w.jpg 1.5x, assets/v2-00c3b7c7ba647f136b9e86dd5b8dafa4_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-00c3b7c7ba647f136b9e86dd5b8dafa4_720w.jpg"
+        title="img" /></p>
+<p>可以用公式写一下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-d867d0968cf3b43dd5c82a80a569a1bd_720w.png"
+        data-srcset="assets/v2-d867d0968cf3b43dd5c82a80a569a1bd_720w.png, assets/v2-d867d0968cf3b43dd5c82a80a569a1bd_720w.png 1.5x, assets/v2-d867d0968cf3b43dd5c82a80a569a1bd_720w.png 2x"
+        data-sizes="auto"
+        alt="assets/v2-d867d0968cf3b43dd5c82a80a569a1bd_720w.png"
+        title="img" /></p>
+<p>自动控制原理这门课，所要解决的<strong>最内核</strong>的问题，就是设计中间的那个<strong>控制器</strong>的内部算法，<strong>让输出能够且更好的跟踪输入</strong>。</p>
+<p>要想研究，就先量化，要想量化，先定指标。</p>
+<h2 id="指标的概念">指标的概念</h2>
+<p>再看一个图，观察。这是两根随时间变化的曲线，一个是上图中系统的输入值Xi（虚线），另一个是系统的输出值Xo（实线）。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-3daeaa0d111b1fee9e27a5d063acd7c1_720w.jpg"
+        data-srcset="assets/v2-3daeaa0d111b1fee9e27a5d063acd7c1_720w.jpg, assets/v2-3daeaa0d111b1fee9e27a5d063acd7c1_720w.jpg 1.5x, assets/v2-3daeaa0d111b1fee9e27a5d063acd7c1_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-3daeaa0d111b1fee9e27a5d063acd7c1_720w.jpg"
+        title="img" /></p>
+<p>评判自控系统“优劣”的三个指标：</p>
+<p><strong>稳</strong>定性：输出能否跟踪输入，以及跟踪过程中变化的幅度；</p>
+<p><strong>准</strong>确性：输出能跟踪输入并且稳定后，两者之间的差是多少；</p>
+<p><strong>快</strong>速性：输出跟踪输入时，输出由开始到跟上，用的时间是多少。</p>
+<p>具体量化指标即：</p>
+<p>稳定性：稳定判据；超调量δ = （Xom - Xi）/Xi；</p>
+<p>准确性：err（图中的稳态误差）；</p>
+<p>快速性：tr（上升时间），tm（峰值时间），ts（调节时间）以及振荡次数μ。</p>
+<p>总结：把一个实体系统，建立微分方程、传递函数和频率特性的数学模型，分别在时域、复域和频域三个“维度”，评价这个系统的“稳准快”性能，这本书说完了。目的就是得到“稳准快”这三个指标，初学到此足够。</p>
+<p>这三个“维度”，就是三条路，都可以到达目的地，走哪一条都可以，区别就是对于不同的系统和目的，三条路的重要性和难易程度不同。</p>
+<h2 id="这本书">这本书</h2>
+<p>这本书：建立数学模型-&gt;微分方程的时域分析-&gt;传递函数的复域分析-&gt;频率特性的频域分析，然后简单介绍一下离散系统和非线性系统的一般计算方法，没了就这些。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-f23622ff8cae4ba3e1588c42b87a7084_720w.jpg"
+        data-srcset="assets/v2-f23622ff8cae4ba3e1588c42b87a7084_720w.jpg, assets/v2-f23622ff8cae4ba3e1588c42b87a7084_720w.jpg 1.5x, assets/v2-f23622ff8cae4ba3e1588c42b87a7084_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-f23622ff8cae4ba3e1588c42b87a7084_720w.jpg"
+        title="img" /></p>
+<h2 id="建立数学模型">建立数学模型</h2>
+<p>基本模型：电容，电感。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-d5384e6230a16cfcf4ed2aaf8989c5f8_720w.jpg"
+        data-srcset="assets/v2-d5384e6230a16cfcf4ed2aaf8989c5f8_720w.jpg, assets/v2-d5384e6230a16cfcf4ed2aaf8989c5f8_720w.jpg 1.5x, assets/v2-d5384e6230a16cfcf4ed2aaf8989c5f8_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-d5384e6230a16cfcf4ed2aaf8989c5f8_720w.jpg"
+        title="img" /></p>
+<p>为了把微分方程写成传递函数，去掉零初始值，经过拉普拉斯变换，写成输出比上输入的形式。一次微分当成s，两次微分当成s^2，一次积分当成1/s，依次类推，怎么来的，拉普拉斯变换，降维，把积分微分符号变成乘除，有兴趣去推一推。</p>
+<p>电路中，可以直接把电容和电感分别写成阻抗形式，然后就按照普通的欧姆定律计算即可求出该电路的传递函数，在给定输入的情况下，计算出输出，然后把输出反拉氏变换，就得到了输出的时域解，进而画出时域解的图像，或者就求导之类的计算“稳准快”。</p>
+<p>下面举一个例子，如何写出一个系统的微分方程、传递函数和频率特性。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-f5423840cc1f74b4bb27fa15e2f07b69_720w.jpg"
+        data-srcset="assets/v2-f5423840cc1f74b4bb27fa15e2f07b69_720w.jpg, assets/v2-f5423840cc1f74b4bb27fa15e2f07b69_720w.jpg 1.5x, assets/v2-f5423840cc1f74b4bb27fa15e2f07b69_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-f5423840cc1f74b4bb27fa15e2f07b69_720w.jpg"
+        title="img" /></p>
+<h2 id="正片开始分析稳准快指标与特征根的关系">正片开始：分析“稳准快”指标与特征根的关系</h2>
+<p>再举一个例子，看这个电路，这次不但写数学模型，再求解一下“稳准快”指标。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-3f60ec92779e55d2598812d26f3899a5_720w.jpg"
+        data-srcset="assets/v2-3f60ec92779e55d2598812d26f3899a5_720w.jpg, assets/v2-3f60ec92779e55d2598812d26f3899a5_720w.jpg 1.5x, assets/v2-3f60ec92779e55d2598812d26f3899a5_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-3f60ec92779e55d2598812d26f3899a5_720w.jpg"
+        title="img" /></p>
+<p>其微分方程可以写成如下形式：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-e40e77b67a978605474f292eae7948ca_720w.jpg"
+        data-srcset="assets/v2-e40e77b67a978605474f292eae7948ca_720w.jpg, assets/v2-e40e77b67a978605474f292eae7948ca_720w.jpg 1.5x, assets/v2-e40e77b67a978605474f292eae7948ca_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-e40e77b67a978605474f292eae7948ca_720w.jpg"
+        title="img" /></p>
+<p>再写传递函数，先别管为什么写，写出来看看：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-e383b13fd69dec4dcfbf1fc10620e171_720w.jpg"
+        data-srcset="assets/v2-e383b13fd69dec4dcfbf1fc10620e171_720w.jpg, assets/v2-e383b13fd69dec4dcfbf1fc10620e171_720w.jpg 1.5x, assets/v2-e383b13fd69dec4dcfbf1fc10620e171_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-e383b13fd69dec4dcfbf1fc10620e171_720w.jpg"
+        title="img" /></p>
+<p>求一下特征方程的跟：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-85af6b2aa183510da7e691873003b3ad_720w.jpg"
+        data-srcset="assets/v2-85af6b2aa183510da7e691873003b3ad_720w.jpg, assets/v2-85af6b2aa183510da7e691873003b3ad_720w.jpg 1.5x, assets/v2-85af6b2aa183510da7e691873003b3ad_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-85af6b2aa183510da7e691873003b3ad_720w.jpg"
+        title="img" /></p>
+<p><strong>a和b好像与微分方程的解有相同之处（全文点睛）</strong>，将a和b带入看看：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-a34a472d67a160f186742816513679d8_720w.jpg"
+        data-srcset="assets/v2-a34a472d67a160f186742816513679d8_720w.jpg, assets/v2-a34a472d67a160f186742816513679d8_720w.jpg 1.5x, assets/v2-a34a472d67a160f186742816513679d8_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-a34a472d67a160f186742816513679d8_720w.jpg"
+        title="img" /></p>
+<p>“稳准快”的具体公式：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-faf37675a4eae6029f0a7fe4df74d4c9_720w.jpg"
+        data-srcset="assets/v2-faf37675a4eae6029f0a7fe4df74d4c9_720w.jpg, assets/v2-faf37675a4eae6029f0a7fe4df74d4c9_720w.jpg 1.5x, assets/v2-faf37675a4eae6029f0a7fe4df74d4c9_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-faf37675a4eae6029f0a7fe4df74d4c9_720w.jpg"
+        title="img" /></p>
+<p>所以你看，特征方程的跟a+bj决定了系统的“稳准快”指标，即系统动态响应过程与特征跟在复平面的位置有关。对于高阶系统，同样适用。</p>
+<p>更形象的理解，看上面的输出公式Uo（t）；a是负数，a如果变大，则Uo（t）的图像曲线会更加“陡”，如果a变小，曲线会温和平静一些，a是管“纵向”幅度的；b在正弦函数里，b变大，曲线会被往右“拉长”，反之同理，b是管“横向”拉伸的。一纵一横，这输出量的图像基本就确定了。</p>
+<h2 id="自控原理总结">自控原理总结</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-679a6a12a23c08682608812be9b6cee8_720w.jpg"
+        data-srcset="assets/v2-679a6a12a23c08682608812be9b6cee8_720w.jpg, assets/v2-679a6a12a23c08682608812be9b6cee8_720w.jpg 1.5x, assets/v2-679a6a12a23c08682608812be9b6cee8_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-679a6a12a23c08682608812be9b6cee8_720w.jpg"
+        title="img" /></p>
+<h2 id="z变换一般方法简析">Z变换一般方法简析</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-c730f86f00ce25f8560b43a854d99c87_720w.jpg"
+        data-srcset="assets/v2-c730f86f00ce25f8560b43a854d99c87_720w.jpg, assets/v2-c730f86f00ce25f8560b43a854d99c87_720w.jpg 1.5x, assets/v2-c730f86f00ce25f8560b43a854d99c87_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-c730f86f00ce25f8560b43a854d99c87_720w.jpg"
+        title="img" /></p>
+<p>下面给出一个例子：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/v2-c7fa8afff0e6a6cbb5ce95538ab7887e_720w.jpg"
+        data-srcset="assets/v2-c7fa8afff0e6a6cbb5ce95538ab7887e_720w.jpg, assets/v2-c7fa8afff0e6a6cbb5ce95538ab7887e_720w.jpg 1.5x, assets/v2-c7fa8afff0e6a6cbb5ce95538ab7887e_720w.jpg 2x"
+        data-sizes="auto"
+        alt="assets/v2-c7fa8afff0e6a6cbb5ce95538ab7887e_720w.jpg"
+        title="img" /></p>
+<h2 id="后记">后记</h2>
+<p>1、上面对系统进行建模的环节都是拿电路举例，只是举例，这种数学建模思想可以直接平移用到其他系统。</p>
+<p>2、说了那么多，那通过数学推导出的控制器，该怎么转变为软件算法呢。相比于实体控制器，这样的好处是控制算法容易修改，容易维护和部署，但缺点是速度可能比实际电路运行的慢些，考虑一下性价比。计算机是离散的，如无处不在的律动，只需把连续传函变为离散传函即可。</p>
+<p>3、控制器花样繁多，学自动化或者自动控制，不可不了解的一种，那就是PID，现在工业现场的控制任务，这种算法用的最多，改进型的PID，也多达二十多种，易读易用。</p>
+<p>4、让更多的人真正理解这门课的内涵和意义，本篇文字也是简单打一个样子，许多科目本来相当实用和有意思，我想传达这种精神，各位，吃喝玩乐很有意思，因为那些本身就是为了让人感觉好的，但是如果让难的事物，让更有价值的事物在保持能够给人加价的同时，也能变得有意思，这是现代社会的一种内核趋势。</p>
+<p>5、说句题外话：我看模电，一次看的电子科大的慕课，并按照每一节知识点作笔记，然后重新梳理笔记，对于BJT，最后我总结的学习路线是由概念到等效模型，到偏置电路及其意义，再到放大电路和三种接法，最后到频率特性，可是视频课程的安排却是概念（上），偏置电路，概念（下），等效模型，放大电路，三种接法第一种，频率特征，三种接法后两种。我觉得我是按照正常人理解的顺序整理的，而视频的讲解顺序有点打乱的感觉，模电原课本更加抽象和厚重，让我觉得不光是考试的时候筛选人才，在这种环境里，其学习的过程都是在筛选。想起很久以前听的一个事，就是日本在其国注册了一些专利，由于产业需要，也要在中国注册这些的专利，给我们看日本的专利文件，念起来是一句话，但句子又长又难懂，东扯西扯，可能是翻译的缘故，但更可能的就是人家故意写的晦涩一些。</p>
+<p>在制造技术壁垒上理所当然，但是在学习知识上，有种“我好不容易学得的，你想学也得给我难一些”，可能为人师表的不是这种心理，但是我有权利也有理由怀疑。</p>
+<p>6、平衡车，平衡自行车，二阶倒立摆，旋转倒立摆等“神奇”的事物，都是经典和现代控制理论最直接典型的应用，生活中无处不在。应用现代控制理论建模，列状态方程，仿真和实现，现今其实缺乏这种一整套的从无到有的全过程体验和训练。</p>
+<p>(over)</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-03-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" data-title="【简明自控】聊聊啥是自控和特征方程" data-hashtags="自动控制"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" data-hashtag="自动控制"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" data-title="【简明自控】聊聊啥是自控和特征方程" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6/">自动控制</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/publicstuffs/" class="next" rel="next" title="可瞰-PublicStuffs">可瞰-PublicStuffs<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

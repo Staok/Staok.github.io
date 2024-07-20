@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>规范 - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/%E8%A7%84%E8%8C%83/</link>
+        <description>规范 - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Tue, 11 Apr 2023 16:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E8%A7%84%E8%8C%83/" rel="self" type="application/rss+xml" /><item>
+    <title>【目录贴】硕士实验室嵌入式学习路线参考清单</title>
+    <link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link>
+    <pubDate>Tue, 11 Apr 2023 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</guid>
+    <description><![CDATA[下面是对我在硕士期间边学边实践所写的部分文章，挑选整理出一个 “学习清单”。 其实我写到目前为止，如果你看进去了这些东西 可以说各种东西达到了熟悉]]></description>
+</item><item>
+    <title>【目录贴】总览软硬件规范化的意义和内容</title>
+    <link>https://staok.github.io/%E6%80%BB%E8%A7%88%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%86%85%E5%AE%B9/</link>
+    <pubDate>Fri, 26 Mar 2021 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E6%80%BB%E8%A7%88%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%86%85%E5%AE%B9/</guid>
+    <description><![CDATA[软硬件规范化（norm-of-software-and-hardware） 意义 不多言语，直接引用观视频工作室视频【大师计划·林宝军03】北斗]]></description>
+</item><item>
+    <title>【规范】SCH &amp; PCB 设计规范、技巧以及 AD 的使用</title>
+    <link>https://staok.github.io/%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83/</link>
+    <pubDate>Thu, 30 Jul 2020 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83/</guid>
+    <description><![CDATA[SCH &amp; PCB 设计规范、技巧以及AD 的使用（SCH-&amp;-PCB-rules-and-AD`s-usages） ***p.s 温馨提示：点个 star 收藏一下回头慢]]></description>
+</item><item>
+    <title>【规范】C &amp; MCU 编写规范和技巧</title>
+    <link>https://staok.github.io/%E8%BD%AF%E4%BB%B6%E8%A7%84%E8%8C%83/</link>
+    <pubDate>Wed, 10 Feb 2021 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E8%BD%AF%E4%BB%B6%E8%A7%84%E8%8C%83/</guid>
+    <description><![CDATA[C &amp; MCU 编写规范和技巧（coding style and more） ***p.s 温馨提示：点个 star 收藏一下回头慢慢看；或者下(白)载(嫖)下来，在 Typora 中阅读；[本文知乎地址（]]></description>
+</item><item>
+    <title>【规范】HDL &amp; FPGA 学习、规范和技巧</title>
+    <link>https://staok.github.io/fpga%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%A7%84%E8%8C%83/</link>
+    <pubDate>Mon, 15 Feb 2021 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/fpga%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%A7%84%E8%8C%83/</guid>
+    <description><![CDATA[HDL &amp; FPGA 学习、规范和技巧（HDL-&amp;-FPGA- study） ***p.s 温馨提示：点个 star 收藏一下回头慢慢看；或者下(白)载(嫖)下来，在 Typora 中阅读]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/posts/</link>
+        <description>所有文章 | 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Tue, 27 Jun 2023 16:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>【目录贴】硕士实验室嵌入式学习路线参考清单</title>
+    <link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link>
+    <pubDate>Tue, 11 Apr 2023 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</guid>
+    <description><![CDATA[下面是对我在硕士期间边学边实践所写的部分文章，挑选整理出一个 “学习清单”。 其实我写到目前为止，如果你看进去了这些东西 可以说各种东西达到了熟悉]]></description>
+</item><item>
+    <title>必先看：主线剧情系列的循序渐进的查看顺序</title>
+    <link>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</link>
+    <pubDate>Sat, 04 Jun 2022 16:46:10 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</guid>
+    <description><![CDATA[必先看：主线剧情 系列 的循序渐进的查看顺序 【主线剧情】Linux 系列，为嵌入式 Linux 的学习记录。 每一篇文章的内容、以及仓库的内容都极其丰富~ 仓库地]]></description>
+</item><item>
+    <title>【读标准01】IEEE1451 智能传感器接口标准介绍</title>
+    <link>https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
+    <pubDate>Wed, 14 Jul 2021 09:57:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
+    <description><![CDATA[IEEE 1451 智能传感器接口标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络]]></description>
+</item><item>
+    <title>【主线剧情01】ARM IMX6ULL 基础学习记录</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Fri, 02 Apr 2021 13:26:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[ARM &amp; i.MX6ULL 基础学习记录 编辑整理 by Staok。 本文大部分内容摘自“100ask imx6ull”开发板的配套资料（如《IMX6ULL裸机开发完全手册]]></description>
+</item><item>
+    <title>科幻小说《请留在未来》</title>
+    <link>https://staok.github.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5/</link>
+    <pubDate>Mon, 01 Jun 2020 13:26:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5/</guid>
+    <description><![CDATA[科幻小说《请留在未来》 Science-fiction 《Please Stay in The Future》 本文发在 Github、知乎、BiliBili、小站。 按： 有时真的非常想写一些东西，]]></description>
+</item><item>
+    <title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍</title>
+    <link>https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
+    <pubDate>Fri, 16 Jul 2021 16:07:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
+    <description><![CDATA[IEEE 1451.5 智能无线传感器标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准]]></description>
+</item><item>
+    <title>【主线剧情02】ARM Linux 基础学习记录</title>
+    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Mon, 05 Apr 2021 12:20:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[ARM &amp; Linux 基础学习记录 编辑整理 by Staok。 本文部分内容摘自 “100ask imx6ull” 开发板的配套资料（如 百问网的《嵌入式Linux应用开发]]></description>
+</item><item>
+    <title>【目录贴】总览软硬件规范化的意义和内容</title>
+    <link>https://staok.github.io/%E6%80%BB%E8%A7%88%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%86%85%E5%AE%B9/</link>
+    <pubDate>Fri, 26 Mar 2021 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E6%80%BB%E8%A7%88%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E6%84%8F%E4%B9%89%E5%92%8C%E5%86%85%E5%AE%B9/</guid>
+    <description><![CDATA[软硬件规范化（norm-of-software-and-hardware） 意义 不多言语，直接引用观视频工作室视频【大师计划·林宝军03】北斗]]></description>
+</item><item>
+    <title>科幻小说《请留在未来》注解篇</title>
+    <link>https://staok.github.io/2%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5-%E6%B3%A8%E8%A7%A3%E7%AF%87/</link>
+    <pubDate>Wed, 17 Jun 2020 16:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/2%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5-%E6%B3%A8%E8%A7%A3%E7%AF%87/</guid>
+    <description><![CDATA[小说发在 Github、知乎、BiliBili。 1、 冰冻三尺，非一蹴而就。既然要写，就写好，计划中，首先设计世界观和大背景，围绕我要表达的思想]]></description>
+</item><item>
+    <title>只剩结论的故事便是短句合集</title>
+    <link>https://staok.github.io/2.5%E5%8F%AA%E5%89%A9%E7%BB%93%E8%AE%BA%E7%9A%84%E6%95%85%E4%BA%8B%E4%BE%BF%E6%98%AF%E7%9F%AD%E5%8F%A5%E5%90%88%E9%9B%86/</link>
+    <pubDate>Tue, 15 Oct 2019 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/2.5%E5%8F%AA%E5%89%A9%E7%BB%93%E8%AE%BA%E7%9A%84%E6%95%85%E4%BA%8B%E4%BE%BF%E6%98%AF%E7%9F%AD%E5%8F%A5%E5%90%88%E9%9B%86/</guid>
+    <description><![CDATA[只剩结论的故事便是短句合集 前言：我有两个有关总结自己社交账号发的情绪化或理性化的随笔、想法，一个是给我自己也希望帮助到别人——《只剩结论的故]]></description>
+</item></channel>
+</rss>

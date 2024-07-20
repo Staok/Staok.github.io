@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>无线传感网络 - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C/</link>
+        <description>无线传感网络 - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Fri, 03 Dec 2021 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>无线传感网络的定位和时间同步技术简述</title>
+    <link>https://staok.github.io/14%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0/</link>
+    <pubDate>Fri, 03 Dec 2021 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/14%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0/</guid>
+    <description><![CDATA[无线传感网络的定位和时间同步技术简述 只记一些概念。都是在 2005 年的《无线传感网络》一书中摘取，基本概念可以了解，但具体方法在用的时候还需要再查阅]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍 - 欢迎来到 瞰百Staok</title><meta name="Description" content="1451.5 智能无线传感器标准介绍"><meta property="og:title" content="【读标准02】IEEE 1451.5 智能无线传感器标准介绍" />
+<meta property="og:description" content="1451.5 智能无线传感器标准介绍" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-16T16:07:06+08:00" />
+<meta property="article:modified_time" content="2021-07-17T21:44:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【读标准02】IEEE 1451.5 智能无线传感器标准介绍"/>
+<meta name="twitter:description" content="1451.5 智能无线传感器标准介绍"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" /><link rel="prev" href="https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" /><link rel="next" href="https://staok.github.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【读标准02】IEEE 1451.5 智能无线传感器标准介绍",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "IEEE 1451, 标准, 1451.5","wordcount":  3887 ,
+        "url": "https:\/\/staok.github.io\/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D\/","datePublished": "2021-07-16T16:07:06+08:00","dateModified": "2021-07-17T21:44:06+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "1451.5 智能无线传感器标准介绍"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【读标准02】IEEE 1451.5 智能无线传感器标准介绍</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AF%BB%E6%A0%87%E5%87%86/"><i class="far fa-folder fa-fw"></i>读标准</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-16">2021-07-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3887 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#14515-的基本拓扑">1451.5 的基本拓扑</a>
+      <ul>
+        <li><a href="#一个实例">一个实例</a></li>
+        <li><a href="#即插即用性能测试">即插即用性能测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#14515-标准的变化之处举例">1451.5 标准的变化之处举例</a></li>
+    <li><a href="#连接拓扑">连接拓扑</a></li>
+    <li><a href="#状态图">状态图</a></li>
+    <li><a href="#服务质量定义">服务质量定义</a></li>
+    <li><a href="#错误代号定义">错误代号定义</a></li>
+    <li><a href="#命令集">命令集</a></li>
+    <li><a href="#phy-teds">PHY TEDS</a></li>
+    <li><a href="#ncap-和-wtim-流程图">NCAP 和 WTIM 流程图</a></li>
+    <li><a href="#一些注意事项">一些注意事项</a></li>
+    <li><a href="#参考--引用">参考 &amp; 引用</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="ieee-14515-智能无线传感器标准介绍">IEEE 1451.5 智能无线传感器标准介绍</h1>
+<p>本文的 Github/Gitee 仓库：<a href="https://github.com/Staok/IEEE-1451-study" target="_blank" rel="noopener noreffer">Github仓库</a>，<a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer">Gitee仓库</a>。</p>
+<p>这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准源文。图片侵删。对于个人，如果业余时间想玩玩，把这个标准用起来，实现并且体验一下各个组件神奇的“自识别、自组网”、“即插即用”的话，主要在于实现 【读标准01】那篇文章里介绍的 1451.0 标准定义的 消息（message）和电子数据表格（TEDS）这两大功能，并且不用把标准所描述的都实现，实现其中自认为关键的/不可或缺的一部分即可。</p>
+<hr>
+<h2 id="14515-的基本拓扑">1451.5 的基本拓扑</h2>
+<blockquote>
+<p>图源：论文《基于IEEE_1451.5标准的物联网体系结构设计_陶星珍》</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/1-1451.5%e6%8b%93%e6%89%911.png"
+        data-srcset="assets/1-1451.5%e6%8b%93%e6%89%911.png, assets/1-1451.5%e6%8b%93%e6%89%911.png 1.5x, assets/1-1451.5%e6%8b%93%e6%89%911.png 2x"
+        data-sizes="auto"
+        alt="assets/1-1451.5拓扑1.png"
+        title="1 1451.5拓扑1" /></p>
+<p>网关与传感器节点通讯流程图如图 5 所示。当传感器节点上电后，自动向网关广播一条消息，然后等待网关回应；网关收到来自传感器节点的消息后，对其进行解析，分析出命令的类号和功能号，然后做出应答，比如读取传感器的数据、读取传感器的 TEDS 或者写传感器的 TEDS等；当床啊七年节点收到后，将根据 1451.0 格式生成应答消息发回网关。</p>
+<p>1451.5 拓扑 协议栈如下图所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/2-1451.5%e6%8b%93%e6%89%911-%e5%8d%8f%e8%ae%ae%e6%a0%88.png"
+        data-srcset="assets/2-1451.5%e6%8b%93%e6%89%911-%e5%8d%8f%e8%ae%ae%e6%a0%88.png, assets/2-1451.5%e6%8b%93%e6%89%911-%e5%8d%8f%e8%ae%ae%e6%a0%88.png 1.5x, assets/2-1451.5%e6%8b%93%e6%89%911-%e5%8d%8f%e8%ae%ae%e6%a0%88.png 2x"
+        data-sizes="auto"
+        alt="assets/2-1451.5拓扑1-协议栈.png"
+        title="2 1451.5拓扑1 协议栈" /></p>
+</blockquote>
+<h3 id="一个实例">一个实例</h3>
+<blockquote>
+<p>1451.5 智能称重传感器系统架构如下图所示。图源：论文《基于IEEE_1451.5的高精度智能称重传感器系统_陈耿新》</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/3-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%9b%be.png"
+        data-srcset="assets/3-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%9b%be.png, assets/3-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%9b%be.png 1.5x, assets/3-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="assets/3-1451.5智能称重传感器系统架构图.png"
+        title="3 1451.5智能称重传感器系统架构图" /></p>
+<p>上面实例中，1451.5 智能称重传感器系统传感器自识别流程如下图所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/4-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e4%bc%a0%e6%84%9f%e5%99%a8%e8%87%aa%e8%af%86%e5%88%ab%e6%b5%81%e7%a8%8b%e5%9b%be.png"
+        data-srcset="assets/4-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e4%bc%a0%e6%84%9f%e5%99%a8%e8%87%aa%e8%af%86%e5%88%ab%e6%b5%81%e7%a8%8b%e5%9b%be.png, assets/4-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e4%bc%a0%e6%84%9f%e5%99%a8%e8%87%aa%e8%af%86%e5%88%ab%e6%b5%81%e7%a8%8b%e5%9b%be.png 1.5x, assets/4-1451.5%e6%99%ba%e8%83%bd%e7%a7%b0%e9%87%8d%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9f%e4%bc%a0%e6%84%9f%e5%99%a8%e8%87%aa%e8%af%86%e5%88%ab%e6%b5%81%e7%a8%8b%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="assets/4-1451.5智能称重传感器系统传感器自识别流程图.png"
+        title="4 1451.5智能称重传感器系统传感器自识别流程图" /></p>
+<p>WTIM 在成功接入 ZigBee 网络后，向 NCAP 发送自识别中断请求开始自识别操作； WTIM、NCAP 任一方接收到对方消息帧后须返回确认应答
+帧，若发送方在规定时间内没接收到对方确认应答帧则重新发送数据，直至发送成功或发送次数达到最大值。</p>
+<p>TEDS 配置是 IEEE 1451 智能传感器自识别的关键环节。TEDS 配置流程包括： NCAP 接收到各TEDS 后，需通过校验和字段验证其完整性、正确性；对通过验证的 TEDS 进行解析、翻译，获取WTIM 及其通道相关信息、 参数， 再根据这些信息、参数配置相关资源以完成后续功能，如 NCAP 配置校正引擎相关参数实现数据解耦、校正。</p>
+</blockquote>
+<h3 id="即插即用性能测试">即插即用性能测试</h3>
+<blockquote>
+<p>引用：论文《基于IEEE_1451.5的高精度智能称重传感器系统_陈耿新》</p>
+<p>以平均初次入网时间 tf、平均重新入网时间 tr、平均断网识别时间 tc作为评价指标。</p>
+<ul>
+<li>平均初次入网时间 tf 定义为从 WTIM 首次向 NCAP 发送入网请求，直至其收到 NCAP 入网确认所需的平均时间；</li>
+<li>平均重新入网时间 tr 定义为已加入网络的 WTIM 断开连接后， 从WTIM 再次发送入网请求， 直至其收到 NCAP 入网确认所需的平均时间；</li>
+<li>平均断网识别时间 tc 定义为从WTIM 发生故障或断电开始，到 NCAP 识别 WTIM 断网所用的平均时间。</li>
+</ul>
+<p>tf， tr， tc 越小，智能称重传感器 ZigBee 接口即插即用性能越好。</p>
+<p>智能传感器系统 ZigBee 接口即插即用测试结果如下表所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/5-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9fZigBee%e6%8e%a5%e5%8f%a3%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e6%b5%8b%e8%af%95%e7%bb%93%e6%9e%9c.png"
+        data-srcset="assets/5-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9fZigBee%e6%8e%a5%e5%8f%a3%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e6%b5%8b%e8%af%95%e7%bb%93%e6%9e%9c.png, assets/5-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9fZigBee%e6%8e%a5%e5%8f%a3%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e6%b5%8b%e8%af%95%e7%bb%93%e6%9e%9c.png 1.5x, assets/5-%e6%99%ba%e8%83%bd%e4%bc%a0%e6%84%9f%e5%99%a8%e7%b3%bb%e7%bb%9fZigBee%e6%8e%a5%e5%8f%a3%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e6%b5%8b%e8%af%95%e7%bb%93%e6%9e%9c.png 2x"
+        data-sizes="auto"
+        alt="assets/5-智能传感器系统ZigBee接口即插即用测试结果.png"
+        title="5 智能传感器系统 ZigBee 接口即插即用测试结果" /></p>
+</blockquote>
+<h2 id="14515-标准的变化之处举例">1451.5 标准的变化之处举例</h2>
+<p>1451.5 标准参考模型、物理层 TEDS（PHY TEDS） 和命令遵循 1451.0 标准。但是变化之处举例如下。</p>
+<ul>
+<li>TIM 与 NCAP 的连接拓扑关系有新定义（5.1、5.2 小节）；</li>
+<li>NCAP 和 TIM 状态图新定义（5.4、5.5 小节）；</li>
+<li>服务质量定义（5.6 小节）；</li>
+<li>错误代号定义（5.7 小节）；</li>
+<li>命令集；</li>
+<li>TEDS 除了 PHY TEDS，其他一样（5.3 小节）；</li>
+<li>WLAN 章节的一些特别定义（第 9 章）。</li>
+</ul>
+<p>以下 TIM 都叫做 WTIM（Wireless Transducer Interface Module）。</p>
+<h2 id="连接拓扑">连接拓扑</h2>
+<p>NCAP 和 WTIM 的连接拓扑基本与 1451.0 中定义的 NCAP 和 TIM 一致，但 NCAP 与 WTIM 的通讯按照 1451.5 标准来。</p>
+<p>以下是 1451.5 定义的 NCAP 与 WTIM 的角色关系。</p>
+<ul>
+<li>An NCAP may route commands and data from an external network to/from a transducer connected to a WTIM.</li>
+<li>An NCAP may register multiple WTIMs.</li>
+<li>A WTIM shall only be registered with a single NCAP.</li>
+<li>A WTIM may interface to multiple transducers.</li>
+<li>WTIM-to-WTIM communication is allowed.</li>
+</ul>
+<h2 id="状态图">状态图</h2>
+<p>对于 NCAP 只是上电后有两个状态，一个是未连接 WTIM ，一个是连接了，对于 WTIM 状态有三个，前两个一样，在脸上之后，WTIM 给 NCAP 发送自己的 TEDS，告知自己的处于开放（Open）状态的传感器通道，并切到 开放状态，若 NCAP 回应则切回连接状态开始正常工作。具体 参考 1451.5 标准源文 5.4、5.5 小节。</p>
+<h2 id="服务质量定义">服务质量定义</h2>
+<p>服务质量（Quality of service，QoS）用于描述 NCAP 的服务质量，主要表现在 WTIM 对 NCAP 的请求或者传输命令/信息时候 NCAP 的回应延迟时间，举例来说，若前者时间超过 2 秒，或者后者时间超过 20ms，那么 WTIM 可以认为该 NCAP 的服务质量比较次，可以主动断开无线连接。具体 参考 1451.5 标准源文 5.6 小节。</p>
+<h2 id="错误代号定义">错误代号定义</h2>
+<p>用于标记 NCAP 或者 WTIM 在 1451 标准定义的协议的范畴上出现失败的情况的类型，比如标记了是 NCAP 或者 WTIM 的错误位置（位于 1451.0 还是 1451.5 层），以及在这一层，是目标地址错了、操作超时了、网络 下线了、TEDS 的格式错了等等等等。具体 参考 1451.5 标准源文  5.7 小节。</p>
+<h2 id="命令集">命令集</h2>
+<p>NVAP 与 WTIM 通讯的信息协议格式与 1451.0 是一样的，只是改成借 1451.5 这一层当作中间原样传输层，这里定义了 1451.0 层调用 1451.5 层的中间的要有的一些 API。具体 参考 1451.5 标准源文  5.7 / 9.2 小节。</p>
+<h2 id="phy-teds">PHY TEDS</h2>
+<p>TEDS 的格式为 1451.0 定义的，如下：</p>
+<ol>
+<li>
+<p>TED 长度（TED Length），包括 DATA BLOCK 和 CHECKSUM，字节为单位 （占 4 个字节）；</p>
+</li>
+<li>
+<p>数据区（DATA BLOCK）：</p>
+<ol>
+<li>
+<p>第一个域类（Field type）（占 1 个字节）；</p>
+</li>
+<li>
+<p>第一个域类的 值的长度（Length of Value），字节为单位（占一个字节）；</p>
+</li>
+<li>
+<p>第一个域类的值（Value）（占 值的长度 个字节）；</p>
+</li>
+<li>
+<p>第二个域类（占 1 个字节）；</p>
+</li>
+<li>
+<p>第二个域类的 值的长度，字节为单位（占一个字节）；</p>
+</li>
+<li>
+<p>第二个域类的值（占 值的长度 个字节）；</p>
+<p>&hellip;</p>
+</li>
+<li>
+<p>以此类推。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>校验值（CHECKSUM），从 TED Length 到 DATA BLOCK 的最后一个字节加和，再用 0xFFF 减去该加和值（占两个字节）。</p>
+</li>
+</ol>
+<p>其中 数据区（DATA BLOCK）各个域类的具体定义如下表所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/6-1451.5-PHY-TEDS.png"
+        data-srcset="assets/6-1451.5-PHY-TEDS.png, assets/6-1451.5-PHY-TEDS.png 1.5x, assets/6-1451.5-PHY-TEDS.png 2x"
+        data-sizes="auto"
+        alt="assets/6-1451.5-PHY-TEDS.png"
+        title="6 1451.5 PHY TEDS" /></p>
+<p>释义如下：</p>
+<ul>
+<li>
+<p>域类 3，TEDS 头，值占四个字节，具体定义如下；</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/7-1451.5-TEDS%e5%a4%b4.png"
+        data-srcset="assets/7-1451.5-TEDS%e5%a4%b4.png, assets/7-1451.5-TEDS%e5%a4%b4.png 1.5x, assets/7-1451.5-TEDS%e5%a4%b4.png 2x"
+        data-sizes="auto"
+        alt="assets/7-1451.5-TEDS头.png"
+        title="7 1451.5-TEDS头" /></p>
+</li>
+<li>
+<p>域类 10，无线类型，值占一个字节，具体定义如下；</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/8-1451.5-PHY-radio-type.png"
+        data-srcset="assets/8-1451.5-PHY-radio-type.png, assets/8-1451.5-PHY-radio-type.png 1.5x, assets/8-1451.5-PHY-radio-type.png 2x"
+        data-sizes="auto"
+        alt="assets/8-1451.5-PHY-radio-type.png"
+        title="8 1451.5 PHY radio type" /></p>
+</li>
+<li>
+<p>域类 11，速度（bit / s），值占四个字节；</p>
+</li>
+<li>
+<p>域类 12，与此设备的最大连接的可操作设备数，值占两个字节；</p>
+</li>
+<li>
+<p>域类 13，与此节点的最大无线连接数，值占两个字节；</p>
+</li>
+<li>
+<p>域类 14，加密特性，值占两个字节，第一个字节指示加密算法，第二个字节指示加密长度（单位：bit）；</p>
+</li>
+<li>
+<p>等等等等，后面的具体看源文。授人以渔了已经。</p>
+</li>
+</ul>
+<h2 id="ncap-和-wtim-流程图">NCAP 和 WTIM 流程图</h2>
+<p>一下内容引自论文《基于IEEE1451.5标准网络传感器的研发_杨吉语》。</p>
+<p>WTIM 程序流程图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/9-WTIM%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png"
+        data-srcset="assets/9-WTIM%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png, assets/9-WTIM%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png 1.5x, assets/9-WTIM%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="assets/9-WTIM程序流程图.png"
+        title="9 WTIM 程序流程图" /></p>
+<p>NCAP 程序流程图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/10-NCAP%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png"
+        data-srcset="assets/10-NCAP%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png, assets/10-NCAP%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png 1.5x, assets/10-NCAP%e7%a8%8b%e5%ba%8f%e6%b5%81%e7%a8%8b%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="assets/10-NCAP程序流程图.png"
+        title="10 NCAP 程序流程图" /></p>
+<p>传感器即插即用功能实现流程图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/11-%e4%bc%a0%e6%84%9f%e5%99%a8%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e5%8a%9f%e8%83%bd%e5%ae%9e%e7%8e%b0%e6%b5%81%e7%a8%8b%e5%9b%be.png"
+        data-srcset="assets/11-%e4%bc%a0%e6%84%9f%e5%99%a8%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e5%8a%9f%e8%83%bd%e5%ae%9e%e7%8e%b0%e6%b5%81%e7%a8%8b%e5%9b%be.png, assets/11-%e4%bc%a0%e6%84%9f%e5%99%a8%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e5%8a%9f%e8%83%bd%e5%ae%9e%e7%8e%b0%e6%b5%81%e7%a8%8b%e5%9b%be.png 1.5x, assets/11-%e4%bc%a0%e6%84%9f%e5%99%a8%e5%8d%b3%e6%8f%92%e5%8d%b3%e7%94%a8%e5%8a%9f%e8%83%bd%e5%ae%9e%e7%8e%b0%e6%b5%81%e7%a8%8b%e5%9b%be.png 2x"
+        data-sizes="auto"
+        alt="assets/11-传感器即插即用功能实现流程图.png"
+        title="11 传感器即插即用功能实现流程图" /></p>
+<h2 id="一些注意事项">一些注意事项</h2>
+<ol>
+<li>为了减少多个 TIM 上电后同时给 NCAP 发送 TEDS 信息而造成数据量突增，TIM 应该等待 NCAP 的发送 TEDS 的命令，然后再发送，而不是一上电就主动发送。TIM 都听从 NCAP 来指挥调度，遵守“交通”规则。</li>
+<li>TIM、NCAP 任一方接收到对方消息帧后须返回应答/响应/回复帧，若发送方在规定时间内没接收到对方确认应答帧则重新发送数据，直至发送成功或发送次数达到最大值。</li>
+<li>NCAP 与 TIM 建立连接后，在空闲时，与 TIM 心跳通讯，若有连续一定次数的不回应则断连。</li>
+<li>使用 WLAN 时候，TIM 将自己的 IP 地址、端口等也存储在 PHY-TEDS 中。</li>
+<li>实现的时候要充分考虑系统的扩展性、模块独立性和可移植性，比如还有 NCAP 适应 TIM 的增加入网，TIM 适应多个传感器通道的增加等，还要保持处理算法的小运算量，时间和空间复杂度控制住。</li>
+<li>其他【读标准01】文章中提到的注意点。</li>
+</ol>
+<h2 id="参考--引用">参考 &amp; 引用</h2>
+<p>[0] IEEE 1451 协议培训，<a href="https://wenku.baidu.com/view/fab6e7c0bbf67c1cfad6195f312b3169a451ead7.html" target="_blank" rel="noopener noreffer">IEEE-1451-介绍 - 百度文库 (baidu.com)</a>，<a href="https://wenku.baidu.com/view/d1270a2ecf1755270722192e453610661fd95a55.html" target="_blank" rel="noopener noreffer">IEEE 1451 介绍ppt课件 - 百度文库 (baidu.com)</a>，<a href="https://www.renrendoc.com/paper/208306691.html" target="_blank" rel="noopener noreffer">IEEE 1451 介绍课件 (renrendoc.com)</a>。</p>
+<p>[1] 孔勇,杨志强,张溪溪,杨吉宇,李继明,程学珍.基于IEEE1451标准的称重传感器实验系统设计ADXL355加速度计在强振动环境中的应用[J].电子测试,2020(15):11-13+42.DOI:10.16520/j.cnki.1000-8519.2020.15.003.</p>
+<p>[2] 解宇. 海洋仪器网络化平台智能船载终端研发[D].济南大学,2019.DOI:10.27166/d.cnki.gsdcc.2019.000446.</p>
+<p>[3] 杨吉语. 基于IEEE1451.5标准网络传感器的研发[D].山东科技大学,2018.DOI:10.27275/d.cnki.gsdku.2018.000570.</p>
+<p>[4] 陈耿新,黄锦胜.基于IEEE 1451.5的高精度智能称重传感器系统[J].自动化与信息工程,2017,38(05):5-11.</p>
+<p>[5] 赵常. 基于IEEE1451标准的加速度智能传感器的研究[D].沈阳理工大学,2016.</p>
+<p>[6] 陶星珍,蒋廷彪,崔更申.基于IEEE 1451.5标准的物联网体系结构设计[J].计算机测量与控制,2014,22(09):2960-2961+2966.DOI:10.16526/j.cnki.11-4762/tp.2014.09.039.</p>
+<p>[7] 朱志伟.遵循IEEE1451标准的传感器即插即用研究[J].单片机与嵌入式系统应用,2014,14(09):3-6.</p>
+<p>[8] 张小廷. 基于IEEE1451标准的无线智能传感网的设计与实现[D].哈尔滨工业大学,2014.</p>
+<p>[9] 张帅,张锁平,齐占辉.海洋观测网络化智能接口标准的研究[J].电子设计工程,2013,21(09):183-187.DOI:10.14022/j.cnki.dzsjgc.2013.09.003.</p>
+<p>[10] 王石记,周庆飞,安佰岳.IEEE 1451网络化智能传感器接口技术[J].计算机测量与控制,2012,20(10):2600-2602+2616.DOI:10.16526/j.cnki.11-4762/tp.2012.10.076.</p>
+<p>[11] 郑培亮. 基于ARM的IEEE 1451智能称重传感器设计[D].华南理工大学,2011.</p>
+<p>[12] 张韵. 基于IEEE1451标准中间件的研究和实现[D].大连理工大学,2007.</p>
+<p>[13] 黄永忠,李正晓.IEEE 1451标准族智能传感器技术发展浅析[J].仪器仪表标准化与计量,2005(04):24-27.</p>
+<p>[14] 童利标,徐科军,梅涛.IEEE1451网络化智能传感器标准的发展及应用探讨[J].传感器世界,2002(06):25-32.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-07-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" data-title="【读标准02】IEEE 1451.5 智能无线传感器标准介绍" data-hashtags="IEEE 1451,标准,1451.5"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" data-hashtag="IEEE 1451"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/" data-title="【读标准02】IEEE 1451.5 智能无线传感器标准介绍" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ieee-1451/">IEEE 1451</a>,&nbsp;<a href="/tags/%E6%A0%87%E5%87%86/">标准</a>,&nbsp;<a href="/tags/1451.5/">1451.5</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="prev" rel="prev" title="【主线剧情02】ARM Linux 基础学习记录"><i class="fas fa-angle-left fa-fw"></i>【主线剧情02】ARM Linux 基础学习记录</a>
+            <a href="/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5/" class="next" rel="next" title="科幻小说《请留在未来》">科幻小说《请留在未来》<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
