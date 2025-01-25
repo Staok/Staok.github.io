@@ -863,7 +863,7 @@ set就是集合，STL的set用二叉树实现，集合中的每个元素只出�
 #include <unordered_map>
 
 unordered_map<char, int> map;
-unordered_map<int, string> myMap={{ 5, "张大" },{ 6, "李五" }}; // 使用{}赋值
+unordered_map<int, string> myMap = { { 5, "张大" },{ 6, "李五" } }; // 使用{}赋值
 
 
 // 插入元素
