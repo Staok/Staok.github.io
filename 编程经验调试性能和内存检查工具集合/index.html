@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>编程经验、调试、性能和内存检查工具集合 - 欢迎来到 瞰百Staok</title><meta name="Description" content="编程经验、调试、性能和内存检查工具集合"><meta property="og:title" content="编程经验、调试、性能和内存检查工具集合" />
+<meta property="og:description" content="编程经验、调试、性能和内存检查工具集合" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-12-22T16:07:06+08:00" />
+<meta property="article:modified_time" content="2024-12-22T16:07:06+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="编程经验、调试、性能和内存检查工具集合"/>
+<meta name="twitter:description" content="编程经验、调试、性能和内存检查工具集合"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" /><link rel="prev" href="https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "编程经验、调试、性能和内存检查工具集合",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  14539 ,
+        "url": "https:\/\/staok.github.io\/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88\/","datePublished": "2024-12-22T16:07:06+08:00","dateModified": "2024-12-22T16:07:06+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "编程经验、调试、性能和内存检查工具集合"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">编程经验、调试、性能和内存检查工具集合</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/ee-cs-study/"><i class="far fa-folder fa-fw"></i>EE-CS-Study</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-12-22">2024-12-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14539 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 30 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#gdb--gdbserver">GDB / GDBServer</a></li>
+    <li><a href="#binutils-工具集">binutils 工具集</a></li>
+    <li><a href="#gcc-实用选项">GCC 实用选项</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#linux-系统常用工具">Linux 系统常用工具</a></li>
+    <li><a href="#内存统计基本命令">内存统计基本命令</a></li>
+    <li><a href="#动态检查-">动态检查 *</a>
+      <ul>
+        <li><a href="#valgrind">valgrind</a></li>
+        <li><a href="#gperftools">gperftools</a></li>
+        <li><a href="#gprof--gcc--pg">gprof / gcc -pg</a></li>
+        <li><a href="#perf">perf</a></li>
+        <li><a href="#自实现内存泄露检测工具原理">自实现内存泄露检测工具原理</a></li>
+        <li><a href="#asan--address-sanitizer">ASAN / Address Sanitizer</a></li>
+        <li><a href="#专用于-win-的工具">专用于 win 的工具</a>
+          <ul>
+            <li><a href="#drmemory">DrMemory</a></li>
+            <li><a href="#visual-leak-detector">Visual Leak Detector</a></li>
+            <li><a href="#windbg">WinDbg</a></li>
+            <li><a href="#application-verifier">Application Verifier</a></li>
+            <li><a href="#windows-performance-toolkit">Windows Performance Toolkit</a></li>
+            <li><a href="#windows-sysinternals-suite">Windows Sysinternals Suite</a></li>
+            <li><a href="#windows-api">Windows API</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#静态检查-">静态检查 *</a>
+      <ul>
+        <li><a href="#cppcheck">cppcheck</a></li>
+        <li><a href="#clangd--clang-tidy">clangd / clang-tidy</a></li>
+        <li><a href="#编译时提示">编译时提示</a></li>
+      </ul>
+    </li>
+    <li><a href="#大型静态检查软件">大型静态检查软件</a>
+      <ul>
+        <li><a href="#sonarqube--sonar-cxx-">SonarQube + sonar-cxx *</a></li>
+        <li><a href="#black-duck--coverity">Black Duck / Coverity</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#初步检查">初步检查</a></li>
+    <li><a href="#基本优化">基本优化</a>
+      <ul>
+        <li><a href="#库编译精简">库编译精简</a></li>
+        <li><a href="#针对项">针对项</a></li>
+      </ul>
+    </li>
+    <li><a href="#chatgpt-给出-内存优化-基本经验">chatGPT 给出 内存优化 基本经验</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#elf-解析">elf 解析</a>
+      <ul>
+        <li><a href="#查看各段">查看各段</a></li>
+        <li><a href="#查看对象和函数">查看对象和函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#size-优化的点备忘">size 优化的点备忘</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="编程经验调试性能和内存检查工具集合">编程经验、调试、性能和内存检查工具集合</h1>
+<p>程序调试、在检测工具手段上对程序评估和优化 的 综合。</p>
+<p>尚有 一些 标记了 TODO 的地方 有待施工。没有三头六臂，很多资料 手头和脑里 都有 只是尚未没有整理出来。</p>
+<blockquote>
+<p>虽抱文章，开口谁亲。且陶陶、乐尽天真。几时归去，作个闲人。对一张琴，一壶酒，一溪云。</p>
+</blockquote>
+<h1 id="编程经验">编程经验</h1>
+<p>这里只总结一些精华的点、易忘的点，高频出问题的点。</p>
+<p>顶层指导：</p>
+<ul>
+<li>多看一些 最佳实践 的 文章 和 工程 来对自己进行提高。</li>
+<li>基础语法和例子，实践的时候可举一反三使用。</li>
+<li>写东西时候先多思考架构。不必一上来就写 等 情况的出现，减少后面 debug 和 重构的时间。</li>
+</ul>
+<p>设计模式相关综合 <a href="https://github.com/Staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer">Staok/C-Cpp-design-patterns: C/C++设计模式相关优秀资料集子 (github.com)</a>。</p>
+<ul>
+<li>可以设计 和 使用一些自动化工具来帮助完成 重复性的操作（也避免人工操作的可能的失误，所以工具也要写的健壮一些，识别和处理一些常会出现的错误），或者 用来检查 容易出错的地方，借由机器来给脑卸去些负担。</li>
+</ul>
+<p>易错注意：p.s 这些地方易错且无法静态检查出，只能运行起来碰到，目前还没有好的静态工具来检出，所以靠人来保证程序的健壮性，是良好的 程序框架设计 和 一些规则（比如不写主动抛异常）、规范 的 教育、培训、落实 来。</p>
+<ul>
+<li>
+<p>一个资源可能多个线程使用，必加锁（单纯的互斥量，或者读写锁 等，选择适当的锁类型）。</p>
+</li>
+<li>
+<p>使用指针之前 若有必要 则 必 检查 判空（包括std::shared_ptr等类型的指针）。释放指针后必置其为 nullptr / null。动态创建的资源，尽量使用智能指针来管理。</p>
+</li>
+<li>
+<p>会抛异常的 API 若有必要 / 尽量 加异常捕获。</p>
+<p>使用系统调用、库函数等，查看文档确定其是否会抛异常，处理其执行错误的情况。自己写程序可以尽量不用主动抛异常，运行出错当下解决（视情况严重性，是直接终止程序（后面依靠比较完备的测试来逐渐收敛程序 bug 来提高程序健壮性），还是及时在当下来处理错误（如给个默认值等））。</p>
+<p>调用有可能抛出异常的API（一般是库的），都要加 try cache 来打印 log 并处理现场。自己写的就不要抛异常了，只接不抛，否则代码规模一大不好控制。</p>
+</li>
+</ul>
+<p>良好实践经验 / 惯例写法：</p>
+<ul>
+<li>
+<p>每个项目最好都有统一的 .clang_format 文件，时常 format 下。有 clangd 配置文件 也好。</p>
+</li>
+<li>
+<p><a href="https://github.com/chengxumiaodaren/cpp-learning" target="_blank" rel="noopener noreffer">chengxumiaodaren/cpp-learning (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.51cto.com/u_12205414/3251768" target="_blank" rel="noopener noreffer">你最喜欢的c++编程风格惯用法是什么?_51CTO博客_c++编程惯用法</a>。其中的一些精华总结到下面。</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>
+<p>基类/抽象类、派生类 的结构设计尽量按照实际情况，尽量分层次处理，基类/抽象类中列好公共 变量 和 接口/虚函数/纯虚函数 等。</p>
+</li>
+<li>
+<p>创建和销毁资源务必成对去写。创建资源（类、结构体、数组等）用于承接的指针尽量使用 std::shared_ptr / std::unique_ptr 这种（尤其是 在异常等情况发生时，资源可以自动释放）。</p>
+</li>
+<li>
+<p>类的析构，实例的删除等等的函数，尽量做到可重复多次调用（因为外部有可能重复调），可用 mIsInit 变量来记录这个类是否初始化成功，类的各个方法开头先判断一下这个。delete 前 先 判断指针 是否不为空，delete 后指针再置空（nullptr）。</p>
+</li>
+<li>
+<p>推荐 多做/多用 RAII（利用对象生命周期管理资源）风格编码。</p>
+<p>如 使用 智能指针。</p>
+</li>
+<li>
+<p>常用大括号控制生命周期，能提前结束的就可以提前结束。</p>
+</li>
+<li>
+<p>一些表达式，使用 constexpr 替代 宏，且多用 编译期计算。宏有全局作用域，项目一大易混乱。</p>
+</li>
+<li>
+<p>可以更多的使用模板元编程。</p>
+</li>
+<li>
+<p>单例类只用 .h 文件里面 放一个 <code>extern class classType Global&lt;name&gt;Inst;</code> 这种方式（在 .cpp 里面去声明 <code>calss classType Global&lt;name&gt;Inst;</code>），之后全局调用 <code>Global&lt;name&gt;Inst</code> 即可。</p>
+</li>
+</ul>
+<p>细节写法：</p>
+<ul>
+<li><a href="https://oi-wiki.org/lang/optimizations/" target="_blank" rel="noopener noreffer">编译优化 - OI Wiki (oi-wiki.org)</a>。</li>
+<li>函数形参超过三个的，可考虑 使用 struct 打包（后续补充形参也可直接修改这个结构体，比较方便维护），传递参数尽量不用 std::array, std::pair, std::tuple 等这种破坏可动性的东西。</li>
+<li>打印 log 的一些规范，有用的 log 优化常用方法：
+<ul>
+<li>降频；比较前后数据，有变化时再打印；只打印 error 错误信息，以及关键 info 信息。</li>
+<li>比较稳定且不重要的模块尽可能精简，出了问题再加 log 也来的及。</li>
+<li>log 描述尽量简化，单词用缩写，函数名不用打全。</li>
+</ul>
+</li>
+</ul>
+<p>TODO：参考 木须 的 编码规范的文档，补充到这里。</p>
+<h1 id="环境搭建--最佳实践">环境搭建 / 最佳实践</h1>
+<p>这里面也是对本文下面各种工具的整理。</p>
+<p>TODO 引用 自己的 cmake模板工程仓库目录</p>
+<h1 id="gdb--binutils--gcc-options">GDB / binutils / GCC options</h1>
+<h2 id="gdb--gdbserver">GDB / GDBServer</h2>
+<p>基本步骤 <a href="https://hackingcpp.com/cpp/tools/gdb_intro.html" target="_blank" rel="noopener noreffer">Debugging With gdb Mini-Tutorial | hacking C++ (hackingcpp.com)</a>。</p>
+<p>更丰富各种资料 <a href="https://github.com/Staok/ARM-Linux-Study/tree/main/%E3%80%901%20GCC%20%26%20GDB%20%26%20GDBServer%E3%80%91" target="_blank" rel="noopener noreffer">ARM-Linux-Study/【1 GCC &amp; GDB &amp; GDBServer】 at main · Staok/ARM-Linux-Study (github.com)</a>。</p>
+<p>对于 gdb 工具，若是单步调试等这种，一般有 VsCode、VS 这种界面工具，对于 GDBServer 则需要 一些单步调试命令。而对于 linux 产生的 coredump，更多是在使用 gdb 的各种信息查看命令。</p>
+<p>GDB 常用命令总结：</p>
+<p><code>bt</code> 显示调用栈</p>
+<p><code>f &lt;num&gt;</code> 设置当前处于哪一层栈，再用 <code>info &lt;xxx&gt;</code> 的命令看看信息，常用的：<code>info locals</code>、<code>info args</code>、<code>info frame</code>，然后可以用 print 打印变量、结构体、指针等等</p>
+<p><code>thread apply all bt</code> 显示所有线程在干什么</p>
+<p><code>thread &lt;thread-id&gt;</code> 跳转到对应的线程号，再用 bt 查看调用栈，同上</p>
+<p>gdb 查看 coredump <code>gdb {binary} {coredump_file}</code>。指定 sysroot 目录，在 gdb 后添加 <code>-ex &quot;set sysroot $SYSROOT_PATH&quot;</code>。</p>
+<p>Linux 程序调试，产生 coredump 方法</p>
+<p><a href="https://blog.csdn.net/qq_42417071/article/details/140147831" target="_blank" rel="noopener noreffer">浅谈 Linux 中的 core dump 分析方法-CSDN博客</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/514516021" target="_blank" rel="noopener noreffer">Linux内核调试方法总结之coredump - 知乎 (zhihu.com)</a></p>
+<p>需要编译程序 添加调试 -g，将符号表导出到 bin，可供 gdb 查询；可以开发阶段都是用这种编译，最后 release 的时候，可以稍微使用优化比如 -O2，然后去掉 -g 或者 使用 gcc 的 strip 工具给 bin 去掉 符号表。</p>
+<p>程序编译时候 -g 会带上函数等符号，使用以上工具可以根据内存地址反查出函数名，若只有内存地址，可以用 gdb 工具</p>
+<p><a href="https://stackoverflow.com/questions/7639309/how-to-use-gdb-to-find-what-function-a-memory-address-corresponds-to" target="_blank" rel="noopener noreffer">c++ - How to use GDB to find what function a memory address corresponds to - Stack Overflow</a>——在 gdb 工具里面使用 info 系列命令来查看</p>
+<h2 id="binutils-工具集">binutils 工具集</h2>
+<p>binutils 工具集介绍和使用 <a href="https://blog.51cto.com/quantfabric/2515980" target="_blank" rel="noopener noreffer">GNU开发工具——GNU Binutils快速入门_51CTO博客_GNU Binutils</a>。</p>
+<p>包括 addr2line、ar、gprof、nm、objcopy、objdump、ranlib、size、strings、strip。</p>
+<p>addr2line 使用详解</p>
+<p><a href="https://www.yisu.com/ask/96420422.html" target="_blank" rel="noopener noreffer">在Linux中使用addr2line的参数有哪些 - 问答 - 亿速云 (yisu.com)</a></p>
+<p><a href="https://blog.csdn.net/zhangqi306891687/article/details/141498310" target="_blank" rel="noopener noreffer">addr2line使用详解_addr2line命令用法-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/mingtiannihaoabc/article/details/131263823" target="_blank" rel="noopener noreffer">调试厉器addr2line-CSDN博客</a> 程序地址、库方法地址、内核模块的地址</p>
+<p>一般用法 <code>addr2line -e &lt;bin&gt; -Cfp &lt;addr(0xXXXX)&gt;</code></p>
+<h2 id="gcc-实用选项">GCC 实用选项</h2>
+<p>gcc 选项-finstrument-functions实现函数调用栈追踪</p>
+<p><a href="https://blog.csdn.net/m0_61549061/article/details/139065079" target="_blank" rel="noopener noreffer">gcc 选项-finstrument-functions实现函数调用栈追踪-CSDN博客</a>。</p>
+<p>gcc 扩展关键字，可多了解和积累</p>
+<p><code>__attribute__</code>：</p>
+<p><a href="https://www.jianshu.com/p/c8bea3807527" target="_blank" rel="noopener noreffer"><strong>attribute</strong> 的详解 - 简书 (jianshu.com)</a></p>
+<p><a href="https://blog.csdn.net/juana1/article/details/6849120" target="_blank" rel="noopener noreffer">GNU C中不为人知的特色：__attribute__机制-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/ithomer/article/details/6566739" target="_blank" rel="noopener noreffer">__attribute__机制介绍-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/bytxl/article/details/7523472" target="_blank" rel="noopener noreffer">__attribute__机制介绍_使用-finstrument-CSDN博客</a></p>
+<h1 id="性能--内存相关工具">性能 / 内存相关工具</h1>
+<p>参考：会列出很多工具，选择自己趁手的即可。</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/448362493/answer/1770329163" target="_blank" rel="noopener noreffer">一般Linux性能调优都用什么工具？ - 知乎 (zhihu.com)</a>。</li>
+<li><a href="https://www.zhihu.com/question/23357089/answer/1992218543" target="_blank" rel="noopener noreffer">C/C++ 编程有哪些值得推荐的工具？ - 知乎 (zhihu.com)</a>。</li>
+<li><a href="https://www.zhihu.com/question/63946754/answer/1981098265" target="_blank" rel="noopener noreffer">C++ 怎么检测内存泄露，怎么定位内存泄露？ - 知乎 (zhihu.com)</a>。</li>
+<li><a href="https://www.zhihu.com/question/26905808/answer/1971302757" target="_blank" rel="noopener noreffer">大型c++项目在linux下如何调试? - 知乎 (zhihu.com)</a>。</li>
+</ul>
+<h2 id="linux-系统常用工具">Linux 系统常用工具</h2>
+<blockquote>
+<p><strong>网络I/O</strong>：dstat、<strong>tcpdump</strong>（推荐）、sar</p>
+<p><strong>磁盘I/O</strong>：<strong>iostat</strong>（推荐）、dstat、sar</p>
+<p><strong>文件系统空间</strong>：<strong>df</strong>、du</p>
+<p><strong>内存容量</strong>：free、<strong>vmstat</strong>（推荐）、sar</p>
+<p><strong>进程内存分布</strong>：<strong>pmap</strong></p>
+<p><strong>CPU负载</strong>：uptime、<strong>top</strong></p>
+<p><strong>CPU使用率</strong>：<strong>pidstat</strong>（推荐）、vmstat、mpstat、top、sar、time</p>
+<p><strong>系统调用追踪</strong>：<strong>strace</strong>（推荐）</p>
+<p><strong>网络吞吐量</strong>：<strong>iftop</strong>、nethogs、sar</p>
+<p><strong>网络延迟</strong>：<strong>ping</strong></p>
+<p><strong>上下文切换</strong>：<strong>pidstat</strong>（推荐）、vmstat、perf</p>
+<p><strong>软中断/硬中断</strong>：<strong>/proc/softirqs</strong>、<strong>/proc/interrupts</strong></p>
+</blockquote>
+<p>各种工具用处可视化的各种图</p>
+<p><a href="https://www.brendangregg.com/linuxperf.html" target="_blank" rel="noopener noreffer">Linux Performance (brendangregg.com)</a>。</p>
+<h2 id="内存统计基本命令">内存统计基本命令</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/555018970" target="_blank" rel="noopener noreffer">Linux 下查看内存使用情况方法总结 - 知乎 (zhihu.com)</a>。</p>
+<p><a href="https://blog.csdn.net/Dontla/article/details/123131147" target="_blank" rel="noopener noreffer">linux进程VSZ（Virtual Memory Size 虚拟内存）RSS（Resident Set Size 驻留集大小，实际占用的物理内存）PSS、USS、ANON、RESVIRTDirty-CSDN博客</a>。</p>
+<ul>
+<li>
+<p>procrank 查看各进程的 VSS RSS PSS USS 内存占用情况</p>
+<p>VSS RSS PSS USS 内存 介绍 <a href="https://www.jianshu.com/p/995692aa0100" target="_blank" rel="noopener noreffer">VSS/RSS/PSS/USS - 简书 (jianshu.com)</a></p>
+<p><code>procrank -u -R</code></p>
+<p><code>watch -n 1 procrank -u</code>（循环执行）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">watch -n <span class="m">1</span> <span class="s2">&#34;procrank -u | grep &lt;process_name&gt;&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>ps aux --sort -rss</code></p>
+</li>
+<li>
+<p><code>free -h</code>	对 /proc/meminfo 收集到的信息的一个概述</p>
+<p>进程的内存使用信息也可以通过 <code>/proc/&lt;pid&gt;/statm</code> 和 <code>/proc/&lt;pid&gt;/status</code> 来查看，但比较抽象，有具体的格式</p>
+</li>
+<li>
+<p>pmap 命令</p>
+<p><a href="https://blog.csdn.net/wlcs_6305/article/details/124434626" target="_blank" rel="noopener noreffer">如何在 Linux 上使用 pmap 命令_linux pmap使用-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/qq_34934140/article/details/121120348" target="_blank" rel="noopener noreffer">Linux内存管理 &ndash; smaps讲解-CSDN博客</a></p>
+<p>[anon] 内存段 <a href="https://cloud.tencent.com/developer/article/1459253" target="_blank" rel="noopener noreffer">系统调用mmap的内核实现分析-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<ul>
+<li>
+<p>该内存段就是操作系统为mmap系统调用新分配出来的区域。</p>
+</li>
+<li>
+<p>frame buffer 算，其它的还有可能是 别的系统调用 通过 mmap 读写 驱动文件 产生的</p>
+</li>
+</ul>
+<p><code>pmap -p -x &lt;pid&gt;</code> 查看某一个进程的内存占用各个文件的信息，<code>-x</code> 以及 <code>-X</code> 和 <code>-XX</code> 选项增加显示信息</p>
+<p><code>pmap -p -x &lt;pid&gt; &gt; /tmp/xxx</code> 写入到文件，再取出到 pc 上，导入到 excel，排序查看，或者用别的方法排下序来看。</p>
+<p>循环监视：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">watch -n <span class="m">1</span> <span class="s2">&#34;pmap -p -X </span><span class="k">$(</span>pidof &lt;procss_name&gt;<span class="k">)</span><span class="s2"> | grep heap&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="动态检查-">动态检查 *</h2>
+<p>几个主要工具对比</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>使用命令</th>
+<th>是否需要重新编译</th>
+<th>Profiling速度</th>
+<th>是否支持多线程热点分析</th>
+<th>是否支持链接库热点分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gprof</td>
+<td>./test; gprof ./test ./gmon.out</td>
+<td><strong>是</strong></td>
+<td>慢</td>
+<td><strong>否</strong></td>
+<td><strong>否</strong></td>
+</tr>
+<tr>
+<td>valgrind</td>
+<td>Valgrind &ndash;tool=callgrind ./test</td>
+<td>否</td>
+<td><strong>非常慢</strong></td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>gperftools</td>
+<td>LD_PRELOAD=/usr/lib/libprofiler.so CPUPROFILE=./test.prof ./test</td>
+<td><strong>否</strong></td>
+<td>快</td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="valgrind">valgrind</h3>
+<p>拖慢程序比较严重，不推荐使用了其实。后面的 prof 工具类 和 AddressSanitizer 推荐使用。</p>
+<p>可参考：</p>
+<p><a href="https://hackingcpp.com/cpp/tools/valgrind.html" target="_blank" rel="noopener noreffer">valgrind Introduction | hacking C++ (hackingcpp.com)</a>。</p>
+<p>一些使用和调试经验</p>
+<p>可以查看程序的堆内存分配情况，包括哪些函数分配了大块内存。</p>
+<p><a href="https://www.cnblogs.com/jj-Must-be-sucessful/p/17005792.html">https://www.cnblogs.com/jj-Must-be-sucessful/p/17005792.html</a>    编译和添加环境变量</p>
+<p><a href="https://baijiahao.baidu.com/s?id=1652356863601374476&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1652356863601374476&amp;wfr=spider&amp;for=pc</a>    检测内存泄漏</p>
+<p><a href="https://blog.csdn.net/asitMJ/article/details/135371794">https://blog.csdn.net/asitMJ/article/details/135371794</a> linux多线程互斥锁程序卡死排查</p>
+<p>qt creator 中自带：（在Linux中）需要先安装 Valgrind 并添加环境变量，并测试能用，然后在 qt creator 中实用如下功能启用监控和生成结果（火焰图等）<code>Valgrind Memory Analyzer (External Application)</code> 和 <code>Valgrind Function Profiler (External Application)</code>。</p>
+<p><a href="https://blog.51cto.com/xiaohaiwa/5380249" target="_blank" rel="noopener noreffer">QT-Valgrind内存分析_我不是萧海哇的技术博客_51CTO博客</a>，qt（linux pc）中执行</p>
+<h3 id="gperftools">gperftools</h3>
+<blockquote>
+<ul>
+<li>gmc: gperf memory check, 内存检查（泄漏，错误等）内存泄漏检测工具</li>
+<li>gmp: gperf memory profile, 内存性能分析（哪个函数内存分配多）内存占用分析。内存申请记录（定位到函数）。</li>
+<li>gcp: gperf cpu profile, CPU性能分析（函数消耗CPU多）能够通过统计一定时间内各个功能单元（线程、函数等）的执行时间并给出其占用比例。cpu（函数调用 / 火焰图）。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>相比与其他性能分析工具，<strong>gperftools有Profiling速度快，灵活性较高的优点。</strong></p>
+</blockquote>
+<p>但是配置起来需要安装一堆东西，需要专门用时间进行 学习、细细配置和使用起来。</p>
+<blockquote>
+<p>Gperftools 在 Windows 上提供了 tcmalloc_minimal 的支持，这是一个内存分配器，可以在 Windows 上使用。然而，一些依赖于 Linux 特有功能（如signal.h）的功能（如 ProfilerStart() 和 ProfilerStop() 函数）在 Windows 上不可用‌</p>
+</blockquote>
+<p>基本使用：</p>
+<p>1、以链接动态库的形式链接进程序。</p>
+<p>2、也可以不重新编译程序，将库放到机器上，使用 LD_PRELOAD 环境变量指定加载库。</p>
+<p>让程序启用，然后 pprof 打印内存申请情况。</p>
+<p>使用上，建议不要自己编译 gperftools 生成库来给自己 程序 链接 和 编译，坑很多（大多数人生苦短，若你人生自由有时间，可以多研究多鼓捣），所以建议尽量使用编译好的lib 或者 现成的 package 来用（本文作者截止到 23.10（自己编译 gperftools 源码 然后链接成功，但是 bin 没有跑起来..） 还没有这么做过），推荐探索下（本文作者目前还没有这方面需求所以就没有花时间再深入研究，若日后正式再去用，则会记录成功的普适的步骤并补充到这里）。</p>
+<p>参考：</p>
+<p><a href="https://github.com/gperftools/gperftools" target="_blank" rel="noopener noreffer">gperftools/gperftools: Main gperftools repository (github.com)</a>。</p>
+<p>官方文档：</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">TCMALLOC
+--------
+Just link in -ltcmalloc or -ltcmalloc_minimal to get the advantages of
+tcmalloc -- a replacement for malloc and new.  See below for some
+environment variables you can use with tcmalloc, as well.
+
+tcmalloc functionality is available on all systems we&#39;ve tested; see
+INSTALL for more details.  See README_windows.txt for instructions on
+using tcmalloc on Windows.
+
+when compiling.  gcc makes some optimizations assuming it is using its
+own, built-in malloc; that assumption obviously isn&#39;t true with
+tcmalloc.  In practice, we haven&#39;t seen any problems with this, but
+the expected risk is highest for users who register their own malloc
+hooks with tcmalloc (using gperftools/malloc_hook.h).  The risk is
+lowest for folks who use tcmalloc_minimal (or, of course, who pass in
+the above flags :-) ).
+
+
+HEAP PROFILER
+-------------
+See docs/heapprofile.html for information about how to use tcmalloc&#39;s
+heap profiler and analyze its output.
+
+As a quick-start, do the following after installing this package:
+
+1) Link your executable with -ltcmalloc
+2) Run your executable with the HEAPPROFILE environment var set:
+     $ HEAPPROFILE=/tmp/heapprof &lt;path/to/binary&gt; [binary args]
+3) Run pprof to analyze the heap usage
+     $ pprof &lt;path/to/binary&gt; /tmp/heapprof.0045.heap  # run &#39;ls&#39; to see options
+     $ pprof --gv &lt;path/to/binary&gt; /tmp/heapprof.0045.heap
+
+You can also use LD_PRELOAD to heap-profile an executable that you
+didn&#39;t compile.
+
+There are other environment variables, besides HEAPPROFILE, you can
+set to adjust the heap-profiler behavior; c.f. &#34;ENVIRONMENT VARIABLES&#34;
+below.
+
+The heap profiler is available on all unix-based systems we&#39;ve tested;
+see INSTALL for more details.  It is not currently available on Windows.
+
+
+CPU PROFILER
+------------
+See docs/cpuprofile.html for information about how to use the CPU
+profiler and analyze its output.
+
+As a quick-start, do the following after installing this package:
+
+1) Link your executable with -lprofiler
+2) Run your executable with the CPUPROFILE environment var set:
+     $ CPUPROFILE=/tmp/prof.out &lt;path/to/binary&gt; [binary args]
+3) Run pprof to analyze the CPU usage
+     $ pprof &lt;path/to/binary&gt; /tmp/prof.out      # -pg-like text output
+     $ pprof --gv &lt;path/to/binary&gt; /tmp/prof.out # really cool graphical output
+
+There are other environment variables, besides CPUPROFILE, you can set
+to adjust the cpu-profiler behavior; cf &#34;ENVIRONMENT VARIABLES&#34; below.
+
+The CPU profiler is available on all unix-based systems we&#39;ve tested;
+see INSTALL for more details.  It is not currently available on Windows.
+
+NOTE: CPU profiling doesn&#39;t work after fork (unless you immediately
+      do an exec()-like call afterwards).  Furthermore, if you do
+      fork, and the child calls exit(), it may corrupt the profile
+      data.  You can use _exit() to work around this.  We hope to have
+      a fix for both problems in the next release of perftools
+      (hopefully perftools 1.2).
+
+
+EVERYTHING IN ONE
+-----------------
+If you want the CPU profiler, heap profiler, and heap leak-checker to
+all be available for your application, you can do:
+   gcc -o myapp ... -lprofiler -ltcmalloc
+
+However, if you have a reason to use the static versions of the
+library, this two-library linking won&#39;t work:
+   gcc -o myapp ... /usr/lib/libprofiler.a /usr/lib/libtcmalloc.a  # errors!
+
+Instead, use the special libtcmalloc_and_profiler library, which we
+make for just this purpose:
+   gcc -o myapp ... /usr/lib/libtcmalloc_and_profiler.a
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>可视化显示结果数据使用 pprof，<a href="https://github.com/google/pprof" target="_blank" rel="noopener noreffer">google/pprof: pprof is a tool for visualization and analysis of profiling data (github.com)</a>。</p>
+<blockquote>
+<p>pprof is a tool for visualization and analysis of profiling data</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/608605973" target="_blank" rel="noopener noreffer">GPERF 内存和性能分析 - 知乎 (zhihu.com)</a>。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/678172638" target="_blank" rel="noopener noreffer">你了解过Gperftools性能分析神器吗？ - 知乎 (zhihu.com)</a>。</p>
+<p><a href="https://blog.csdn.net/fpcc/article/details/136573180" target="_blank" rel="noopener noreffer">gperftools的安装使用说明_gperftools安装-CSDN博客</a>。</p>
+<p><a href="https://www.cnblogs.com/minglee/p/10124174.html" target="_blank" rel="noopener noreffer">使用heap profiler进行内存占用分析 - 溟漓 - 博客园 (cnblogs.com)</a> 安装和使用</p>
+<p><a href="https://zhuanlan.zhihu.com/p/623443812" target="_blank" rel="noopener noreffer">gperftools快速上手教程 - 知乎 (zhihu.com)</a>。</p>
+<p><a href="https://qsli.github.io/2017/12/02/google-perf-tools/" target="_blank" rel="noopener noreffer">使用google perf工具来排查堆外内存占用 | KL&rsquo;s blog (qsli.github.io)</a> 具体使用</p>
+<p><a href="https://blog.csdn.net/m0_50179075/article/details/125141931" target="_blank" rel="noopener noreffer">性能测试工具Google perftools（简称gperftool)配置及使用_google perftools使用-CSDN博客</a> -lprofiler -lunwind</p>
+<p><a href="https://blog.csdn.net/qq_44407144/article/details/131313020" target="_blank" rel="noopener noreffer">gperftools安装与使用-CSDN博客</a> HEAPCHECK=模式</p>
+<p>有许多使用上的选项，可以详细参考 官方文档，总之功能是相对丰富的。</p>
+<h3 id="gprof--gcc--pg">gprof / gcc -pg</h3>
+<blockquote>
+<p>一种用于分析程序性能的工具，它能够生成函数级别的性能分析报告，帮助开发人员找出程序中的瓶颈和性能问题。<code>gprof</code> 通常与 GNU 编译器集合中的 <code>gcc</code> 配合使用，它通过在程序中插入一些特殊的代码来收集运行时的函数调用信息，然后生成性能分析报告。</p>
+</blockquote>
+<blockquote>
+<p>gprof可以用来分析系统在运行时各函数调用的次数，耗时等情况，可以方便地帮助我们定位系统的瓶颈，同时也能让我们知道对程序的那个位置就行优化能够带来尽可能大的性能提升。gprof 优化尤其适用于CPU、内存密集性的应用模块。</p>
+</blockquote>
+<blockquote>
+<p>-p / -pg： gcc 中的一个编译选项，用于在生成的可执行文件中插入性能分析代码，以便进行性能分析和 profiling（性能剖析）。以帮助开发人员了解程序的运行时间分布、函数调用关系以及性能瓶颈，从而指导优化工作。需要注意的是，由于插入了额外的代码，使用 -pg 选项可能会稍微影响程序的执行速度，因此在进行性能分析时需要权衡是否使用该选项。</p>
+</blockquote>
+<p>不适用于 多线程 程序 分析（默认只记录主线程，分析多线程需要一些方法来做到。个人觉得，与其这折腾这个，不如直接用 gperftools 等来做分析） 和 动态链接库 的 分析。</p>
+<p>gprof 可以统计出各个函数的调用次数、时间、以及函数调用图。</p>
+<p>在编译和链接程序的时候，使用 <code>-pg</code> 选项；执行程序；再 <code>gprof &lt;app&gt; &lt;运行结束后生成的分析结果文件&gt;</code>。</p>
+<blockquote>
+<ol>
+<li>gcc -pg 编译程序</li>
+<li>运行程序，程序退出时生成 gmon.out</li>
+<li>gprof ./prog gmon.out -b 查看输出</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>可通过<code>gprof -h</code>命令查看可用参数。</p>
+</blockquote>
+<p><a href="http://lazybing.github.io/blog/2019/04/13/profiler-gprof/" target="_blank" rel="noopener noreffer">性能优化之性能分析工具gprof - 懒人李冰 (lazybing.github.io)</a>。</p>
+<blockquote>
+<p>生成的分析文件 analysis.txt 中有两种形式的分析数据。</p>
+<p>Flat Profile 和 Call Graph。都是用于表示 每个函数的 占用时间 和 调用次数等。</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/tongxin1101124/article/details/115248122" target="_blank" rel="noopener noreffer">程序性能分析工具—gprof-CSDN博客</a>。</p>
+<blockquote>
+<p>由于结果report.txt分析不太直观，可以借助gprof2dot.py与dot工具生成函数调用图</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/mozun1/article/details/58011427" target="_blank" rel="noopener noreffer">gprof性能分析工具详解-CSDN博客</a>。</p>
+<blockquote>
+<p>注意事项</p>
+<ul>
+<li>程序如果不是从main return或exit()退出，则可能不生成gmon.out。</li>
+<li>程序如果崩溃，可能不生成gmon.out。</li>
+<li>测试发现在虚拟机上运行，可能不生成gmon.out。</li>
+<li>一定不能捕获、忽略SIGPROF信号。man手册对SIGPROF的解释是：profiling timer expired. 如果忽略这个信号，gprof的输出则是：Each sample counts as 0.01 seconds. no time accumulated。</li>
+<li>如果程序运行时间非常短，则gprof可能无效。因为受到启动、初始化、退出等函数运行时间的影响。</li>
+<li>程序忽略SIGPROF信号！</li>
+</ul>
+</blockquote>
+<h3 id="perf">perf</h3>
+<p>命令行工具，有很多子功能，包含 函数调用 / 火焰图、内存申请记录（定位到函数）、内存泄漏检测 工具。</p>
+<p>可以使用命令 生成 text、pdf（火焰图、函数调用关系图） 等形式的展示。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/614212908" target="_blank" rel="noopener noreffer">系统性能分析工具&ndash;Perf - 知乎 (zhihu.com)</a> 基本使用，基本选项</p>
+<p><a href="https://zhuanlan.zhihu.com/p/621893549" target="_blank" rel="noopener noreffer">包罗万象-perf命令介绍 - 知乎 (zhihu.com)</a> 各个命令介绍</p>
+<p>生成的 perf.data 可以放到这个可视化网站上看 <a href="https://www.speedscope.app/" target="_blank" rel="noopener noreffer">speedscope</a></p>
+<p>perf 的一个可视化工具，也是一个 perf 的 UI 工具（推荐）：</p>
+<p>KDAB 的 hotspot，linux（带图形界面的）平台运行 .appImage 文件，或者在如 ubuntu 平台安装 hotspot 软件即可用。具体参考官方文档。<a href="https://github.com/KDAB/hotspot" target="_blank" rel="noopener noreffer">KDAB/hotspot: The Linux perf GUI for performance analysis. (github.com)</a>。</p>
+<blockquote>
+<p>The main feature of Hotspot is the graphical visualization of a <code>perf.data</code> file.</p>
+</blockquote>
+<h3 id="自实现内存泄露检测工具原理">自实现内存泄露检测工具原理</h3>
+<p>对 malloc / free 或 new / delete 做 插桩函数 或者 对其重载 来实现。</p>
+<p>源自 <a href="https://www.zhihu.com/question/29859828/answer/1798470821" target="_blank" rel="noopener noreffer">C++不用工具，如何检测内存泄漏？ - 知乎 (zhihu.com)</a>。</p>
+<h3 id="asan--address-sanitizer">ASAN / Address Sanitizer</h3>
+<p><a href="https://hackingcpp.com/cpp/tools/asan.html" target="_blank" rel="noopener noreffer">C++ ASAN (Address Sanitizer) Introduction | hacking C++ (hackingcpp.com)</a>。</p>
+<blockquote>
+<ul>
+<li>detects memory corruption bugs
+<ul>
+<li>memory leaks</li>
+<li>access to already freed memory</li>
+<li>access to incorrect stack areas</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li>instruments your code with additional instructions
+<ul>
+<li>roughly 70% runtime increase</li>
+<li>roughly 3-fold increase in memory usage</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><a href="https://www.jianshu.com/p/d80db380e295" target="_blank" rel="noopener noreffer">内存检测工具 AddressSanitizer - 简书 (jianshu.com)</a>。</p>
+<blockquote>
+<p>AddressSanitizer 是一个内存检测工具。支持GCC 4.8 及以上。在编译时添加<code>-fsanitize=address</code>选项，如果为了得到更全面的信息可以用<code>-fno-omit-frame-pointer</code>。</p>
+</blockquote>
+<blockquote>
+<p>该工具为gcc自带，4.8以上版本都可以使用，支持Linux、OS、Android等多种平台，不止可以检测内存泄漏，它其实是一个内存错误检测工具，可以检测的问题有：</p>
+<ul>
+<li>内存泄漏</li>
+<li>堆栈和全局内存越界访问</li>
+<li>free后继续使用</li>
+<li>局部内存被外层使用</li>
+<li>Initialization order bugs</li>
+</ul>
+</blockquote>
+<p>具体文档 <a href="https://github.com/google/sanitizers/wiki/AddressSanitizer" target="_blank" rel="noopener noreffer">AddressSanitizer · google/sanitizers Wiki (github.com)</a>。</p>
+<p>更多详情：</p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/qq_15437629/article/details/114440930" target="_blank" rel="noopener noreffer">内存错误检测工具-AddressSanitizer（ASAN）_asan安装-CSDN博客</a>。</p>
+<blockquote>
+<p>Valgrind 其会极大的降低程序运行速度，大约降低10倍，而 AddressSanitizer 大约只降低2倍！</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/weixin_42136255/article/details/133815129" target="_blank" rel="noopener noreffer">深入理解Asan：内存错误检测工具与实践-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/512578904" target="_blank" rel="noopener noreffer">关于 ASAN - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/weixin_31260305/article/details/133288437" target="_blank" rel="noopener noreffer">ASAN 问题总结-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/weixin_42136255/article/details/133814026" target="_blank" rel="noopener noreffer">KASan介绍-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/qq_43627907/article/details/132890999" target="_blank" rel="noopener noreffer">C++(Qt)软件调试&mdash;GCC编译参数学习-程序检测（13）_gcc 编译-fsanitize=address-CSDN博客</a>。</p>
+<blockquote>
+<p>AddressSanitizer（ASan）是一种用于检测和调试内存错误的工具。它是由Google开发的，并内置于GNU编译器套件（GCC）和LLVM编译器中。</p>
+<p>释放后使用（野指针）</p>
+<p>堆缓冲区溢出</p>
+<p>栈缓冲区溢出</p>
+<p>全局缓冲区溢出</p>
+<p>返回局部堆区地址后使用（经过测试没检测出来）</p>
+<p>作用域外使用栈内存</p>
+<p>初始化顺序错误（经过测试未检测出来）</p>
+<p>内存泄漏</p>
+</blockquote>
+</li>
+</ul>
+<p>使用：</p>
+<p>首先说结论：对于 linux，则 gcc 和 clang 均可（注意版本）。对于 win，则 则 mingw-w64 没有带 ASAN 库，所以 win 上只能用 clang（而且还是特定的出包，比如 MSYS2 的 clang 包可以用 ASAN） 来使用 ASAN。</p>
+<p>先碎碎念一波，各种查找信息和试验搞了半天，这里记录下：mingw 版本的 gcc 没有集成 ASAN 这个库，<a href="https://stackoverflow.com/questions/31144000/mingw-w64s-gcc-and-address-sanitizer" target="_blank" rel="noopener noreffer">c++ - MinGW-w64&rsquo;s gcc and Address Sanitizer - Stack Overflow</a>，并且 mingw 官网也说 win 上没有支持 ASAN <a href="https://www.mingw-w64.org/contribute/" target="_blank" rel="noopener noreffer">Contribute - MinGW-w64</a>。而 MSYS2 （使用其里面的 clang 工具链）是有的，如果你想使用 MSYS2 就可以配置环境直接用其工具链上手。要是非要用 mingw 环境，则要试着 自己编译 ASAN 库来使用，<a href="https://zhuanlan.zhihu.com/p/71564723" target="_blank" rel="noopener noreffer">自己动手编译asan库 - 知乎 (zhihu.com)</a>，或者自己编 asan 源码 <a href="https://github.com/google/sanitizers/wiki/AddressSanitizerHowToBuild" target="_blank" rel="noopener noreffer">AddressSanitizerHowToBuild · google/sanitizers Wiki (github.com)</a>，自己编这个，这些我都暂没有在 win 上试成功，不推荐轻易尝试，MSYS2 和 Cygwin 等已经提供了比较好用的环境，自己编译的话用于研究和学习可以，但这个学习的路径比较陡峭所以不推荐轻易尝试，学习途径有很多（自己搭建开发环境，可以参考 TODO 放自己 cmake 模板工程 仓库），凡事讲究成本。</p>
+<p>clang 在 win 上是支持 ASAN 的 <a href="https://github.com/google/sanitizers/wiki/AddressSanitizerWindowsPort" target="_blank" rel="noopener noreffer">AddressSanitizerWindowsPort · google/sanitizers Wiki (github.com)</a>。clang 官方也说 AddressSanitizer 支持 win 但是 支持不太好 <a href="https://clang.llvm.org/docs/AddressSanitizer.html#more-information" target="_blank" rel="noopener noreffer">AddressSanitizer — Clang 20.0.0git documentation (llvm.org)</a>。自己本地 win 上这种情况就可以换用 clang 编一编来跑一跑（编出来也是用于测试的，而非正式环境用），又发现，还需要依赖 compiler-rt 这个工具。这个 compiler-rt 可以用 MSYS2 安装。。折腾了一圈，还是拥抱 MSYS2 吧，用这个来管理所有编译相关工具链吧。。话又说回来，AddressSanitizer 在 win 上支持并不好，所以 win 上还是换用其它工具吧 比如 DrMemory（专用于 win 的），在 linux 下就可以愉快的使用 AddressSanitizer（gcc 和 clang 均可）。</p>
+<p>win 上使用 ASAN 路径：</p>
+<ul>
+<li>
+<p>MSYS2 安装指引</p>
+<p><a href="https://www.msys2.org/" target="_blank" rel="noopener noreffer">MSYS2</a></p>
+<p><a href="https://www.msys2.org/wiki/MSYS2-installation/" target="_blank" rel="noopener noreffer">MSYS2-Installation - MSYS2</a></p>
+<p>更新最新库，使用命令 <code>pacman -Syuu</code></p>
+</li>
+<li>
+<p>在 MSYS2 里的 CLANG64 环境下，执行：来安装 clang 工具链，以及 compiler-rt 库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S mingw-w64-clang-x86_64-clang
+pacman -S mingw-w64-clang-x86_64-compiler-rt
+</code></pre></td></tr></table>
+</div>
+</div><p>在 MSYS2 目录下 <code>.\clang64\bin</code> 目录下可以搜索 ASAN 找到相应的库（不容易啊终于找到个win上能用的）</p>
+<p>使用 clang/clang++ 就可以使用 ASAN 了（在mingw-w64 工具链的目录下就没有，是 MSYS2 也没有编译这个库）</p>
+</li>
+<li>
+<p>把 MSYS2 目录下的 <code>.\clang64\bin</code> 目录添加到环境变量。</p>
+</li>
+</ul>
+<p>一个例子：使用 MSYS2 目录下的 <code>.\clang64\bin</code> 里面的 clang++ 来编译下面的程序例子，就有 ASAN 的检测和打印了。后续就可以方便的集成到 cmake 等工程里面，给自己工程定义个 DEBUG 模式，在该模式下使用选项 <code>-fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer -g</code> 等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="cm">/*
+</span><span class="cm">    env: 对于 linux，则 gcc 和 clang 均可，gcc 的信息如下。对于 win，则 mingw-w64 没有带 ASAN 库，所以 win 上只能用 clang 来使用 ASAN
+</span><span class="cm">        gcc/g++ -v:
+</span><span class="cm">            Target: x86_64-linux-gnu
+</span><span class="cm">        gcc/g++ -- version:
+</span><span class="cm">            gxx (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+</span><span class="cm">    compile:
+</span><span class="cm">        clang++/g++ -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer -g -O1 ./main.cpp -o main.exe
+</span><span class="cm">    run:
+</span><span class="cm">        ./main.exe
+</span><span class="cm">*/</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argc</span><span class="p">;</span>
+    <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argv</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; --- begin&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="kt">int32_t</span><span class="o">*</span> <span class="n">int_ptr</span><span class="p">;</span>
+    <span class="n">int_ptr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int32_t</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="k">delete</span> <span class="n">int_ptr</span><span class="p">;</span>
+
+    <span class="c1">// int_ptr = nullptr;
+</span><span class="c1"></span>
+    <span class="o">*</span><span class="n">int_ptr</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="c1">// int32_t num = *int_ptr;
+</span><span class="c1"></span>    <span class="c1">// std::cout &lt;&lt; &#34; --- *int_ptr: &#34; &lt;&lt; *int_ptr &lt;&lt; std::endl;
+</span><span class="c1"></span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; --- end&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Undefined Behavior Sanitizer</strong></p>
+<p><a href="https://hackingcpp.com/cpp/tools/ubsan.html" target="_blank" rel="noopener noreffer">C++ UBSAN (Undefined Behavior Sanitizer) Introduction | hacking C++ (hackingcpp.com)</a>。</p>
+<blockquote>
+<ul>
+<li>
+<p>detects many types of undefined behavior at runtime</p>
+<ul>
+<li>dereferencing null pointers</li>
+<li>reading from misaligned pointers</li>
+<li>integer overflow</li>
+<li>division by zero</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li>
+<p>instruments your code with additional instructions:</p>
+<p>runtime increase in debug build~25%</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>-fsanitize=undefined</code>：使用 UndefinedBehaviorSanitizer（UBSan）工具，它可以检测代码中的未定义行为，如空指针解引用、数组越界、变量溢出、除0 等等。</p>
+</blockquote>
+<blockquote>
+<p><code>-fsanitize=thread</code>：使用 ThreadSanitizer（TSan）工具，它可以检测多线程程序中的数据竞争和其他线程相关的错误。数据争用是并发系统中最常见和最难调试的错误类型之一。当两个线程同时访问同一变量并且至少有一个访问是写入时，就会发生数据争用。</p>
+</blockquote>
+<h3 id="专用于-win-的工具">专用于 win 的工具</h3>
+<p>这里会罗列各种可能的方法，很多本文作者并没有试过。正如 unix 一个设计哲学——&ldquo;提供机制，而不是提供策略&rdquo;（实际采用的策略是因场景、需求选取使用一些机制来组合使用）。</p>
+<p>一个综合贴：[<a href="https://blog.csdn.net/HiWangWenBing/article/details/133519665" target="_blank" rel="noopener noreffer">QT编程系列-43]: Windows + QT软件内存泄露的检测方法_qt 内存泄露排查手段-CSDN博客</a>。</p>
+<blockquote>
+<p>2.1 内存监测工具 -Valgrind
+2.2.1 Valgrind for Linux
+2.2.2 Valgrind for Windows</p>
+<p>2.2 内存监测工具-Dr. Memory</p>
+<p>2.3 内存监测工具-Visual Leak Detector</p>
+<p>2.4 内存监测工具-WinDbg</p>
+<p>2.5 Windows进程内存监控工具——任务管理器</p>
+<p>2.6 Windowx线程内存 监控工具——Windows性能工具集（Windows Performance Toolkit）——xperf 命令行工具</p>
+<p>2.7 API函数获取线程级内存使用情况——Windows API中的GetProcessMemoryInfo函数</p>
+<p>2.8 Windows性能监控——性能监视器</p>
+</blockquote>
+<p>补充：</p>
+<ul>
+<li>Windows Sysinternals Suite</li>
+</ul>
+<h4 id="drmemory">DrMemory</h4>
+<p><a href="https://drmemory.org/" target="_blank" rel="noopener noreffer">Home (drmemory.org)</a>。下载后，drmemory 的 bin 目录添加环境变量，即可 shell 中运行 <code>drmemory -version</code>。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://drmemory.org/page_running.html" target="_blank" rel="noopener noreffer">Running Dr. Memory (drmemory.org)</a>。</li>
+<li><a href="https://www.jianshu.com/p/183b0944a092" target="_blank" rel="noopener noreffer">Dr. Memory 使用 - 简书 (jianshu.com)</a>。</li>
+</ul>
+<p>本地编译，使用 MinGW，用于 DrMemory</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">g++ .<span class="se">\m</span>ain.cpp -g -static-libgcc -static-libstdc++ -ggdb -o main.exe
+</code></pre></td></tr></table>
+</div>
+</div><p>执行（但是没有一次正常过，试过各种选项）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">drmemory.exe -- .\main.exe
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="visual-leak-detector">Visual Leak Detector</h4>
+<p>内存泄漏检测（win 上）</p>
+<p><a href="https://blog.csdn.net/devillixin/article/details/126196206" target="_blank" rel="noopener noreffer">内存泄露检测工具VLD(Visual Leak Detector)使用说明-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_41863029/article/details/128482295" target="_blank" rel="noopener noreffer">Qt / MSVC 中使用内存泄露检测工具 VLD(Visual Leak Detector)_qt内存泄漏检测工具-CSDN博客</a></p>
+<h4 id="windbg">WinDbg</h4>
+<h4 id="application-verifier">Application Verifier</h4>
+<p>配置太复杂了..若长期专门开发 win 程序可以用</p>
+<h4 id="windows-performance-toolkit">Windows Performance Toolkit</h4>
+<h4 id="windows-sysinternals-suite">Windows Sysinternals Suite</h4>
+<p><a href="https://learn.microsoft.com/zh-cn/sysinternals/downloads/sysinternals-suite" target="_blank" rel="noopener noreffer">Sysinternals Suite - Sysinternals | Microsoft Learn</a>。</p>
+<p><a href="https://blog.csdn.net/nodeman/article/details/109615209" target="_blank" rel="noopener noreffer">微软工具包Windows Sysinternals Suite简介-CSDN博客</a>。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/569262316" target="_blank" rel="noopener noreffer">Sysinternals Suite免费的Windows系统工具集（系统管理良兵利器） - 知乎 (zhihu.com)</a>。</p>
+<h4 id="windows-api">Windows API</h4>
+<p>Windows API 中的 GetProcessMemoryInfo 函数</p>
+<h2 id="静态检查-">静态检查 *</h2>
+<p>使用静态代码分析工具，来检测潜在的内存泄漏、不安全的内存操作，以及其它不合规范 等问题。这些工具可以帮助你发现代码中的潜在问题，提升程序健壮性，也可针对性减少内存占用。</p>
+<h3 id="cppcheck">cppcheck</h3>
+<p>安装 bin 到系统并添加到环境变量后，VsCode 安装 <code>cpp-check-lint</code> 插件即可，可以对插件做进一步配置。</p>
+<p><a href="http://cppcheck.net/" target="_blank" rel="noopener noreffer">Cppcheck - A tool for static C/C++ code analysis</a>。</p>
+<p><a href="https://blog.csdn.net/qq_35333978/article/details/122347687" target="_blank" rel="noopener noreffer">vscode中嵌入cppcheck进行静态检查，包含插件使用方法_cppcheck集成到vscode-CSDN博客</a>。设置插件，也可以通过 VsCode 可视化操作而不必直接修改 setting 的 json 文件。这个因人习惯而异吧。</p>
+<h3 id="clangd--clang-tidy">clangd / clang-tidy</h3>
+<p>clangd</p>
+<p>clangd 提供的 LSP 服务 给 VsCode 日常开发的 跳转、补全 等用，见 <code>cmake 模板工程</code> 仓库（暂没有上）的具体使用。</p>
+<p>clang-tidy</p>
+<blockquote>
+<p><code>clang-tidy</code>拥有多种内置检查器，可用于检测性能问题、代码规范、可能的程序错误、可移植性问题等。此外，它允许用户自定义规则，可以非常灵活地适应不同的编程规范和需求。</p>
+</blockquote>
+<p><a href="https://clang.llvm.org/extra/clang-tidy/index.html" target="_blank" rel="noopener noreffer">Clang-Tidy — Extra Clang Tools documentation (llvm.org)</a> 其中包含了 Clang Static Analyzer，以及更多检查项。</p>
+<p><a href="https://clang.llvm.org/extra/clang-tidy/checks/list.html" target="_blank" rel="noopener noreffer">clang-tidy - Clang-Tidy Checks — Extra Clang Tools 20.0.0git documentation (llvm.org)</a> 支持的检查类型。</p>
+<blockquote>
+<p>clang-tidy 大致分类：
+boost 检测boost库API使用问题
+cert 检测CERT的代码规范
+cpp-core-guidelines 检测是否违反cpp-core-guidelines
+google 检测是否违反google code style
+llvm 检测是否违反llvm code style
+readability 检测代码上相关问题，但又不明确属于任何代码规范的
+misc 其它一些零碎的check
+mpi 检测MPI API问题
+modernize 把C++03代码转换成C++11代码，使用C++11新特性
+performance 检测performance相关问题</p>
+</blockquote>
+<p>clang-tidy 检查项各项更详细的说明：<a href="https://blog.csdn.net/stallion5632/article/details/139545885" target="_blank" rel="noopener noreffer">使用 Clang-Tidy 进行静态代码分析：完整的配置与 CMake 集成实例_clang-tidy cmake-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/stallion5632/article/details/139569439" target="_blank" rel="noopener noreffer">开源C++静态代码检测工具clang-tidy、cppcheck和oclint的比较_clang-tidy cppcheck-CSDN博客</a>。</p>
+<p>这是 clang-tidy 介绍 和 命令行的使用，一般更好的使用方法是与 IDE 结合，比如 VsCode。</p>
+<p><a href="https://blog.csdn.net/lx_ros/article/details/139104753" target="_blank" rel="noopener noreffer">30.静态代码分析工具clang-tidy-CSDN博客</a>。<a href="https://blog.csdn.net/sexyluna/article/details/132001613" target="_blank" rel="noopener noreffer">c++静态代码扫描工具clang-tidy详细介绍-CSDN博客</a>。</p>
+<p><a href="https://blog.csdn.net/weixin_45978181/article/details/128239547" target="_blank" rel="noopener noreffer">vscode配置clang-tidy插件_vscode clang-tidy-CSDN博客</a>。</p>
+<p>实测发现，clang-tidy 有一些基础的问题查不出来，比如数组越界，等等（或许也是我配置有问题？）。这种意义上，cppcheck 还是 好用些。</p>
+<p>关于 clangd、clang-tidy 的配置文件，可参考 TODO 放自己 cmake 模板工程 仓库。</p>
+<p>scan-build</p>
+<blockquote>
+<p><code>scan-build</code>是一个命令行工具，用于在编译时调用<code>Clang</code>静态分析器来分析C/C++代码。它的主要用途是识别程序中可能导致bug的构造。</p>
+<p><code>scan-build</code>在编译过程中拦截编译器的调用，插入静态分析过程。它会生成一份包含潜在错误和警告的报告，并可以通过生成的HTML报告详细查看问题所在及上下文。</p>
+<p><code>scan-build</code>通常在命令行环境中使用，可以轻松地与持续集成系统集成，作为项目构建过程的一部分自动运行。</p>
+</blockquote>
+<h3 id="编译时提示">编译时提示</h3>
+<p>综合 <a href="https://hackingcpp.com/cpp/diagnostics.html" target="_blank" rel="noopener noreffer">C++ Diagnostic Basics: Warnings, Assertions, Testing | hacking C++ (hackingcpp.com)</a>。</p>
+<p>使用<code>-Wall</code>、<code>-Wextra</code>等标志打开所有警告。</p>
+<h2 id="大型静态检查软件">大型静态检查软件</h2>
+<h3 id="sonarqube--sonar-cxx-">SonarQube + sonar-cxx *</h3>
+<p>社区开源的。可以和 jenkins 结合。</p>
+<p><a href="https://blog.csdn.net/gitblog_09137/article/details/142229356" target="_blank" rel="noopener noreffer">SonarQube C++ 社区插件安装与配置指南-CSDN博客</a>。</p>
+<p><a href="https://learnku.com/articles/59179" target="_blank" rel="noopener noreffer">SonarQube 安装及使用 | Server 运维论坛 (learnku.com)</a>。</p>
+<h3 id="black-duck--coverity">Black Duck / Coverity</h3>
+<p>商业级静态扫描服务，收费的。</p>
+<ul>
+<li><a href="https://www.blackduck.com/zh-cn/static-analysis-tools-sast.html" target="_blank" rel="noopener noreffer">SAST - 静态代码分析工具 | Black Duck</a>。<a href="https://www.blackduck.com/zh-cn/static-analysis-tools-sast/coverity.html" target="_blank" rel="noopener noreffer">Coverity 静态分析软件 | Black Duck</a>。</li>
+<li><a href="https://www.blackduck.com/zh-cn/software-composition-analysis-tools/black-duck-sca.html" target="_blank" rel="noopener noreffer">Black Duck 软件组件分析 (SCA) | Black Duck</a>。帮助团队管理在应用和容器中使用开源和第三方代码所带来的安全、质量和许可证合规性风险。</li>
+</ul>
+<p><a href="https://blog.csdn.net/baidu_31295661/article/details/122367838" target="_blank" rel="noopener noreffer">Coverity 代码静态安全扫描工具 ： 认识Coverity-CSDN博客</a>。</p>
+<h1 id="内存占用优化相关">内存占用优化相关</h1>
+<h2 id="初步检查">初步检查</h2>
+<p>如果对程序熟悉，针对性的对占内存的地方 进行优化。</p>
+<p>使用 上述 内存统计命令和工具，检查。</p>
+<p>看大头：</p>
+<ul>
+<li>
+<p>最小工程放到机器上看内存占用，和正式的进程进行比较</p>
+<p>一般 [heap]、[anon]、各种库、字体等 占了该进程的主要内存大头</p>
+</li>
+<li>
+<p>程序中按各块功能逐个开启，看内存。</p>
+</li>
+<li>
+<p>UI界面，逐个页面加载看内存增长变化。</p>
+</li>
+</ul>
+<p>看细节：</p>
+<p>比如 perf mem 等工具分析每个函数申请内存的情况，找出大头。</p>
+<h2 id="基本优化">基本优化</h2>
+<p>这里以 qt 程序的内存占用优化为例。</p>
+<h3 id="库编译精简">库编译精简</h3>
+<p>编译器选项：使用适当的编译器选项，例如优化标志，以提高生成的代码的效率和内存使用。</p>
+<p>调试相关的有 <code>-g -ggdb</code>，优化相关的有 <code>-O0 -O1 -O2 -Os</code>，工程上经验建议最高允许也常常开到 <code>-O2</code>。</p>
+<p>比如 qt库 有一些精简编译的选项可以用。</p>
+<p>在 buildroot 的 qt 选项里面 添加 Custom configuration options，看 package 里面 qt 文件夹 里面的 .in 和 .mk 文件可见，最终传递给 
+<code>buildroot/output/&lt;board&gt;/build/qt5base-5.xx.x</code> 下面的 configure（通过 <code>./configure -help</code> 查看 所有配置选项）</p>
+<p>添加选项 <code>-optimize-size -release -strip -reduce-exports</code>。</p>
+<p>主要的核心库</p>
+<ul>
+<li>libQt5Core.so.5.12.2    4.89MB</li>
+<li>libQt5Gui.so.5.12.2    3.71MB</li>
+<li>libQt5Widgets.so.5.12.2    5.64MB</li>
+<li>libQt5Qml.so.5.12.2</li>
+<li>libQt5Quick.so.5.12.2    5.64MB</li>
+<li>libQt5Network.so.5.12.2    1.46MB</li>
+<li>libQt5VirtualKeyboard.so.5.12.2</li>
+</ul>
+<p>qt 库 重编（这里是基于 buildroot 编译框架 来 编译 qt package）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make qt5base-dirclean <span class="o">&amp;&amp;</span> make qt5base-configure <span class="o">&amp;&amp;</span> make qt5base
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="针对项">针对项</h3>
+<ul>
+<li>
+<p>程序的内存优化。</p>
+</li>
+<li>
+<p>UI 页面不缓存（但是 UI 理论上相对会变卡顿，具体看芯片性能）。精简 UI 页面。限制显示元素。</p>
+</li>
+<li>
+<p>图片尽量不变形，图片变形会拷贝图片导致内存暴增（Qt）。批量显示图片的地方可以设置图片不缓存。</p>
+</li>
+<li>
+<p>字体。</p>
+<p>这里是针对性缩减字体文件的，如果 flash 或者 ram 充裕 则不推荐这么做，为了未来的可能出现的各种文本的正常显示，留一定较广泛的兼容性较好。</p>
+<p>使用 fontcreator 挑出所用文字，缩小字体库，需要手动增减文字，对于后面增加文案来说不友好 <a href="https://blog.csdn.net/xiaohui_brook/article/details/51909612">https://blog.csdn.net/xiaohui_brook/article/details/51909612</a>；一个提取给出文本中所有单独文字工具 <a href="https://gitee.com/Polarix/MinimumFontLib">https://gitee.com/Polarix/MinimumFontLib</a>。</p>
+</li>
+</ul>
+<h2 id="chatgpt-给出-内存优化-基本经验">chatGPT 给出 内存优化 基本经验</h2>
+<p>以下 chatGPT 给出。</p>
+<p>Qt是一个流行的C++应用程序开发框架，可以用于创建跨平台的图形用户界面应用程序。要降低Qt应用程序的内存使用，可以考虑以下方法：</p>
+<p>1.使用动态分配内存：避免在堆栈上创建大型对象，而是使用堆上的动态内存分配。使用new和delete或者更好的智能指针来管理对象的生命周期。
+2.资源管理：确保及时释放不再需要的资源，如图像、字体、音频等。Qt提供了QResource类来管理应用程序的资源，确保在不需要时卸载它们。
+3.使用精简的数据结构：选择最适合你的数据的数据结构。有时候，使用QVector比QList更高效，或者使用QHash而不是QMap，具体取决于你的需求。
+4.避免不必要的复制：使用const引用来传递参数，以避免复制大型对象。使用move语义来移动对象，而不是复制它们。
+5.使用局部变量：在可能的情况下，使用局部变量而不是全局变量或类成员变量。局部变量在超出其作用域后会自动释放内存。
+6.定期清理内存：如果你的应用程序长时间运行，确保定期清理不再使用的内存。Qt的内存管理通常是自动的，但你可以显式地调用QCoreApplication::sendPostedEvents()来处理未处理的事件，这可以释放不再需要的内存。
+7.使用Qt的容器类：Qt提供了一系列高效的容器类，如QList、QVector和QMap。使用这些容器类可以减少内存分配和释放的开销。
+8.避免内存泄漏：定期检查应用程序以确保没有内存泄漏。你可以使用工具如Valgrind或Qt的内存分析工具来检测内存泄漏。
+9.优化图形资源：如果你的应用程序涉及大量图形资源，确保这些资源被合理地加载和释放。使用Qt的图像和绘图类，如QImage和QPainter，来管理图形资源。
+10.使用虚函数：如果你使用Qt中的继承体系，请合理使用虚函数。这可以减少对象的内存占用，并允许更高效的动态多态性。
+11.精简Qt模块：如果你只需要Qt的特定功能，可以考虑只包含所需的模块，而不是整个Qt框架。这可以减小应用程序的二进制文件大小和内存占用。
+12.使用Qt的资源系统：Qt的资源系统允许你将资源文件嵌入到二进制文件中，而不是在磁盘上存储它们，从而减少内存占用。</p>
+<p>要降低Qt应用程序的内存使用，最重要的是了解你的应用程序的需求，以便选择合适的数据结构和内存管理策略，并进行适当的优化。</p>
+<hr>
+<p>如果你的Qt程序已经开发完成，但你仍然想优化内存使用并减少不必要的模块占用内存，可以考虑以下方法：</p>
+<p>1.静态分析工具：使用静态代码分析工具，如Clang Static Analyzer或Cppcheck，来检测潜在的内存泄漏、不安全的内存操作和其他潜在问题。这些工具可以帮助你发现代码中的潜在问题，从而减少内存占用。
+2.动态分析工具：使用动态分析工具，如Valgrind（在Linux中）或Application Verifier（在Windows中），来检测运行时的内存错误和泄漏。这些工具可以帮助你找出程序中的内存问题，以便进行修复。
+3.使用更轻量的替代品：如果你发现Qt模块占用了大量内存，考虑是否可以用更轻量的替代品替代它们。有时候，自定义的轻量级库可能比Qt更适合特定的任务，从而减少内存占用。
+4.延迟加载模块：如果你的应用程序使用了多个Qt模块，但不是所有模块都在启动时立即需要，可以考虑延迟加载这些模块。这意味着只有在需要时才加载它们，而不是一开始就加载所有模块。
+5.优化资源加载：如果你的应用程序使用大量图像、字体或其他资源，确保资源加载是延迟的，只在需要时加载，然后在不再需要时及时释放。
+6.使用轻量级控件：如果你使用Qt的GUI模块，考虑使用轻量级的控件替代重型的控件。例如，可以使用QLabel替代QWebView来显示简单的HTML内容。
+7.精简依赖项：如果你使用了第三方库或模块，确保只包括你实际需要的部分，避免引入不必要的依赖项。
+8.内存池：实现自定义的内存池，以便更有效地分配和管理内存。这可以减少内存碎片和提高内存使用效率。
+9.代码优化：审查代码并寻找可以优化的部分，例如减少不必要的对象复制、避免过度使用虚函数等。优化代码可能需要对性能和内存占用进行权衡。
+10.使用Qt的资源系统：将应用程序中的资源文件合并到Qt的资源系统中，以减少磁盘上的文件访问，并降低内存占用。
+11.动态链接：如果你的应用程序使用了大量的Qt模块，可以考虑将Qt库动态链接，以减小可执行文件的大小，因为它不会包含Qt库的副本。
+12.编译器选项：使用适当的编译器选项，例如优化标志，以提高生成的代码的效率和内存使用。</p>
+<p>在进行这些优化时，确保进行充分的测试，以确保你没有引入新的问题或破坏了应用程序的功能。内存优化通常需要权衡性能和内存使用，因此需要根据具体情况仔细评估每个优化步骤的效果。</p>
+<h1 id="程序中指针抛异常地方检查">程序中指针、抛异常地方检查</h1>
+<h1 id="查看-bin-结构--size-优化相关">查看 bin 结构 / size 优化相关</h1>
+<h2 id="elf-解析">elf 解析</h2>
+<h3 id="查看各段">查看各段</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 使用 readelf -S &lt;bin&gt; 查看段</span>
+<span class="c1"># 使用 readelf -h 来查看用法</span>
+readelf -S &lt;bin&gt;
+
+<span class="c1"># 也可以使用 objdump -x &lt;bin&gt;，注意要使用 bin 对应的编译器的 objdump</span>
+objdump -x &lt;bin&gt;
+
+<span class="c1"># 把段的原始二进制内容拷出来</span>
+objcopy --only-section<span class="o">=</span>.rodata &lt;bin&gt; &lt;output_file&gt;
+
+<span class="c1"># 使用 strings 查看 &lt;output_file&gt; 里面的字符串成分</span>
+strings &lt;output_file&gt; &gt; &lt;output_strings_file&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://blog.csdn.net/u014100559/article/details/140620616" target="_blank" rel="noopener noreffer">objdump命令的常见用法-CSDN博客</a>。</p>
+<p><a href="https://blog.csdn.net/qq_27071221/article/details/134297683" target="_blank" rel="noopener noreffer">基于GCC的工具objdump实现反汇编-CSDN博客</a>。</p>
+<h3 id="查看对象和函数">查看对象和函数</h3>
+<p>查看程序内各个对象和函数的大小并排序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">readelf -s -W &lt;bin&gt; &gt; symbols.txt
+awk <span class="s1">&#39;NR &gt; 5 {print $3, $4, $8}&#39;</span> symbols.txt <span class="p">|</span> sort -nr &gt; temp1.txt
+
+第一行的输出例子：
+
+Symbol table <span class="s1">&#39;.dynsym&#39;</span> contains <span class="m">1917</span> entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: <span class="m">00000000</span>     <span class="m">0</span> NOTYPE  LOCAL  DEFAULT  UND
+     1: <span class="m">00000000</span>     <span class="m">0</span> FUNC    GLOBAL DEFAULT  UND __aeabi_unwind_cpp_pr1@GCC_3.5 <span class="o">(</span>3<span class="o">)</span>
+     2: <span class="m">00000000</span>     <span class="m">0</span> TLS     GLOBAL DEFAULT  UND _ZSt15__once_callable
+     3: <span class="m">00000000</span>     <span class="m">0</span> OBJECT  GLOBAL DEFAULT  UND _ZTISt12system_error
+     4: <span class="m">00000000</span>     <span class="m">0</span> NOTYPE  WEAK   DEFAULT  UND _ZTHN6BGuiFe13ThreadPoolE
+
+把第一行的输出喂给 AI工具来生成，指引其对这段输出进行排序，生成上面第二段命令，执行则排序并输出到 temp1.txt 文件里面
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="size-优化的点备忘">size 优化的点备忘</h2>
+<p>针对一些占 size 大头 的 东西</p>
+<ul>
+<li>
+<p>图片：使用优化工具，减 size；并且尽量使用 编码的数据，如直接存储文件，而不要存储图片数据数组（会膨胀很多，至少 5 倍以上）；可以的话还可以压缩处理。</p>
+<p>以及其它素材文件。</p>
+</li>
+<li>
+<p>库：编译的时候可以去掉一些选项，不编译一些组件，缩减库。</p>
+</li>
+<li>
+<p>依照上面 readelf 读出的程序内各个对象和函数的大小，再针对大的项，进行缩减。</p>
+</li>
+<li>
+<p>加 根据不同产品区分的 功能宏，不编译 不必要的部分。</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-12-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" data-title="编程经验、调试、性能和内存检查工具集合" data-hashtags="C&#43;&#43;"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" data-hashtag="C&#43;&#43;"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" data-title="编程经验、调试、性能和内存检查工具集合" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/" class="prev" rel="prev" title="C / C&#43;&#43; 实用库备查"><i class="fas fa-angle-left fa-fw"></i>C / C&#43;&#43; 实用库备查</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
