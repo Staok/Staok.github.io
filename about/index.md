@@ -91,7 +91,7 @@
 
 
 
-个人简历 [.png(380KB)](https://staok.github.io/about/resume.png), [.pdf(489KB)](https://staok.github.io/about/resume.pdf)。
+个人简历 [.jpg(380KB)](https://staok.github.io/about/resume.jpg), [.pdf(489KB)](https://staok.github.io/about/resume.pdf)。
 
 ------
 
