@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>TIA 弱电流测量措施和经验汇总 - 欢迎来到 瞰百Staok</title><meta name="Description" content="TIA 弱电流测量措施和经验汇总"><meta property="og:title" content="TIA 弱电流测量措施和经验汇总" />
+<meta property="og:description" content="TIA 弱电流测量措施和经验汇总" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-03-03T09:15:14+08:00" />
+<meta property="article:modified_time" content="2025-03-03T09:15:14+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TIA 弱电流测量措施和经验汇总"/>
+<meta name="twitter:description" content="TIA 弱电流测量措施和经验汇总"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" /><link rel="prev" href="https://staok.github.io/publicstuffs/" /><link rel="next" href="https://staok.github.io/32encourage%E5%8B%89%E5%8A%B1/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "TIA 弱电流测量措施和经验汇总",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "弱电流测量, 弱信号测量","wordcount":  5578 ,
+        "url": "https:\/\/staok.github.io\/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB\/","datePublished": "2025-03-03T09:15:14+08:00","dateModified": "2025-03-03T09:15:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "TIA 弱电流测量措施和经验汇总"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">TIA 弱电流测量措施和经验汇总</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/"><i class="far fa-folder fa-fw"></i>随机技术情报</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-03-03">2025-03-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5578 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#弱信号测量开源仪表汇集">弱信号测量开源仪表汇集</a></li>
+    <li><a href="#tia-外围电路注意点">TIA 外围电路注意点</a>
+      <ul>
+        <li><a href="#电源噪声">电源噪声</a></li>
+        <li><a href="#电路噪声">电路噪声</a></li>
+        <li><a href="#各种隔离和防护">各种隔离和防护</a></li>
+      </ul>
+    </li>
+    <li><a href="#tia-电路概括">TIA 电路概括</a>
+      <ul>
+        <li><a href="#相关书籍文献">相关书籍文献</a></li>
+        <li><a href="#弱信号检测相关好书">弱信号检测相关好书</a></li>
+        <li><a href="#主要问题总览">主要问题总览</a>
+          <ul>
+            <li><a href="#噪声">噪声</a></li>
+            <li><a href="#直流误差-和-校准">直流误差 和 校准</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#关于运放选型">关于运放选型</a></li>
+    <li><a href="#关于-tia-反馈网络">关于 TIA 反馈网络</a></li>
+    <li><a href="#保护环">保护环</a></li>
+    <li><a href="#硬件配套措施">硬件配套措施</a>
+      <ul>
+        <li><a href="#关于清洁">关于清洁</a></li>
+        <li><a href="#pcb-材质">PCB 材质</a></li>
+        <li><a href="#电路屏蔽壳">电路屏蔽壳</a></li>
+        <li><a href="#输入连接">输入连接</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="tia-弱电流测量措施和经验汇总">TIA 弱电流测量措施和经验汇总</h1>
+<p>本文对应的 <a href="https://github.com/Staok/thoughs-about-hardware-design" target="_blank" rel="noopener noreffer">Github</a>/<a href="https://gitee.com/staok/thoughs-about-hardware-design" target="_blank" rel="noopener noreffer">Gitee</a> 仓库地址，本文最新的原文 和 资料等等 均放在里面，发在其它地方的不会更新。</p>
+<p>TIA 电路 用于测量弱电流（uA、nA、pA、fA 测量）。</p>
+<p>弱信号测量，且 SMU 四象限的测量，哪一个都是需要很强的硬件积累、功底和经验，包括数学上的分析和大量不寻常的电路拓扑（可见下面 <code>弱信号测量开源仪表汇集</code>）</p>
+<p>应对任何称为仪器的东西有着敬畏之心</p>
+<p>是测量小信号，nV级别、pA级别</p>
+<p>是测量大信号，如连续持续监测几千摄氏度温度</p>
+<p>是输出小信号，如前量级</p>
+<p>是高速采集，考虑整个链路的复杂传递函数、信息传递环节，之间的相互配合</p>
+<p>是慢信号采集，0.1Hz以下的慢和微弱信号，调制解调法等</p>
+<p>每一块都是特多特多的考虑、权衡、经验、发现与启发等等</p>
+<p>应对任何称为仪器的东西有着敬畏之心</p>
+<h2 id="弱信号测量开源仪表汇集">弱信号测量开源仪表汇集</h2>
+<ul>
+<li>CERN超强开源八位半电压表HPM7177
+<ul>
+<li><a href="https://ohwr.org/project/opt-adc-10k-32b-1cha/-/wikis/home" target="_blank" rel="noopener noreffer">Home · Wiki · Projects / OPT-ADC-10k-32b-1cha HPM7177 · GitLab (ohwr.org)</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1798492" target="_blank" rel="noopener noreffer">【硬核】超强八位半开源万用表-腾讯云开发者社区-腾讯云 (tencent.com)</a></li>
+</ul>
+</li>
+<li>home-built-stm <a href="https://dberard.com/home-built-stm/" target="_blank" rel="noopener noreffer">Home-Built STM | Dan Berard (dberard.com)</a></li>
+<li>Keithley吉时利源测流单元和电表仪器手册附原理图</li>
+<li>安捷伦电表原理图</li>
+<li>nvm 开源纳伏表 <a href="https://github.com/jaromir-sukuba/nvm" target="_blank" rel="noopener noreffer">jaromir-sukuba/nvm: Open source nanovoltmeter (github.com)</a></li>
+<li>OpenSTM-Ref-Document <a href="https://github.com/Dimsmary/OpenSTM/tree/Ref-Document" target="_blank" rel="noopener noreffer">Dimsmary/OpenSTM at Ref-Document (github.com)</a></li>
+<li>制作六位半数字电表源码及电路方案</li>
+</ul>
+<h2 id="tia-外围电路注意点">TIA 外围电路注意点</h2>
+<p>参考 <code>SCH &amp; PCB 设计规范和 AD 的使用</code> 文中 <code>最基本的 PCB 绘制过程</code> 一节 和 <code>4 SCH-PCB 设计规范</code> 一章里面的 <code>本科生级</code> 和 <code>电源规范设计</code>、<code>运放设计注意 / 低噪声精密电路</code> 小节 等。</p>
+<h3 id="电源噪声">电源噪声</h3>
+<ul>
+<li>DCDC到LDO之间加LC环节，LC衰减高频噪声的频带要覆盖LDO的RSRR不力的频带。</li>
+<li>运放供电前加LC环节，同样的，LC衰减高频噪声的频带覆盖运放的PSRR不力的频带。</li>
+<li>防止电路块之间的工地干扰，模拟部分和数字部分分别供电，分别在一点接地，进行单点接地，电路块不要串接起来。</li>
+</ul>
+<h3 id="电路噪声">电路噪声</h3>
+<ul>
+<li>
+<p>电阻热噪声：不同电阻的电压和电流噪声如下。经验值，一般的100M电阻在100Hz频率约有1pA电流噪声（随着阻值减小），约有10uV电压噪声（随着阻值增大）。不同材质的电阻有不同的噪声表现，金属膜的一般相对于碳膜的较低，具体可见厂家电阻手册。并且考虑 电阻精度。</p>
+<p>一般电阻热噪声表格（室温 300 K）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">电阻值 (Ω)</th>
+<th style="text-align:left">热噪声电压密度 (nV/√Hz)</th>
+<th style="text-align:left">热噪声电流密度 (pA/√Hz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1 kΩ</td>
+<td style="text-align:left">4.07</td>
+<td style="text-align:left">4.07</td>
+</tr>
+<tr>
+<td style="text-align:left">10 kΩ</td>
+<td style="text-align:left">12.88</td>
+<td style="text-align:left">1.29</td>
+</tr>
+<tr>
+<td style="text-align:left">100 kΩ</td>
+<td style="text-align:left">40.7</td>
+<td style="text-align:left">0.407</td>
+</tr>
+<tr>
+<td style="text-align:left">1 MΩ</td>
+<td style="text-align:left">128.8</td>
+<td style="text-align:left">0.129</td>
+</tr>
+<tr>
+<td style="text-align:left">10 MΩ</td>
+<td style="text-align:left">407</td>
+<td style="text-align:left">0.0407</td>
+</tr>
+<tr>
+<td style="text-align:left">100 MΩ</td>
+<td style="text-align:left">1288</td>
+<td style="text-align:left">0.0129</td>
+</tr>
+<tr>
+<td style="text-align:left">1 GΩ</td>
+<td style="text-align:left">4070</td>
+<td style="text-align:left">0.00407</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>运放的电压和电流噪声密度指标，这些噪声经过具体的运放电路连接形式放大到输出端。</p>
+<ul>
+<li>
+<p>TIA电路考虑电流噪声密度（即输入端的）应该远小于被测电流（还有Ib和Ib的温漂都应该考虑）。</p>
+</li>
+<li>
+<p>TIA电路考虑运放电压噪声对输出的贡献，为跨阻和信号源内阻组成的电压放大电路的倍数（也即噪声增益） * 运放电压噪声密度值  * 带宽的开平方。</p>
+<p>对于弱电流信号源，可以认为信号源内阻是很大的，与TIA合适量程的跨阻阻值相当或更大。</p>
+</li>
+<li>
+<p>运放的增益带宽积（电压型运放的闭环增益和带宽的积通常为一个定值）GBW不必很大，否则噪声带宽就越大，按需。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>信号源的噪声。</p>
+</li>
+<li>
+<p>以上还有其它种种，合起来可估算总噪声。</p>
+</li>
+</ul>
+<h3 id="各种隔离和防护">各种隔离和防护</h3>
+<p>数模电路分离，单点接地，防共地干扰。电源树设计，多路电源分别与之供电。PCB 两个 高性能的 LDO 分别给 模拟（TIA 和 ADC 部分） 和 数字部分（如 MCU 部分） 供电，电源端，数字部分 和 模拟部分 在单点接地（不要串起来），做好防共地串扰，空间分离。</p>
+<p>TIA 部分 + ADC 部分 独立，ADC输出数字接口 与 后面 电路 之间做 隔离（专用电磁隔离芯片、光耦等）。</p>
+<p>对外数字接口可使用 光耦做的接口，做好对外 数字接口的 ESD 防护。</p>
+<p>电源防护 如 瞬态抑制（TVS 管）、防反接、欠压、过压、过流 等。</p>
+<p>输入过流保护，硬件或软件上检测到若输入超过 最大可测量电流，则关闭输入到 TIA 的连接（如 继电器），直到下次软件开机才恢复正常，这是一种模式；另一种模式是超过 最大可测量电流 的时候不管，仍继续，TIA 运放输出饱和而已，这种相比于第一种不需要重新开机而打断测量过程，但也许仍需要一个极端情况的切断保护。</p>
+<p>成品电路板做到 批量打出来 上电就能用，不用复杂的调试等等。校准只针对随机拿出一些数量有限的电路板进行，得到的校准数据输入到新做出来的电路板上就好使。</p>
+<h2 id="tia-电路概括">TIA 电路概括</h2>
+<h3 id="相关书籍文献">相关书籍文献</h3>
+<ul>
+<li>系统参考书籍 《跨阻放大器设计参考》，比较全的介绍了围绕 TIA 电路的 种种。</li>
+<li>还要系统参考下 吉时利的 最新《低电平测量手册》第六版。</li>
+<li>芯片大厂文档，如 ADI、TI 等的。经典如：
+<ul>
+<li>跨阻放大器电路设计和计算。</li>
+<li>ADA4530、LMP7721 等芯片相关的所有技术、应用文档。</li>
+</ul>
+</li>
+<li>多看一些论文，关键字有：弱信号采集、弱电流测量，nA测量，pA测量，等，多看多思考多总结。</li>
+<li>CSDN 下载区里面搜索 弱电流测量 相关的文档（有些是比较珍贵的、生动真实的一手的实践经验总结，要的就是这种真实性的）。经典如：
+<ul>
+<li>图解DIY 1pA超微电流测试器 lymex</li>
+<li>穿越电流测量的无人区——pA等级电流测量</li>
+<li>微电流测量60问答</li>
+<li>微弱电流检测放大器PCB布线布局设计-保护环介绍</li>
+<li>基于深度学习的ADI微弱信号布线指南</li>
+</ul>
+</li>
+</ul>
+<h3 id="弱信号检测相关好书">弱信号检测相关好书</h3>
+<ul>
+<li>电子电路抗干扰技术</li>
+<li>弱信号检测技术. 刘国福</li>
+<li>电子噪声与低噪声设计. 高晋占</li>
+<li>弱信号检测. 高晋占</li>
+</ul>
+<h3 id="主要问题总览">主要问题总览</h3>
+<ul>
+<li>
+<p>“由于模拟电路的特殊性，实际电路中的参数，元件数量等会根据每批电路的参数分布不同而有所调整，无法保证和原理图中完全一致”</p>
+<p>分布式参数等导致实际设备的直流误差、噪声 等。</p>
+</li>
+<li>
+<p>微电流检测的主要障碍是：工频噪声，直流误差，直流泄漏电流。</p>
+</li>
+</ul>
+<h4 id="噪声">噪声</h4>
+<p>工频噪声：软硬件去除。</p>
+<p>硬件上，双T陷波滤波器等（<a href="https://blog.csdn.net/qq_32589131/article/details/105614591" target="_blank" rel="noopener noreffer">《信号与系统》4.10.2工频干扰的滤除_抑制工频干扰需要什么滤波器-CSDN博客</a>）（但是占地方，且增加器件增加噪声，不值当，应当：降低系统噪声 + 软件滤波处理）。</p>
+<ul>
+<li>硬件上，给 ADC 之前可做 压控有源二阶滤波 常规的。</li>
+</ul>
+<p>软件上：平均法、滑动窗口，FIR / IIR 数字滤波 等（<a href="https://www.elecfans.com/d/2096500.html" target="_blank" rel="noopener noreffer">如何把50Hz工频干扰定点清除-电子发烧友网 (elecfans.com)</a>，<a href="https://blog.csdn.net/2202_75407991/article/details/140814106" target="_blank" rel="noopener noreffer">心电滤波(STM32)小结-CSDN博客</a>）。</p>
+<ul>
+<li>软件上，可做 FIR 滤波，50Hz工频滤除，测量频率 以上的噪声滤除。</li>
+</ul>
+<p>其它噪声：</p>
+<ul>
+<li>建议只用电池供电来使用。纹波尽量降低。</li>
+</ul>
+<h4 id="直流误差-和-校准">直流误差 和 校准</h4>
+<p>主要来自 运放的 Ib、Vos 以及它们的温漂等，应选择满足测量需求的运放。</p>
+<p>对于电流测量，输入空接，测量输出，来实现自动校零。每次开机自动校零下，或依据环节变化 自动周期性调零 或 用户一键调零。（对于电压测量，就是 “差分对消”，可以硬件上可以只加个 电压采集端 的 接到 输入端 和 采集端的参考地 的 二选一切换，TIA 输入 切不可接地或接 IN+！）</p>
+<p>各量程范围与参考源做校准，对硬件非线性、温漂、湿度等的影响做减弱（各温度、各湿度下做 每个量程选择 一个 或多个点 的校准）。</p>
+<ul>
+<li>
+<p>如 使用 吉时利 2400、2450、6517B、6220 之类的设备去校准。源表的价格原因，最终可以选择 DMM6500 或 34465（测量精度能达到 1pA） 六位半万用表来做，可以自制个恒流源发生器 用 前面的万用表来标定，然后 用这个 标定过的 自制的电流源 来给自己的设备来校准，这个思路只是想法，不一定实用。也许还得靠 专业仪表输出的弱电流源 来校准。</p>
+</li>
+<li>
+<p>经验标明，温湿度对运放参数影响较大，尤其是高湿度环境下线路漏电流极具增加。</p>
+<p>因此仪器就只在室温（25℃）和寻常湿度（50%以下）进行电流的校准。</p>
+<p>温湿度测量若超出合适环境，则应该提醒当前温度过高或者过低，湿度过高（提示电路板应干燥 或 手动烘干），当前读数不保证准确。</p>
+</li>
+</ul>
+<p>减小 PCB 漏电流。目标：经验上，漏电流至少要比测量精度低一个数量级。具体看下面，从 运放选型、保护环设计、硬件配套措施等 上入手。</p>
+<h2 id="关于运放选型">关于运放选型</h2>
+<p>下面一些双引号括起来的句子为上面参考资料里面一些拿出来的。</p>
+<ul>
+<li>
+<p>考虑上面 ”电源噪声“ 和 ”电路噪声“ 里面的描述。</p>
+</li>
+<li>
+<p>关注 Ibias、Vos，以及同样也很重要的它们的变化范围，如 温变、随着 Vcm（共模电压）变化，以及 噪声 等。</p>
+<p>Vos 要低来满足测量需求，一个是降低输出误差，一个是降低保护环和输入线路的压差。</p>
+<p>基本要求：Vos（全温度、电源、输入共模电压范围内）&laquo; 电压测量真实最小精度，Ib（同前，全范围内）&laquo; 需求电流测量精度（至少小于一个数量级，更好小于两个数量级以上）。</p>
+</li>
+<li>
+<p>ADC 的输入阻抗，和信号线路的电阻形成分压，从而导致直流误差，所以 ADC 前尽量用精密运放（Vos 等要小于需求测量精度）（跟随或信号调理）输出，减少信号在传输线上的电压损失。</p>
+<p>ADC 选择 Sigma-Delta 类型。</p>
+</li>
+<li>
+<p>”金属封装的芯片漏电流不如塑封的芯片低“</p>
+</li>
+<li>
+<p>“这里的性能，一般是指噪音或灵敏度。Ib 当然选小的好，但 Ib 不是极限，完全可以做出比Ib 的实际值更好的微电流测试器。极限是 Ib 的噪音。”</p>
+</li>
+<li>
+<p>“Ib 的噪音是无法克服的，例如 LMC6062 的噪音是 0.20fA、LMC6001 是 0.13fA，OPA128L 是 0.12fA，LMP7721 是 0.10fA。以上噪音的单位是√Hz，也可以认为是带宽 B=1Hz 下的噪音值。当然，这些都是噪音的典型值，通过筛选，可以取得更小的电流噪音，因此理论上在 B=1Hz 下取得 0.1fA 的噪音是完全有可能的，这已经远小于运放的 Ib 了。”</p>
+</li>
+<li>
+<p>实际买回来芯片，主要是 运放 和 模拟开关，也许需要挑一挑，挨个试，哪个放到板子上工作更好。直接做出来试试，再换几个器件试试，都试试。</p>
+</li>
+<li>
+<p>“若被测电流变化范围极宽，不适合手动换挡的，建议选择对数放大器。搞不定交流电50Hz工频震荡干扰的，也建议选择对数放大器。”</p>
+<p>可以研究下对数运放，或许可以直接搞宽范围测量而不用换挡。</p>
+<p>不过经过检查，对数运放可能不好选择 Ib 极低 的选型。而且，把很宽的输入范围比如跨8个数量级分在可能0.2V~1.6V之间，对于ADC的有效测量精度有较高要求。</p>
+</li>
+</ul>
+<h2 id="关于-tia-反馈网络">关于 TIA 反馈网络</h2>
+<ul>
+<li>
+<p>选择大电阻，而不是 T网络 接法。</p>
+<p>“用 T 型网络后电阻是降下来了，但带来的问题就是电流噪音相应的增大。正规的微电流计没有一个采用 T 型网络的。纵观商品的静电计/微电流计，都是采用大电阻的方式，一般都用到100G，更有吉时利的642和6430，用到了1T，这样才能取得0.08fA的噪音有效值和0.4fA峰峰值（有效值和峰峰值一般是 5 倍的关系）。”</p>
+</li>
+<li>
+<p>跨阻 Rf 应靠近运放的 IN-；Vout 从 Rf 出。加入保护环。具体可以看 ADA4530 和 LMP7721 等芯片的有关手册里面的 推荐 PCB 图。</p>
+</li>
+<li>
+<p>跨阻 Rf 并联的 Cf 根据闭环稳定性要求 有 最小值。</p>
+<p>具体计算看 经典文档如 <code>跨阻放大器电路设计和计算</code> 或 书籍 《跨阻放大器设计参考》。整 TIA 电路噪声也可以计算预估。</p>
+</li>
+<li>
+<p>输入线路尽量短，减少漏电流。</p>
+</li>
+<li>
+<p>各 RC 环节，依 需求 采集速率 来确定。</p>
+</li>
+<li>
+<p>在仿真软件里面跑一跑，可 TINA-TI 或 LTspice，放上实际选用的芯片型号。</p>
+<p>看一看 各种性能指标，伯德图，相位裕量，噪声功率谱图，噪声功率密度 等</p>
+</li>
+</ul>
+<h2 id="保护环">保护环</h2>
+<ul>
+<li>保护环 的 PCB 布局应包裹整个输入到 IN- 有关的所有线路。弱有多层板，保护环应在多层电路板都把输入线路整个都包裹住。具体可以看 ADA4530 和 LMP7721 等芯片的有关手册里面的 推荐 PCB 图。</li>
+<li>保护环应尽量使得 输入电流 的线路 到 TIA 电路 上的 漏电流 小于 测量精度 一个数量级。</li>
+<li>减小保护环（Guard Ring）与信号线的电压差。</li>
+<li>保护环保持低的阻抗，至少要比信号线上阻抗更低，让外围漏电流往保护环上漏而不是信号线。保护环由运放 IN+ 经过跟随运放（选择尽量低的 Vos 的精密运放）再串入1K 电阻 来驱动。</li>
+<li>保护环不应该带载，带载会拉起其电压从而与被保护线路的电压形成客观压差而造成被保护电路漏电流。若需要带载则需要使用输出电阻更低（输出能力更强）的跟随运放做驱动。</li>
+<li>参考 ADA4530 手册中的 PCB，其中 ”高阻抗走线和保护走线移除了阻焊层，确保保护环与所有表面漏电流路径形成电气接触。基于同样的原因，应避免在此部分中印刷丝网。“</li>
+</ul>
+<h2 id="硬件配套措施">硬件配套措施</h2>
+<p>“在测量1uA以下电流，尤其是近1nA电流时，由于电流极低，空气湿度，灰尘，电路板洁净程度，电路板所处的电磁环境，电路板自身的体电阻等均会对测量产生很大的影响，尤其是工频震荡问题，使用者必须对这些有一定程度的了解，才有可能发挥到最佳性能。”</p>
+<h3 id="关于清洁">关于清洁</h3>
+<ul>
+<li>
+<p>敏感信号 PCB 上不要有喷墨字符等干扰物。</p>
+</li>
+<li>
+<p>敏感信号附近，不要使用助焊膏。</p>
+</li>
+<li>
+<p>清洁后烘烤以消除吸收的湿气。</p>
+<p>”湿度水平较高 (&gt;60%) 时，有效输入偏置电流幅度变得对相对湿度非常敏感。漏电流幅度迅速提高（两个数量级，fA到100fA），且极性可能改变“</p>
+</li>
+<li>
+<p>板材保持清洁，增加板材上的绝缘电阻；避免污染物接触信号区域。电路板密封，防止吸湿导致绝缘下降；控制湿度（&lt;30% RH）。</p>
+</li>
+<li>
+<p>PCB 表面 涂敷三防漆，比卖你水汽、灰尘等的侵入。注意三防漆的绝缘性。</p>
+</li>
+</ul>
+<h3 id="pcb-材质">PCB 材质</h3>
+<ul>
+<li>
+<p>PCB材料建议使用专用于射频微波电路的瓷片薄片，具有的高阻抗，优秀介电系数（尤其是对于pA和亚pA级别测量电路）。</p>
+<p>”Rogers 4350B是一种设计用于射频/微波电路的陶瓷薄片。经测试，该材料在不到20秒时间内便可将介电弛豫电流耗散到1 fA以下。“</p>
+<p>”玻璃环氧树脂薄片需要1小时才能将介电弛豫电流耗散到10 fA以下。这表明，玻璃环氧树脂薄片不适合用于高性能静电计电路。“</p>
+</li>
+<li>
+<p>根据 板材绝缘电阻 和 信号线与保护环电压差，可以估算漏电流，应小于 10% 测量精度，即小于需求测量精度一个数量级。</p>
+</li>
+</ul>
+<h3 id="电路屏蔽壳">电路屏蔽壳</h3>
+<ul>
+<li>电磁笼防护壳，不仅屏蔽一些外来电磁干扰，也遮光，防止光照在敏感电路引起一些半导体器件的光电反应引起的电流。</li>
+<li>避免外界有复杂的电磁环境，以及震动等。</li>
+<li>TIA电路部分可以焊接金属屏蔽罩封起来，防电磁干扰，也防湿度过大等。当然 温湿度传感器 芯片 就放在 此 旁边。</li>
+</ul>
+<h3 id="输入连接">输入连接</h3>
+<ul>
+<li>
+<p>可使用 BNC 接口 输入被测电流，电流输入端 到 TIA 尽量短短短以减少漏电流！可尝试在 1cm 以内。</p>
+</li>
+<li>
+<p>电流输入使用三同轴电缆，BNC 接口，线缆的中心走输入电流，中层连接保护环 Guard Ring 电位，外层走输入电流的地。</p>
+<p>实际调查，BNC 三同轴 的接口 和 线缆比 二同轴 的贵很多（5倍以上）。按需吧。若测量 pA 以及 亚 pA 级别的，这种级别仪表本身也不便宜，这个接口和线缆成本也就占个零头了。</p>
+</li>
+<li>
+<p>线缆进来的输入电流和地，直连测量端的查分输入，注意这个差分线两条线到测量端要阻抗一致。传感器端单端输出时的地与测量端的前端运放的地连接，注意防止共地干扰</p>
+</li>
+<li>
+<p>“商品的微电流测试设备不仅禁止在测试中晃动电缆，而且电缆都是特殊材料制作的，以便减少压电和摩擦生电效应，而且电缆都做成很硬的那种，使其对气流和振动不敏感。”</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-03-03</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" data-title="TIA 弱电流测量措施和经验汇总" data-hashtags="弱电流测量,弱信号测量"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" data-hashtag="弱电流测量"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/33tia%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F%E6%8E%AA%E6%96%BD%E5%92%8C%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" data-title="TIA 弱电流测量措施和经验汇总" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E5%BC%B1%E7%94%B5%E6%B5%81%E6%B5%8B%E9%87%8F/">弱电流测量</a>,&nbsp;<a href="/tags/%E5%BC%B1%E4%BF%A1%E5%8F%B7%E6%B5%8B%E9%87%8F/">弱信号测量</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/publicstuffs/" class="prev" rel="prev" title="可瞰-PublicStuffs"><i class="fas fa-angle-left fa-fw"></i>可瞰-PublicStuffs</a>
+            <a href="/32encourage%E5%8B%89%E5%8A%B1/" class="next" rel="next" title="Encourage 勉励">Encourage 勉励<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
