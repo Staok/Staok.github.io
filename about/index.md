@@ -4,9 +4,9 @@
 ## Interest / 业内兴趣
 
 - 嵌入式各种软硬件开发的**广泛精修**。
-- 整理一些 开源软硬件项目 和 技术分享文章（有 30+W 字了）。
+- 整理一些 开源软硬件项目 和 技术分享文章（有 30W+ 字了）。
 - 瞰百易计划。
-- 还有待补充的技术上的技能：~~FOC（咕咕咕）、~~SoC bring up、~~3D 建模（SW 即可）、深度学习~~。
+- 还有待补充的技术上的技能（咕咕咕）：FOC、SoC bring up / buildroot、3D 建模（SW 即可）、深度学习。
 
 
 
@@ -26,7 +26,7 @@
 
 ## Skills / Hobby  / 一些玩过的东西
 
-- C/C++~~，Python~~。
+- C/C++，Python。
 - MCU / RTOS / Linux 应用、驱动。
 - QT（QWidget / QQuick），LVGL。
 - FPGA 开发，Verilog IP 核 设计 和 仿真，SOPC 开发。
@@ -85,13 +85,15 @@
 - 其余低于省一的竞赛略（总共二十多张奖项）。另外本科时候发过英文会议一篇、发明专利一篇三作、实用新型专利若干。
 - 本科期间曾任校级 “电子科技创新实验室” 管理层 和 “创客空间实验室” 会长职务。
 
-​                                                                                                         ——
+2020 - 2023 中国海洋大学（硕士），电子信息。
 
-2020 - 2023 中国海洋大学（硕士）。
+<p hidden>2023 - 2025 拓竹科技，嵌入式软件。
+2025 - 今 初创机器人公司</p>
 
 
 
-个人简历 [.jpg(380KB)](https://staok.github.io/about/resume.jpg), [.pdf(489KB)](https://staok.github.io/about/resume.pdf)。
+<p hidden>个人简历 [.jpg(282KB)](https://staok.github.io/about/resume.jpg), [.pdf(426KB)](https://staok.github.io/about/resume.pdf)。</p>
+
 
 ------
 
