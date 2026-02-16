@@ -4,7 +4,14 @@
         <link>https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/</link>
         <description>软件 - 标签 - 欢迎来到 瞰百Staok</description>
         <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Tue, 27 Jun 2023 16:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml" /><item>
+    <title>GUI 框架基础需求、设计和实现</title>
+    <link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
+    <pubDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
+    <description><![CDATA[GUI 框架基础需求、设计和实现 以下皆为建议性内容，根据需求制定方案。 这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示]]></description>
+</item><item>
     <title>【目录贴】硕士实验室嵌入式学习路线参考清单</title>
     <link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link>
     <pubDate>Tue, 11 Apr 2023 16:15:14 &#43;0800</pubDate>
@@ -34,10 +41,10 @@
     <description><![CDATA[计算机类的教程多，框架和 API 用法讲的全面，成系统的教程很多，CSDN上、知乎上很多个人学习记录和全面的成书的教程，而且生动形象有甚至有动画讲解]]></description>
 </item><item>
     <title>（大集合）数据结构与算法简述和CS综合</title>
-    <link>https://staok.github.io/15%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link>
+    <link>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link>
     <pubDate>Fri, 10 Dec 2021 09:15:14 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://staok.github.io/15%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid>
+    <guid>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid>
     <description><![CDATA[数据结构与算法简述和CS综合 数据结构与算法简述和CS综述整理。本文非基础的教程，本文会列出大量学习和参考网站。老惯例，一个文章是一个集大成（]]></description>
 </item><item>
     <title>C 语言学前班</title>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://staok.github.io/28ai%E5%B7%A5%E5%85%B7%E5%92%8C%E7%94%A8%E6%B3%95%E6%B1%87%E6%80%BB/</guid>
     <description><![CDATA[AI 工具和用法汇总 汇集整理 by Staok/瞰百，源于相关资料在我这慢慢越积累越多，到了不得不梳理的程度。文中出现的网图侵删。 文中有许多内容作者还]]></description>
-</item><item>
-    <title>找工作笔试面试经验分享</title>
-    <link>https://staok.github.io/31%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
-    <pubDate>Tue, 27 Jun 2023 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/31%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
-    <description><![CDATA[本文引自 【杂谈】过往时期2-嵌入式求学故事线简忆 - 欢迎来到 Staok - 瞰百易 (github.io)。 &hellip;说这么多，我觉得，其实就是巨大的]]></description>
 </item></channel>
 </rss>

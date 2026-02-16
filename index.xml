@@ -4,22 +4,29 @@
         <link>https://staok.github.io/</link>
         <description>瞰百Staok 的个人博客，主要发布 技术文章、杂文 和 &#39;瞰百易&#39;计划 的最新动态</description>
         <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Mon, 03 Mar 2025 09:15:14 &#43;0800</lastBuildDate>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</lastBuildDate>
             <atom:link href="https://staok.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>GUI 框架基础需求、设计和实现</title>
+    <link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
+    <pubDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
+    <description><![CDATA[GUI 框架基础需求、设计和实现 以下皆为建议性内容，根据需求制定方案。 这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示]]></description>
+</item><item>
     <title>编程经验、调试、性能和内存检查工具集合</title>
     <link>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</link>
     <pubDate>Sun, 22 Dec 2024 16:07:06 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</guid>
-    <description><![CDATA[编程经验、调试、性能和内存检查工具集合 程序调试、在检测工具手段上对程序评估和优化 的 综合。 尚有 一些 标记了 TODO 的地方 有待施工。没有三头六臂，很多资]]></description>
+    <description><![CDATA[编程经验 / 规范, 调试、性能和内存检查工具集合 程序调试、在检测工具手段上对程序评估和优化 的 综合。 分为很多块内容且相互独立，直接到对应小节。 p.s 有]]></description>
 </item><item>
     <title>C / C&#43;&#43; 实用库备查</title>
     <link>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</link>
     <pubDate>Sun, 15 Sep 2024 16:07:06 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</guid>
-    <description><![CDATA[C / C++实用库备查 网络参考源： Your list / 实用库 / EE-CS (github.com)。 你工作中最推荐的 C/C++ 程序库有哪些，为什么？ - 知乎 (zhihu.com]]></description>
+    <description><![CDATA[C / C++ 实用库备查 网络参考源： Your list / 实用库 / EE-CS (github.com)。 你工作中最推荐的 C/C++ 程序库有哪些，为什么？ - 知乎 (zhihu.com)。]]></description>
 </item><item>
     <title>C&#43;&#43; 学习总结备查</title>
     <link>https://staok.github.io/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
     <description><![CDATA[IEEE 1451.5 智能无线传感器标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准]]></description>
-</item><item>
-    <title>【主线剧情02】ARM Linux 基础学习记录</title>
-    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
-    <pubDate>Mon, 05 Apr 2021 12:20:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8502-arm-linux%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
-    <description><![CDATA[ARM &amp; Linux 基础学习记录 编辑整理 by Staok。 本文部分内容摘自 “100ask imx6ull” 开发板的配套资料（如 百问网的《嵌入式Linux应用开发]]></description>
 </item></channel>
 </rss>

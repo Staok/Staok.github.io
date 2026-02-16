@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>QT - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/qt/</link>
+        <description>QT - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Tue, 10 Feb 2026 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/qt/" rel="self" type="application/rss+xml" /><item>
+    <title>QT &amp; QML 总结备查</title>
+    <link>https://staok.github.io/34qt-qml-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>
+    <pubDate>Tue, 10 Feb 2026 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/34qt-qml-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</guid>
+    <description><![CDATA[QT &amp; QML 总结备查 首要注意，在桌面端开发QT可免费商用，而嵌入式端QT商用则收费。 各种 UI 库的总结和对比： Cpp-Learning/C-C++实用]]></description>
+</item></channel>
+</rss>

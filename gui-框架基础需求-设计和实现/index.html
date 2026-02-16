@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>GUI 框架基础需求、设计和实现 - 欢迎来到 瞰百Staok</title><meta name="Description" content="GUI 框架基础需求、设计和实现"><meta property="og:title" content="GUI 框架基础需求、设计和实现" />
+<meta property="og:description" content="GUI 框架基础需求、设计和实现" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-02-14T16:07:06+08:00" />
+<meta property="article:modified_time" content="2026-02-14T21:21:42+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GUI 框架基础需求、设计和实现"/>
+<meta name="twitter:description" content="GUI 框架基础需求、设计和实现"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" /><link rel="prev" href="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "GUI 框架基础需求、设计和实现",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "GUI, 软件","wordcount":  27930 ,
+        "url": "https:\/\/staok.github.io\/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0\/","datePublished": "2026-02-14T16:07:06+08:00","dateModified": "2026-02-14T21:21:42+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "GUI 框架基础需求、设计和实现"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">GUI 框架基础需求、设计和实现</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/ee-cs-study/"><i class="far fa-folder fa-fw"></i>EE-CS-Study</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2026-02-14">2026-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 27930 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 56 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#gui-框架基础需求设计和实现">GUI 框架基础需求、设计和实现</a></li>
+    <li><a href="#基础元素">基础元素</a>
+      <ul>
+        <li><a href="#gui-综合性工程所需-features">GUI 综合性工程所需 Features</a></li>
+        <li><a href="#gui-设计-常见基础组件">GUI 设计 常见基础组件</a>
+          <ul>
+            <li><a href="#基础-widgets">基础 Widgets</a></li>
+            <li><a href="#自构建组件">自构建组件</a></li>
+          </ul>
+        </li>
+        <li><a href="#gui-工程-程序组件">GUI 工程 程序组件</a>
+          <ul>
+            <li><a href="#基础软件组件模块">基础软件组件、模块</a></li>
+            <li><a href="#ui-相关软件组件模块">UI 相关软件组件、模块</a></li>
+          </ul>
+        </li>
+        <li><a href="#基本-ui-开发模式">基本 UI 开发模式</a>
+          <ul>
+            <li><a href="#适用于-ui-的设计模式-mvvm">适用于 UI 的设计模式 MVVM</a></li>
+            <li><a href="#mvvm-框架的实现例子">MVVM 框架的实现例子</a></li>
+            <li><a href="#复杂-ui-交互逻辑举例">复杂 UI 交互逻辑举例</a></li>
+          </ul>
+        </li>
+        <li><a href="#通用控件事件处理">通用控件事件处理</a>
+          <ul>
+            <li><a href="#1-前端逻辑">1. 前端逻辑</a></li>
+            <li><a href="#2-后端执行">2. 后端执行</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#ui--ux-设计">UI / UX 设计</a>
+      <ul>
+        <li><a href="#交互设计规范和扩展">交互设计规范和扩展</a></li>
+        <li><a href="#交互设计稿确认项">交互设计稿确认项</a></li>
+      </ul>
+    </li>
+    <li><a href="#具体组件模块设计">具体组件、模块设计</a>
+      <ul>
+        <li><a href="#工程框架设计--基础思想">工程框架设计 / 基础思想</a>
+          <ul>
+            <li><a href="#工程框架建议">工程框架建议</a></li>
+            <li><a href="#工程文件夹">工程文件夹</a></li>
+            <li><a href="#前端界面文件">前端界面文件</a></li>
+            <li><a href="#后端文件">后端文件</a></li>
+            <li><a href="#前后端交互">前后端交互</a></li>
+            <li><a href="#实用提醒">实用提醒</a></li>
+          </ul>
+        </li>
+        <li><a href="#多字体--多语言-以及-高度自动化">多字体 / 多语言 以及 高度自动化</a>
+          <ul>
+            <li><a href="#多字体">多字体</a></li>
+            <li><a href="#多语言切换基本原理和实现">多语言切换基本原理和实现</a></li>
+            <li><a href="#上传多语言管理平台的文案的规范和注意事项">上传多语言管理平台的文案的规范和注意事项</a></li>
+            <li><a href="#各语言-unicode-编码相关">各语言 Unicode 编码相关</a></li>
+          </ul>
+        </li>
+        <li><a href="#多机型--功能宏--素材资产管理">多机型 / 功能宏 / 素材资产管理</a></li>
+        <li><a href="#页面管理">页面管理</a></li>
+        <li><a href="#多分辨率">多分辨率</a></li>
+        <li><a href="#多套主题">多套主题</a></li>
+        <li><a href="#埋点">埋点</a>
+          <ul>
+            <li><a href="#概念和需求">概念和需求</a></li>
+            <li><a href="#埋点数据基本需求">埋点数据基本需求</a></li>
+            <li><a href="#数据看板的组织形式">数据看板的组织形式</a></li>
+          </ul>
+        </li>
+        <li><a href="#ui-测试--自动化测试">UI 测试 / 自动化测试</a></li>
+        <li><a href="#跨平台化">跨平台化</a></li>
+        <li><a href="#ui-硬件加速渲染">UI 硬件加速渲染</a></li>
+        <li><a href="#mem--cpu--size-优化--debug">Mem &amp; CPU &amp; Size 优化 &amp; Debug</a></li>
+        <li><a href="#代码规范">代码规范</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="gui-框架基础需求设计和实现">GUI 框架基础需求、设计和实现</h2>
+<p>以下皆为建议性内容，根据需求制定方案。</p>
+<p>这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示和交互逻辑，满足交互设计需求。</p>
+<p>文章所在 Github 仓库 <a href="https://github.com/Staok/GUI-Framework-Study" target="_blank" rel="noopener noreffer">Staok/GUI-Framework-Study: GUI 框架基础需求、设计和实现文章</a> 会保持最新，其它地方的不会跟进。</p>
+<h2 id="基础元素">基础元素</h2>
+<h3 id="gui-综合性工程所需-features">GUI 综合性工程所需 Features</h3>
+<p>UI feature 基础需求，如 widgets，layout (如 flex，自定义排列、滑动 / 滑动条 等）)，style、flag、state 系统（这里为引用 LVGL 的特性），ttf 字体支持（对 freeType 库的支持），图片显示支持（图片数组（未解码或解码的图片数据）、图片文件），event 系统（灵活的 input / driver 设置，事件响应回调设置等），多页面（screen） 等，渐变色支持，anim（obj 的基本变化形式（如位置、长宽、旋转、透明度 等）在时间轴打关键点实现）等，下面给出比较全面的列举。</p>
+<p>这里总结 支持较复杂 UI 设计和实现 需求 的 基本元素 和 Features：</p>
+<ul>
+<li>
+<p>UI 创建。</p>
+<p>参考 <code>交互设计搞确认项</code> 一节。</p>
+</li>
+<li>
+<p>足够的基础组件。可进一步封装组件，可自设计组件。</p>
+<p>给 obj 添加事件回调（函数），事件类型要够丰富。</p>
+<p>够丰富的 style 支持（参考 lvgl 的 style 系统）；丰富的 flag、state 支持；layout 支持（如 lvgl 的 flex）。</p>
+<p>参考 <code>GUI 设计 常见基础组件 / Widgets</code> 一节。</p>
+</li>
+<li>
+<p>多页面。</p>
+<p>参考 <code>页面管理</code> 一节。</p>
+</li>
+<li>
+<p>多字体 / 多语言支持。</p>
+<p>参考 <code>多字体 / 多语言 以及 高度自动化</code> 一节。</p>
+</li>
+<li>
+<p>多机型。资产管理。</p>
+<p>参考 <code>多机型 / 功能宏 / 素材资产管理</code> 一节。</p>
+</li>
+<li>
+<p>UI Debug。</p>
+<p>参考 <code>UI 测试 / 自动化测试</code> 一节。</p>
+</li>
+</ul>
+<h3 id="gui-设计-常见基础组件">GUI 设计 常见基础组件</h3>
+<h4 id="基础-widgets">基础 Widgets</h4>
+<ul>
+<li>
+<p>Panel 块。矩形等基础形状，长宽，颜色，倒圆角，透明度，边框线，背景图（可用于透明标识（灰白方格马赛克，可以软件生成）），渐变色。</p>
+</li>
+<li>
+<p>画点、画线，画圆（中心点坐标，半径，是否填充，宽度）。</p>
+</li>
+<li>
+<p>文本 Label。使用指定字体、多种大小；换行、省略号、滚动显示；加粗、下划线；（可选）文字中间变颜色、可点击、变字体、变大小 等。</p>
+</li>
+<li>
+<p>按键 Btn（可做多种风格的，用于不同的地方）。事件：短按、长按、按住 等。</p>
+</li>
+<li>
+<p>开关 Switch、选择框 CheckBox。状态：选中、非选中、半选中；选中状态下不可点、非选中状态下不可点。</p>
+</li>
+<li>
+<p>下拉框 Choose。</p>
+</li>
+<li>
+<p>进度条。</p>
+</li>
+<li>
+<p>拖动条 / 滑动条。</p>
+</li>
+<li>
+<p>输入框。</p>
+</li>
+<li>
+<p>键盘 KeyBoard。可定制项：每个键、键排列、多页面切换；数字键盘和全键盘；最短输入、最长输入；占位字符 place holder str；密码模式；输入匹配正则表达式 Regex。</p>
+</li>
+<li>
+<p>ListView 长内容滚动显示。排列方向、间距、对齐子内容，程序可控上下移动，事件有比如 开始滚动、正在滚动 和 结束滚动 等。</p>
+</li>
+<li>
+<p>图片编解码。（多种图片格式解码）</p>
+<ul>
+<li>
+<p>jpeg、png、gif（可控播放），webp（推荐）；图片文件、图片编码二进制数据、图片解码后二进制数据直接显示；图片缓存功能（不必每次解码）；图片缩放（用于自适应长宽）、旋转。</p>
+</li>
+<li>
+<p>图片文件大小：</p>
+<ul>
+<li>可以先尝试，图片所有自动压缩，自动选择最好的压缩率，若压缩后体积还是比较大（如大于 1MB，或者 尺寸过大（如大于屏幕分辨率的），则单独打印出来告警）。</li>
+<li>图片可以尝试全 webp 格式（有官方的编解码库 libwebp），比 通常 png / gif 小很多，节省空间。</li>
+<li>对于大图片，使用图片文件形式存储在机器里，解码图片来显示，并使用图片缓存机制，不必反复解码。对于很多小图标图片，可以使用解码后的数组存储，小图标数量多，不必解码占cpu（46x46的图标图片，100张，将近1MB，权衡选择）。</li>
+</ul>
+</li>
+<li>
+<p>图片显示长宽：</p>
+<ul>
+<li>图片显示，尽量给的图片大小放到 屏幕 UI 上不经过缩放等而直接显示就正好。</li>
+<li>给设图片的API增加功能：则设置图片的 API 可以 可选的 设置 是否缩放 与 其 parent panel 大小对齐（autoFit 模式 或 fill 模式。autoFit 模式：图片缩放顶住 parent panel 边缘，确保是图片整个显示出来（如 图片 比 parent 宽 则图片两边 与 parent 对齐）；fill 模式：图片缩放后不给 parent 留空，图片 比 parent 宽 则 图片上下 与 parent 的 上下对齐）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>二维码 显示。</p>
+</li>
+<li>
+<p>视频显示。指定视频文件，开始、暂停、停止 的 控制，摄像头显示 等。</p>
+</li>
+<li>
+<p>（可选）丰富交互动画。</p>
+<p>可以看看 LVGL Demos <a href="https://lvgl.io/demos" target="_blank" rel="noopener noreffer">Demos — LVGL</a>，由专业交互设计人员进行设计。</p>
+</li>
+<li>
+<p>以上 UI 组件，可整体缩放、旋转、调整透明度等。</p>
+</li>
+<li>
+<p>（添彩项）考虑多分辨率情况下可用。</p>
+<p>参考 <code>多分辨率</code> 一节。</p>
+</li>
+<li>
+<p>（添彩项）考虑多主题。可定制 UI 主题。</p>
+<p>参考 <code>多套主题</code> 一节。</p>
+</li>
+</ul>
+<h4 id="自构建组件">自构建组件</h4>
+<ul>
+<li>设置项组件。</li>
+<li>步骤组件（显示工作的当前步骤，每个步骤有未到、正在进行、执行完成、执行失败等状态图标，有步骤编号，有标题和副标题，多个步骤组件排列显示当前工作进度）。</li>
+<li>弹窗组件：任务完成、任务失败、信息提示、警告、错误 等。</li>
+<li>Toast 组件（在屏幕中间上方，显示带背景的指定的文字，指定秒数后消失）。</li>
+<li>简易图文显示。比如 使用其他库 解析 MarkDown、html 等，进行建议的多段落、标题、图片等的图文页面展示。</li>
+<li>画线段（传入多个点坐标，在之间画线段，可选传入是否圆弧、圆弧弧度）。</li>
+</ul>
+<h3 id="gui-工程-程序组件">GUI 工程 程序组件</h3>
+<h4 id="基础软件组件模块">基础软件组件、模块</h4>
+<ul>
+<li>
+<p>CallRepeatChecker 按键重复点击检测：如果连续调用间隔时间小于指定时间则 不响应 或者 按照指定低频响应。</p>
+</li>
+<li>
+<p>线程池使用，接受提交函数到内部队列进行逐一执行。</p>
+<p>UI 刷新线程（提交 UI 操作 的函数 到 单线程 的 线程池 或者 函数队列）。</p>
+<p>参考 <a href="https://github.com/Staok/Cpp-Learning/blob/main/C-C%2B%2B%e5%ae%9e%e7%94%a8%e5%ba%93%e5%a4%87%e6%9f%a5.md#threadpool-lib" target="_blank" rel="noopener noreffer">线程池库 ThreadPool libs</a>。</p>
+<p>注意易出现的问题：[Cpp-Learning/编程经验-规范, 调试、性能和内存检查工具集合.md at main · Staok/Cpp-Learning](<a href="https://github.com/Staok/Cpp-Learning/blob/main/">https://github.com/Staok/Cpp-Learning/blob/main/</a>编程经验-规范%2C 调试、性能和内存检查工具集合.md#易错注意)。</p>
+<p>内部 Debug：</p>
+<ul>
+<li>若 UI 刷新间隔 过长（比如大于 200ms）则打印（系统有其它进程监控 和 打印 CPU、RAM、最高占用（CPU 和 RAM）的进程 等等信息）。</li>
+<li>使用线程看门狗。刷新间隔超过如 30s 则认为是发生死锁，主动抛异常 退出，产生 Coredump 进行分析。</li>
+</ul>
+<p>线程看门狗。</p>
+<p>定时器。后端周期性获取 硬件 或 其它软件模块 状态，或其它需要周期性执行的业务。</p>
+</li>
+<li>
+<p>信号槽使用。</p>
+<p>UI 前端 留 事件回调（在回调里面发射信号） 给 UI 后端（也可用于埋点，参考后文 <code>埋点</code> 一节），并留所有 UI 元素 操作函数（可以均留为 property（槽函数、变量，直接控制 UI 显示 的 变化）） 列清晰；UI 后端 调用 UI 元素 操作函数（UI 前端留的 property）来 操作 UI。</p>
+<p>更详细的 前后端软件设计模型 描述 参考 <code>基本 UI 开发模式</code> 一节。</p>
+<p>参考 <a href="https://github.com/Staok/Cpp-Learning/blob/main/C-C%2B%2B%e5%ae%9e%e7%94%a8%e5%ba%93%e5%a4%87%e6%9f%a5.md#sig-slot" target="_blank" rel="noopener noreffer">信号槽库 Sig-Slot libs</a>。</p>
+</li>
+<li>
+<p>数据抽象，类抽象和继承等，工厂模式创建和管理（可参考 <a href="https://github.com/Staok/C-Cpp-design-patterns/tree/main/DesignPattern" target="_blank" rel="noopener noreffer">C-Cpp-design-patterns</a>）；对软硬件的数据结构进行建模，设计的方便扩展和维护，方便添加新功能，方便进行操作。</p>
+<p>使用 Device Manager 概念的类进行统一管理（也可以分多层）。</p>
+</li>
+<li>
+<p>Task Manager（FSM .etc）。</p>
+<p>参考 <a href="https://github.com/Staok/Cpp-Learning/blob/main/C-C%2B%2B%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5.md#fsm" target="_blank" rel="noopener noreffer">FSM 库</a>。</p>
+</li>
+<li>
+<p>GateWay（管理所有对外的数据通讯交互，UART、Socket、MQTT .etc）。</p>
+<p>参考 <a href="https://github.com/Staok/Cpp-Learning/blob/main/C-C%2B%2B%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5.md#socket--io-poll--async" target="_blank" rel="noopener noreffer">网络库</a>。</p>
+</li>
+<li>
+<p>Power Manager（屏保、待机、开关机等）。</p>
+</li>
+<li>
+<p>Logger Or User Manager。</p>
+</li>
+<li>
+<p>System Diagnosis（自检、校准、维护提醒 等）。</p>
+</li>
+<li>
+<p>Upgrade（升级检查、固件升级 等）。</p>
+</li>
+<li>
+<p>Debug Utils。参考 <code>GUI 综合性工程所需 Features</code> 一节里面列到的。</p>
+</li>
+<li>
+<p>配置参数读写，如 settings.json 文件 读写，保存用户配置、机器信息等。</p>
+</li>
+<li>
+<p>统一的打印信息，基本的，有 提醒（Info）、警告（Warning）、错误（Error）、调试信息（Debug）分类。</p>
+<ul>
+<li>
+<p>一般的打印信息格式：<code>[20XX-0X-0X-24:59:59:999] [INFO | WARN | ERROR] [&lt;file name&gt;] [&lt;function name&gt;():&lt;line num&gt;]: &lt;debug str&gt; </code>。</p>
+</li>
+<li>
+<p>打印调试信息的时机：</p>
+<ul>
+<li>页面切换的时候（这种类型的信息应该设置一个开关控制是否打印）。</li>
+<li>设置功用的按键按下的时候（这种类型的信息应该设置一个开关控制是否打印）。</li>
+<li>每一个函数在返回错误之前视情况要打印错误信息。</li>
+<li>与其它端进行消息通讯的时候，异步发送 和 异步回调 的这两个时刻都要打印信息。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>进程间通讯中间件。DBUS、DDS、unix socket（+ protobuf 定义数据包结构 + 自定义 protocol 打包解包） 等。</p>
+</li>
+</ul>
+<h4 id="ui-相关软件组件模块">UI 相关软件组件、模块</h4>
+<ul>
+<li>
+<p>具体组件的管理，比如对于弹窗组件，需要搞个全局弹窗管理，就需要包括创建弹窗（传入必要信息（比如传入弹窗id（用于关闭时候引用），弹窗类型、显示文字（和图片路径）、弹窗按键数量和各个的显示文字以及绑定的函数），并且里面会判断是否先存着不显示啊、如何叠层啊之类的）、关闭弹窗等。</p>
+<p>具体组件类型具体做。</p>
+</li>
+<li>
+<p>多页面，页面管理。参考 <code>页面管理</code> 一节。</p>
+</li>
+<li>
+<p>多图层，图层管理。比如所有 UI 正常 显示在 第 1 层，而 弹窗 等 这种需要全局弹出覆盖当前内容，就在 比如 第 2 层 显示，以此类推。</p>
+<p>支持透明图层，其它进程 可以 直接从 DRM 等图层管理 往画面添加显示。</p>
+<p>各图层定义和管理，以及获取图层用来创建组件。</p>
+</li>
+<li>
+<p>字体管理，字体创建、使用。</p>
+<p>多语言支持，自动化处理。</p>
+<p>参考 下面 <code>多语言 / 字体 以及 事务高度自动化</code> 一节。</p>
+</li>
+<li>
+<p>屏保。设定屏保时间，到时，先设置背光到一半，延时2秒，关闭背光，屏幕显示黑白切换（防止烧屏），有输入，恢复正常显示，设置半背光（此时还不能响应点击），延时1s后，恢复背光，恢复正常响应点击。</p>
+</li>
+<li>
+<p>待机 / 休眠。首先进入屏保，一段时间没有输入后进入 待机 / 休眠：</p>
+<ul>
+<li>关闭屏幕背光电源。</li>
+<li>停掉 UI 渲染和刷新。</li>
+<li>关闭一些外设，包括关闭屏幕外设，只保留退出休眠相关的外设。</li>
+<li>处理器进入低功耗模式。</li>
+</ul>
+<p>退出 待机 / 休眠 序列与上面相反即可。</p>
+</li>
+<li>
+<p>UI 测试。参考 下面 <code>UI 测试 / 自动化测试</code> 一节。</p>
+</li>
+<li>
+<p>颜色相关实用函数。以下默认为 32 位颜色，lvgl 支持 各种其它位的颜色，以及不同位的颜色之间的转换，还有混合、变亮、变暗 等。</p>
+<ul>
+<li>ARGB 和 RGB 相互转换。</li>
+<li>从 uint32_t 的 ARGB 获得 uint8_t 的 A、R、G 和 B；以及反转换。</li>
+<li>从 ARGB 或 RGB 字符串值 转 uint32_t 的 ARGB 颜色 整数值。</li>
+<li>获得两个颜色的相近程度（RGB 转 XYZ 再转 Lab，使用 DeltaE76 算法得到差异值）。</li>
+<li>获得一些预设的主题颜色，从 颜色名称 返回 颜色 ARGB；以及反转换；反转换，增加模糊匹配（给定一个颜色 整数值，返回最相近的颜色的颜色名称）。</li>
+<li>RGB 转 HSV，以及反转换（lvgl 的 lv_color.h 有）。</li>
+</ul>
+</li>
+<li>
+<p>单位量相关转换实用函数。</p>
+<ul>
+<li>时间（年月日时分秒毫秒）、容量大小（B、KB、GB、TB）、重量（g、Kg）、长度（mm、m、km） 等等 的 可读化显示。</li>
+<li>比如，一个文件容量大小为 123456Byte 存储在一个整数变量，写一个转换函数，转换为 <code>xxx.x KB</code> 字符串，用于 UI 显示。</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本-ui-开发模式">基本 UI 开发模式</h3>
+<p>编程设计模式总结</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_(%E8%AE%A1%E7%AE%97%E6%9C%BA)">https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_(%E8%AE%A1%E7%AE%97%E6%9C%BA)</a></li>
+<li><a href="https://refactoringguru.cn/design-patterns/catalog">https://refactoringguru.cn/design-patterns/catalog</a></li>
+<li>自总结和梳理 <a href="https://github.com/Staok/C-Cpp-design-patterns/tree/main/DesignPattern" target="_blank" rel="noopener noreffer">C-Cpp-design-patterns/DesignPattern at main · Staok/C-Cpp-design-patterns</a>。</li>
+</ul>
+<h4 id="适用于-ui-的设计模式-mvvm">适用于 UI 的设计模式 MVVM</h4>
+<ul>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/59467370">https://zhuanlan.zhihu.com/p/59467370</a></p>
+</li>
+<li>
+<p><a href="https://zh.wikipedia.org/wiki/MVVM">https://zh.wikipedia.org/wiki/MVVM</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm">https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm</a></p>
+</li>
+</ul>
+<blockquote>
+<p>MVVM 是一种将用户界面（GUI）代码与业务逻辑和数据模型分离的架构模式。它的核心目标是实现 <strong>UI 与 逻辑的解耦</strong>。</p>
+<p><strong>关键组成部分：</strong></p>
+<ul>
+<li><strong>Model (模型):</strong>
+<ul>
+<li>代表真实状态的数据内容（类似于领域模型）。</li>
+<li>包含业务逻辑和数据验证。</li>
+<li><strong>完全不知道</strong> ViewModel 或 View 的存在。</li>
+</ul>
+</li>
+<li><strong>View (视图):</strong>
+<ul>
+<li>用户看到的结构、布局和外观（GUI）。</li>
+<li><strong>被动</strong>：它不处理业务逻辑。</li>
+<li>通过 <strong>数据绑定 (Data Binding)</strong> 连接到 ViewModel。</li>
+<li>将用户交互（点击、输入）转发给 ViewModel。</li>
+</ul>
+</li>
+<li><strong>ViewModel (视图模型):</strong>
+<ul>
+<li><strong>MVVM 的核心</strong>。它是 View 的抽象，包含 View 的状态（如“按钮是否启用”）。</li>
+<li>充当“转换器”：将 Model 的数据转换为 View 可以显示的格式。</li>
+<li><strong>不知道</strong> View 的具体实现（没有 UI 控件的引用），通过 <strong>通知机制</strong> (Notification) 或 <strong>命令</strong> (Command) 与 View 通信。</li>
+</ul>
+</li>
+</ul>
+<p><strong>核心机制：</strong></p>
+<ol>
+<li><strong>数据绑定 (Data Binding):</strong> 自动同步 View 和 ViewModel 之间的数据。</li>
+<li><strong>通知机制 (INotifyPropertyChanged):</strong> 当 ViewModel 数据改变时，自动通知 View 更新。</li>
+<li><strong>命令 (Commands):</strong> 处理 View 的事件（如点击），而不是在 View 的后台代码（Code-behind）中写逻辑。</li>
+<li><strong>可测试性:</strong> 因为 ViewModel 不依赖 UI 控件，可以对其进行纯粹的单元测试。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+----------------+          +-------------------+          +----------------+
+|      View      |          |     ViewModel     |          |      Model     |
+|  (UI / Window) |          | (Logic / State)   |          | (Data / Rules) |
++----------------+          +-------------------+          +----------------+
+|                |  Binding |                   |  Updates |                |
+|  [ Text Box ] &lt;-------------&gt; [ String Prop ] &lt;----------&gt;   Data Field   |
+|                |          |                   |          |                |
+|  [  Label   ] &lt;-------------&gt; [ Format()    ] |          |                |
+|                | Notification |               |          |                |
+|  [  Button  ] --------------&gt; [ Command()   ] ----------&gt;  SaveToDB()   |
+|                |          |                   |          |                |
++----------------+          +-------------------+          +----------------+
+       ^                             ^                             ^
+       |                             |                             |
+  Knows ViewModel           Knows Model Only              Knows Nothing
+(Observes changes)       (Does NOT know View)          (Pure Data/Logic)
+
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h4 id="mvvm-框架的实现例子">MVVM 框架的实现例子</h4>
+<p>总结</p>
+<p>（其中的 信号变量 Property 或 信号 Signal 可用 Github 开源库如 KDBindings 来做）</p>
+<p>Model（不依赖 View 或 ViewModel）（这里当作 <code>后端程序</code>）</p>
+<ul>
+<li>定义和实现功能函数接口：<code>uint32_t execFun()</code>。如果是耗时任务，则应该内部设计超时机制，外部传入超时时间，超时则直接 返回 超时 Code。根据其返回值判断 执行 的 成功（0 表示成功，正数表示带条件的成功）、失败（负值，不同负值表示失败的情况，包括超时的情况）。</li>
+<li>定义信号变量 Property：<code>Property&lt;Mode&gt; mode</code>。根据业务直接赋值 <code>mode</code> 即可，下面有定义其变化的回调函数，将可直接修改 UI 显示。</li>
+</ul>
+<p>ViewModel（依赖 Mode）</p>
+<ul>
+<li>
+<p>持有 Mode 实例的指针 <code>model</code>。</p>
+</li>
+<li>
+<p>定义 UI 事件 的 信号 Signal，并连接到槽函数如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">Signal</span> <span class="n">signalExecFun</span><span class="p">;</span>
+<span class="n">signalExecFun</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="p">[</span><span class="k">this</span><span class="p">]</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 注意这里的 上下文 Context 为 View 中触发 signalExecFun 所在的上下文
+</span><span class="c1"></span>        <span class="err">（下面整体提交到后端执行线程池（单线程或多线程），进行异步处理）</span>
+        <span class="err">判断各种</span> <span class="n">UI</span> <span class="err">交互逻辑。</span>
+        <span class="err">调用</span> <span class="n">model</span><span class="p">.</span><span class="n">execFun</span><span class="p">()</span>
+        <span class="err">根据返回值判断处理是否成功，根据结果进一步执行需求业务逻辑（比如弹窗提示等视觉显示）</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>即 View -&gt; 事件回调 -&gt; 触发 ViewModel 信号 -&gt; 处理 UI 逻辑 -&gt; 调用 Model 功能函数（异步执行）。</p>
+</li>
+<li>
+<p>定义 与 UI 显示对应的  Property（也可以为信号，槽函数就是 View 中 修改 UI 执行刷新变化的函数）</p>
+<p>比如 <code>Property&lt;bool&gt; isPanelAShow;</code> <code>Property&lt;bool&gt; isPanelBShow;</code>。</p>
+</li>
+<li>
+<p>设置 Model 的 Property 变化 的回调函数，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">model</span><span class="p">.</span><span class="n">mode</span><span class="p">.</span><span class="n">onChanged</span><span class="p">(</span>
+    <span class="p">[</span><span class="k">this</span><span class="p">]</span> <span class="p">(</span><span class="n">Mode</span> <span class="n">mode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 注意这里的 上下文 Context 为 Mode 中修改 mode 所在的上下文
+</span><span class="c1"></span>        <span class="k">switch</span> <span class="p">(</span><span class="n">mode</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">Mode</span><span class="o">::</span><span class="nl">MODEA</span><span class="p">:</span>
+                <span class="n">isPanelAShow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="n">isPanelBShow</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">Mode</span><span class="o">::</span><span class="nl">MODEB</span><span class="p">:</span>
+                <span class="n">isPanelAShow</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="n">isPanelBShow</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">...</span>
+            <span class="k">default</span><span class="o">:</span> <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>View（依赖 ViewModel）</p>
+<ul>
+<li>
+<p>持有 ViewModel 实例的指针 <code>viewModel</code>。</p>
+</li>
+<li>
+<p>设置事件回调函数，在里面 触发 ViewModel 的信号，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">setEventCb</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">viewModel</span><span class="p">]</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">viewModel</span><span class="p">.</span><span class="n">signalExecFun</span><span class="p">.</span><span class="n">emit</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>设置 ViewModel 中修改 UI 的 Property 的变化的回调函数，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">viewModel</span><span class="p">.</span><span class="n">isPanelAShow</span><span class="p">.</span><span class="n">onChanged</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">viewModel</span><span class="p">]</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">is</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 注意这里的 上下文 Context 为 ViewModel 中修改 isPanelAShow 所在的上下文
+</span><span class="c1"></span>        <span class="n">ui_obj_set_Visibility</span><span class="p">(</span><span class="n">panelA</span><span class="p">,</span> <span class="n">is</span><span class="p">);</span> <span class="c1">// 注意需要在 UI 线程中执行这类语句，以此类推
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="n">viewModel</span><span class="p">.</span><span class="n">isPanelBShow</span><span class="p">.</span><span class="n">onChanged</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">viewModel</span><span class="p">]</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">is</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ui_obj_set_Visibility</span><span class="p">(</span><span class="n">panelB</span><span class="p">,</span> <span class="n">is</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>调用图</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">   [ View ]                             [ ViewModel ]                           [ Model ]
+      |                                       |                                     |
+(User Click)                                  |                                     |
+      |                                       |                                     |
+Call viewModel.signalExecFun.emit() -------&gt;  |                                     |
+      |                                   (Check Logic)                             |
+      |                                   Call model.execFun() ------------------&gt;  |
+      |                                       |                               (Async Work)
+      |                                       | &lt;---------- (Callback/Signal) Update mode
+      |                                   (On mode Changed)                         |
+      |                                   Update isPanelAShow .etc                  |
+(On isPanelAShow .etc Changed) &lt;------------- |                                     |
+Update UI                                     |                                     |
+      |                                       |                                     |
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="复杂-ui-交互逻辑举例">复杂 UI 交互逻辑举例</h4>
+<p>应用 MVVM 设计模式举例。</p>
+<p>复杂 UI 交互逻辑 场景 描述：在 屏幕 上 点击 执行格式化 SD 卡，首先检测 SD 卡是否存在，存在则屏幕弹窗提示是否执行，如果点击否则关闭弹窗，如果点击是则关闭弹窗并弹出<code>执行中请等待</code>的弹窗，执行完毕后关闭弹窗，相应的界面上 SD 卡 状态、容量等等均更新显示了；如果 SD 卡 不存在则弹窗表示错误，点击是则关闭弹窗。这一通逻辑可以在 前端（分为两个部分，View 和 ViewModel）里面做，后端（Model 部分） 只提供 具体的功能 / 方法 比如 检查sd 卡是否存在、执行 sd 卡格式化、弹出 sd 卡 等等。</p>
+<p>下面是 AI 大模型给出的建议，实际方案可以调整。</p>
+<blockquote>
+<p>在 MVVM 中，弹窗和界面的切换也是<strong>数据驱动（状态驱动）<strong>的。我们把“是否显示弹窗”、“弹窗的内容是什么”抽象成 ViewModel 里的</strong>状态数据</strong>。</p>
+<p><strong>1. Model 层 (底层逻辑)</strong></p>
+<p>负责真实的硬件/数据操作，完全不管弹窗。</p>
+<ul>
+<li>
+<p><strong>功能</strong>：<code>CheckExist()</code> 返回布尔值；<code>FormatAsync()</code> 执行异步格式化；<code>GetCapacity()</code> 获取容量；<code>GetStatus()</code> 获取状态。</p>
+<p>这里，实际 Model 可以搞个定时器周期性获取 SD 卡状态等信息 并直接通知 ViewModel 进行更新 UI。</p>
+</li>
+</ul>
+<p><strong>2. ViewModel 层 (状态与交互核心)</strong></p>
+<p>维护页面的所有状态，将 UI 的动作转化为命令，并更新状态。</p>
+<ul>
+<li><strong>状态属性 (需支持通知更新)</strong>：
+<ul>
+<li><code>SdCardCapacity</code> (字符串，例如 &ldquo;64GB&rdquo;)</li>
+<li><code>SdCardStatus</code> (字符串，例如 &ldquo;正常&rdquo; / &ldquo;未挂载&rdquo;)</li>
+<li>通知全局弹窗管理进行弹窗（传入弹窗id（用于关闭时候引用），弹窗类型、显示文字（和图片路径）、弹窗按键数量和各个的显示文字以及绑定的函数）</li>
+</ul>
+</li>
+<li><strong>命令 (Commands)</strong>：
+<ul>
+<li><code>RequestFormatCommand</code> (绑定到主界面的“格式化”按钮)</li>
+<li>弹窗按键的各个回调函数。</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. View 层 (纯粹的显示者)</strong></p>
+<ul>
+<li>SD 卡 的 UI 显示部分 绑定 <code>SdCardCapacity</code> 和 <code>SdCardStatus</code>。</li>
+<li>按钮的点击事件绑定到 ViewModel 的 Commands。</li>
+<li>搞一个 弹窗组件，以及弹窗管理，包括创建弹窗（传入必要信息（比如传入弹窗id（用于关闭时候引用），弹窗类型、显示文字（和图片路径）、弹窗按键数量和各个的显示文字以及绑定的函数），并且里面会判断是否先存着不显示啊、如何叠层啊之类的）、关闭弹窗等。</li>
+</ul>
+</blockquote>
+<h3 id="通用控件事件处理">通用控件事件处理</h3>
+<p>这里为实验性设计。</p>
+<p>下面是通用控件事件处理程序结构，写个统一处理的函数，就是实现下面这一套。</p>
+<p>每个用户点击需要响应的控件，如 按键、开关 / 选择框、下拉框，其 回调函数里面 应该怎么执行的信息都打包在一个 结构体 的 实例 里面，然后一个 表格、hash 等结构 管理这些 控件实例 和 其执行信息结构体的实例 的一一对应关系。</p>
+<h4 id="1-前端逻辑">1. 前端逻辑</h4>
+<p><strong>UI 组件配置 (分为三类)：</strong></p>
+<ol>
+<li>
+<p><strong>按键：</strong> 属性包括 <code>enable</code>, <code>checked</code></p>
+</li>
+<li>
+<p><strong>开关 / 选择框：</strong> 属性包括 <code>enbale</code>, <code>checked</code></p>
+</li>
+<li>
+<p><strong>下拉框：</strong> 属性包括 <code>enbale</code>, <code>textList</code>, <code>currentIndex</code></p>
+<p>设计为，每个组件的事件回调里面都统一调用下面的入口函数 <code>handle_user_operate()</code>。</p>
+</li>
+</ol>
+<p><strong>执行函数：</strong></p>
+<p>伪代码描述：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">struct ExecInfo{
+    check_fun
+    task_fun
+    time_out
+    callback_fun
+    execSeqConfig
+};
+hash&lt;obj, ExecInfo&gt; objExecInfos;
+handle_user_operate(obj);
+</code></pre></td></tr></table>
+</div>
+</div><p>对 <code>handle_user_operate()</code> 传入控件实例的 obj 或者 id，其内部 通过 查表 <code>objExecInfos</code> 得到 其对应的 描述怎么执行的 结构体。</p>
+<p>其中 <code>check_fun</code>、<code>task_fun</code>、<code>time_out</code>、<code>callback_fun</code> 几个参数在下面的执行流程中被使用，而 <code>execSeqConfig</code> 是个结构体，里面信息 配置了下面 所有标识 <code>Optional</code> 的项是否执行或跳过。</p>
+<p><strong>执行流程步骤：</strong></p>
+<ol>
+<li>
+<p><strong>CallRepeatChecker 按键重复点击检测</strong></p>
+<p>如果连续调用间隔时间小于指定时间则 不响应 或者 按照指定低频响应。</p>
+</li>
+<li>
+<p><strong>检查是否可以执行 (Optional)</strong></p>
+<p>使用 检查函数 <code>check_fun</code> 执行检查，根据检查函数返回值，如果不可以执行则弹窗提示 (弹出后 return, 弹窗一个 ok 按键，点击后只关闭弹窗)。</p>
+</li>
+<li>
+<p><strong>是否要开始执行提示弹窗 (二次确认) (Optional)</strong></p>
+<p>弹窗有 yes, no 按键，yes 点击后向下执行， no 点击后 return。</p>
+</li>
+<li>
+<p><strong>已经开始执行提示弹窗 (Optional)</strong></p>
+<p>弹窗有 ok 按键，点击后只关闭弹窗。</p>
+</li>
+<li>
+<p><strong>弹出示意执行中的转圈弹窗 (Optional)</strong></p>
+<p>弹窗提示处理中请等待。</p>
+</li>
+<li>
+<p>执行下面的部分。</p>
+</li>
+</ol>
+<h4 id="2-后端执行">2. 后端执行</h4>
+<p>下面的都提交到后端业务线程池中执行，相对于前端为异步执行、不阻塞前端执行流程。</p>
+<p><strong>主要逻辑流程：</strong></p>
+<ol>
+<li>
+<p><strong>调用后端功能函数</strong></p>
+<p>调用后端功能函数 <code>task_fun</code>（如果是耗时任务，则应该内部设计超时机制，外部传入超时时间 <code>time_out</code>，超时则直接 返回 超时 Code），根据其返回值判断 执行 的 成功（0 表示成功，正数表示带条件的成功）、失败（负值，不同负值表示失败的情况，包括超时的情况）。</p>
+</li>
+<li>
+<p><strong>收尾处理</strong></p>
+<ol>
+<li><strong>执行 <code>callback_fun</code></strong>。</li>
+<li><strong>如果前面弹出了 示意执行中的转圈弹窗，则在这里关闭</strong>。</li>
+<li><strong>根据后端功能函数的返回值，显示结果提示弹窗 (Optional)</strong></li>
+<li><strong>是否重试弹窗，重试次数，重试间隔，重试结果弹窗提示 (Optional)</strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="ui--ux-设计">UI / UX 设计</h2>
+<h3 id="交互设计规范和扩展">交互设计规范和扩展</h3>
+<p>具体前端样式设计原则</p>
+<ul>
+<li>
+<p>首先确定所有基础 UI 元素组件，组件的各个状态 等。</p>
+<p>考虑各个页面尽量复用这些组件进行搭建。显示的 UI 界面 设计的 尽量使用 这些有限的 组件搭建起来，方便构建，统一样式。</p>
+</li>
+<li>
+<p>符合常见操作习惯：比如：</p>
+<ul>
+<li>要从云端拿数据、或者需要周期性从云端同步且合并到本地，可以考虑加个刷新按键。</li>
+<li>多项消息 列表，单个左滑出现删除按键（点击后允许x轴拖动，露出删除按键，松开恢复）。</li>
+<li>切换各个主要界面可用丰富动画。</li>
+<li>填写表单的界面，输入框、选择框的东西，1 本地存（视情况而定），2 打开页面是否自动填充上一次设置或从后端获得新的数据并填充，3 考虑加提示，可以用文本说明，也可以加个 “？” 图标，点进去弹小窗提示操作步骤。</li>
+<li>一些按键点击后出现的按键列表、菜单，此时背景变暗，凸显这个按键菜单，然后需要点击空白的地方就关闭，即符合操作直觉。</li>
+<li>对于小屏幕等，有长内容、滚动条的地方，就加上下翻页。</li>
+<li>重要的提示地方使用 渐隐渐显的动画文字 或者 红色圆点（如聊天软件的消息标识）等方法进行强提示。</li>
+</ul>
+</li>
+<li>
+<p>良好的文本显示。</p>
+<ul>
+<li>其中的文本尽量适应一定的长度。</li>
+<li>可以设置为，随着空间宽度改变字体大小。</li>
+<li>每一行均匀分布，按单词换行不美观。</li>
+<li>尽量不要 滚动 和 带省略号 显示等，能换行显示尽量换行显示。</li>
+<li>考虑多语言情况。</li>
+</ul>
+</li>
+<li>
+<p>考虑支持多种屏幕分辨率。</p>
+<p>参考 <code>多分辨率</code> 一节。</p>
+<ul>
+<li>组件的长宽可以在较大范围内自动伸缩，内部的 obj 使用 flex 等尽量可以自适应</li>
+<li>各个屏幕和组件的固定尺寸 px 的参数（分别 长度 和 宽度），设置为 默认参数 乘上 一个 系数（长度 或 宽度 系数），这个（两个）系数全局唯一可以调整，整个 ui 就跟着 按照比例动了。</li>
+</ul>
+</li>
+<li>
+<p>考虑多主题设计。</p>
+<p>参考 <code>多套主题</code> 一节。</p>
+</li>
+<li>
+<p>如果 GUI 上 用户点击后 机器内需要处理的事件过长了（比如超过 1s），则两种处理方式：</p>
+<ul>
+<li>设计弹出转圈的请求等待的弹窗，直到处理好或失败则消失，然后显示结果信息弹窗。</li>
+<li>界面上的任何设置，在前端都先及时响应，比如 选择框 的 状态 是读后端的对应的一个值，用户在界面设置后 后端的对应值先变，界面先响应，然后发送设置消息给 后端，后端 回复消息后，若回复的值与当前设置的一致，就不用管了，若不一致就再修改，但是因为 一般 都是设置成功的，因此 设置发生跳转（设置不成功）的概率比较小。</li>
+</ul>
+<p>并且都考虑处理超时的情况，如果超时则显示执行超时提示弹窗。</p>
+</li>
+<li>
+<p>全盘确认页面是否齐全，功能是否齐全，case 是否均照顾到，弹窗和提示是否良好，自检查机制是否过关，是否小白易上手。</p>
+<p>多考虑一些 操作 case，加更多一些提示弹窗，以及考虑各种情况下的操作限制 UI 上要给予限制。</p>
+<p>操作提示可以 gif、webp 等动图进行提示。</p>
+</li>
+<li>
+<p>专业参考：</p>
+<ul>
+<li>来自 <a href="https://developers.weixin.qq.com/miniprogram/design/" target="_blank" rel="noopener noreffer">微信小程序设计指南</a>。</li>
+<li>参考书籍比如 《UI设计入门 一本就够》 等。</li>
+<li>可参考手机的日常操作。</li>
+</ul>
+</li>
+<li>
+<p>.etc</p>
+</li>
+</ul>
+<h3 id="交互设计稿确认项">交互设计稿确认项</h3>
+<p><strong>确认项</strong></p>
+<p>交互设计人员 给予 开发人员 的设计稿确认项：下面均以建议为主，做不到强制。</p>
+<ul>
+<li>
+<p>首先确定所有基础 UI 元素组件，组件的各个状态 等。</p>
+<p>考虑各个页面尽量复用这些组件进行搭建。</p>
+<p>考虑多分辨率，考虑多主题 等情况。</p>
+</li>
+<li>
+<p>明晰一个页面的所有可操作的情况，以及所有变化的 UI呈现 给出（包括各种情况下按键等的可操作性等）。</p>
+</li>
+<li>
+<p>明晰页面跳转逻辑，标明流程走向。</p>
+</li>
+<li>
+<p>整个 GUI 页面逻辑形成一张明确、清晰的 结构 和 操作流程 框图，作为确认稿版本进行维护。</p>
+<p>待确定、开发中的界面放到临时区，确定后合入前述确认稿版本大框图中。</p>
+<p>如 设计稿（如 figma）中，箭头指明每个按键点击后的界面变化（新界面、弹窗或界面内容改变）。文案用英文并且旁边标注对应中文。每个界面旁边标注对应的 UI 程序文件（可选）。</p>
+<p>形成清晰的操作流程图</p>
+<ul>
+<li>先考虑好一个状态机，整体状态机和各部分子状态机</li>
+<li>为尽可能考虑到大部分的各种操作情况，列出所有单一操作事件，将所有按前后顺序排列组合，列出所有操作 sequence，再逐一考虑，加固程序。</li>
+</ul>
+</li>
+<li>
+<p>明晰分机型的情况，所有机型或者版本明确给出，只列之间的差异也可。</p>
+</li>
+<li>
+<p>文案规范，考虑多语言情况，参考后面 <code>上传多语言管理平台的文案的规范和注意事项</code> 一节。</p>
+</li>
+<li>
+<p>全盘确认页面是否齐全，功能是否齐全，case 是否均照顾到，弹窗和提示是否良好，自检查机制是否过关，是否小白易上手。</p>
+</li>
+</ul>
+<p>在交互上有新内容要做，或者新的想法和点子，可以及时和开发先沟通下，开发可以预研下怎么做、排期等等。</p>
+<p><strong>UI 设计 &amp; 搭建 即时可见</strong></p>
+<p>使用 专业交互设计 工具 如 figma 或 描述语言 如 js、XML 等构建（并最好直接应用到程序中）。也可 可视化拖拽工具 搭建 UI 然后 导出 ui 框架的代码。这个也可以由 交互设计人员 搞了。若二者可联合，即如在 figma 做好后，就可快速显示部署，便可快速迭代了。优秀的平台搭建的意义。</p>
+<p>GUI 前端图形的搭建，主要矛盾是方便快速修改、修改时实时预览。即 需求 快速构建 UI 和 构造组件。可实时预览，所见即所得。</p>
+<p>（延申项）可多人合作、可 git 管理；最好可以在 UI 描述层面 把 UI 的事件都描述了，只留下一些改变 UI 的接口（槽函数，update UI）、变量（信号，UI to &ldquo;View Model&rdquo; / &ldquo;Model&rdquo;） 等。</p>
+<h2 id="具体组件模块设计">具体组件、模块设计</h2>
+<h3 id="工程框架设计--基础思想">工程框架设计 / 基础思想</h3>
+<h4 id="工程框架建议">工程框架建议</h4>
+<ul>
+<li>
+<p>设计前多参考其它优秀项目设计，工程目录划分、程序结构。进行吸收补充。</p>
+</li>
+<li>
+<p>首要约束：</p>
+<p>基本规则：<strong>“低耦合，可重用，参数化，注释全”</strong>。<strong>简单问题不要复杂化</strong>。<strong>多写可复用代码</strong>，组件化，参数化（可经过简单配置进行复用），扩展方便，注释到位。</p>
+<p>考虑程序健壮性，避免易出问题的点。可参考 [编程经验-易错注意](<a href="https://github.com/Staok/Cpp-Learning/blob/main/">https://github.com/Staok/Cpp-Learning/blob/main/</a>编程经验-规范%2C 调试、性能和内存检查工具集合.md#易错注意)。</p>
+<p>考虑运行效率。具体编码时注意 内存 和 CPU 占用，内存增长大户有：缓存（不用常驻内存的不 cache，确保其会及时释放，但是缓存、对象池这种，可以减少 cpu 负担，做个平衡）、重复增殖的组件、递归 等。因此 数据抽象的时候数据结构简洁不占内存，内存有申请就注意释放，尽量不使用任何递归，注意增殖组件限制每次加载的数量（比如图片批量显示，限制每次只加载少量，做成可前后翻页），防止任意增殖造成内存暴增。</p>
+<p>考虑可维护性（结构清晰，文档够，注释够，程序模块化、参数化、扩展方便）。</p>
+<p>考虑可测试性（接口清晰，设计测试用例，设计测试工具和手段），提升程序健壮性。</p>
+<p>设计阶段、开发阶段，发现不合理的地方、可优化的地方，尽早修缮。</p>
+</li>
+<li>
+<p>这一点很重要，<strong>切实做到前后端分离</strong>，前端尽量只做界面显示 而 不包含业务逻辑，前端只根据后端的信息和信息变化进行显示，是一个 主从（master-client） 的关系，业务逻辑尽量全部放在后端，后端 把要显示的信息和动态改变的信息 通知发送 到前端即可，不要 业务逻辑 即有一部分在前端 也有一部在后端 的混淆联动。</p>
+</li>
+</ul>
+<h4 id="工程文件夹">工程文件夹</h4>
+<ul>
+<li>
+<p>从编辑器到文件输入输出，一律用 UTF-8 编码。</p>
+</li>
+<li>
+<p>多建文件夹对文件进行归类，层次分明，命名有意义。</p>
+</li>
+<li>
+<p>同一个页面下的各个子页面文件统一放到该窗口名字的文件夹下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">screen
+    config（配置文件夹）
+        config.json
+	src（后端文件夹）
+      （每一个部分或组件的 .c/.cpp 和 .h 放到同一个文件夹）
+	UI（前端文件夹）
+      mainPage1 主页面1文件夹
+          mainPage1 主页面文件
+          subPage1 子页面文件夹
+              subPage1 子页面1文件
+              subPage2 子页面2文件..
+      mainPage2 主页面2文件夹
+          ...
+      res（图片、图标素材文件夹）
+      langs（多语言文件文件夹）
+	tools（用于测试等的工具文件夹）
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h4 id="前端界面文件">前端界面文件</h4>
+<ul>
+<li>
+<p>事情搞简洁，不要往复杂搞。组件分明、接口分层清晰。</p>
+</li>
+<li>
+<p>注释表明本页面是干什么的。其内每个 组件 对应界面上是什么东西也用注释标注清楚。</p>
+<p>前端界面编写应尽量将每一个部分抽象出来，通用的组件更是，低耦合、可重用、参数化、注释全。</p>
+<p>这样为了减小编译后固件的体积，也可以选择性编译某些文件，而不用所有界面，包括很多不用到的也包含进去。</p>
+<ul>
+<li>前端界面编写，一个界面中每一块内容作为组件打包。若是独立的面板、子页面、组件，则可尽量独立成文件。</li>
+<li>通用的小组件，每个做成独立文件。</li>
+</ul>
+</li>
+<li>
+<p>所有的 UI 控件实体 最好都加上诸如 id 或 name 属性，且最好是这个 id 或 name 在当前页面里面唯一，用有意义的名字命名，好认；并且程序中可以知道这个控件的上级是什么，以及当前所在页面，这些信息组合起来就可唯一定位这个控件。id 或 name 可 的 方便 寻找 或 筛选 控件，或用于埋点 等，方便以后的需求。</p>
+</li>
+<li>
+<p>最好都用相对位置的相关（如 Qml 的 <code>anchors</code> 属性，lvgl 的语句如 <code>lv_obj_align(child,LV_ALIGN_CENTER,0,0);</code> 等）设置界面上各个组件位置。</p>
+<p>并且每个组件的长宽属性，文本显示、输入框的限制长度、是否可换行/省略号显示/是否滚动，限制长度 等属性均设置好。</p>
+<p>预留足够的空间，当其内部的内容变化时候（比如文本长度）</p>
+<p>让各个组件紧凑贴在一起并且可随边界、其它组件变化而变化，并且不会乱，</p>
+<p>这样在屏幕分配率、长宽比变化，组件增减等情况下，界面还能尽量保持规整，保持良好适配性和可扩展性。测试时候就多改变长宽比等看效果。</p>
+</li>
+<li>
+<p>页面中重复性的排列的结构，比如 wifi 列表、用户列表 等，每个单独的设计成组件，然后用 list 类的控件在其中添加（还有设计显示效果如：横向/竖向排列、间距、滑动条、自动对齐等）。</p>
+</li>
+<li>
+<p>对于 UI 复杂交互逻辑的在前后端中的划分，请参考 <code>基本开发模式</code> 一节。</p>
+</li>
+<li>
+<p>机器自身原因导致有时候会执行 UI 的 API 很慢（比如其它进程挤占 CPU），就会偶现一些中间状态，因此：</p>
+<p>设计时应该尽量避免展示中间状态。</p>
+<p>比如一个复杂组件由很多子图形构成，如果执行的慢，并且程序写的是顺序执行并挨个显示的，则呈现效果为这个复杂组件为其内部图形逐个构造显现的，可以写为要创造这个组件时候，最底层的 panel 应该先隐藏，等待内部图形都创建完毕后，再显示出来。</p>
+<p>或者一堆列表的创建，如果机器的 CPU 比较忙，UI 就变成了一个一个往外蹦的样子，这种列表可以在数据和UI创建积累比如5个再一齐显示。</p>
+</li>
+</ul>
+<h4 id="后端文件">后端文件</h4>
+<ul>
+<li>
+<p>程序文件层次清晰。编译流程清晰。依赖库清晰。</p>
+</li>
+<li>
+<p>程序调用层次清晰、逻辑清晰，格式规范，注释到位。</p>
+</li>
+<li>
+<p>规范，可以每一个功能单独写一个类，里面提供所有业务功能，包括 一个状态机、所有相关变量 和 方法，前端只与这个类进行收发信息交互，前端基本不留业务代码，只是显示相关的。</p>
+<p>应该有一个示例类，形成模板，一个功能用一个类打包，携带方便，解耦独立，添加新功能就是加新类，统一的模板去做，简化工作，而不是无尽的在原有的几个文件里面堆砌。</p>
+</li>
+<li>
+<p>类的功能分离和独立，组件化，参数化（可经过简单配置进行复用），扩展方便，注释到位。</p>
+<p>许多子功能，比如升级等，可以独立，通用性，只留出接口供其它类调用。</p>
+<p>降低对于移植其它 GUI 框架的难度和工作量！避免全盘重构！</p>
+</li>
+</ul>
+<h4 id="前后端交互">前后端交互</h4>
+<p>参考 <code>基本 UI 开发模式</code> 一节。</p>
+<h4 id="实用提醒">实用提醒</h4>
+<ul>
+<li>
+<p>GUI 程序 和 后端、其它进程的通讯全部做成 事件响应（事件型通知通讯，可以加快 界面UI 响应速度，不必等到下一个通讯周期才更新显示）。</p>
+<p>周期性刷新可以同时保留，即打包当前机器状态所有的信息到一个数据结构（json、protobuf 等），后端某个进程（指定为 接收所有 其它 业务进程的信息，汇总成前面所说的一个数据结构） 周期性（比如 1s）发送给 GUI 程序进程，这样可以保证 GUI 显示始终是与 当前 机器状态一致的，而且 GUI 进程 结束再启动后 也可以快速同步到 当前机器状态。</p>
+<p>但是，有的信息是高频刷新的，或者比较独立的，比如 Wi-Fi 列表 这种，可以单独拿出来 放在 另一个 主题 的数据结构 里面，周期性的向 GUI 进程发送，以此类推。</p>
+<p>后端数据可能更新频繁，UI 刷新需要注意降频，一些数据变化，根据业务逻辑，经过整合、判断 后 才 精准 更新到 具体的 UI 元素。</p>
+</li>
+<li>
+<p>界面中所有的用户设置、配置的需要记忆的地方，比如 选择框 / 开关、下拉框 的状态 等，都应该用一个 配置文件 比如 settings.json 存起来（每一项都至少有两个，默认配置和当前配置，还可以再加一个 上次配置），这样，可以保存所有设置，下次开机仍然是上一次设置的状态，或者同步到别的机器等等。前端操作后，后端处理生效后再改变 json 为设置后的值，要保证 json 与当前机器状态 以及 控件视觉状态 是一致的。</p>
+</li>
+</ul>
+<h3 id="多字体--多语言-以及-高度自动化">多字体 / 多语言 以及 高度自动化</h3>
+<h4 id="多字体">多字体</h4>
+<p>了解 UI 框架 的字体支持。</p>
+<p>需求：支持 ttf 字体文件；可方便切换字体、字号。</p>
+<p>UI 最好使用 字体文件 来显示文字，字符全、容易添加 和 裁剪 等。</p>
+<p>准备语言字体方法：</p>
+<p>字体文件准备，最好使用开源字体，比如 通过 google font 下载一个目标语言的字体文件（寻找选择 Noto Sans 字体类型 <a href="https://fonts.google.com/noto/fonts">https://fonts.google.com/noto/fonts</a>，下载后，通常寻找里面的 Regular 字号的字体文件）。</p>
+<p>如果字体里面语言或者符号不全，可以使用 开源软件 FontForge 软件 将 目标语言 字符全部复制 / 或者 通过 合并字体，现在 合并为一个 字体文件。</p>
+<p>fontForge 教程 <a href="https://blog.csdn.net/liweizhao/article/details/135540737">https://blog.csdn.net/liweizhao/article/details/135540737</a>，https://zhuanlan.zhihu.com/p/617260598。多个教程结合着看。</p>
+<h4 id="多语言切换基本原理和实现">多语言切换基本原理和实现</h4>
+<p>需求：label 设置如 <code>_(&quot;xxx&quot;)</code> 或 <code>ts(&quot;xxx&quot;)</code> 来翻译；文案中使用 <code>%1</code>、<code>%2</code>&hellip; 或者 <code>{%1}</code>、<code>{%2}</code>&hellip; 等来替换成变量；多语言数据管理；（延申项）多元数据可动态更新（从网络下载（加密通讯和下载的）更新到本地并热更新）。</p>
+<p>多语言的处理可以高度自动化。</p>
+<ul>
+<li>
+<p>多语言切换基本原理和实现。（对于 qt 这种 UI 框架本身支持在线切换语言则省心，但对于其它框架若没有原生支持则需要自己定制开发）</p>
+<p>在程序中 使用宏 如 <code>ts()</code> 或 <code>_()</code> 标记多语言的文案字符串（一般用英文 <code>en</code>，即作为默认语言，这个程序中的字符串也默认作为 key，多语言管理平台的数据结构一般为 <code>key-src-transed</code>，即 key-默认语言字符串-其它语言翻译后的字符串），用于脚本提取所有多语言的字符串原文，以及返回指定语言翻译后的字符串。</p>
+<p>提取文案字符串 -&gt; 进行翻译 -&gt; 翻译后的多语言数据文件 -&gt; 程序读取、存入内存 -&gt; 在程序中的 <code>_(&quot;hello&quot;)</code> 获取 &ldquo;hello&rdquo; 的指定语言的翻译后的字符串。</p>
+<p>注意 翻译后的多语言数据文件，一般是作为程序外面的文件，而不必成为程序内的数组之类的，这样容易固定死、不能热更新多语言。</p>
+<p>提取标记的文案字符串和取得指定语言的字符串，这个可以自己实现，也可以使用库 <code>gettext</code>，即整个多语言的提取和解析都用这个库提供的工具，也比较通用。官网 <a href="https://www.gnu.org/software/gettext/" target="_blank" rel="noopener noreffer">gettext - GNU Project - Free Software Foundation</a>。参考教程 <a href="https://zhuanlan.zhihu.com/p/669282869" target="_blank" rel="noopener noreffer">使用gettext进行多语言国际化 - 知乎</a>。<a href="https://blog.csdn.net/xc_zhou/article/details/151229263" target="_blank" rel="noopener noreffer">gettext安装及使用-CSDN博客</a>。</p>
+<p>尽量做到 运行时切换多语言。也可考虑每次切换多语言需要重启。看需求。</p>
+<p>对于前者——运行时切换多语言：对于静态固定文本则比如 <code>label_set(_(&quot;hello&quot;));</code> 这种则脚本扫描程序中所有这种语句都提取出来到一个函数，切换语言后再调一下来刷新。对于动态创建的 UI 组件里面的 文本，则创建时候 添加到 某个 map（unordered_map 或 hash），里面存储 UI 文本对象 obj 和 字符串原文，UI 组件销毁时候则从 map 中对应删掉，再切换语言后，遍历这个 map 所有 文本 obj 并 执行 <code>label_set(_(&quot;hello&quot;));</code> 来刷新显示即可。</p>
+</li>
+<li>
+<p>提取所有多语言原文文本后，可以使用多语言管理平台，Localazy 和 Crowdin 等，推荐后者，功能更丰富。</p>
+<p>在多语言管理平台中进行各语言的翻译，多人协作，日常维护文案。</p>
+<p>多语言管理平台（如 Localazy 或 Crowdin） 的使用 以及 文案规范 等，见后面。</p>
+</li>
+<li>
+<p>联网设备 OTA 更新多语言文本。</p>
+<p>可以在产品发出后，还可以继续更新和优化多语言并可及时更新到用户设备上。</p>
+<p>如果是自己实现多语言数据的解析，则基本原理如下：多语言数据的解析也可以用库 <code>gettext</code>，即整个多语言的提取和解析都用这个库提供的工具，也比较通用。</p>
+<p>以 localzy 为例，即从云端拉取 和 更新 多语言 如 json 文件，参考 localzy 的 <code>Multilingual JSON</code> 格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;en&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;Left&#34;</span><span class="p">:</span> <span class="s2">&#34;Left&#34;</span><span class="p">,</span>
+      <span class="err">...</span>
+  <span class="p">}</span><span class="err">，</span>
+  <span class="s2">&#34;fr&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>程序里面把这个解析为 json，再 把这个 json 里面 当前语言 code 下的 key value 对 存储到 程序里面的 unordered_map 里面，设 label 的时候，传入 英文原文的 key，得到翻译后的文本。</p>
+</li>
+<li>
+<p>多语言处理的一般步骤：</p>
+<ul>
+<li>第一类：尽量多的程序自动化处理
+<ol>
+<li>多语言的 en 的 key 一般直接添加到程序里面，过长的则分段，key 应符合后文的规则规范。</li>
+<li>程序中实现动态切换多语言。或者至少切语言后自动重启屏幕即可切换。</li>
+<li>使用扫描工具提取出所有多语言字符串 en 的 key，自动上传 多语言平台。多语言平台上进行处理和翻译。翻译可以默认都先使用 机器翻译 或 AI 大模型翻译 完成，而后再由人工翻译，这样可以快速先翻译完之后在产品上先看看效果。</li>
+<li>使用工具下载多语言（一般选择 json 格式）的数据文件，并自动合入程序，或者在 编译封包 的时候自动下载和并入编译步骤。</li>
+<li>（可选）程序启动时候从云端拉取一次多语言数据文件，并使用。开机时候先用本地的多语言文件，然后从云端拉取最新的，如果拉取失败则仍用本地的，拉取成功则自动切用最新的。</li>
+</ol>
+</li>
+<li>第二类：上传多语言手动逐个加
+<ol>
+<li>与上面第一步的区别在于，很多多语言文案比较长且符号较多，就手写一个符合规则规范的 Key 然后 手动上传 这个 key 和 对应的 en 字符串（可以写个工具上传，查新等）。</li>
+<li>除了上面第三步扫描提取，其它与上面第一类的一样。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>（可选机制）多语言 根据 翻译后的字符串 反查 key：</p>
+<ul>
+<li>首先创建个 多语言的 key value 对 的反向的 unordered_map / hash（一般存为 pair 数据，其 first 使用 翻译后的字符串，second 使用 原 map 的 iter），即就可以根据 翻译后的 找 翻译前的。</li>
+<li>这样就可以：
+<ul>
+<li>解决一些需要根据翻译后的寻找翻译前的场景。</li>
+</ul>
+</li>
+<li>缺陷：
+<ul>
+<li>不能检查 中间有 变量的 比如带有 <code>%1</code> 的 字符串。</li>
+<li>可能有多个 key 对应一个 value，从而导致根据 value 寻找 key 找错，要使用上述机制，就得尽量避免这种情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>（可选机制）多语言检查是否漏加或没翻译：</p>
+<p>程序运行时打印没有的、未翻译的多语言词条，用于找出遗漏的，后面补充，热更新。</p>
+<p>程序运行时，在从 map 中 根据 key 寻找 翻译后的字符串 的时候：</p>
+<ul>
+<li>寻找漏加翻译标识的（key 没在 map 里面的）。</li>
+<li>寻找添加了翻译标识在 map 里面但是没有翻译的（key 有，但是 key 和 value 相同，或者 value 为空的）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="上传多语言管理平台的文案的规范和注意事项">上传多语言管理平台的文案的规范和注意事项</h4>
+<p><strong>上传多语言管理平台的文案需要尽量符合以下规范和注意事项</strong></p>
+<p>这里以 localazy 为例（后面有 <code>Localazy 使用规范</code>），以下大部分规则规范为通用的，可能其它平台稍有出入，需要多实践和测试。</p>
+<ul>
+<li>
+<p>确定性。一段文案尽量一次确定好，可多方咨询最后确定定稿后，再同步给 UI开发 去做。localazy （2024 某个时期之后）改了机制，相同 key 的字符串上传会直接覆盖，所以直接改 localazy 的一个文案的 en 无效，因此，在以 key 和 en 一样的规范前提下，改动文案就需要同步改动 ui、后端程序、squareLine 等多个地方，代价大。</p>
+<p>但是，一些需求会随着上机看效果和使用等，逐渐清晰和成熟，会再有改动，开发还是会改的，注意是留好时间。</p>
+</li>
+<li>
+<p>有限字体大小。为规范和兼容性，以及美观性，可尽量只用有限的几种大小的字号，如 16、24、30、36。</p>
+</li>
+<li>
+<p>同时 提供英文 和 中文（多语言管理中，程序中的 英文字符串 作为这条文案的 key 和 英文翻译（尽量），其它语言以此为准）。</p>
+</li>
+<li>
+<p>短句为主，而且得是整句。有换行，多行句号且意思不一样的，尽量拆分成一个一个短句，UI上面也分成多个 label；不是整句的，多语言翻译中，其它语言 会出现 语法错误 或者 没法翻译。</p>
+</li>
+<li>
+<p>管理标点符号。</p>
+<ul>
+<li>
+<p>一段英文原文，如果是句子，结尾加 <code>.</code>，结尾尽量不要有冒号 <code>:</code>，结尾不要留空格（可能会被工具链上某个工具优化掉），文本中的标识 &ldquo;或者&rdquo; 意思 的 斜杠 均用 <code>/</code> 而不要出现 <code>\</code>。英文文案里面不要出现中文的标点符号如 <code>“”‘’</code> 等等。</p>
+</li>
+<li>
+<p>摄氏度符号统一使用 <code>℃</code>，unicode 编码为 U+2103。</p>
+</li>
+<li>
+<p><code>→</code> 这种比较少见的特殊的符号等非必要不使用，也不一定好看。</p>
+</li>
+<li>
+<p>一段话中有回车符号 <code>\n</code>，则在回车符号后面加一个空格，如 <code>... screws\n and ensure ...</code>，在（使用手动复制这句话 或者 使用 CLI 工具）上传 localazy 上面后，可以分辨回车在哪里。</p>
+</li>
+<li>
+<p>段话最好不要有回车，有回车则酌情考虑分为多端文本单独放。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>一个多语言文案的 Key（多语言管理平台范畴的 Key，确定一段文案的 Index）不允许有 回车符号 <code>\n</code>（因为有的多语言管理平台也许不支持）。因此，要么所有 label 里面保证 没有回车（并使用脚本扫描程序提取所有文案并上传平台高度自动化），要么所有新增文案均手动上传多语言管理平台，并手写一个符合规则的 Key（就不使用脚本扫描程序提取文案）。</p>
+<p>或者 使用工具 处理所有的 Key 以符合规则，规则如下：</p>
+<p>Key 规则：</p>
+<ul>
+<li>不能出现 回车符 <code>\n</code>（替换为 <code>-</code>）、反斜杠 <code>\</code>、双引号 <code>&quot;</code>、以及 非 ASICII 字符 等。</li>
+<li>可以为 source（一般为 en 英文）去掉上述符号后的字符串。</li>
+<li>为 纯 ASICII 的。</li>
+</ul>
+</li>
+<li>
+<p>管理大小写，管理名称。一个事物，其名称尽量从一开始就确定，避免一个事物在不同地方、不同时间有多个名字。</p>
+</li>
+<li>
+<p>避免花活。适当可以有一段文字内部切换颜色、大小等，需要看 UI 框架的支持情况，可交互设计来改善。比如 lvgl 支持 但是考虑要多语言（不同语言变颜色的位置不一样，翻译时候需要额外注意，除非是数字部分变颜色，文本中间变大小就目前直接不支持）等。</p>
+</li>
+<li>
+<p>文案内部尽量避免变量或动态变化的。可以用 <code>XXX 的值为：xx</code> 这种句式，程序中可以很好的分开写，保持前面 <code>XXX 的值为：</code> 为一整段语句。如果一定要一整段话 中间 有 变量 要显示的，即一个多语言字符串中间要带有变量来显示的，统一用 <code>%1、%2..</code> 来代替，程序里会查找替换，（约等于继承自 qt 的写法，C++ 端用字符串替换即可），而且不要把一句话分成多段——多语言翻译时候是个灾难！</p>
+</li>
+<li>
+<p>文案尽量合并相似的条目，减少总条目——减少管理的心智负担，而且人工翻译要钱。</p>
+</li>
+<li>
+<p>翻译相关：</p>
+<ul>
+<li>比较长的语言的翻译，酌情选择短的方式来翻译——显示方便、减少阅读时间。</li>
+<li>UI 屏幕里面的所有文案，由 交互设计 人员给到 开发，开发写到程序中后，随着功能实现 不定期会 将 英文原文 文案 上传到 多语言管理平台。平台可配置为先用机翻或者 AI 大模型翻译一遍，开发快速拿到结果看看效果。并且同时要及时联系各个语言翻译人员进行翻译。</li>
+<li>非开发人员可以 直接修改 localazy 里面 除了英文语言 外 的所有词条。（因为上传 localazy 会 将相同 key 的 文案直接覆盖，开发 只会上传 英文文案 进行更新，所以非开发人员不应该直接修改英文文案，如果要修改，要交给 开发 来更新程序并更新 localazy（更新 key 和 en，并勾选 Existing translations need to be updated，来让其它所有语言对这个文案都重新翻译））</li>
+</ul>
+</li>
+</ul>
+<p><strong>Localazy 使用规范</strong></p>
+<p>多语言管理平台。</p>
+<ul>
+<li>
+<p>基础操作：创建工程，创建语言，上传文案，下载文案。</p>
+</li>
+<li>
+<p>创建工程，创建语言：对于自己提取文本和解析多语言数据，经过实践经验，可以选择 <code>Multilingual JSON</code> 格式作为多语言存储文件格式，其形式如（用于上传和下载文案）：这个格式比较方便构造和被程序解析。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;en&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;hello&#34;</span><span class="p">:</span> <span class="s2">&#34;hello&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;day&#34;</span><span class="p">:</span> <span class="s2">&#34;day&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;fr&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;hello&#34;</span><span class="p">:</span> <span class="s2">&#34;Bonjour&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;day&#34;</span><span class="p">:</span> <span class="s2">&#34;jour&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>基础语言选择英语。然后点 <code>ADD LANGUAGE</code> 添加其它语言。</p>
+</li>
+<li>
+<p>上传文案：</p>
+<ul>
+<li>法1，手动逐条加：点开 English，再右上角点 <code>ADD NEW KEY</code>，来添加 key 和 en。</li>
+<li>法2，手动上传文案：在 Tools -&gt; File management 里面，在多语言存储文件 file.json 右边点击上传按键，要求上传 <code>Multilingual JSON</code> 格式 的 文案文件，会与 当前 file.json 文件合并。</li>
+<li>法3， CLI 工具 上传：如下所说 CLI 工具用法。</li>
+</ul>
+</li>
+<li>
+<p>下载文案：</p>
+<p>同上 法2 和 法3。</p>
+<p>CLI 工具用法 可看 localazy 官方文档，每个 option 都有介绍。一个例子：<code>writeKey</code> 和 <code>readKey</code> 从 localazy 工程的 Project settings 里面找到。</p>
+<p>！！严重注意！！：在第一次上传文案之前，要先做一些试验，上传的字符串是否会覆盖云端的（相同的 key 的 value 的覆盖，因为 localazy 上面，实际多人项目中，确实难以保证 en 语言的 key 和 value 始终保持一致），还是跳过（实测按照下面的还是会覆盖，也找不到其它相关的 option，现在是 先下载最新的，再上传，会新增和覆盖，然后再用前面下载的再上传，因此又覆盖回原样）。并且在每次上传之前，要先下载最新的作为备份，然后才可放心上传一次。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;writeKey&#34;</span><span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;readKey&#34;</span><span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>
+
+  <span class="nt">&#34;upload&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;json&#34;</span><span class="p">,</span>
+	<span class="nt">&#34;features&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;multilingual&#34;</span><span class="p">],</span>
+    <span class="nt">&#34;files&#34;</span><span class="p">:</span> <span class="s2">&#34;en.json&#34;</span><span class="p">,</span>
+	<span class="nt">&#34;importAsNew&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nt">&#34;skipFailedAutodetection&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="nt">&#34;deprecate&#34;</span><span class="p">:</span> <span class="s2">&#34;none&#34;</span><span class="p">,</span>
+	<span class="nt">&#34;filterSource&#34;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+
+  <span class="nt">&#34;download&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;files&#34;</span><span class="p">:</span> <span class="s2">&#34;file.json&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>文案处理基本：</p>
+<ul>
+<li>
+<p>参考上面 <code>上传多语言管理平台的文案需要尽量符合以下规范和注意事项</code> 一段 里面的内容。</p>
+</li>
+<li>
+<p>基础语言一般为 en，添加新文案，一般 key 与 en 相同，除非特殊用途。</p>
+</li>
+<li>
+<p>文案中尽量不要带回车 <code>\n</code>；不要有 <code>\\</code>，都用 <code>/</code>。</p>
+<p>如果非要一个文案中有回车的，则，不要在 <code>edit key</code> 里面手动按回车来造一个（这个下载下来后还会保持 <code>\n </code>，但是用 本地文件 来批量上传文案的时候，会有问题，尤其是不同的格式如 yaml / ts / json，对这个回车的处理不同&hellip;有的可以正确识别，有的不能），这样下载下来后，会变成 <code>\\n </code> ，因此下载下来后，需要做如下按顺序的三步处理：可用脚本做</p>
+<ol>
+<li><code>\\\\</code> 全部替换为 <code>\\</code>。</li>
+<li><code>\\\</code> 全部替换为 <code>\</code>。</li>
+<li><code>\\n</code> 全部替换为 <code>\n</code>。（程序中的 <code>\&quot;</code> 上传再下载后可能变为 <code>\\\&quot;</code>，用上面第二步处理就正常了，因此不用特殊处理 <code>\\\&quot;</code>）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>多人合作：</p>
+<ul>
+<li>第一次上传很多文案，可以用上述的脚本或文件来统一上传，后面就不建议这么用，因为 localazy 某一次改版，导致 相同 key 的 会用 脚本或文件上传的 en 覆盖 老的 en，若 localazy 里面有 key 和 en 不符的情况，则这么做很危险。</li>
+<li>所以之后上传文件，推荐手动挨个随着功能开发而添加，除非确认没有重复的 key。</li>
+<li>赶时间则可以用 机翻 或 AI 大模型 翻译的，应把所有机翻的文案均设置为 <code>need improvement</code> 状态，这样导出会带着，单单设置 <code>review</code> 状态导出不会带着。</li>
+<li>不确定翻译 而 手动添加的 并翻译的，也应设置为 为 <code>need improvement</code> 状态，以便 交互设计 等人员 可以筛选出来再进行文案优化。</li>
+<li>不使用的文案，设为 <code>Deprecated</code> 状态，这个不会导出，<code>Hidden</code> 状态只是翻译人员看不见但是仍可以导出（所以不用的文案设为 <code>Deprecated</code> 更好）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="各语言-unicode-编码相关">各语言 Unicode 编码相关</h4>
+<p><strong>常用语言的 Uincode 范围</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// LanguageType and strings
+</span><span class="c1">//     缩写         UI               注
+</span><span class="c1">//     &#34;en&#34;,       English          英语(English)
+</span><span class="c1">//     &#34;fr&#34;,       Français         法语(French)
+</span><span class="c1">//     &#34;de&#34;,       Deutsch          德语(German)
+</span><span class="c1">//     &#34;es&#34;,       Español          西班牙语(Spanish)
+</span><span class="c1">//     &#34;sv&#34;,       Svenska          瑞典语(Swedish)
+</span><span class="c1">//     &#34;nl&#34;,       Nederlands       荷兰语(Dutch)
+</span><span class="c1">//     &#34;ja&#34;,       日本語            日语(Japanese)
+</span><span class="c1">//     &#34;zh-cn&#34;,    中文              中文(Chinese (China, Simplified)) same as &#34;zh-CN-Hans&#34; used for localazy and lv_i18n
+</span><span class="c1">//     &#34;zh-tw&#34;,    中文繁體           中文繁体(Chinese (Taiwan, Traditional)), same as &#34;zh-TW-Hant&#34;
+</span><span class="c1">//     &#34;pt_BR&#34;     Português        巴西葡萄牙语(Brazilian Portuguese)
+</span><span class="c1">//     &#34;hu&#34;        Magyar nyelv     匈牙利语(Hungarian)
+</span><span class="c1">//     &#34;it&#34;        Italiano         意大利语(Italian)
+</span><span class="c1">//     &#34;ko&#34;        한국인            韩语(Korean)
+</span><span class="c1">//     &#34;pl&#34;        Język polski     波兰语(Polish)
+</span></code></pre></td></tr></table>
+</div>
+</div><p>结论：</p>
+<p>字符集范围选择（英文、中文（简繁体）、荷兰语、法语 / 德语、西班牙语、瑞典语、日语）：</p>
+<p><code>0x20-0xFF, 0x4E00-0x9FBF, 0x3040-0x309F, 0x30A0-0x30FF</code></p>
+<p>小语种零碎的（已经去重，已经去掉字体里找不到的字符 0x2B3, 0x2E2, 0x1D48-0x1D49, 0x1F1, 0x1F3）：</p>
+<p><code>0x150-0x153, 0x170-0x171, 0x104-0x107, 0x118-0x119, 0x141-0x144, 0x15A-0x15B, 0x178-0x17C</code></p>
+<p>韩语：一些字体中没有韩语，可以另找一个韩语字体然后把其内的所有字符合并到 当前字体里面做</p>
+<p><code>0x3008-0x3015, 0xAC00-0xD7A3</code></p>
+<p>俄语：</p>
+<p><code>400-44F-4FF，451，500-52F，2010-201E，2026，2030，20AC</code></p>
+<ul>
+<li>
+<p>0x3400-0x4DBF，不常用中文字符，看情况加</p>
+</li>
+<li>
+<p>手动补充基本符号</p>
+<blockquote>
+<p>…•；—„々→℃ÄäÖöẞßÜüÀàÂâÇçÉéÈèÊêËëÎîÏïÔôÛûÙùÜüŸÿÁáChchÉéÍíÑñÚúÜüÅåÄäÖöÓó，。！？”“、：（）【】《》‘’¿¡°「」¡¿？！«»‘’‚‘『』</p>
+</blockquote>
+</li>
+<li>
+<p>常用字手动补充</p>
+<blockquote>
+<p>亦尤上視析起展另市府種你式多我容士過間括注營助二重或機世極信伊下要安樣部圍司敢隨定覺逐均尺族望則處腦反政嗯元明校跟樂裡境近績響遠電歲象僅單企擔利能否兒據控再並使意思女獲維叫以頗是無友訓談類記媒充那為聲舉各至易業具必彼說吃啦坐於採少需史勵即計資港官的甚畫如簡對媽底令專入和求支長終喜迎把果濟織樹隻值姐始認免日謝台主輕套他快愈影費天態民被劃走皆形牠針高歐系自其它告配兩成銀增最束通推斷麗創來源看玩查剛子參交內產排講方選才買科而灣製領每車策三管故立錯許真節都球出死適還聽關商了特請站量土擁幾拉際努西新克全己仍理目讓常只界顯東八楚候麼往夠打五卻從又哪進聞行革念授實先減表加不且在小格某改概肯軟非國經童尚些委素陸賽基提切頭公制已清您例取歡書此發水怕色網呀論務治構性名得正共路化服料文等座包附中域塊直力習嗎錢依臺訴備與何事到教話報代設育就願北續申興慧漸生強庭步然戰引現結將外低次階社般什知範因找喝豐師健驗沒她辦變張情四誰消臉列一壓規笑永嘛運決之六太由未保分們根爸示雖越醫音朋觀妳乏精法團整個識員母趣帶既工希寫合滿足供蘇空投山動造義像調總聯該傳組程茶住手應份謂價藝若質件準放積建月約雙心品很便效句課負會護時也透命追練眾議洲研功歷相屬曾想地察拿早久老存七央啊著受字期須神語言可乎道爭除缺責較父原係同擇況做條感施比黨回訊狀人富去前有用家後身男居給當接慮半解親術院確問繼究開指溝怎者統口持康角活任別更愛似大婦深向學片十揮體執項完考園旁技智連超難協但香年標嚴鼓作邊及美物京廠達題善環所面段區好本點討導位吧見呢這避殊度孩場</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>各语言的 Unicode 编码范围</strong></p>
+<p>语言代码表 <a href="http://www.lingoes.net/zh/translator/langcode.htm">http://www.lingoes.net/zh/translator/langcode.htm</a></p>
+<p>下面各个语言的 unicode 范围，一些语言自己的特殊符号就不记了</p>
+<ul>
+<li>
+<p>英文 English en</p>
+<p>0x20-0xFF</p>
+<p>包括基本英文字符、数字、标点符号等</p>
+</li>
+<li>
+<p>中文 + 中文繁体台湾</p>
+<p>Chinese (China, Simplified) zh_CN#Hans</p>
+<p>Chinese (Taiwan, Traditional) zh_TW#Hant</p>
+<p>包括了常用汉字、繁体汉字、部分生僻字以及一些汉字的变体：CJK Unified Ideographs —— 0x4E00-0x9FA5</p>
+<p>扩展，不常用的字：CJK Unified Ideographs Extension A —— 0x3400-0x4DBF</p>
+</li>
+<li>
+<p>荷兰语 Dutch nl</p>
+<p>同英文字母</p>
+</li>
+<li>
+<p>法语 French fr / 德语 German de</p>
+<p>同英文字母范围，00C0-00FF</p>
+<p>法语新增 152-153，178，2B3，2E2，1D48-1D49</p>
+<p>德语 同英文字母范围</p>
+<p>字母上面有2点者为德文, 字母上面有重音符号者为法文</p>
+</li>
+<li>
+<p>西班牙语 Spanish es</p>
+<p>同英文字母范围</p>
+</li>
+<li>
+<p>瑞典语 Swedish sv</p>
+<p>同英文字母范围</p>
+</li>
+<li>
+<p>日本語 Japanese ja</p>
+<p>Hiragana, 日文平假名 —— 0x3040-0x309F</p>
+<p>Katakana, 日文片假名 —— 0x30A0-0x30FF</p>
+</li>
+<li>
+<p>匈牙利语 Hungarian hu</p>
+<p>同英文字母，新增 150-151，170-171，1F1，1F3</p>
+</li>
+<li>
+<p>巴西葡萄牙语 Brazilian Portuguese pt_BR</p>
+<p>同英文字母</p>
+</li>
+<li>
+<p>意大利 Italian It</p>
+<p>同英文字母范围</p>
+</li>
+<li>
+<p>波兰 Polish pl</p>
+<p>同英文字母范围，新增 104-107，118-119，141-144，15A-15B，179-17C</p>
+</li>
+<li>
+<p>韩语 Korean ko</p>
+<p>3008-3015，AC00-D7A3</p>
+</li>
+<li>
+<p>俄语 Russian ru-RU（俄语-俄国）</p>
+<p>同英文字母，新增 400-44F-4FF，451，2010-201E，2026，2030，20AC，500-52F</p>
+</li>
+</ul>
+<p><strong>Unicode 相关参考</strong></p>
+<p>Unicode 官网 <a href="https://home.unicode.org">https://home.unicode.org</a></p>
+<p>各国语言字符 Uincode 编码 查询 <a href="https://character-table.netlify.app">https://character-table.netlify.app</a></p>
+<p>Unicode table to pick letters: <a href="https://unicode-table.com">https://unicode-table.com</a></p>
+<p>Unicode 划分 参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/xzl04/article/details/6307416">https://blog.csdn.net/xzl04/article/details/6307416</a></li>
+<li><a href="http://jrgraphix.net/research/unicode.php">http://jrgraphix.net/research/unicode.php</a></li>
+</ul>
+<p>字体信息在线查看 <a href="https://fontdrop.info">https://fontdrop.info</a></p>
+<h3 id="多机型--功能宏--素材资产管理">多机型 / 功能宏 / 素材资产管理</h3>
+<p>可以一套工程 里面 使用 功能宏（依据不同机型） 来做。功能宏二维表格：横轴各个机型、纵轴各个功能宏，中间勾选，根据表格导出对应机型的功能宏到程序中，程序中根据这些功能宏判断是否编译相关代码。</p>
+<p>资产管理。多语言文本，以及 图片 和 视频 等 的管理。均为表格管理，根据机型判断每个资产是否包含，进行导出。</p>
+<p>图片素材，按照公用和机型分个大类（分文件夹），图片命名规则，如 <code>机型-页面-具体名词</code>。程序里面使用 素材占位标识（比如某个变量，然后根据 占位标识—图片素材 的对应表格，生成各个图片的文件地址赋值给对应占位符）来标识这个地方使用对应的图片来显示。</p>
+<p>使用 csv 或 其它文件格式的 表格来管理 各产品型号 以及 该产品下的 功能宏 / 资产 差异，如下：竖着看，只打包使用某个产品型号下所有标有 y 的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">产品型号    A          B         C
+
+功能宏a     y          n         y
+功能宏b     y          y         n
+功能宏c     y          n         n
+
+文案key1   y          n         n
+文案key2   y          y         n
+文案key3   y          y         y
+
+图片占位符1   图片素材1 图片素材2   图片素材3
+图片占位符2   n        图片素材4  n
+图片占位符3   n        n         n
+</code></pre></td></tr></table>
+</div>
+</div><p>由脚本解析表格：</p>
+<ul>
+<li>对于功能宏，将 要编译的机型的 标有 y 的 功能宏 做成 宏 通过 cmake（可以生成一个导入这些宏到程序的 cmakelist 文件） 导入到程序里面（如 <code>#define 功能宏a</code>），这样就可愉快的在程序里面用。</li>
+<li>对于文案，将当前编译的机器下标注 y 的文案 key 的 文本和翻译都包含到多语言数据，其它需要清除掉（因为多语言管理平台一般都是全量的）。</li>
+<li>对于图片，根据 当前编译的机型，只把 标了 y 的按照程序识别的格式作为文件 通过 cmake 来 install 到指定目录，程序里面读取即可。</li>
+<li>如果 UI 是 脚本语言 等 描述文件，则需要 写一些自动化脚本，根据机型，选择性使用 UI 页面 的描述文件。</li>
+</ul>
+<h3 id="页面管理">页面管理</h3>
+<p>基本思路：</p>
+<ul>
+<li>
+<p>各个页面用 树结构 从上到下关联起来，根节点是个虚拟页面没有信息，根节点下面的所有一级节点是各个主页面，往下是各种子页面的纵深。公共页面（独立页面，为信息提示或者运行中不让进行其它操作，比如条款页面、升级页面等）也属于根节点下的一级节点。除了根节点，每个树的节点 对应一个具体的页面。</p>
+</li>
+<li>
+<p>留出 注册新页面的函数（给页面名称、父页面等信息），删除页面节点（根据页面名称），切页函数（形参：目标页面、返回方法（返回上一级页面（默认），返回上一次页面）），执行返回，注册页面切换回调函数（返回源和目标页面，以及返回方法），获取当前页面 等 实用函数。</p>
+</li>
+<li>
+<p>信息：通过 注册新页面的函数 构造各个页面节点的树结构，每个节点包含信息：页面名称、父节点（父级页面），另维护一个结构体信息：当前页面节点、上一次页面节点（从哪个切过来的）、当前页面返回方法（返回父页面，或 返回 上一次页面）。</p>
+</li>
+</ul>
+<p>一些比较多页面且为连续序列类型的功能（比如引导页，基本只有上一步和下一步的线性多页面序列），可以用程序来控制，写个通用框架，然后实例化为具体业务。</p>
+<h3 id="多分辨率">多分辨率</h3>
+<p>（可选）</p>
+<p>UI 分辨率可以随意设置（其内部的各个 obj 的 固定 px 尺寸会随着变）。UI 尺寸可随意变化然后 obj 会合理伸缩并排版。</p>
+<p>GUI 前端图形，设计为可多分辨率的，即只改动长宽，里面元素可以跟着变动。需要 交互设计 在设计 GUI 时候 就考虑分辨率的变化情况。</p>
+<h3 id="多套主题">多套主题</h3>
+<p>（可选）</p>
+<p>可以至少提供 light 和 dark 这 亮暗 两种风格；增加多种预设（可一键切换）；可以想想增加灵活度，可以细节自定义，可以背景图片选择等，丰富选择，让每个用户屏幕都不一样更有个性。</p>
+<h3 id="埋点">埋点</h3>
+<h4 id="概念和需求">概念和需求</h4>
+<p>下面是笼统的概念介绍</p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/weixin_39614276/article/details/111437770">https://blog.csdn.net/weixin_39614276/article/details/111437770</a></p>
+</li>
+<li>
+<p><a href="https://www.xiaohongshu.com/explore/63bbe67c000000002203688c">https://www.xiaohongshu.com/explore/63bbe67c000000002203688c</a></p>
+<blockquote>
+<p>前端埋点类型:</p>
+<p>1.页面埋点:发生在页面上，在页面加载完成后触发或在页面退出时触发的埋点事件。</p>
+<p>2.模块埋点:发生在单个页面的某个模块上点击和曝光的埋点事件，例如:按钮、图片、弹窗、浮层等。</p>
+<p>3.组件埋点:发生在某个模块上且该模块被多个系统页面重复使用，营销大转盘。</p>
+<p>4.其他埋点:发生在更多其他类型事件模版，例如:视频播放结束事件、扫码事件、蓝牙事件等。</p>
+<p>变量命名规范</p>
+<p>1)统一遵循小驼峰的命名规范:除第一 个单词之外，其他单词首字母大写;</p>
+<p>2)统一格式为{业务}_ {组件|页面}_ {具体元素}， 比如finance_ .qualityHomePage_ repay;</p>
+<p>触发时机说明</p>
+<p>1)浏览/pageview:采集用户浏览页面相关的数据，用户打开该页面即会被记录一次;</p>
+<p>2)点击/click: 采集用户的点击行为相关的数据，用户点击页面上某个按钮会被记录一次;</p>
+<p>3)曝光/expose:采集某个页面/模块被看到的数据，用户有效浏览页面/模块会被记录一次;</p>
+</blockquote>
+</li>
+<li>
+<p>前端埋点方式 <a href="https://blog.csdn.net/LuckyWinty/article/details/130939489">https://blog.csdn.net/LuckyWinty/article/details/130939489</a></p>
+<blockquote>
+<p>最直接有效的方式就是了解用户的行为，了解用户在网站中做了什么，呆了多久。</p>
+<p>所谓&rsquo;埋点&rsquo;是数据采集领域（尤其是用户行为数据采集领域）的术语，指的是针对特定用户行为或事件进行捕获、处理和发送的相关技术及其实施过程。比如用户某个icon点击次数、观看某个视频的时长等等。</p>
+<p>基于此我们可以知道埋点是实际上是对特定事件或者行为的数据监控和上报。</p>
+</blockquote>
+</li>
+<li>
+<p>前端数据打点（埋点） <a href="https://blog.csdn.net/m0_70190404/article/details/128477172">https://blog.csdn.net/m0_70190404/article/details/128477172</a></p>
+</li>
+<li>
+<p>前端埋点实现方案 <a href="https://huaweicloud.csdn.net/639fe937dacf622b8df8faa8.html">https://huaweicloud.csdn.net/639fe937dacf622b8df8faa8.html</a></p>
+<blockquote>
+<p>埋点就是在应用中特定的流程收集一些信息，用来跟踪应用使用的状况，后续用来进一步优化产品或是提供运营的数据支撑，包括访问数（Visits），访客数（Visitor），停留时长（Time On Site），页面浏览数（Page Views）和跳出率（Bounce Rate）。这样的信息收集可以大致分为两种：页面统计（track  this virtual page view），统计操作行为（track this button by an event）。</p>
+<p>两方面上报: 1.事件上报(目前只有点击事件埋点)，2.停留时间上报</p>
+<ul>
+<li>事件上报：通过给元素绑定自定义指令的方式实现(减少对原有代码的侵入)，将信息存储在缓存池中定时上报，上报之后清空之前的上报信息。</li>
+<li>停留时间上报：需要重新封装路由，创建路由拦截在跳转之前记录来源,以及上一个页面的停留时间，当拦截器捕获成功之后，如果发现停留时间大于xx秒进行上报。</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>背景，需求</p>
+<blockquote>
+<ol>
+<li>用户行为统计，收集用户习惯，比如点击顺序或者点击热点。</li>
+<li>目前设计比较复杂，找出用户不常用的，看是不是设计有问题。</li>
+<li>打埋点的地方，同时也输出到调试日志。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>埋点基本要求和流程：</p>
+<ul>
+<li>
+<p>交互人员给出<strong>埋点需求</strong>。</p>
+</li>
+<li>
+<p>开发与云端数据人员指定上报信息协议，<strong>开发</strong>（基本为 UI 上 按键、弹窗按键、开关、选择框、下拉框、进入页面（页面曝光）等要素的点击事件上报，且有的交互会需求再附加一些额外信息，不要有高频上报，控制数据量，产生数据可以先在内存或者 FLASH（可以分多个等大小的文件） 里面积累到一定程度再<strong>压缩</strong>和<strong>加密</strong>再上传一次，以及 每个一段时间比如 6h 上传一次，并预留立即传送一次的接口用于测试）。</p>
+<p>埋点机制尽量设置成可以方便的加减的形式，并且一些特殊事件需要手写的埋点代码也进行都放到绑定端（前后端可以留回调函数）之类的，而不是侵入、散落到各个地方。</p>
+</li>
+<li>
+<p>云端数据形成<strong>看板</strong>进行展示。</p>
+</li>
+<li>
+<p>数据看板给相关人员<strong>分析</strong>，制定下一步优化策略，<strong>改进</strong>并上架，收集反馈，迭代，等等。</p>
+</li>
+</ul>
+<p>埋点机制的开发，注意，埋点是观测，应该是非侵入的，不应该修改太多源程序的业务逻辑相关的等，尽量做到这种地步。</p>
+<h4 id="埋点数据基本需求">埋点数据基本需求</h4>
+<p>UI 埋点 基本需求：</p>
+<p>必要上报信息：</p>
+<ul>
+<li>
+<p>控件名称 Name（保持全局唯一，可以用所在页面、所在功能/模块 等拼成）。</p>
+</li>
+<li>
+<p>控件类型 Type：值如下</p>
+<ul>
+<li>按键 Btn、导航按键 NavBtn、开关 Switch、选择框 CheckBox、选择框 ChooseItem、弹窗 PopDialog、弹窗按键 DialogBtn 等 点击事件。</li>
+<li>页面切换 PageSwitch（从哪个页面进入哪个页面，页面曝光），（可选）页面停留时间。</li>
+<li>语言切换 LangSwitch。</li>
+</ul>
+</li>
+<li>
+<p>所在页面 page 名称，（可选）页面层级（如一级、二级，独立页面算一级）。</p>
+</li>
+<li>
+<p>当前产品所处状态（如待机 Idle、工作中 Working、暂停中 Pause 等，工作中 还可增加细分当前具体任务 task 等）。</p>
+</li>
+<li>
+<p>所在语言 lang，值为 语言的 code，如 en、zh-cn 等。</p>
+</li>
+<li>
+<p>额外信息：如下 json，已经包含在 <code>extra info</code> 里面</p>
+<ul>
+<li>对于 开关、复选框：上报信息 增加 选择后的状态，勾 或 没勾。</li>
+<li>对于 下拉框：上报信息 增加 选择了哪一项（index（不推荐，因为不知道对应项是什么） 或 所在项的文本（英文原文，不要获取各种语言的）） 字段。</li>
+<li>对于 弹窗 或 弹窗按键：上报信息 增加 所在弹窗 id 编号（或字符串等） 字段、弹窗类型（提示、警告、错误 等） 等；对于弹窗按键，控件名称 Name 可以只是弹窗按键的名字而不必全局唯一如 ok、close 等。</li>
+<li>对于 切页：上报信息 增加 目标页面。</li>
+<li>对于 切语言：上报信息 增加 目标语言。</li>
+</ul>
+</li>
+<li>
+<p>设备基本信息：</p>
+<ul>
+<li>机型。（如果序列号里面包含机型区分信息，则这个不用赘述）</li>
+<li>设备序列号 SN。</li>
+<li>当前时间，年月日时分秒+时区。</li>
+<li>固件版本号。</li>
+<li>硬件版本号。</li>
+<li>用户 Id。（信息不得打印到 log，信息上网必须先加密）</li>
+</ul>
+<p>json 例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;eventType&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx_UITrack&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;content&#34;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;Name&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">widget</span> <span class="err">name,</span> <span class="err">dialogBtn</span> <span class="err">name</span> <span class="err">(for</span> <span class="nt">&#34;popDialog&#34;</span><span class="err">)</span>
+        <span class="s2">&#34;Type&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">Btn、NavBtn、Switch、CheckBox、ChooseItem、</span>
+                           <span class="err">//</span>  <span class="err">PopDialog、DialogBtn、PageSwitch、LangSwitch,</span> <span class="err">or</span> <span class="err">some</span> <span class="nt">&#34;specific event name&#34;</span> <span class="err">...</span>
+        <span class="s2">&#34;page&#34;</span>     <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">the</span> <span class="err">page</span> <span class="err">now</span> <span class="err">at.</span> <span class="err">For</span> <span class="nt">&#34;pageSwitch&#34;</span> <span class="err">itemType</span> <span class="err">is</span> <span class="err">the</span> <span class="err">page</span> <span class="err">that</span> <span class="err">brfore</span> <span class="err">switch</span>
+        <span class="s2">&#34;state&#34;</span>    <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">I(idle)、R(running)、P(pause)</span> <span class="err">...</span>
+        <span class="nt">&#34;task&#34;</span>     <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">the</span> <span class="err">task</span> <span class="err">now</span> <span class="err">at,</span> <span class="err">if</span> <span class="nt">&#34;state&#34;</span> <span class="err">is</span> <span class="s2">&#34;running&#34;</span> <span class="err">then</span> <span class="err">have</span> <span class="err">this</span>
+        <span class="s2">&#34;lang&#34;</span>     <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">the</span> <span class="err">language</span> <span class="err">code</span> <span class="err">now</span> <span class="err">at</span>
+
+        <span class="err">//</span> <span class="err">extra</span> <span class="err">info:</span>
+        <span class="nt">&#34;isChecked&#34;</span>  <span class="p">:</span> <span class="s2">&#34;1&#34;</span> <span class="err">|</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span> <span class="err">//</span> <span class="err">for</span> <span class="nt">&#34;Type&#34;</span> <span class="err">is</span> <span class="s2">&#34;Switch&#34;</span><span class="err">、</span><span class="s2">&#34;CheckBox&#34;</span> <span class="err">have</span> <span class="err">this</span><span class="p">,</span> <span class="err">the</span> <span class="err">value</span> <span class="err">shall</span> <span class="err">not</span> <span class="err">be</span> <span class="err">like</span> <span class="nt">&#34;true&#34;</span><span class="err">/</span><span class="s2">&#34;checked&#34;</span><span class="err">/</span><span class="mi">1</span> <span class="err">.etc</span>
+        <span class="s2">&#34;chooseItem&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span> <span class="err">//</span> <span class="err">for</span> <span class="nt">&#34;ChooseItem&#34;</span> <span class="err">to</span> <span class="err">indicate</span> <span class="err">the</span> <span class="err">choosed</span> <span class="err">item</span> <span class="err">string(only</span> <span class="err">en</span> <span class="err">language)</span>
+        <span class="s2">&#34;dialogId&#34;</span>   <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span> <span class="err">//</span> <span class="err">for</span> <span class="nt">&#34;PopDialog&#34;</span> <span class="err">and</span> <span class="s2">&#34;DialogBtn&#34;</span><span class="p">,</span> <span class="err">have</span> <span class="err">this</span>
+        <span class="nt">&#34;dialogType&#34;</span> <span class="p">:</span> <span class="s2">&#34;info&#34;</span> <span class="err">|</span> <span class="s2">&#34;warn&#34;</span> <span class="err">|</span> <span class="s2">&#34;err&#34;</span> <span class="err">...</span> <span class="err">//</span> <span class="err">for</span> <span class="s2">&#34;PopDialog&#34;</span> <span class="err">and</span> <span class="s2">&#34;DialogBtn&#34;</span><span class="p">,</span> <span class="err">have</span> <span class="err">this</span>
+        <span class="nt">&#34;targetPage&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span> <span class="err">//</span> <span class="err">for</span> <span class="nt">&#34;PageSwitch&#34;</span> <span class="err">have</span> <span class="err">this</span>
+        <span class="s2">&#34;targetLang&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span> <span class="err">//</span> <span class="err">for</span> <span class="nt">&#34;LangSwitch&#34;</span> <span class="err">have</span> <span class="err">this</span><span class="p">,</span> <span class="err">the</span> <span class="err">target</span> <span class="err">language</span> <span class="err">code</span>
+        <span class="err">...</span>
+        <span class="nt">&#34;specific event extra info&#34;</span> <span class="p">:</span> <span class="s2">&#34;xxx&#34;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="err">//</span> <span class="err">device</span> <span class="err">info</span> <span class="err">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>额外可选上报信息：</p>
+<ul>
+<li>业务事件埋点 基本需求：如开关机、登陆和退登陆、开始升级和升级结果与升级时间等，以及很多具体产品业务相关的具体事件。</li>
+<li>所在分组（用于分类）。</li>
+<li>交互需求再附加一些额外信息：比如 设备中一些零配件的用户手动增减事件 等等。</li>
+<li>一次机器从开始工作到结束工作之间，发生了哪些事情，汇总上报。</li>
+<li>机器 coredump 埋点。每次每个模块进程 coredump 机器 均会尝试 重启这个 模块进程，但是这个事件我们要知道次数，并且还可以自动解析下 coredump 位置并放入埋点信息，好观察那一块出问题多、不稳定，更好针对性修复、优化。</li>
+</ul>
+<p>注意点：</p>
+<ul>
+<li>
+<p>为了防止 key 填错，埋点函数 结构 均应用 枚举类 等 有限个选项 进行 选填，内部构造 json 时候再根据枚举再填充为具体的 str。</p>
+<p>且要约束填入 valeu 的情况，不得无序增长，比如 isChecked 的 value 统一为 &ldquo;1&rdquo; | &ldquo;0&rdquo; 或 数字 1 | 0，而不应同时有 &ldquo;1&rdquo;、&ldquo;true&rdquo;、&ldquo;checked&rdquo; 等多种情况出现！</p>
+</li>
+<li>
+<p>对于 switch、checkBox 的 附带信息 isChecked 是 变化后的 状态，若无特殊要求，计总数即可，统计分析时候，筛选出 isChecked 为 1 的 要相互对比的 switch 或 checkBox 即可，其之间的总数对比可反应倾向于使用的比例。</p>
+</li>
+<li>
+<p>上报信息字符数量精简，上报信息不要重复，每一条精准，减少带宽，但也不要过于短而增加理解。</p>
+<p>比如如果机器端只用枚举数字表示信息（比如 Type 中用 0 标识 Btn，以此类推）并且云端看板可以解析并显示更好。</p>
+<p>还比如，机器在 idle 状态时候，上传信息 不必包含 task 任务类型 等，以此类推，举一反三。</p>
+<p>压缩每条 json 长度，尽量短（减少 flash 寿命损耗，减少占用网络带宽，在 UI 按键频繁点击的情况下）。</p>
+</li>
+<li>
+<p>应该埋 UI 的事件，若其它端的设置导致 UI 变化 不应该 埋点，UI 埋点 关注 用户操作这个 UI 的事件。对于功能使用埋点，则在后端某个公共的地方埋点更好。</p>
+</li>
+<li>
+<p>埋点机制对系统影响测量：</p>
+<ul>
+<li>对 UI 响应的延时进行测量。不加埋点和加埋点，按键等响应的时间差异测量。以不显著影响使用、用户无感 / 不会察觉为准，一般增加延时在 10ms 以内为宜，尽量小，在 小于 1ms ~ 5ms 为宜。</li>
+<li>埋点数据写入文件系统的量的测量。如 高速操作屏幕时候 测量得到 埋点模块 每秒产生 1.5KB 数据 写入 文件系统，计算以这样速度连续写入 那么 EMMC 的寿命 可用多久；再长时间（如一周或更长）这样连续高频 模拟点击屏幕 产生 埋点信息 写入文件系统 测试。经验值，以 3Hz 点击 五天，对于 &ldquo;每秒 增加 1.5KB 数据&rdquo; 仅约为 800MB 左右，若用户每天点击 500次，要这样每天点击持续一年左右。</li>
+</ul>
+</li>
+<li>
+<p>埋点数据正确性验证：</p>
+<ul>
+<li>
+<p>埋点数据正确性需要的特性：完整性（没有遗漏上报，也没有多上报，需要整条埋点产生、上报、提取、筛选的链路保证，需要整体前后（上下游）验证和测）、准确性（每个事件的上报信息正确，依靠编码程序保证）、时序性（信息上报的先后顺序准确，这个就通过上报信息带上时间来保证）。</p>
+</li>
+<li>
+<p>数据完整性测试：</p>
+<ul>
+<li>主动埋点产生：一台机器，以特定的 SN 序列号 等，在一段时间内（几个小时、一天 等），产生一定量的、确定的数据，然后在云端上看数据，是否与预期一致。</li>
+<li>多端交叉验证：比如后端产生一个事件，后端进行埋点上报，同时前端 UI 也会根据这个后端事件进行埋点上报，针对这种 case，将二者的数据进行验证比较。</li>
+<li>单纯从埋点数据来交叉验证：可以从按键必然的先后顺序来看，比如有的按键点击（按键点击事件埋点）后弹出某个特定弹窗（弹窗事件埋点）（这个弹窗只有ok按键，且只能点击ok来关闭弹窗，在此期间不能点别的），点击弹窗ok关闭弹窗（弹窗按键点击事件埋点），将这些数据进行对比分析。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>可改进点：</p>
+<ul>
+<li>
+<p>积累一定数量/容量上传一次，或者使用 计数 字段 进行累计。</p>
+<p>数据上报可不一条一条，而是固定时间间隔内统计所有埋点时间，合并相同的为计数数量，然后上传。时间间隔应该不用长，避免关机、断电等时候丢失过多数据。</p>
+<p>如：针对某个事件，均会产生一摸一样的 一段 埋点信息 json（注意必须整个 埋点信息 json 一样才算，按键一样 但也许 机器所在的状态不一样 则也不算是同一个埋点事件），则不必每次都上传，先存起来 进行计数，增加 count 字段记录次数，当总数到一定数量（两方面，一种 埋点信息 的 count 到一定数量就单独传这一条，或者 各个 埋点信息 json 的 count 的 总数 达到某一个数量 则整体传一次）。</p>
+<p>以及若中间无操作一定时间，才传一次埋点信息。</p>
+</li>
+<li>
+<p>以固定时间间隔上传。埋点产生的数据可积累在 内存中 如 一分钟 或 十分钟，以固定时间间隔，然后上传云端一次，就免去写文件系统 对 EMMC 等 存储系统造成寿命影响。</p>
+</li>
+<li>
+<p>发送给 埋点/log 管理的进程。该进程存储信息到某 log 文件里面，累积，到一定量后（只针对埋点等数据，用户已经同意数据收集协议的），执行高压缩，压缩文件名写好时间，立即上传云端，并留存本地，创建当前时间的存储信息的文件接着累积；当多个压缩包的数量到达一定时候，删除最老的。以此循环。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据看板的组织形式">数据看板的组织形式</h4>
+<p>说明：</p>
+<ul>
+<li>一个机型一个看板。</li>
+<li>第二行 为多个下拉框筛选。task 在 state 不为 I 的时候才有。任何一个下拉筛选项均可选择 *，即这一项不筛选。</li>
+<li>下拉框筛选 的 下面 为一行一行的筛选出来的 Name。对于不同的 Type 有不同的字段，以下每一行为一个区块进行独立排列，以不同的 key 的 value 计数 从大到小 排列（分别可选为总计数 和 按照 sn（机器序列号）去重计数（即每个 sn 只算一次）），如下。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>page ▼</strong></td>
+<td><strong>Type▼</strong></td>
+<td><strong>state▼</strong></td>
+<td><strong>task▼</strong></td>
+<td><strong>lang▼</strong></td>
+<td></td>
+<td></td>
+<td><strong>计数</strong><br />(从大到小排列)</td>
+<td><strong>按照sn去重计数</strong><br />(从大到小排列)</td>
+<td><strong>时间间隔选择：</strong></td>
+<td><strong>from xxx to xxx</strong></td>
+</tr>
+<tr>
+<td>Type:<br />以下每一行为一个区块进行独立排列</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Btn<br />NavBtn<br />(按 Name 计数排列)</td>
+<td>Name1<br />Name2<br />&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Switch<br />CheckBox<br />(按 Name 计数排列)</td>
+<td>Name</td>
+<td>isChecked</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ChooseItem<br />(按 Name 计数排列)</td>
+<td>Name</td>
+<td></td>
+<td>chooseItem</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PageSwitch<br />(按 targetPage 计数排列)</td>
+<td>Name</td>
+<td></td>
+<td></td>
+<td>targetPage</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PopDialog<br />(按 dialogId 计数排列)</td>
+<td>Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td>dialogType</td>
+<td>dialogId</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DialogBtn<br />(按 dialogId 计数排列)</td>
+<td>Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td>dialogType</td>
+<td>dialogId</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LangSwitch<br />(按 targetLang 计数排列)</td>
+<td>Name</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>targetLang</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>&hellip;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui-测试--自动化测试">UI 测试 / 自动化测试</h3>
+<p><strong>功能自动化测试基础</strong></p>
+<ul>
+<li>
+<p>更新 UI 的 通讯接口均留出，可设计 系列 假数据 通过 通讯接口传入，可以写一些 case 来 自动化 按序列 执行，观察 UI 是否符合预期。case 可以 尽量考虑多的情况，各种组合等。</p>
+</li>
+<li>
+<p>各组件压测，写测试代码，放在机器上，高并发的创建、调用各种 api，释放，循环此大量次，看是否有 内存泄漏、crash 等问题。</p>
+<p>内存泄漏的一些常用检测 和 debug 手段，参考 [Cpp-Learning/编程经验-规范, 调试、性能和内存检查工具集合.md at main · Staok/Cpp-Learning](<a href="https://github.com/Staok/Cpp-Learning/blob/main/">https://github.com/Staok/Cpp-Learning/blob/main/</a>编程经验-规范%2C 调试、性能和内存检查工具集合.md)。</p>
+</li>
+</ul>
+<p><strong>UI 测试的基础组件需求 - 一般都需要，都有用</strong></p>
+<ul>
+<li>
+<p>显示或打印当前点击的坐标（用于知道 UI 上这个按键的点击的坐标点）。</p>
+</li>
+<li>
+<p>模拟点击。可以通过通讯控制 ui 上是否显示 当前点击的坐标（ui 左下角显示）从而直到要点击的未知，然后可以 将这些坐标记录下来，通过 通讯控制 来 进行 一系列的 模拟点击。</p>
+</li>
+<li>
+<p>monkey。随机生成点击坐标进行模拟点击；随机操作要做到尽量随机（比如每次开始的时候设置随机种子为当前时间），每次运行路径不同）。</p>
+</li>
+<li>
+<p>截屏并编码为 jpeg 保存到文件系统。</p>
+</li>
+<li>
+<p>开始测量 FPS，实时获取 当前、最小、最大、平均的 FPS 等。</p>
+<p>（可选）额外获取 渲染时间、写屏时间等。</p>
+</li>
+<li>
+<p>显示 CPU 占用。</p>
+</li>
+<li>
+<p>显示内存占用。</p>
+</li>
+</ul>
+<p><strong>屏幕测试</strong></p>
+<p>需要搞一个界面，用于生产线上的屏幕测试和筛选。每一项测试的进入可以用 mqtt 等命令，测试均有 测试成功、测试失败 的条件，要显示对应弹窗，弹窗上按键选择 是否通过。选择了不通过的机器会被标记从而从流水线上下来进行返修。</p>
+<p>注意：这些测试项可以设计 机械结构（机械装置控制触摸屏，都是一些固定路径点击）和 视觉检测 都进行 自动化。</p>
+<ul>
+<li>
+<p>亮度调节测试。</p>
+<p>屏幕上一拖动条，0~100% 控制亮度，由最大到最小再到最大拖动进行测试。</p>
+</li>
+<li>
+<p>显示测试。</p>
+<ul>
+<li>
+<p>显示一个屏幕坏点测试图。</p>
+<p>可以用程序生成一张画面在屏幕上显示，来凸显屏幕上的坏点。工厂测试需要。</p>
+<p>图像：长宽与屏幕显示一致，图像的从头到尾每一个像素要落在屏幕的对应像素上；图像从左上开始第一行两种颜色交替，绿（RGB：0, 128, 0），红 （RGB：128, 0, 128），第二行第一个像素与第一行第一个像素再交替，以此类推，形成类似马赛克的模式。</p>
+</li>
+<li>
+<p>多种颜色切换测试。</p>
+<p>按照如下颜色切换，看屏幕是否有坏点。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;red&#34;,&#34;green&#34;,&#34;blue&#34;,&#34;black&#34;,&#34;white&#34;
+0xFF0000
+0x00FF00
+0x0000FF
+0x000000
+0xFFFFFF
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>触摸测试。</p>
+<ul>
+<li>在屏幕上按照给定的一个 井字 图形，两横两竖 进行触摸画线，需要判断起始（按下）、中间（连续按压）和结束（抬起）的坐标是否都在合理范围内。</li>
+<li>空白界面任意画线，加个清除按键。</li>
+</ul>
+</li>
+</ul>
+<h3 id="跨平台化">跨平台化</h3>
+<p>把工程整成 在 Win上 或 Linux（如 Wsl2、 Ubuntu） 平台 上可直接一键编译运行。</p>
+<p>优点：</p>
+<ul>
+<li>
+<p>可 快速 查看效果、UI 调试、迭代。</p>
+</li>
+<li>
+<p>UI 与 后端 的 接口 分离清晰。</p>
+<p>这样便于 给假数据进行高度自动化的测试，尽量多想 case，快速暴露大量问题和快速迭代解决。可快速集成一些自动化测试，给假数据较全面的覆盖测试，快速收敛稳定性。</p>
+</li>
+<li>
+<p>交互等非开发人员可以方便的直接看效果，不用再部署到机器上才看到效果，或者整成 设计稿到部署机器 自动化 执行。</p>
+</li>
+<li>
+<p>更好的自动化一些需要跨平台的流程，如 UI 设计到快速实机显示、编译打包、多机型、多语言、素材管理 等等。</p>
+</li>
+</ul>
+<p>需要，也是方案：</p>
+<ul>
+<li>文件级别 的 平台差异的代码，对应 Linux 和 Win 都各一份，Win 的可以简单快速编写和给假数据，用 CMake 中的平台区分控制编译哪些。但是这种差异，自己写的时候应该避免，因为并没有很多差异大到整个文件都大不相同的地方，除了一些三方库。</li>
+<li>代码层面 的 平台差异的代码，程序中用 <code>_WIN32</code>、<code>__ linux __</code> 之类的平台区分宏来控制，同样 Win 的可以简单快速的编写和给假数据。</li>
+<li>使用的不少库，Linux 平台可 Buildroot / apt  + CMake + PkgConfig 等工具快速集成；Win 平台基本是 MSYS + CMake + PkgConfig。可源码级别的编译并链接库，尽量选用 Win 和 Linux 平台通用的库。</li>
+</ul>
+<h3 id="ui-硬件加速渲染">UI 硬件加速渲染</h3>
+<p>需要参考 具体 UI 框架的官方文档，了解支持情况。</p>
+<p>比如 对于 LVGL（需要跟进最新官方支持情况）：</p>
+<p>渲染相关：</p>
+<ul>
+<li>lvgl 的 lv_conf.h 里面支持有 LV_USE_GPU_XXX 相关的宏，可试试。arm linux 端可用的看起来有 LV_USE_GPU_ARM2D、LV_USE_GPU_SDL。</li>
+</ul>
+<p>解码显示相关：</p>
+<ul>
+<li>解码图片这个耗时操作，对图片多做缓存，不必每次重复解码。在内存允许的情况下。</li>
+<li>lvgl 调用 ffmpeg 的 API 来解码和显示图片和视频，ffmepg 可能会调用硬件加速，可试试。</li>
+</ul>
+<h3 id="mem--cpu--size-优化--debug">Mem &amp; CPU &amp; Size 优化 &amp; Debug</h3>
+<ul>
+<li>
+<p>参考 具体 UI 框架 官方文档 的 测试/Debug/评估/优化 相关的章节。</p>
+</li>
+<li>
+<p>基本的，编译去掉一些 Warnnig。</p>
+</li>
+<li>
+<p>去掉无关内容、废弃内容。保持简洁。代码中无关的打印去掉或者注释掉。</p>
+</li>
+<li>
+<p>遇到性能瓶颈，考虑优化 内存占用 和 cpu 占用。</p>
+<ul>
+<li>
+<p>一些占用内存却用不到的进行优化，比如加载大量文本时候在关闭时候释放掉，只显示一次的页面只在打开的时候进行各种配置而不必常驻内存，等等。</p>
+</li>
+<li>
+<p>各进程的 cpu 占用、内存占用监控。UI渲染刷新 帧率监控。这些监控的频率可以不同，比如有的一秒、有的一分钟、一小时等。</p>
+<p>若UI渲染刷新帧率小于某值，或者是两次刷新间隔大于某值，则打印信息告警。</p>
+<p>打印 log 带上 距离上一次打印经过的毫秒时间，可以看出哪些地方运行严重拖慢。</p>
+</li>
+<li>
+<p>参考 [编程经验-规范, 调试、性能和内存检查工具集合](<a href="https://github.com/Staok/Cpp-Learning/blob/main/">https://github.com/Staok/Cpp-Learning/blob/main/</a>编程经验-规范%2C 调试、性能和内存检查工具集合.md) 其中的 易错注意 和 使用工具进行静、动态检查 相关的章节，优化程序健壮性，优化 cpu占用、内存占用。</p>
+</li>
+<li>
+<p>参考 [编程经验-规范, 调试、性能和内存检查工具集合](<a href="https://github.com/Staok/Cpp-Learning/blob/main/">https://github.com/Staok/Cpp-Learning/blob/main/</a>编程经验-规范%2C 调试、性能和内存检查工具集合.md) 其中 的 优化 相关章节。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>节省 编译后 bin 大小 的一些想法：视情况而定</p>
+<ul>
+<li>字体用字体文件，显示字体用 freeType 库。</li>
+<li>图片就用本地存储的图片文件，解码显示，并应用缓存机制防止多次重复解码，图片要经过压缩优化大小（自动化批处理）并且不明显损失质量。</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码规范">代码规范</h3>
+<p>首先 大的工程结构 和 架构 定好，要有足够的 可快速开发迭代、易扩展 等 特性。</p>
+<p>然后代码规范，分为 代码格式 和 各部分实现套路 两个层面。</p>
+<p>代码格式：制定 和 按照基本规范来约束。可 clang-format 工具整理代码格式（每个工程有一份 clang-format 配置文件）。</p>
+<p>各部分实现套路：分具体软件工程中各个层次（分好层次），后端数据结构、通讯、绑定端、前端 UI 等等。具体清空具体搭建，怎么方便怎么来。</p>
+<p>参考 [编程经验-规范, 调试、性能和内存检查工具集合](<a href="https://github.com/Staok/Cpp-Learning/blob/main/">https://github.com/Staok/Cpp-Learning/blob/main/</a>编程经验-规范%2C 调试、性能和内存检查工具集合.md) 其中的代码规范部分。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2026-02-14</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" data-title="GUI 框架基础需求、设计和实现" data-hashtags="GUI,软件"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" data-hashtag="GUI"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" data-title="GUI 框架基础需求、设计和实现" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/gui/">GUI</a>,&nbsp;<a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" class="prev" rel="prev" title="编程经验、调试、性能和内存检查工具集合"><i class="fas fa-angle-left fa-fw"></i>编程经验、调试、性能和内存检查工具集合</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

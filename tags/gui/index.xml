@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GUI - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/gui/</link>
+        <description>GUI - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/gui/" rel="self" type="application/rss+xml" /><item>
+    <title>GUI 框架基础需求、设计和实现</title>
+    <link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
+    <pubDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
+    <description><![CDATA[GUI 框架基础需求、设计和实现 以下皆为建议性内容，根据需求制定方案。 这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示]]></description>
+</item><item>
+    <title>QT &amp; QML 总结备查</title>
+    <link>https://staok.github.io/34qt-qml-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>
+    <pubDate>Tue, 10 Feb 2026 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/34qt-qml-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</guid>
+    <description><![CDATA[QT &amp; QML 总结备查 首要注意，在桌面端开发QT可免费商用，而嵌入式端QT商用则收费。 各种 UI 库的总结和对比： Cpp-Learning/C-C++实用]]></description>
+</item><item>
+    <title>LVGL 总结备查</title>
+    <link>https://staok.github.io/35lvgl-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>
+    <pubDate>Sat, 14 Feb 2026 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/35lvgl-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</guid>
+    <description><![CDATA[LVGL 总结备查 各种 UI 库的总结和对比： Cpp-Learning/C-C++实用库备查.md at main · Staok/Cpp-Learning。 文章所在 Github 仓]]></description>
+</item></channel>
+</rss>

@@ -32,7 +32,7 @@
                             "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  45857 ,
+                        }],"genre": "posts","keywords": "C\u002b\u002b","wordcount":  46599 ,
         "url": "https:\/\/staok.github.io\/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5\/","datePublished": "2023-07-29T16:07:06+08:00","dateModified": "2023-07-29T16:07:06+08:00","publisher": {
             "@type": "Organization",
             "name": "Staok","logo": {
@@ -87,8 +87,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">C&#43;&#43; 学习总结备查</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/ee-cs-study/"><i class="far fa-folder fa-fw"></i>EE-CS-Study</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-07-29">2023-07-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 45857 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 92 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-07-29">2023-07-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 46599 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 94 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -96,11 +96,13 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#cc-有迹可循--汇总">C/C++ 有迹可循 / 汇总</a></li>
-    <li><a href="#cc-精品库">C/C++ 精品库</a></li>
-    <li><a href="#编程提高杂文">编程提高杂文</a></li>
+    <li><a href="#cc-精品文-汇总">C/C++ 精品文 汇总</a></li>
+    <li><a href="#cc-语言特性-汇总">C/C++ 语言特性 汇总</a></li>
+    <li><a href="#cc-精品库-汇总">C/C++ 精品库 汇总</a></li>
     <li><a href="#编程经验调试性能和内存检查工具集合">编程经验、调试、性能和内存检查工具集合</a></li>
+    <li><a href="#shell-脚本-汇总">Shell 脚本 汇总</a></li>
     <li><a href="#cc-数据结构与算法--设计模式">C/C++ 数据结构与算法 / 设计模式</a></li>
+    <li><a href="#语法的汇编参考">语法的汇编参考</a></li>
     <li><a href="#c-11--14--17--20-基础">C++ (11 / 14 / 17 / 20) 基础</a>
       <ul>
         <li><a href="#c-各版本优质参考">C++ 各版本优质参考</a></li>
@@ -129,6 +131,7 @@
         <li><a href="#lambda">lambda</a></li>
         <li><a href="#类型别名-using">类型别名 using</a></li>
         <li><a href="#类型推导-auto--decltype">类型推导 auto &amp; decltype</a></li>
+        <li><a href="#各种类型-id-获取-和-比较">各种类型 id 获取 和 比较</a></li>
         <li><a href="#枚举类-enum-class">枚举类 enum class</a></li>
         <li><a href="#编译期计算-constexpr">编译期计算 constexpr</a></li>
         <li><a href="#编译期检查-static_assert">编译期检查 static_assert</a></li>
@@ -156,7 +159,6 @@
         <li><a href="#构造--析构函数">构造 &amp; 析构函数</a></li>
         <li><a href="#类的构造和析构时刻">类的构造和析构时刻</a></li>
         <li><a href="#友元">友元</a></li>
-        <li><a href="#单例模式">单例模式</a></li>
         <li><a href="#初始化列表实现-stdinitializer_list">初始化列表实现 std::initializer_list</a></li>
         <li><a href="#各类型初始化写法">各类型初始化写法</a></li>
         <li><a href="#杂项">杂项</a></li>
@@ -202,24 +204,19 @@
 <p>欢迎在原文 <a href="https://github.com/Staok/Cpp-Learning" target="_blank" rel="noopener noreffer">github</a> / <a href="https://gitee.com/staok/Cpp-Learning" target="_blank" rel="noopener noreffer">gitee</a> 仓库 提 issue 指出错误，和 提 PR 来一同建设内容。</p>
 <p>本文的 Github 仓库地址 内文章会不断更新，而发在其它位置的不会跟进了，本文的 Gitee 仓库地址 访问更流畅。</p>
 <p><em>p.s 本文为个人对 C++ 学习的总结，本人习惯性把一块领域的内容用一篇大文章（万字为单位计）来汇聚（而非分了很多个小文章），说白了是主要用于个人总结和备查，而非做教程，因而会有个人对内容的挑选，而非照搬该领域的大部分内容（因此本文会遗漏一些过于基础的东西），以及使用的最佳实践，后二点，可以通过多看一些最佳实践的文章和工程来对自己进行提高（下面也会给出很多推荐看的链接）；本文会给出大量的参考链接，绝大多数都是漫长时间里面发现、挑选、整理出来的精品，也就是个人把本文当字典来用；因为非教程，而是面向有一定基础的人，而且一个文章的体量相比于大多数网络文章显得 &ldquo;过于巨大&rdquo;，看的人少也是应该的。</em></p>
-<p>尚有 一些 标记了 TODO 的地方 有待施工。没有三头六臂，很多资料 手头和脑里 都有 只是尚未没有整理出来。</p>
+<p><em>p.s 有的网络页面不让复制文本，没关系，有让网页内容变可复制的插件。自行搜索，这里只是提醒，因为这些小点的经验提醒、思路、渔最重要。</em></p>
 <blockquote>
 <p>虽抱文章，开口谁亲。且陶陶、乐尽天真。几时归去，作个闲人。对一张琴，一壶酒，一溪云。</p>
 </blockquote>
+<p>文章所在 Github 仓库 <a href="https://github.com/Staok/Cpp-Learning" target="_blank" rel="noopener noreffer">Staok/Cpp-Learning: C++11 / 14 / 17 语法大总结；C++ 最佳实践规则规范大总结；C++ 实用库大收集；C++ debug / 动态 &amp; 静态检查 技术 大整理。等等。</a> 会保持最新，其它地方的不会跟进。</p>
 <hr>
-<h2 id="cc-有迹可循--汇总">C/C++ 有迹可循 / 汇总</h2>
+<h2 id="cc-精品文-汇总">C/C++ 精品文 汇总</h2>
 <p>下面的教程会列举很多，选择合适自己的去看即可。</p>
 <p><strong>C 语言入门</strong></p>
 <ul>
 <li>菜鸟教程 <a href="https://www.runoob.com/cprogramming/c-tutorial.html" target="_blank" rel="noopener noreffer">C 语言教程 | 菜鸟教程 (runoob.com)</a>。</li>
 <li>C语言中文网 <a href="http://c.biancheng.net/sitemap/" target="_blank" rel="noopener noreffer">网站地图 (biancheng.net)</a>，个别小节需要 RMB。</li>
 <li>B站搜“C语言学习” <a href="https://search.bilibili.com/all?keyword=C%e8%af%ad%e8%a8%80%e5%ad%a6%e4%b9%a0" target="_blank" rel="noopener noreffer">C语言学习 _ 搜索结果_ 哔哩哔哩 _Bilibili</a>，随便一搜一大把，其它语言同理。</li>
-</ul>
-<p><strong>对于 C 语言特性的精品汇总</strong></p>
-<ul>
-<li>[Knowledge-Notes/2 - C语言笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](<a href="https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2">https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2</a> - C语言笔记)。</li>
-<li><a href="https://github.com/kuraxii/embedded/tree/master/01_C" target="_blank" rel="noopener noreffer">embedded/01_C at master · kuraxii/embedded (github.com)</a>。</li>
-<li><a href="https://github.com/lh233/C-knowledge" target="_blank" rel="noopener noreffer">lh233/C-knowledge: 关于C语言的基础知识 (github.com)</a>。</li>
 </ul>
 <p><strong>C 语言提高</strong></p>
 <ul>
@@ -284,38 +281,77 @@
 <li><del><a href="https://www.bilibili.com/video/BV15Y411j7JW" target="_blank" rel="noopener noreffer">这可能是史上最快学习C++的课程，期末考前复习冲刺的宝典_哔哩哔哩_bilibili</a>。</del></li>
 <li><del><a href="https://www.bilibili.com/video/BV1ta411k7Yn" target="_blank" rel="noopener noreffer">复习100分钟拿下100分，你能做得到吗？【C++】(面向对象程序设计)（总复习）_哔哩哔哩_bilibili</a>。</del></li>
 </ul>
-<p><strong>对于 C++ 语言特性的精品汇总</strong></p>
-<ul>
-<li>
-<p>[Knowledge-Notes/2 - C++笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](<a href="https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2">https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2</a> - C%2B%2B笔记)。</p>
-</li>
-<li>
-<p><a href="https://github.com/kuraxii/embedded/tree/master/02_CPP" target="_blank" rel="noopener noreffer">embedded/02_CPP at master · kuraxii/embedded (github.com)</a>。</p>
-</li>
-<li>
-<p><a href="https://github.com/SummerGift/EmbeddedSystem/tree/master/Language" target="_blank" rel="noopener noreffer">EmbeddedSystem/Language at master · SummerGift/EmbeddedSystem (github.com)</a>。</p>
-</li>
-<li>
-<p><a href="https://github.com/chengxumiaodaren/cpp-learning" target="_blank" rel="noopener noreffer">chengxumiaodaren/cpp-learning (github.com)</a>。</p>
-</li>
-<li>
-<p><a href="https://www.zhihu.com/question/474664436/answer/3612037757" target="_blank" rel="noopener noreffer">C++11/14/17/20/23新特性，哪些是必须掌握的，哪些基本用得不多？ - 知乎 (zhihu.com)</a>。</p>
-</li>
-</ul>
 <p><strong>C++ 精品仓库</strong></p>
 <p>下面这些 C++ 笔记 / 仓库可牛了（这些仓库大部已离线到 <code>C++学习相关Github仓库收集</code> 文件夹下！）</p>
 <ul>
-<li><a href="https://github.com/chengxumiaodaren/cpp-learning" target="_blank" rel="noopener noreffer">chengxumiaodaren/cpp-learning (github.com)</a>。好内容非常多。这个没有离线到本地。</li>
-<li><a href="https://gitee.com/andy-upp/linux-cpp-tutorial/tree/master" target="_blank" rel="noopener noreffer">linux-cpp-tutorial: 基于Linux的C++ 教程合集， 包括C++基础， C++服务器， C++专题 - Gitee.com</a>。</li>
-<li><a href="https://github.com/czs108/Cpp-Primer-5th-Notes-CN" target="_blank" rel="noopener noreffer">czs108/Cpp-Primer-5th-Notes-CN: 📚 《C++ Primer中文版（第5版）》笔记 (github.com)</a>。</li>
-<li><a href="https://github.com/demon90s/CppStudy" target="_blank" rel="noopener noreffer">demon90s/CppStudy: My study notes for c/cpp language (github.com)</a>。</li>
-<li><a href="https://github.com/Light-City/CPlusPlusThings" target="_blank" rel="noopener noreffer">Light-City/CPlusPlusThings: C++那些事 (github.com)</a>。</li>
-<li><a href="https://github.com/0voice/introduce_c-cpp_manual" target="_blank" rel="noopener noreffer">0voice/introduce_c-cpp_manual: 一个收集C/C++新手学习的入门项目，整理收纳开发者开源的小项目、工具、框架、游戏等，视频，书籍，面试题/算法题，技术文章。 (github.com)</a>。</li>
-<li><a href="https://github.com/0voice/cpp_new_features" target="_blank" rel="noopener noreffer">0voice/cpp_new_features: 2021年最新整理， C++ 学习资料，含C++ 11 / 14 / 17 / 20 / 23 新特性、入门教程、推荐书籍、优质文章、学习笔记、教学视频等 (github.com)</a>。</li>
-<li><a href="https://github.com/FunctionDou/STL" target="_blank" rel="noopener noreffer">FunctionDou/STL: STL源码分析 (github.com)</a>。</li>
-<li>推荐源码库可读 1：<a href="https://www.zhihu.com/question/21376384" target="_blank" rel="noopener noreffer">你读过的最好的 C++ 开源代码是什么？ - 知乎 (zhihu.com)</a>。</li>
-<li>推荐源码库可读 2：<a href="https://www.zhihu.com/question/21376384/answer/29689529" target="_blank" rel="noopener noreffer">你读过的最好的 C++ 开源代码是什么？ - 知乎 (zhihu.com)</a>。</li>
-<li>推荐源码库可读 3：<a href="https://github.com/chenshuo/muduo" target="_blank" rel="noopener noreffer">chenshuo/muduo: Event-driven network library for multi-threaded Linux server in C++11 (github.com)</a>。</li>
+<li>
+<p><a href="https://github.com/MattPD/cpplinks" target="_blank" rel="noopener noreffer">MattPD/cpplinks: A categorized list of C++ resources. (github.com)</a>。</p>
+<p><a href="https://github.com/MattPD/cpplinks/blob/master/std.md" target="_blank" rel="noopener noreffer">cpplinks/std.md at master · MattPD/cpplinks (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/chengxumiaodaren/cpp-learning" target="_blank" rel="noopener noreffer">chengxumiaodaren/cpp-learning (github.com)</a>。好内容非常多。这个没有离线到本地。</p>
+<p><a href="https://chengxumiaodaren.com/" target="_blank" rel="noopener noreffer">C++ 编程指南 | C++ 编程指南 (chengxumiaodaren.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://gitee.com/andy-upp/linux-cpp-tutorial/tree/master" target="_blank" rel="noopener noreffer">linux-cpp-tutorial: 基于Linux的C++ 教程合集， 包括C++基础， C++服务器， C++专题 - Gitee.com</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/czs108/Cpp-Primer-5th-Notes-CN" target="_blank" rel="noopener noreffer">czs108/Cpp-Primer-5th-Notes-CN: 📚 《C++ Primer中文版（第5版）》笔记 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/demon90s/CppStudy" target="_blank" rel="noopener noreffer">demon90s/CppStudy: My study notes for c/cpp language (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/Light-City/CPlusPlusThings" target="_blank" rel="noopener noreffer">Light-City/CPlusPlusThings: C++那些事 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/0voice/introduce_c-cpp_manual" target="_blank" rel="noopener noreffer">0voice/introduce_c-cpp_manual: 一个收集C/C++新手学习的入门项目，整理收纳开发者开源的小项目、工具、框架、游戏等，视频，书籍，面试题/算法题，技术文章。 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/0voice/cpp_new_features" target="_blank" rel="noopener noreffer">0voice/cpp_new_features: 2021年最新整理， C++ 学习资料，含C++ 11 / 14 / 17 / 20 / 23 新特性、入门教程、推荐书籍、优质文章、学习笔记、教学视频等 (github.com)</a>。好内容非常多。这个没有离线到本地。</p>
+</li>
+<li>
+<p><a href="https://github.com/FunctionDou/STL" target="_blank" rel="noopener noreffer">FunctionDou/STL: STL源码分析 (github.com)</a>。</p>
+</li>
+<li>
+<p>推荐源码库可读 1：<a href="https://www.zhihu.com/question/21376384" target="_blank" rel="noopener noreffer">你读过的最好的 C++ 开源代码是什么？ - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p>推荐源码库可读 2：<a href="https://www.zhihu.com/question/21376384/answer/29689529" target="_blank" rel="noopener noreffer">你读过的最好的 C++ 开源代码是什么？ - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p>推荐源码库可读 3：<a href="https://github.com/chenshuo/muduo" target="_blank" rel="noopener noreffer">chenshuo/muduo: Event-driven network library for multi-threaded Linux server in C++11 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/miloyip/json-tutorial" target="_blank" rel="noopener noreffer">miloyip/json-tutorial: 从零开始的 JSON 库教程 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/CnTransGroup/EffectiveModernCppChinese" target="_blank" rel="noopener noreffer">CnTransGroup/EffectiveModernCppChinese: 《Effective Modern C++》- 完成翻译 (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/balloonwj/CppGuide" target="_blank" rel="noopener noreffer">balloonwj/CppGuide: C/C++学习，后端开发进阶指南。 (github.com)</a>。</p>
+</li>
+</ul>
+<p><strong>C++ 精品杂文</strong></p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/qq_32348883/category_11547008.html" target="_blank" rel="noopener noreffer">C++_路过的小熊~的博客-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://www.runoob.com/cplusplus/cpp-examples.html" target="_blank" rel="noopener noreffer">C++ 实例 | 菜鸟教程 (runoob.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://www.zhihu.com/column/c_1662775871361613824" target="_blank" rel="noopener noreffer">C/C++ 编程技术 - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://www.zhihu.com/column/c_1697924273321160704" target="_blank" rel="noopener noreffer">C/C++ Linux 软件开发模拟面试 - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://www.zhihu.com/column/c_1697391693194809344" target="_blank" rel="noopener noreffer">Linux 开发 - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p>.etc</p>
+</li>
 </ul>
 <p><strong>C++ 参考 / 字典 / 特性快速索引</strong></p>
 <ul>
@@ -351,44 +387,70 @@
 <p>.etc</p>
 </li>
 </ul>
-<p><strong>C/C++ 标准原文</strong></p>
-<p>高阶的 直接拿 C/C++语言标准原文 做备查：</p>
+<h2 id="cc-语言特性-汇总">C/C++ 语言特性 汇总</h2>
+<p><strong>对于 C 语言特性的精品汇总</strong></p>
 <ul>
-<li>ISO IEC 9899 1999 (C99)。</li>
-<li>ISO IEC 14882 2003 (C++03)。</li>
-<li>ISO IEC 14882 2011 (C++11)。</li>
-<li>.etc</li>
+<li>
+<p>精 <a href="https://github.com/AnthonyCalandra/modern-c-features" target="_blank" rel="noopener noreffer">AnthonyCalandra/modern-c-features: A cheatsheet of modern C language and library features. (github.com)</a>。</p>
+</li>
+<li>
+<p>[Knowledge-Notes/2 - C语言笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](<a href="https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2">https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2</a> - C语言笔记)。</p>
+</li>
+<li>
+<p><a href="https://github.com/kuraxii/embedded/tree/master/01_C" target="_blank" rel="noopener noreffer">embedded/01_C at master · kuraxii/embedded (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/lh233/C-knowledge" target="_blank" rel="noopener noreffer">lh233/C-knowledge: 关于C语言的基础知识 (github.com)</a>。</p>
+</li>
 </ul>
-<p><strong>C++ 杂文</strong></p>
+<p><strong>对于 C++ 语言特性的精品汇总</strong></p>
 <ul>
-<li><a href="https://blog.csdn.net/qq_32348883/category_11547008.html" target="_blank" rel="noopener noreffer">C++_路过的小熊~的博客-CSDN博客</a>。</li>
-<li><a href="https://www.runoob.com/cplusplus/cpp-examples.html" target="_blank" rel="noopener noreffer">C++ 实例 | 菜鸟教程 (runoob.com)</a>。</li>
-<li>.etc</li>
+<li>
+<p>精 <a href="https://github.com/AnthonyCalandra/modern-cpp-features" target="_blank" rel="noopener noreffer">AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ language and library features. (github.com)</a>。</p>
+<p>TODO 把modern-cpp-features这个仓库和自己c++仓库对比一遍，保证都在了，并引用一些例子，这个仓库也着重在前面引用下。</p>
+</li>
+<li>
+<p>精 <a href="https://chengxumiaodaren.com/" target="_blank" rel="noopener noreffer">C++ 编程指南 | C++ 编程指南 (chengxumiaodaren.com)</a>。</p>
+<p><a href="https://github.com/chengxumiaodaren/cpp-learning" target="_blank" rel="noopener noreffer">chengxumiaodaren/cpp-learning (github.com)</a>。<a href="https://lb3fn675fh.feishu.cn/docx/VUjdd8uCdoufThxHEOzcQQaonCh" target="_blank" rel="noopener noreffer">CPP学习资料汇总 - 飞书云文档 (feishu.cn)</a>。</p>
+<p><a href="https://chengxumiaodaren.com/docs/cpp-new-feature/" target="_blank" rel="noopener noreffer">C++ 新特性 | C++ 编程指南 (chengxumiaodaren.com)</a>。</p>
+<p><a href="https://www.zhihu.com/question/474664436/answer/3612037757" target="_blank" rel="noopener noreffer">C++11/14/17/20/23新特性，哪些是必须掌握的，哪些基本用得不多？ - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p>精 <a href="https://github.com/federico-busato/Modern-CPP-Programming" target="_blank" rel="noopener noreffer">federico-busato/Modern-CPP-Programming: Modern C++ Programming Course (C++03/11/14/17/20/23/26) (github.com)</a>。</p>
+</li>
+<li>
+<p>[Knowledge-Notes/2 - C++笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](<a href="https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2">https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2</a> - C%2B%2B笔记)。</p>
+</li>
+<li>
+<p><a href="https://github.com/kuraxii/embedded/tree/master/02_CPP" target="_blank" rel="noopener noreffer">embedded/02_CPP at master · kuraxii/embedded (github.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/SummerGift/EmbeddedSystem/tree/master/Language" target="_blank" rel="noopener noreffer">EmbeddedSystem/Language at master · SummerGift/EmbeddedSystem (github.com)</a>。</p>
+</li>
 </ul>
-<h2 id="cc-精品库">C/C++ 精品库</h2>
+<h2 id="cc-精品库-汇总">C/C++ 精品库 汇总</h2>
 <p>看到的小巧精良的小型 c/cpp 库/项目列举。</p>
 <p>C 精品仓库</p>
-<ul>
-<li><a href="https://github.com/jobbole/awesome-c-cn" target="_blank" rel="noopener noreffer">jobbole/awesome-c-cn: C 资源大全中文版，包括了：构建系统、编译器、数据库、加密、初中高的教程/指南、书籍、库等。 (github.com)</a>。</li>
-</ul>
+<p><a href="https://github.com/jobbole/awesome-c-cn" target="_blank" rel="noopener noreffer">jobbole/awesome-c-cn: C 资源大全中文版，包括了：构建系统、编译器、数据库、加密、初中高的教程/指南、书籍、库等。 (github.com)</a>。</p>
 <p>C++ 精品仓库</p>
-<ul>
-<li>同目录的 <code>C-C++实用库备查.md</code> 文章</li>
-<li><a href="https://github.com/stars/Staok/lists/%e5%ae%9e%e7%94%a8%e5%ba%93-ee-cs" target="_blank" rel="noopener noreffer">Your list / 实用库 / EE-CS (github.com)</a>。</li>
-</ul>
-<h2 id="编程提高杂文">编程提高杂文</h2>
-<ul>
-<li><a href="https://www.zhihu.com/column/c_1662775871361613824" target="_blank" rel="noopener noreffer">C/C++ 编程技术 - 知乎 (zhihu.com)</a>。</li>
-<li><a href="https://www.zhihu.com/column/c_1697924273321160704" target="_blank" rel="noopener noreffer">C/C++ Linux 软件开发模拟面试 - 知乎 (zhihu.com)</a>。</li>
-<li><a href="https://www.zhihu.com/column/c_1697391693194809344" target="_blank" rel="noopener noreffer">Linux 开发 - 知乎 (zhihu.com)</a>。</li>
-</ul>
+<p><a href="https://github.com/stars/Staok/lists/%e5%ae%9e%e7%94%a8%e5%ba%93-ee-cs" target="_blank" rel="noopener noreffer">Your list / 实用库 / EE-CS (github.com)</a>。</p>
+<p>以及 见同目录的 <code>C-C++实用库备查.md</code> 文章。</p>
 <h2 id="编程经验调试性能和内存检查工具集合">编程经验、调试、性能和内存检查工具集合</h2>
 <p>见同目录的 <code>编程经验、调试、性能和内存检查工具集合</code> 文章。</p>
+<h2 id="shell-脚本-汇总">Shell 脚本 汇总</h2>
+<ul>
+<li><a href="https://github.com/fengyuhetao/shell" target="_blank" rel="noopener noreffer">fengyuhetao/shell: Linux命令行与shell脚本编程大全案例 (github.com)</a>。</li>
+</ul>
 <h2 id="cc-数据结构与算法--设计模式">C/C++ 数据结构与算法 / 设计模式</h2>
 <p>学习一些设计模式和实践经验，写更健壮和好维护的程序。</p>
 <p>总结整理仓库：</p>
 <p>C-C++-数据结构与算法简述 <a href="https://github.com/Staok/C-Cpp-data-struct-algo" target="_blank" rel="noopener noreffer">Staok/C-Cpp-data-struct-algo: C-C++-数据结构与算法相关优秀资料集子 (github.com)</a>。</p>
 <p>C-C++-设计模式综合 <a href="https://github.com/Staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer">Staok/C-Cpp-design-patterns: C/C++设计模式相关优秀资料集子 (github.com)</a>。</p>
+<h2 id="语法的汇编参考">语法的汇编参考</h2>
+<p><a href="https://godbolt.org/" target="_blank" rel="noopener noreffer">Compiler Explorer (godbolt.org)</a>。</p>
+<p>可以写程序查看汇编，比较不同写法、语法具体编译成汇编是什么，不同写法有何区别，比较不同编译器的汇编代码。</p>
+<p>可以选各种版本的编译器。</p>
+<p>这个网站可以说是深入学习 C/C++必备的网站了。</p>
 <h2 id="c-11--14--17--20-基础">C++ (11 / 14 / 17 / 20) 基础</h2>
 <p>主要围绕 C++ 11 / 14 / 17 / 20 以及以上 的 各版本特性 展开</p>
 <p>下面各小节的顺序没有处理。</p>
@@ -1654,7 +1716,74 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 </div>
 </div><p>引自 <a href="https://zhuanlan.zhihu.com/p/165389083" target="_blank" rel="noopener noreffer">C++14新特性的所有知识点全在这儿啦！ - 知乎 (zhihu.com)</a>。</p>
 </blockquote>
-<h3 id="枚举类-enum-class">枚举类 enum class</h3>
+<h3 id="各种类型-id-获取-和-比较">各种类型 id 获取 和 比较</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">checkTypeFun</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -1- %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">());</span> <span class="c1">// int is &#34;i&#34;, double is &#34;d&#34;, std::string is&#34;NSt7_cxx1112basic_..&#34;(based on compiler lib)
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -2- %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">).</span><span class="n">name</span><span class="p">());</span> <span class="c1">// for int is &#34;St5decayIiE&#34;, double is &#34;St5decayIdE&#34;, std::string is&#34;St5decayINSt7__cxx1112basic_...&#34;
+</span><span class="c1"></span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -3- %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">).</span><span class="n">name</span><span class="p">());</span> <span class="c1">// &#34;typename std::decay&lt;T&gt;::type&#34; same as &#34;T&#34;, thta same as &#34;-1-&#34;
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -4- %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">).</span><span class="n">name</span><span class="p">());</span> <span class="c1">// same as above
+</span><span class="c1"></span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -5- %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="k">decltype</span><span class="p">(</span><span class="n">p</span><span class="p">)).</span><span class="n">name</span><span class="p">());</span> <span class="c1">// same as above
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -6- %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">&gt;</span><span class="p">).</span><span class="n">name</span><span class="p">());</span> <span class="c1">// for int is &#34;St5decayIRKiE&#34;, double is &#34;St5decayIRKdE&#34;, std::string is&#34;St5decayIRKNSt7__cxx1112basic_...&#34;
+</span><span class="c1"></span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -1 int- %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span> <span class="c1">// for int is true
+</span><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -2 int- %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span> <span class="c1">// for int is false, the &#34;std::decay&lt;T&gt;&#34; is &#34;St5decayIiE&#34;
+</span><span class="c1"></span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -1 double-%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -2 double- %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -1 std::string- %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; -2 std::string- %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34; - </span><span class="se">\n\n</span><span class="s">&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 调用
+</span><span class="c1"></span><span class="n">checkTypeFun</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">checkTypeFun</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="n">checkTypeFun</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">));</span>
+
+<span class="c1">// 结果如 上面函数中的注释
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="枚举类-enum-class">枚举类 enum class</h3>
 <p>枚举类 为 带有作用域的枚举类型，可在 C++ 环境中 完全替代 enum，使用类似 命名空间的方式用 各个枚举变量，防止原来 enum 的 全局重名 和 不同 enum 类型的变量可互相直接赋值 等问题。</p>
 <blockquote>
 <div class="highlight"><div class="chroma">
@@ -2509,10 +2638,10 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 <blockquote>
 <p>触发编译器的返回值优化，同时满足如下：</p>
 <ol>
-<li>return的值类型与函数的返回值类型相同</li>
-<li>return的是一个局部对象</li>
+<li>return 的值类型与函数的返回值类型相同</li>
+<li>return 的是一个局部对象</li>
 </ol>
-<p>下面这段代码会触发RVO，不拷贝也不移动，不生成临时对象：</p>
+<p>下面这段代码会触发 RVO，不拷贝也不移动，不生成临时对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -4070,81 +4199,6 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="单例模式">单例模式</h3>
-<p>即类的对象只有一个的情况，补充参考视频 <a href="https://www.bilibili.com/video/BV1Gz4y1d7RJ/" target="_blank" rel="noopener noreffer">shellmad-c++_44 单例模式的原理及实现_哔哩哔哩_bilibili</a>。</p>
-<p>一个简单例子：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">ClassASolo</span> <span class="p">{</span> <span class="c1">// 这个类目的是只有全局一个实例，只能用 &#34;ClassASolo::inst()&#34; 来访问
-</span><span class="c1"></span><span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">ClassASolo</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="o">~</span><span class="n">ClassASolo</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-
-    <span class="k">static</span> <span class="n">ClassASolo</span><span class="o">*</span> <span class="nf">inst</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 关键方法
-</span><span class="c1"></span>        <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">mMutex</span><span class="p">);</span> <span class="c1">// 防止多个线程都第一次调用从而创建多次
-</span><span class="c1"></span>        <span class="k">static</span> <span class="n">ClassASolo</span> <span class="n">inst</span><span class="p">;</span>
-        <span class="k">return</span> <span class="o">&amp;</span><span class="n">inst</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kt">int32_t</span> <span class="nf">setVar</span><span class="p">(</span><span class="k">const</span> <span class="kt">int32_t</span><span class="o">&amp;</span> <span class="n">_var</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">mVar</span> <span class="o">!=</span> <span class="n">_var</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">mVar</span> <span class="o">=</span> <span class="n">_var</span><span class="p">;</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">EIO</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="kt">int32_t</span> <span class="nf">getVar</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">mVar</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="k">private</span><span class="o">:</span>
-    <span class="kt">int32_t</span> <span class="n">mVar</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">mMutex</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">ClassASolo</span><span class="o">::</span><span class="n">inst</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setVar</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="kt">int32_t</span> <span class="n">var</span> <span class="o">=</span> <span class="n">ClassASolo</span><span class="o">::</span><span class="n">inst</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getVar</span><span class="p">();</span>
-    <span class="p">...</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
 </div><h3 id="初始化列表实现-stdinitializer_list">初始化列表实现 std::initializer_list</h3>
 <p>不同于 <code>类构造函数的初始化列表</code>，那个也有叫 <code>委托构造函数</code>，这里是 自写类实现 <code>= { ..., ...}</code> 形式的初始化。</p>
 <p>参考</p>
@@ -4803,10 +4857,20 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 </div><p>更多的多态的基础例子，还可以参考这个链接里面 <code>多态</code> 一节：<a href="https://mp.weixin.qq.com/s?__biz=MzkyODU5MTYxMA==&amp;mid=2247493075&amp;idx=1&amp;sn=fcabde545f1863d5a1a2095696308b5b&amp;source=41#wechat_redirect" target="_blank" rel="noopener noreffer">这些知识点你都知道吗，测试你的C++入门程度 (qq.com)</a>。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/621299561" target="_blank" rel="noopener noreffer">(05)重学C++：多态 - 知乎 (zhihu.com)</a>。</p>
 <h2 id="运算符重载">运算符重载</h2>
-<p>或叫 重载运算符。</p>
+<ul>
+<li>
 <p>参考 <a href="https://www.runoob.com/cplusplus/cpp-overloading.html" target="_blank" rel="noopener noreffer">C++ 重载运算符和重载函数 | 菜鸟教程 (runoob.com)</a>、<a href="http://c.biancheng.net/view/2206.html" target="_blank" rel="noopener noreffer">C++函数重载详解 (biancheng.net)</a>、<a href="http://c.biancheng.net/view/2306.html" target="_blank" rel="noopener noreffer">C++运算符重载基础教程 (biancheng.net)</a>。</p>
+</li>
+<li>
 <p>参考视频：<a href="https://www.bilibili.com/video/BV13A411q7bE/" target="_blank" rel="noopener noreffer">shellmad-c++_51 运算符重载_哔哩哔哩_bilibili</a>，<a href="https://www.bilibili.com/video/BV1kC4y1H7G7/" target="_blank" rel="noopener noreffer">shellmad-c++_52 cin&amp;cout的奥秘_哔哩哔哩_bilibili</a>，<a href="https://www.bilibili.com/video/BV1eC4y1H7uC/?vd_source=c633af9518bed5572b1614612e2be3df" target="_blank" rel="noopener noreffer">shellmad-c++_53 自己动手编写字符串类_哔哩哔哩_bilibili</a>，<a href="https://www.bilibili.com/video/BV15z411B7W8/" target="_blank" rel="noopener noreffer">shellmad-c++_54 转换运算符_哔哩哔哩_bilibili</a>。</p>
+</li>
+<li>
 <p><a href="https://blog.csdn.net/ITJAVAtao/article/details/120922956" target="_blank" rel="noopener noreffer">C++类和对象(4):运算符重载——=、==、()函数调用运算符_重载操作符=和()-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://download.csdn.net/blog/column/12435130/135169738" target="_blank" rel="noopener noreffer">C++基础-运算符重载详解_C++语言-CSDN专栏</a>。</p>
+</li>
+</ul>
 <p>TODO: 这里还需要补充例子</p>
 <h2 id="模板--泛型">模板 / 泛型</h2>
 <p>模板是泛型编程的基础。C++ 用 模板 来支持 泛型编程，即 一种 类 或 函数 支持多种数据类型，关注算法实现。</p>
@@ -4979,6 +5043,7 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 <h2 id="多线程编程基础">多线程编程基础</h2>
 <p>参考 和 引用：</p>
 <ul>
+<li><a href="https://chengxumiaodaren.com/docs/concurrent/" target="_blank" rel="noopener noreffer">C++ 并发编程实战 | C++ 编程指南 (chengxumiaodaren.com)</a>。</li>
 <li><a href="https://zh.cppreference.com/w/cpp/thread" target="_blank" rel="noopener noreffer">并发支持库 (C++11 起) - cppreference.com</a>。</li>
 <li>很清楚的总结 <a href="https://www.zhihu.com/question/547132461/answer/2657296340" target="_blank" rel="noopener noreffer">C++ 中，std::async 可以完全替代 std::thread 来开启异步的多线程操作吗？ - 知乎 (zhihu.com)</a>。</li>
 <li><a href="https://blog.csdn.net/qq_42815188/article/details/102505884" target="_blank" rel="noopener noreffer">【C++11多线程】异步任务：async、packaged_task、promise_c++ async-CSDN博客</a>。</li>
@@ -5133,7 +5198,9 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 <li>
 <p>条件变量：condition_variable，参考 <a href="https://zh.cppreference.com/w/cpp/thread/condition_variable" target="_blank" rel="noopener noreffer">std::condition_variable - cppreference.com</a>。</p>
 <p>看例子即可，使用与 ptherad 中的都比较类似。</p>
-<p>其中 wait(m, pred) 的 pred 可以认为是其它线程发送的条件变量到底是不是给我听的（返回 false 指示不是给自己的，反之则是），参考 <a href="https://zh.cppreference.com/w/cpp/thread/condition_variable/wait" target="_blank" rel="noopener noreffer">std::condition_variable::wait - cppreference.com</a>。</p>
+<p>当 <code>notify_one()</code> 或者 <code>notify_all()</code> 被调用时，等待的线程会被标记为&quot;可唤醒&quot;，在加锁或不加锁的环境下都可以调用。</p>
+<p>阻塞端，加锁后，调用 <code>wait(m, pred)</code>，其实的 pred 为检查条件，调用 wait() 的时候会运行一次检查，之后接收到 &ldquo;notify&rdquo; 后会再执行一次检查，返回 true 为取消 这里 wait 的 阻塞 而继续往下执行。</p>
+<p>参考 <a href="https://zh.cppreference.com/w/cpp/thread/condition_variable/wait" target="_blank" rel="noopener noreffer">std::condition_variable::wait - cppreference.com</a>。</p>
 </li>
 <li>
 <p>atomic，可用时现查。</p>
@@ -5645,15 +5712,12 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 </div></blockquote>
 <h2 id="现代高性能并发编程">现代高性能并发编程</h2>
 <ul>
-<li><a href="https://github.com/parallel101/course" target="_blank" rel="noopener noreffer">parallel101/course: 高性能并行编程与优化 - 课件 (github.com)</a>。</li>
+<li><a href="https://github.com/parallel101/course" target="_blank" rel="noopener noreffer">parallel101/course: 高性能并行编程与优化 - 课件 (github.com)</a>。<a href="https://space.bilibili.com/263032155/lists/53025?type=season" target="_blank" rel="noopener noreffer">合集·高性能并行编程与优化 - 录播-哔哩哔哩视频 (bilibili.com)</a>。</li>
 <li>更多可参考 <code>C-C++实用库备查</code> 里面的线程池等相关的 github 实现。</li>
 <li>更多可参考 <code>C-C++实用库备查</code> 里面的 高并发 处理库，会用，善用。</li>
 <li><a href="https://zhuanlan.zhihu.com/p/464207968" target="_blank" rel="noopener noreffer">深入理解C11/C++11内存模型(白嫖新知识~) - 知乎 (zhihu.com)</a>。</li>
 </ul>
-<p>TODO 有待补充</p>
-<p>event</p>
-<p>epoll</p>
-<p>一些 并发库，从 <code>C-C++实用库备查</code> 里面拿出来，写几个用例。</p>
+<p>一些 并发库、事件库，可见 <code>C-C++实用库备查</code> 里面。</p>
 <h2 id="c-标准库--stl">C++ 标准库 / STL</h2>
 <p>参考 菜鸟教程、C 语言中文网等。这里只是罗列库函数，解决“都有什么”的问题，每一个 API 的具体用法需要用时现查。</p>
 <p>很多可以用时现查，或者问 AI 工具，但是，知道 <strong>都有什么</strong> 很重要。</p>
@@ -6065,7 +6129,7 @@ __func__、__LINE__、__FILE__、__DATE__、__TIME__
 </article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2025</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
         </div>
     </footer></div>
 

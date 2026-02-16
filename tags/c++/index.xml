@@ -10,14 +10,14 @@
     <pubDate>Sun, 22 Dec 2024 16:07:06 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</guid>
-    <description><![CDATA[编程经验、调试、性能和内存检查工具集合 程序调试、在检测工具手段上对程序评估和优化 的 综合。 尚有 一些 标记了 TODO 的地方 有待施工。没有三头六臂，很多资]]></description>
+    <description><![CDATA[编程经验 / 规范, 调试、性能和内存检查工具集合 程序调试、在检测工具手段上对程序评估和优化 的 综合。 分为很多块内容且相互独立，直接到对应小节。 p.s 有]]></description>
 </item><item>
     <title>C / C&#43;&#43; 实用库备查</title>
     <link>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</link>
     <pubDate>Sun, 15 Sep 2024 16:07:06 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</guid>
-    <description><![CDATA[C / C++实用库备查 网络参考源： Your list / 实用库 / EE-CS (github.com)。 你工作中最推荐的 C/C++ 程序库有哪些，为什么？ - 知乎 (zhihu.com]]></description>
+    <description><![CDATA[C / C++ 实用库备查 网络参考源： Your list / 实用库 / EE-CS (github.com)。 你工作中最推荐的 C/C++ 程序库有哪些，为什么？ - 知乎 (zhihu.com)。]]></description>
 </item><item>
     <title>C&#43;&#43; 学习总结备查</title>
     <link>https://staok.github.io/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>

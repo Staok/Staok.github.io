@@ -11,9 +11,7 @@
 
 *p.s 本文为个人对 C++ 学习的总结，本人习惯性把一块领域的内容用一篇大文章（万字为单位计）来汇聚（而非分了很多个小文章），说白了是主要用于个人总结和备查，而非做教程，因而会有个人对内容的挑选，而非照搬该领域的大部分内容（因此本文会遗漏一些过于基础的东西），以及使用的最佳实践，后二点，可以通过多看一些最佳实践的文章和工程来对自己进行提高（下面也会给出很多推荐看的链接）；本文会给出大量的参考链接，绝大多数都是漫长时间里面发现、挑选、整理出来的精品，也就是个人把本文当字典来用；因为非教程，而是面向有一定基础的人，而且一个文章的体量相比于大多数网络文章显得 "过于巨大"，看的人少也是应该的。*
 
-
-
-尚有 一些 标记了 TODO 的地方 有待施工。没有三头六臂，很多资料 手头和脑里 都有 只是尚未没有整理出来。
+*p.s 有的网络页面不让复制文本，没关系，有让网页内容变可复制的插件。自行搜索，这里只是提醒，因为这些小点的经验提醒、思路、渔最重要。*
 
 
 
@@ -21,9 +19,13 @@
 
 
 
+文章所在 Github 仓库 [Staok/Cpp-Learning: C++11 / 14 / 17 语法大总结；C++ 最佳实践规则规范大总结；C++ 实用库大收集；C++ debug / 动态 & 静态检查 技术 大整理。等等。](https://github.com/Staok/Cpp-Learning) 会保持最新，其它地方的不会跟进。
+
+
+
 ------
 
-## C/C++ 有迹可循 / 汇总
+## C/C++ 精品文 汇总
 
 下面的教程会列举很多，选择合适自己的去看即可。
 
@@ -32,12 +34,6 @@
 - 菜鸟教程 [C 语言教程 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cprogramming/c-tutorial.html)。
 - C语言中文网 [网站地图 (biancheng.net)](http://c.biancheng.net/sitemap/)，个别小节需要 RMB。
 - B站搜“C语言学习” [C语言学习 _ 搜索结果_ 哔哩哔哩 _Bilibili](https://search.bilibili.com/all?keyword=C语言学习)，随便一搜一大把，其它语言同理。
-
-**对于 C 语言特性的精品汇总**
-
-- [Knowledge-Notes/2 - C语言笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2 - C语言笔记)。
-- [embedded/01_C at master · kuraxii/embedded (github.com)](https://github.com/kuraxii/embedded/tree/master/01_C)。
-- [lh233/C-knowledge: 关于C语言的基础知识 (github.com)](https://github.com/lh233/C-knowledge)。
 
 **C 语言提高**
 
@@ -91,32 +87,58 @@
 - ~~[这可能是史上最快学习C++的课程，期末考前复习冲刺的宝典_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV15Y411j7JW)。~~
 - ~~[复习100分钟拿下100分，你能做得到吗？【C++】(面向对象程序设计)（总复习）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1ta411k7Yn)。~~
 
-**对于 C++ 语言特性的精品汇总**
-
-- [Knowledge-Notes/2 - C++笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2 - C%2B%2B笔记)。
-- [embedded/02_CPP at master · kuraxii/embedded (github.com)](https://github.com/kuraxii/embedded/tree/master/02_CPP)。
-- [EmbeddedSystem/Language at master · SummerGift/EmbeddedSystem (github.com)](https://github.com/SummerGift/EmbeddedSystem/tree/master/Language)。
-
-
-
-- [chengxumiaodaren/cpp-learning (github.com)](https://github.com/chengxumiaodaren/cpp-learning)。
-- [C++11/14/17/20/23新特性，哪些是必须掌握的，哪些基本用得不多？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/474664436/answer/3612037757)。
-
 **C++ 精品仓库**
 
 下面这些 C++ 笔记 / 仓库可牛了（这些仓库大部已离线到 `C++学习相关Github仓库收集` 文件夹下！）
 
+- [MattPD/cpplinks: A categorized list of C++ resources. (github.com)](https://github.com/MattPD/cpplinks)。
+
+  [cpplinks/std.md at master · MattPD/cpplinks (github.com)](https://github.com/MattPD/cpplinks/blob/master/std.md)。
+
 - [chengxumiaodaren/cpp-learning (github.com)](https://github.com/chengxumiaodaren/cpp-learning)。好内容非常多。这个没有离线到本地。
+
+  [C++ 编程指南 | C++ 编程指南 (chengxumiaodaren.com)](https://chengxumiaodaren.com/)。
+
 - [linux-cpp-tutorial: 基于Linux的C++ 教程合集， 包括C++基础， C++服务器， C++专题 - Gitee.com](https://gitee.com/andy-upp/linux-cpp-tutorial/tree/master)。
+
 - [czs108/Cpp-Primer-5th-Notes-CN: 📚 《C++ Primer中文版（第5版）》笔记 (github.com)](https://github.com/czs108/Cpp-Primer-5th-Notes-CN)。
+
 - [demon90s/CppStudy: My study notes for c/cpp language (github.com)](https://github.com/demon90s/CppStudy)。
+
 - [Light-City/CPlusPlusThings: C++那些事 (github.com)](https://github.com/Light-City/CPlusPlusThings)。
+
+
+
 - [0voice/introduce_c-cpp_manual: 一个收集C/C++新手学习的入门项目，整理收纳开发者开源的小项目、工具、框架、游戏等，视频，书籍，面试题/算法题，技术文章。 (github.com)](https://github.com/0voice/introduce_c-cpp_manual)。
-- [0voice/cpp_new_features: 2021年最新整理， C++ 学习资料，含C++ 11 / 14 / 17 / 20 / 23 新特性、入门教程、推荐书籍、优质文章、学习笔记、教学视频等 (github.com)](https://github.com/0voice/cpp_new_features)。
+- [0voice/cpp_new_features: 2021年最新整理， C++ 学习资料，含C++ 11 / 14 / 17 / 20 / 23 新特性、入门教程、推荐书籍、优质文章、学习笔记、教学视频等 (github.com)](https://github.com/0voice/cpp_new_features)。好内容非常多。这个没有离线到本地。
+
+
+
 - [FunctionDou/STL: STL源码分析 (github.com)](https://github.com/FunctionDou/STL)。
 - 推荐源码库可读 1：[你读过的最好的 C++ 开源代码是什么？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/21376384)。
 - 推荐源码库可读 2：[你读过的最好的 C++ 开源代码是什么？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/21376384/answer/29689529)。
 - 推荐源码库可读 3：[chenshuo/muduo: Event-driven network library for multi-threaded Linux server in C++11 (github.com)](https://github.com/chenshuo/muduo)。
+- [miloyip/json-tutorial: 从零开始的 JSON 库教程 (github.com)](https://github.com/miloyip/json-tutorial)。
+
+
+
+- [CnTransGroup/EffectiveModernCppChinese: 《Effective Modern C++》- 完成翻译 (github.com)](https://github.com/CnTransGroup/EffectiveModernCppChinese)。
+- [balloonwj/CppGuide: C/C++学习，后端开发进阶指南。 (github.com)](https://github.com/balloonwj/CppGuide)。
+
+**C++ 精品杂文**
+
+- [C++_路过的小熊~的博客-CSDN博客](https://blog.csdn.net/qq_32348883/category_11547008.html)。
+- [C++ 实例 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cplusplus/cpp-examples.html)。
+
+
+
+- [C/C++ 编程技术 - 知乎 (zhihu.com)](https://www.zhihu.com/column/c_1662775871361613824)。
+- [C/C++ Linux 软件开发模拟面试 - 知乎 (zhihu.com)](https://www.zhihu.com/column/c_1697924273321160704)。
+- [Linux 开发 - 知乎 (zhihu.com)](https://www.zhihu.com/column/c_1697391693194809344)。
+
+
+
+- .etc
 
 **C++ 参考 / 字典 / 特性快速索引**
 
@@ -147,22 +169,51 @@
 
 - .etc
 
-**C/C++ 标准原文**
 
-高阶的 直接拿 C/C++语言标准原文 做备查：
 
-- ISO IEC 9899 1999 (C99)。
-- ISO IEC 14882 2003 (C++03)。
-- ISO IEC 14882 2011 (C++11)。
-- .etc
+## C/C++ 语言特性 汇总
 
-**C++ 杂文**
 
-- [C++_路过的小熊~的博客-CSDN博客](https://blog.csdn.net/qq_32348883/category_11547008.html)。
-- [C++ 实例 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cplusplus/cpp-examples.html)。
-- .etc
 
-## C/C++ 精品库
+**对于 C 语言特性的精品汇总**
+
+- 精 [AnthonyCalandra/modern-c-features: A cheatsheet of modern C language and library features. (github.com)](https://github.com/AnthonyCalandra/modern-c-features)。
+
+
+
+- [Knowledge-Notes/2 - C语言笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2 - C语言笔记)。
+- [embedded/01_C at master · kuraxii/embedded (github.com)](https://github.com/kuraxii/embedded/tree/master/01_C)。
+- [lh233/C-knowledge: 关于C语言的基础知识 (github.com)](https://github.com/lh233/C-knowledge)。
+
+
+
+**对于 C++ 语言特性的精品汇总**
+
+- 精 [AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ language and library features. (github.com)](https://github.com/AnthonyCalandra/modern-cpp-features)。
+
+  TODO 把modern-cpp-features这个仓库和自己c++仓库对比一遍，保证都在了，并引用一些例子，这个仓库也着重在前面引用下。
+
+- 精 [C++ 编程指南 | C++ 编程指南 (chengxumiaodaren.com)](https://chengxumiaodaren.com/)。
+
+  [chengxumiaodaren/cpp-learning (github.com)](https://github.com/chengxumiaodaren/cpp-learning)。[CPP学习资料汇总 - 飞书云文档 (feishu.cn)](https://lb3fn675fh.feishu.cn/docx/VUjdd8uCdoufThxHEOzcQQaonCh)。
+
+  [C++ 新特性 | C++ 编程指南 (chengxumiaodaren.com)](https://chengxumiaodaren.com/docs/cpp-new-feature/)。
+
+  [C++11/14/17/20/23新特性，哪些是必须掌握的，哪些基本用得不多？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/474664436/answer/3612037757)。
+
+
+
+- 精 [federico-busato/Modern-CPP-Programming: Modern C++ Programming Course (C++03/11/14/17/20/23/26) (github.com)](https://github.com/federico-busato/Modern-CPP-Programming)。
+
+
+
+- [Knowledge-Notes/2 - C++笔记 at master · wuxiaolie/Knowledge-Notes (github.com)](https://github.com/wuxiaolie/Knowledge-Notes/tree/master/2 - C%2B%2B笔记)。
+- [embedded/02_CPP at master · kuraxii/embedded (github.com)](https://github.com/kuraxii/embedded/tree/master/02_CPP)。
+- [EmbeddedSystem/Language at master · SummerGift/EmbeddedSystem (github.com)](https://github.com/SummerGift/EmbeddedSystem/tree/master/Language)。
+
+
+
+## C/C++ 精品库 汇总
 
 看到的小巧精良的小型 c/cpp 库/项目列举。
 
@@ -170,28 +221,29 @@
 
 C 精品仓库
 
-- [jobbole/awesome-c-cn: C 资源大全中文版，包括了：构建系统、编译器、数据库、加密、初中高的教程/指南、书籍、库等。 (github.com)](https://github.com/jobbole/awesome-c-cn)。
+[jobbole/awesome-c-cn: C 资源大全中文版，包括了：构建系统、编译器、数据库、加密、初中高的教程/指南、书籍、库等。 (github.com)](https://github.com/jobbole/awesome-c-cn)。
 
 
 
 C++ 精品仓库
 
-- 同目录的 `C-C++实用库备查.md` 文章
-- [Your list / 实用库 / EE-CS (github.com)](https://github.com/stars/Staok/lists/实用库-ee-cs)。
+[Your list / 实用库 / EE-CS (github.com)](https://github.com/stars/Staok/lists/实用库-ee-cs)。
 
 
 
-## 编程提高杂文
-
-- [C/C++ 编程技术 - 知乎 (zhihu.com)](https://www.zhihu.com/column/c_1662775871361613824)。
-- [C/C++ Linux 软件开发模拟面试 - 知乎 (zhihu.com)](https://www.zhihu.com/column/c_1697924273321160704)。
-- [Linux 开发 - 知乎 (zhihu.com)](https://www.zhihu.com/column/c_1697391693194809344)。
+以及 见同目录的 `C-C++实用库备查.md` 文章。
 
 
 
 ## 编程经验、调试、性能和内存检查工具集合
 
 见同目录的 `编程经验、调试、性能和内存检查工具集合` 文章。
+
+
+
+## Shell 脚本 汇总
+
+- [fengyuhetao/shell: Linux命令行与shell脚本编程大全案例 (github.com)](https://github.com/fengyuhetao/shell)。
 
 
 
@@ -204,6 +256,20 @@ C++ 精品仓库
 C-C++-数据结构与算法简述 [Staok/C-Cpp-data-struct-algo: C-C++-数据结构与算法相关优秀资料集子 (github.com)](https://github.com/Staok/C-Cpp-data-struct-algo)。
 
 C-C++-设计模式综合 [Staok/C-Cpp-design-patterns: C/C++设计模式相关优秀资料集子 (github.com)](https://github.com/Staok/C-Cpp-design-patterns)。
+
+
+
+## 语法的汇编参考
+
+
+
+[Compiler Explorer (godbolt.org)](https://godbolt.org/)。
+
+可以写程序查看汇编，比较不同写法、语法具体编译成汇编是什么，不同写法有何区别，比较不同编译器的汇编代码。
+
+可以选各种版本的编译器。
+
+这个网站可以说是深入学习 C/C++必备的网站了。
 
 
 
@@ -1184,6 +1250,45 @@ C++14， auto 可用于 函数返回值 类型推导，模板函数返回值 类
 
 
 
+### 各种类型 id 获取 和 比较
+
+
+
+```c++
+template<typename T>
+void checkTypeFun(const T& p)
+{
+    printf(" -1- %s\n", typeid(T).name()); // int is "i", double is "d", std::string is"NSt7_cxx1112basic_.."(based on compiler lib)
+    printf(" -2- %s\n", typeid(std::decay<T>).name()); // for int is "St5decayIiE", double is "St5decayIdE", std::string is"St5decayINSt7__cxx1112basic_..."
+
+    printf(" -3- %s\n", typeid(typename std::decay<T>::type).name()); // "typename std::decay<T>::type" same as "T", thta same as "-1-"
+    printf(" -4- %s\n", typeid(std::decay_t<T>).name()); // same as above
+
+    printf(" -5- %s\n", typeid(decltype(p)).name()); // same as above
+    printf(" -6- %s\n", typeid(std::decay<decltype(p)>).name()); // for int is "St5decayIRKiE", double is "St5decayIRKdE", std::string is"St5decayIRKNSt7__cxx1112basic_..."
+
+    printf(" -1 int- %d\n", std::is_same<T, int>::value); // for int is true
+    printf(" -2 int- %d\n", std::is_same<std::decay<T>, int>::value); // for int is false, the "std::decay<T>" is "St5decayIiE"
+
+    printf(" -1 double-%d\n", std::is_same<T, double>::value);
+    printf(" -2 double- %d\n", std::is_same<std::decay<T>, double>::value);
+
+    printf(" -1 std::string- %d\n", std::is_same<T, std::string>::value);
+    printf(" -2 std::string- %d\n", std::is_same<std::decay<T>, std::string>::value);
+
+    printf(" - \n\n");
+}
+
+// 调用
+checkTypeFun(1);
+checkTypeFun(1.0);
+checkTypeFun(std::string("1"));
+
+// 结果如 上面函数中的注释
+```
+
+
+
 ### 枚举类 enum class
 
 枚举类 为 带有作用域的枚举类型，可在 C++ 环境中 完全替代 enum，使用类似 命名空间的方式用 各个枚举变量，防止原来 enum 的 全局重名 和 不同 enum 类型的变量可互相直接赋值 等问题。
@@ -1831,10 +1936,10 @@ TODO：参考 上面 链接 里面的。还需要自己相关的，总结下放�
 
 > 触发编译器的返回值优化，同时满足如下：
 >
-> 1. return的值类型与函数的返回值类型相同
-> 2. return的是一个局部对象
+> 1. return 的值类型与函数的返回值类型相同
+> 2. return 的是一个局部对象
 >
-> 下面这段代码会触发RVO，不拷贝也不移动，不生成临时对象：
+> 下面这段代码会触发 RVO，不拷贝也不移动，不生成临时对象：
 >
 > ```c++
 > std::vector<int> return_vector(void)
@@ -2831,50 +2936,6 @@ int main()
 
 
 
-### 单例模式
-
-即类的对象只有一个的情况，补充参考视频 [shellmad-c++_44 单例模式的原理及实现_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Gz4y1d7RJ/)。
-
-一个简单例子：
-
-```c++
-class ClassASolo { // 这个类目的是只有全局一个实例，只能用 "ClassASolo::inst()" 来访问
-public:
-    explicit ClassASolo() = default;
-    virtual ~ClassASolo() = default;
-
-    static ClassASolo* inst(void) { // 关键方法
-        std::lock_guard<std::mutex> lock(mMutex); // 防止多个线程都第一次调用从而创建多次
-        static ClassASolo inst;
-        return &inst;
-    }
-
-    int32_t setVar(const int32_t& _var) {
-        if(mVar != _var) {
-            mVar = _var;
-            return 0;
-        } else {
-            return EIO;
-        }
-    }
-    int32_t getVar(void) const {
-        return mVar;
-    }
-private:
-    int32_t mVar = 0;
-    static std::mutex mMutex;
-};
-
-int main(void)
-{
-    ClassASolo::inst()->setVar(1);
-    int32_t var = ClassASolo::inst()->getVar();
-    ...
-}
-```
-
-
-
 ### 初始化列表实现 std::initializer_list
 
 不同于 `类构造函数的初始化列表`，那个也有叫 `委托构造函数`，这里是 自写类实现 `= { ..., ...}` 形式的初始化。
@@ -3295,13 +3356,14 @@ int main()
 
 ## 运算符重载
 
-或叫 重载运算符。
+- 参考 [C++ 重载运算符和重载函数 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cplusplus/cpp-overloading.html)、[C++函数重载详解 (biancheng.net)](http://c.biancheng.net/view/2206.html)、[C++运算符重载基础教程 (biancheng.net)](http://c.biancheng.net/view/2306.html)。
 
-参考 [C++ 重载运算符和重载函数 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cplusplus/cpp-overloading.html)、[C++函数重载详解 (biancheng.net)](http://c.biancheng.net/view/2206.html)、[C++运算符重载基础教程 (biancheng.net)](http://c.biancheng.net/view/2306.html)。
 
-参考视频：[shellmad-c++_51 运算符重载_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV13A411q7bE/)，[shellmad-c++_52 cin&cout的奥秘_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1kC4y1H7G7/)，[shellmad-c++_53 自己动手编写字符串类_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1eC4y1H7uC/?vd_source=c633af9518bed5572b1614612e2be3df)，[shellmad-c++_54 转换运算符_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV15z411B7W8/)。
+- 参考视频：[shellmad-c++_51 运算符重载_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV13A411q7bE/)，[shellmad-c++_52 cin&cout的奥秘_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1kC4y1H7G7/)，[shellmad-c++_53 自己动手编写字符串类_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1eC4y1H7uC/?vd_source=c633af9518bed5572b1614612e2be3df)，[shellmad-c++_54 转换运算符_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV15z411B7W8/)。
 
-[C++类和对象(4):运算符重载——=、==、()函数调用运算符_重载操作符=和()-CSDN博客](https://blog.csdn.net/ITJAVAtao/article/details/120922956)。
+
+- [C++类和对象(4):运算符重载——=、==、()函数调用运算符_重载操作符=和()-CSDN博客](https://blog.csdn.net/ITJAVAtao/article/details/120922956)。
+- [C++基础-运算符重载详解_C++语言-CSDN专栏](https://download.csdn.net/blog/column/12435130/135169738)。
 
 
 
@@ -3441,6 +3503,7 @@ C++ 17 起。
 
 参考 和 引用：
 
+- [C++ 并发编程实战 | C++ 编程指南 (chengxumiaodaren.com)](https://chengxumiaodaren.com/docs/concurrent/)。
 - [并发支持库 (C++11 起) - cppreference.com](https://zh.cppreference.com/w/cpp/thread)。
 - 很清楚的总结 [C++ 中，std::async 可以完全替代 std::thread 来开启异步的多线程操作吗？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/547132461/answer/2657296340)。
 - [【C++11多线程】异步任务：async、packaged_task、promise_c++ async-CSDN博客](https://blog.csdn.net/qq_42815188/article/details/102505884)。
@@ -3560,7 +3623,11 @@ C++ 17 起。
 
   看例子即可，使用与 ptherad 中的都比较类似。
 
-  其中 wait(m, pred) 的 pred 可以认为是其它线程发送的条件变量到底是不是给我听的（返回 false 指示不是给自己的，反之则是），参考 [std::condition_variable::wait - cppreference.com](https://zh.cppreference.com/w/cpp/thread/condition_variable/wait)。
+  当 `notify_one()` 或者 `notify_all()` 被调用时，等待的线程会被标记为"可唤醒"，在加锁或不加锁的环境下都可以调用。
+
+  阻塞端，加锁后，调用 `wait(m, pred)`，其实的 pred 为检查条件，调用 wait() 的时候会运行一次检查，之后接收到 "notify" 后会再执行一次检查，返回 true 为取消 这里 wait 的 阻塞 而继续往下执行。
+
+  参考 [std::condition_variable::wait - cppreference.com](https://zh.cppreference.com/w/cpp/thread/condition_variable/wait)。
 
 - atomic，可用时现查。
 
@@ -3874,20 +3941,14 @@ void test(void)
 
 ## 现代高性能并发编程
 
-- [parallel101/course: 高性能并行编程与优化 - 课件 (github.com)](https://github.com/parallel101/course)。
+- [parallel101/course: 高性能并行编程与优化 - 课件 (github.com)](https://github.com/parallel101/course)。[合集·高性能并行编程与优化 - 录播-哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/263032155/lists/53025?type=season)。
 - 更多可参考 `C-C++实用库备查` 里面的线程池等相关的 github 实现。
 - 更多可参考 `C-C++实用库备查` 里面的 高并发 处理库，会用，善用。
 - [深入理解C11/C++11内存模型(白嫖新知识~) - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/464207968)。
 
 
 
-TODO 有待补充
-
-event
-
-epoll
-
-一些 并发库，从 `C-C++实用库备查` 里面拿出来，写几个用例。
+一些 并发库、事件库，可见 `C-C++实用库备查` 里面。
 
 
 
@@ -4233,5 +4294,7 @@ std::launder
   | 5    | strchr(s1, ch);    返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。 |
   | 6    | strstr(s1, s2);    返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。 |
   |      | ....                                                         |
+
+
 
 
