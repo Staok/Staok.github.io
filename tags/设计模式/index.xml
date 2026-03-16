@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>设计模式 - 标签 - 欢迎来到 瞰百Staok</title>
+        <link>https://staok.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+        <description>设计模式 - 标签 - 欢迎来到 瞰百Staok</description>
+        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Fri, 26 Dec 2025 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>（集合）C / C&#43;&#43; 设计模式综合</title>
+    <link>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</link>
+    <pubDate>Fri, 26 Dec 2025 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</guid>
+    <description><![CDATA[C / C++ 设计模式综合 本文最新原文和相关资料在 Github / Gitee 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。 设计模式目录 都是好文！ 背景和梳理]]></description>
+</item></channel>
+</rss>

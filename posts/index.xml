@@ -4,13 +4,20 @@
         <link>https://staok.github.io/posts/</link>
         <description>所有文章 | 欢迎来到 瞰百Staok</description>
         <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Wed, 25 Feb 2026 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>GUI 框架基础需求、设计和实现</title>
     <link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
     <pubDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
     <description><![CDATA[GUI 框架基础需求、设计和实现 以下皆为建议性内容，根据需求制定方案。 这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示]]></description>
+</item><item>
+    <title>（集合）C / C&#43;&#43; 设计模式综合</title>
+    <link>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</link>
+    <pubDate>Fri, 26 Dec 2025 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</guid>
+    <description><![CDATA[C / C++ 设计模式综合 本文最新原文和相关资料在 Github / Gitee 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。 设计模式目录 都是好文！ 背景和梳理]]></description>
 </item><item>
     <title>编程经验、调试、性能和内存检查工具集合</title>
     <link>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</link>
@@ -47,6 +54,13 @@
     <guid>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</guid>
     <description><![CDATA[必先看：主线剧情 系列 的循序渐进的查看顺序 【主线剧情】Linux 系列，为嵌入式 Linux 的学习记录。 每一篇文章的内容、以及仓库的内容都极其丰富~ 仓库地]]></description>
 </item><item>
+    <title>（大集合）数据结构与算法简述和CS综合</title>
+    <link>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link>
+    <pubDate>Fri, 10 Dec 2021 09:15:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid>
+    <description><![CDATA[数据结构与算法简述和CS综合 数据结构与算法简述和CS综述整理。本文非基础的教程，本文会列出大量学习和参考网站。老惯例，一个文章是一个集大成（]]></description>
+</item><item>
     <title>【读标准01】IEEE1451 智能传感器接口标准介绍</title>
     <link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
     <pubDate>Wed, 14 Jul 2021 09:57:11 &#43;0800</pubDate>
@@ -60,19 +74,5 @@
     <author>作者</author>
     <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
     <description><![CDATA[ARM &amp; i.MX6ULL 基础学习记录 编辑整理 by Staok。 本文大部分内容摘自“100ask imx6ull”开发板的配套资料（如《IMX6ULL裸机开发完全手册]]></description>
-</item><item>
-    <title>科幻小说《请留在未来》</title>
-    <link>https://staok.github.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5/</link>
-    <pubDate>Mon, 01 Jun 2020 13:26:36 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/1%E8%AF%B7%E7%95%99%E5%9C%A8%E6%9C%AA%E6%9D%A5/</guid>
-    <description><![CDATA[科幻小说《请留在未来》 Science-fiction 《Please Stay in The Future》 本文发在 Github、知乎、BiliBili、小站。 按： 有时真的非常想写一些东西，]]></description>
-</item><item>
-    <title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍</title>
-    <link>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Fri, 16 Jul 2021 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[IEEE 1451.5 智能无线传感器标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准]]></description>
 </item></channel>
 </rss>

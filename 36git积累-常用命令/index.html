@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Git 积累 &amp; 常用命令 - 欢迎来到 瞰百Staok</title><meta name="Description" content="Git 积累 &amp; 常用命令啊~"><meta property="og:title" content="Git 积累 &amp; 常用命令" />
+<meta property="og:description" content="Git 积累 &amp; 常用命令啊~" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-02-25T09:15:14+08:00" />
+<meta property="article:modified_time" content="2026-02-25T09:15:14+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git 积累 &amp; 常用命令"/>
+<meta name="twitter:description" content="Git 积累 &amp; 常用命令啊~"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" /><link rel="prev" href="https://staok.github.io/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" /><link rel="next" href="https://staok.github.io/35lvgl-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git 积累 \u0026 常用命令",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Git, 软件","wordcount":  4992 ,
+        "url": "https:\/\/staok.github.io\/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4\/","datePublished": "2026-02-25T09:15:14+08:00","dateModified": "2026-02-25T09:15:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "Git 积累 \u0026 常用命令啊~"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Git 积累 &amp; 常用命令</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/"><i class="far fa-folder fa-fw"></i>随机技术情报</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2026-02-25">2026-02-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4992 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#开始">开始</a></li>
+    <li><a href="#git-配置">Git 配置</a>
+      <ul>
+        <li><a href="#信息">信息</a></li>
+        <li><a href="#环境配置">环境配置</a></li>
+        <li><a href="#ssh-额外配置相关">ssh 额外配置相关</a></li>
+        <li><a href="#win-挂载-linux-服务器-文件系统">Win 挂载 Linux 服务器 文件系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-命令日常其它">Git 命令日常其它</a>
+      <ul>
+        <li><a href="#下载仓库">下载仓库</a></li>
+        <li><a href="#日常更新仓库">日常更新仓库</a></li>
+        <li><a href="#提交">提交</a></li>
+        <li><a href="#推送">推送</a></li>
+        <li><a href="#more">More</a></li>
+        <li><a href="#git-设置默认配置">Git 设置默认配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-团队协作中常用术语">Git 团队协作中常用术语</a></li>
+    <li><a href="#提交-patch-和-规范">提交 Patch 和 规范</a></li>
+    <li><a href="#git--gerrit-常见问题解决">Git &amp; Gerrit 常见问题解决</a>
+      <ul>
+        <li><a href="#修改-gerrit-上某次提交">修改 Gerrit 上某次提交</a></li>
+        <li><a href="#修改-gerrit-上某次提交的冲突">修改 Gerrit 上某次提交的冲突</a></li>
+        <li><a href="#准备推送远端但是远端比本地节点更新--各状态之间切换">准备推送远端但是远端比本地节点更新 &amp; 各状态之间切换</a></li>
+        <li><a href="#多个-git-提交-合并为-一个">多个 git 提交 合并为 一个</a></li>
+        <li><a href="#git-已经将个别文件夹添加到了-gitignore-中-但是-git-仍提示文件有修改">git 已经将个别文件夹添加到了 gitignore 中 但是 git 仍提示文件有修改</a></li>
+        <li><a href="#clone-仓库后push-时-提示-miss-hooks">clone 仓库后，push 时 提示 miss hooks</a></li>
+        <li><a href="#别的-win-账户-clone-的仓库自己账户再操作仓库的安全提示">别的 win 账户 clone 的仓库，自己账户再操作仓库的安全提示</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="git-积累--常用命令">Git 积累 &amp; 常用命令</h1>
+<p>本文最新原文在 <a href="https://github.com/Staok/Git-Learning" target="_blank" rel="noopener noreffer">Github</a> / <a href="https://gitee.com/staok/Git-Learning" target="_blank" rel="noopener noreffer">Gitee</a> 仓库，其它地方不会跟进。</p>
+<h2 id="开始">开始</h2>
+<p>Git &amp; Github 学习：</p>
+<ul>
+<li><a href="https://learngitbranching.js.org/?locale=zh_CN">https://learngitbranching.js.org/?locale=zh_CN</a>。</li>
+<li><a href="https://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener noreffer">git - the simple guide - no deep shit!</a>。</li>
+<li><a href="https://docs.github.com/zh/get-started" target="_blank" rel="noopener noreffer">GitHub 入门文档 - GitHub 文档</a>。</li>
+</ul>
+<p>Gerrit 学习：https://www.cnblogs.com/111testing/p/9450530.html。</p>
+<h2 id="git-配置">Git 配置</h2>
+<p>注意：Git 仓库，要么在 Win 要么在 Linux（两个平台文件换行符不同），不要都用。</p>
+<h3 id="信息">信息</h3>
+<p>查看：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git config --global --list
+</code></pre></td></tr></table>
+</div>
+</div><p>基本信息配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 要换成自己邮箱和名字</span>
+git config --global user.name <span class="s2">&#34;&lt;name&gt;&#34;</span>
+git config --global user.email &lt;email link&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="环境配置">环境配置</h3>
+<p>PC（这里默认指 Win）、linux host、gerrit、github/gitee 等互相访问。</p>
+<ul>
+<li>
+<p>给 Linux HOST 添加 PC 的 SSH Key，自己 PC 才能访问到 Linux HOST。</p>
+<p>给 Linux HOST 添加 PC 本地 SSH Key，用于 使用 VsCode + Remote-SSH 插件 进行远程开发。</p>
+<p>确保 SSH 等插件 和 VsCode 都是最新的（新版 VsCode 和 老版的 SSH 插件 也是失败的原因）。</p>
+<p>各种 VScode Remote SSH 连接失败，见 VsCode 右下角的当前卡在哪一步 和 <code>~/.vscode-server/&lt;commit-id&gt;.log</code> 日志文件的报错，来具体网搜方法。</p>
+<p>下面为产生 ssh key 的命令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 对于 Linux，即在 ~/.ssh/ 下生成 ssh-key（.pub 文件）。</span>
+<span class="c1"># 对于 Win，即在 C:\Users\&lt;用户名&gt;\.ssh\ 下生成 ssh-key（.pub 文件）。</span>
+<span class="c1"># 一路默认回车即可。</span>
+ssh-keygen -t rsa
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>也给 Gitghub 或 Gitee 添加自己的 ssh-key，通过 SSH and GPG keys -&gt; New SSH key。</p>
+<p>即可访问 Github 仓库。</p>
+</li>
+<li>
+<p>给 CI/CD（持续集成 / 部署） 服务器上的 Gerrit（或其他 仓库管理平台） 添加 本地（PC 和  自己的 Linux HOST 服务器） SSH Key，自己的 PC 和 Linux HOST 才能访问到 Gerrit。</p>
+</li>
+</ul>
+<h3 id="ssh-额外配置相关">ssh 额外配置相关</h3>
+<p>ssh 配置相关集合 <a href="https://blog.csdn.net/weixin_47661174/article/details/126020594">https://blog.csdn.net/weixin_47661174/article/details/126020594</a>。</p>
+<p>ssh 免密登录 <a href="https://blog.xieqiaokang.com/posts/3517905979.html">https://blog.xieqiaokang.com/posts/3517905979.html</a>，如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 使用下述命令将 id_rsa.pub 这个 ssh-key 文件 加入到 例如 192.168.xx.xxx 机器的 xxx 用户里</span>
+<span class="c1"># 即机器的 ~/.ssh/authorized_keys 文件里面</span>
+ssh-copy-id -i id_rsa.pub xxx@192.168.xx.xxx
+</code></pre></td></tr></table>
+</div>
+</div><p>ssh 快速登录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在 C:\Users\&lt;用户名&gt;\.ssh\config 文件里面添加快速登录选项，下面例子：</span>
+<span class="c1"># Read more about SSH config files: https://linux.die.net/man/5/ssh_config</span>
+Host ti3	                                    <span class="c1"># 主机名，随便取</span>
+    HostName 202.38.xx.xxx                      <span class="c1"># 主机IP（机器B）</span>
+    Port xxxxx                                  <span class="c1"># 若为默认端口22，可不设定此项</span>
+    User hhqingwa	                            <span class="c1"># 在机器B上的用户名</span>
+    IdentityFile C:<span class="se">\U</span>sers<span class="se">\&lt;</span>用户名&gt;<span class="se">\.</span>ssh<span class="se">\i</span>d_rsa     <span class="c1"># 本机私钥路径，若为默认的 id_rsa，则可不填</span>
+
+<span class="c1"># 配置了 config 文件后，快速登陆命令</span>
+ssh ti3     <span class="c1"># 等效于 ssh hhqingwa@202.38.xx.xxx</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="win-挂载-linux-服务器-文件系统">Win 挂载 Linux 服务器 文件系统</h3>
+<p>Win 上连接到远程 Linux HOST 用于 一些 查看文件、操作文件、推拉文件 等 杂活儿。方便 win 上使用脚本 将 Linux 服务器端的一些编译生成的文件（Win 可直接访问）等直接推到 Linux 板子（scp 命令）里等。</p>
+<p>推荐 Windows 下使用 SSHFS 通过 samba 协议挂载远程 Linux 服务器 文件系统。</p>
+<p>在计算机页面上边栏找到 <code>映射网络驱动器</code>，填入地址，且 注意勾选 <code>使用其他凭据链接</code>。</p>
+<p>地址如：<code>\\&lt;Linux 服务器 IP 地址&gt;\&lt;Linux 服务器上自己用户名&gt;</code>。</p>
+<p><a href="https://blog.csdn.net/qq_53517370/article/details/128757935">https://blog.csdn.net/qq_53517370/article/details/128757935</a>。</p>
+<h2 id="git-命令日常其它">Git 命令日常其它</h2>
+<p>下面的都是比较重要的，建议都熟悉。</p>
+<h3 id="下载仓库">下载仓库</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 一般情况</span>
+git clone &lt;仓库链接&gt;
+
+<span class="c1"># 下载整个仓库，包括子仓库</span>
+git clone --recurse-submodules https://github.com/your-github-userid
+
+<span class="c1"># 更新已经存在的仓库，包括子仓库</span>
+git submodule update --init --recursive
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="日常更新仓库">日常更新仓库</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 推荐使用 git pull --rebase，在 pull 时候若本地 git 目录不干净会提示而不会强行 merge</span>
+
+<span class="c1"># 对于 repo 管理的各个仓库</span>
+
+<span class="c1"># 首先保证所有仓库在各自分支最后一次提交</span>
+<span class="c1"># 若误改动了文件，则删掉该文件（链接文件也要删掉源文件），再 repo sync 即可恢复</span>
+repo sync -j4
+repo forall -c git checkout master
+repo forall -c git pull --rebase
+
+<span class="c1"># 一条命令</span>
+<span class="o">(</span>repo sync -j4<span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>repo forall -c git checkout master<span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>repo forall -c git pull --rebase<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="提交">提交</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git add &lt;文件名&gt;             <span class="c1"># 只添加&lt;文件名&gt;文件</span>
+    git add -u              <span class="c1"># 添加所有修改过的文件</span>
+    git add .               <span class="c1"># 添加所有更改</span>
+
+git commit  -m <span class="s2">&#34;...&#34;</span>        <span class="c1"># 提交一次</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>提交代码 commit 加上 -s：https://www.coder.work/article/7800053</p>
+<blockquote>
+<p>上传patch的人不一定是作者，提交commit需要签名，如果几个人一起写一个commit，原则上需要追加 signed-off</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git commit --amend          <span class="c1"># 把新的内容添加到上一次 commit 里面，参考 https://www.jianshu.com/p/7d40838883af</span>
+<span class="c1"># 有的会打开 vim 编辑器，有的会打开 nano 编辑器，都是编辑后再保存并退出后即可。</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>git commit &ndash;amend 修改 commit 后，保存和退出方法：</p>
+<p><a href="https://blog.csdn.net/u010168781/article/details/81902689">https://blog.csdn.net/u010168781/article/details/81902689</a></p>
+<p>下面是 git 默认的文本编辑器是 nano 的操作：</p>
+<ul>
+<li>
+<p>若不修改 commit，直接 ctrl + x 退出。</p>
+</li>
+<li>
+<p>若修改了 commit，ctrl + x，提醒是否保存，输大写的 Y，再回车。</p>
+</li>
+<li>
+<p>这种方法推荐：</p>
+<blockquote>
+<p>修改 commit 记录中，修改好后，按 ctrl+o，出现 .git /commit_editmsg 界面，回车，然后按下 ctrl + x 就可以保存修改了。</p>
+</blockquote>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># git 默认的文本编辑器是 nano，执行下面的命令将 git 的文本编辑器改为我们熟悉的 vim</span>
+git config --global core.editor vim
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="推送">推送</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 往 目标 remote 仓库 的 目标 branch 上面推</span>
+git push &lt;remote name&gt; &lt;remote branch&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：若 本地提交之后，再 push 到远端显示失败，则可能是 本地在修改代码的中途 远端更新了代码，这时，<code>git pull --rebase</code> 拉取远端最新的，若不冲突则会合并，并且本地最后一次提交会成为本地最新的提交，这时候再 push 即可。</p>
+<h3 id="more">More</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 查看所有分支</span>
+git branch -a
+
+<span class="c1"># 切换到某个分支比如 XX（本地或远程的）</span>
+git checkout XX 或者 git switch XX
+
+<span class="c1"># 注意，要修改远程某分支，则本地先切换到目标远程分支，修改后，git push 到 对应的远程分支！</span>
+
+<span class="c1"># 切回 main 分支</span>
+git checkout main 或者 git switch main
+
+<span class="c1"># 删除某个分支 xxx（本地或远程的）</span>
+git branch -d xxx
+</code></pre></td></tr></table>
+</div>
+</div><p>status       显示当前修改、提交状态</p>
+<p>diff            显示差异：https://blog.csdn.net/qq_39505245/article/details/119899171</p>
+<p>stash         暂存：https://blog.csdn.net/weixin_42433094/article/details/124603640</p>
+<p>blame       单个文件当前里面每一行的修改人：https://blog.csdn.net/young_old_boy/article/details/121792481</p>
+<p>log             单个文件的修改历史记录：https://blog.csdn.net/sunxiaopengsun/article/details/129227548</p>
+<p>Git 修改历史提交 <a href="https://www.php.cn/faq/487568.html">https://www.php.cn/faq/487568.html</a></p>
+<p>​			<code>git commit --amend</code></p>
+<p>​			<code>git rebase -i HEAD~&lt;上移节点数&gt;</code></p>
+<p>如果您想丢弃本地的修改并还原到最近一次提交的状态</p>
+<p>​	<code>git reset --hard HEAD</code></p>
+<p>git 中 rebase 和 merge 的区分</p>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_42310154/article/details/119004977">https://blog.csdn.net/weixin_42310154/article/details/119004977</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/558666061">https://zhuanlan.zhihu.com/p/558666061</a></li>
+</ul>
+<p>win 没有编辑文件 复制到 linux 端 后 git 显示 文件 mode 修改了，让 git 忽略</p>
+<p><a href="https://blog.csdn.net/Lekaor/article/details/132804005">https://blog.csdn.net/Lekaor/article/details/132804005</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git config core.filemode <span class="nb">false</span>
+git config --global core.filemode <span class="nb">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="git-设置默认配置">Git 设置默认配置</h3>
+<p>以下直接在 bash 或 cmd 或 powerShell 里面键入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git config --global pull.rebase <span class="nb">true</span>
+git config --global push.default simple
+git config --global core.autocrlf input
+git config --global core.quotepath <span class="nb">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Git 设置命令简写</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.di diff
+git config --global alias.sw show
+git config --global alias.hist <span class="s1">&#39;log --pretty=format:&#34;%h %ad | %s:d[%an]&#34; --graph --date=short&#39;</span>
+git config --global alias.type <span class="s1">&#39;cat-file -t&#39;</span>
+git config --global alias.dump <span class="s1">&#39;cat-file -p&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="git-团队协作中常用术语">Git 团队协作中常用术语</h2>
+<p>WIP PTAL CC LGTM 等解释 <a href="https://blog.csdn.net/kunyus/article/details/93472646">https://blog.csdn.net/kunyus/article/details/93472646</a>。</p>
+<ul>
+<li><strong>WIP</strong> —  Work in progress, do not merge yet —  开发中。</li>
+<li>LGTM —  Looks good to me —  Riview 完别人的 PR ，对我来说，觉得没有问题。</li>
+<li>PTAL —  Please take a look —  帮我看下，一般都是请别人 review 自己的 PR。</li>
+<li><strong>CC</strong> —  Carbon copy —  一般代表抄送别人的意思。</li>
+<li>RFC  —  request for comments —  我觉得这个想法很好，我们来一起讨论下。</li>
+<li>IIRC  —  if I recall correctly —  如果我没记错。</li>
+<li>ACK  —  acknowledgement —  我确认了或者我接受了，我承认了。</li>
+<li>NACK/NAK — negative acknowledgement —  我不同意。</li>
+</ul>
+<h2 id="提交-patch-和-规范">提交 Patch 和 规范</h2>
+<ul>
+<li>严重注意：每一个在 Gerrit 上的提交内的文件是要本次开发内容或功能全部的相关文件，不要分两次等提交，这样拉下来一次就可以编译本次的功能，而不必拉取多次拼起来。</li>
+</ul>
+<p>Patch 的 commit 撰写规范</p>
+<ul>
+<li>
+<p>手把手教你给Linux内核发patch		https://zhuanlan.zhihu.com/p/87955006。</p>
+</li>
+<li>
+<p>Patch提交规范！重要，圈内文章 	https://confluence.bbl.com/pages/viewpage.action?pageId=4688712。</p>
+</li>
+<li>
+<p>提交编写信息规范：</p>
+<p><a href="https://docs.scipy.org/doc/scipy/dev/contributor/development_workflow.html">https://docs.scipy.org/doc/scipy/dev/contributor/development_workflow.html</a></p>
+<p><a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/">https://www.conventionalcommits.org/zh-hans/v1.0.0/</a></p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">eg. ENH: add functionality X to SciPy.&lt;submodule&gt;.
+
+API: an (incompatible) API change
+BENCH: changes to the benchmark suite
+BLD: change related to building SciPy
+BUG: bug fix
+DEP: deprecate something, or remove a deprecated object
+DEV: development tool or utility
+DOC: documentation
+ENH: enhancement
+MAINT: maintenance commit (refactoring, typos, etc.)
+REV: revert an earlier commit
+STY: style fix (whitespace, PEP8)
+TST: addition or modification of tests
+REL: related to releasing SciPy
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>提交 patch 撰写 描述可以丰富一些，如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ENH: &lt;模块名&gt;:简述
+
+&lt;详细描述&gt;
+
+JIRA: AAA-42 （带上 测试人员 在 比如 jira 的 bug 管理系统里面报问题的 jira 编号）
+TEST: &lt;测试情况&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="git--gerrit-常见问题解决">Git &amp; Gerrit 常见问题解决</h2>
+<h3 id="修改-gerrit-上某次提交">修改 Gerrit 上某次提交</h3>
+<p>注，下面只文字描述备忘，第一次最好找人给演示一遍就好了，只文字描述很抽象。</p>
+<ol>
+<li>
+<p>保证 自己 本地 git 仓库 与 远程仓库 为一致的。即 <code>git log</code> 后，本地最近的提交显示 <code>&quot;HEAD -&gt; &lt;本地分支&gt;, &lt;远程分支&gt;.&quot;</code>。</p>
+<p>如果本地已经有修改但没有 <code>add</code>，如果要暂存可以用 <code>git stash</code> 命令（具体查相关教程），然后，先 <code>git reset --hard HEAD</code> 恢复到本地最后一次提交，然后 <code>git pull --rebase</code> 保持本地仓库与远程一致。</p>
+<p>若本地仓库 比远程仓库多提交好几次，首先确保是否已经提交防丢，然后，要先 回退，使用 <code>git reset --hard HEAD^^..</code>（一个^是回退一次），然后 <code>git pull --rebase</code> 保持本地仓库与远程一致。</p>
+</li>
+<li>
+<p>在保证本地仓库与远程仓库一致后，在 Gerrit 上 某个提交的页面，右上角 三个点 找出 <code>Download patch</code>，在 <code>Cherry Pick</code> 右边点 复制图标，粘贴 到 本地仓库下的命令行 执行。</p>
+<p>这一步是下载一次 暂存 在 Gerrit 上的一个提交记录 到本地 而且作为 一个 新的提交。</p>
+</li>
+<li>
+<p>修改文件，<code>git add &lt;添加所有改动的文件，选项可以是 -u 或 . 等&gt;</code>，<code>git commit --amend（与最近一次提交合并）</code>，再 <code>git push &lt;remote name&gt; &lt;remote branch&gt;</code>，这样 Gerrit 上那个提交的页面就会多一次提交（Patchset）.</p>
+</li>
+<li>
+<p>然后本地仓库恢复 Download Cherry  patch 之前的、与远程仓库 最新的状态：<code>git reset --hard HEAD^</code>。</p>
+</li>
+</ol>
+<h3 id="修改-gerrit-上某次提交的冲突">修改 Gerrit 上某次提交的冲突</h3>
+<ol>
+<li>通过 cherry-pick 下载该 patch，会提示冲突文件，cherry-pick 会 “卡” 在这里等待解决冲突。</li>
+<li>显示冲突的地方 <code>git diff</code>。若显示没有冲突，则就是没冲突，再提交一次，gerrit 上面就好了。</li>
+<li>修改冲突。</li>
+<li>添加 <code>git add -u</code>。</li>
+<li>让 cherry-pick 继续 <code>git cherry-pick --continue</code>。再看看状态 <code>git status</code>。</li>
+<li>推送 <code>git push &lt;remote name&gt; &lt;remote branch&gt;</code>。</li>
+</ol>
+<h3 id="准备推送远端但是远端比本地节点更新--各状态之间切换">准备推送远端但是远端比本地节点更新 &amp; 各状态之间切换</h3>
+<p>如果已经 add 但还没有 commit，直接 <code>git stash</code>（用 <code>git stash show</code> 查看）保存到栈区，再 <code>git pull</code>，再 <code>git stash pop</code>。</p>
+<p>若已经 commit，先 <code>git reset --soft HEAD^</code> 撤回本次 commit 到暂存区，再就和上面一样操作。</p>
+<p>如果回退到 暂存区（add 之后的状态） 也不想要了，先 <code>git reset</code> 取消文件处于暂存区，如果有 Untracked files 则 <code>git clean -f</code> 删除 Untracked files，然后 <code>git reset --hard HEAD</code> 回到最后一次提交的状态。</p>
+<p>git stash 各个命令 <a href="https://blog.csdn.net/qq_44333320/article/details/128538380">https://blog.csdn.net/qq_44333320/article/details/128538380</a>。</p>
+<p>更多 git 仓库各个状态间切换</p>
+<p>可以参考 <a href="https://blog.csdn.net/2301_82244279/article/details/140393081">https://blog.csdn.net/2301_82244279/article/details/140393081</a></p>
+<p>若文件处于修改但未 add 的 状态，使用 <code>git checkout -- &lt;file(s)&gt;</code> 来恢复文件为未修改的状态。</p>
+<p>commit 后 的状态恢复到 add 后的状态：<code>git restore --staged &lt;file(s)&gt;</code>。</p>
+<p>commit 后 的状态 恢复到 上一次 提交（丢弃这个文件在这个 commit 的 修改）：<code>git checkout HEAD^ -- &lt;file(s)&gt;</code>。</p>
+<h3 id="多个-git-提交-合并为-一个">多个 git 提交 合并为 一个</h3>
+<p><a href="https://www.cnblogs.com/Simoon/p/18535021">https://www.cnblogs.com/Simoon/p/18535021</a></p>
+<p>如果要调整最新的两个提交，执行</p>
+<p><code>git rebase -i HEAD~2</code></p>
+<p>打开编辑后，将除了第一个pick后面的pick都改为 squash，例如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick abc1234 Commit 1
+squash def5678 Commit 2
+squash aefsg48 Commit 3
+squash ...
+</code></pre></td></tr></table>
+</div>
+</div><p>提交</p>
+<p><code>git push --force-with-lease</code></p>
+<blockquote>
+<p>使用 <code>--force-with-lease</code> 比 <code>--force</code> 更安全，因为它会确保在你推送之前，远程仓库没有其他人提交的更改。</p>
+</blockquote>
+<h3 id="git-已经将个别文件夹添加到了-gitignore-中-但是-git-仍提示文件有修改">git 已经将个别文件夹添加到了 gitignore 中 但是 git 仍提示文件有修改</h3>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/qq_40028324/article/details/141716530">https://blog.csdn.net/qq_40028324/article/details/141716530</a></p>
+<p>设置 <code>.gitignore</code> 文件 <a href="https://www.php.cn/faq/680791.html">https://www.php.cn/faq/680791.html</a></p>
+<h3 id="clone-仓库后push-时-提示-miss-hooks">clone 仓库后，push 时 提示 miss hooks</h3>
+<p>提示错误例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">remote: ERROR: commit xxxxx: missing Change-Id in message footer
+remote:
+remote: Hint: to automatically insert a Change-Id, install the hook:
+remote:   <span class="nv">gitdir</span><span class="o">=</span><span class="k">$(</span>git rev-parse --git-dir<span class="k">)</span><span class="p">;</span> scp -p -P <span class="m">11111</span> XXX1@gerrit.AAA.com:hooks/commit-msg <span class="si">${</span><span class="nv">gitdir</span><span class="si">}</span>/hooks/
+remote: or, <span class="k">for</span> http<span class="o">(</span>s<span class="o">)</span>:
+remote:   <span class="nv">f</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>git rev-parse --git-dir<span class="k">)</span><span class="s2">/hooks/commit-msg&#34;</span><span class="p">;</span> curl -o <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span> https://gerrit.AAA.com/tools/hooks/commit-msg <span class="p">;</span> chmod +x <span class="s2">&#34;</span><span class="nv">$f</span><span class="s2">&#34;</span>
+remote: and <span class="k">then</span> amend the commit:
+remote:   git commit --amend --no-edit
+remote: Finally, push your changes again
+</code></pre></td></tr></table>
+</div>
+</div><p>按照上面例子提示的，看自己的实际报错信息，执行 类似这两句话 ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">gitdir</span><span class="o">=</span><span class="k">$(</span>git rev-parse --git-dir<span class="k">)</span><span class="p">;</span> scp -p -P <span class="m">11111</span> XXX1@gerrit.AAA.com:hooks/commit-msg <span class="si">${</span><span class="nv">gitdir</span><span class="si">}</span>/hooks/
+
+git commit --amend --no-edit
+</code></pre></td></tr></table>
+</div>
+</div><p>若第一句话执行提示错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">subsystem request failed on channel 0
+scp: Connection closed
+</code></pre></td></tr></table>
+</div>
+</div><p>参考这个 <a href="https://www.cnblogs.com/0xcafebabe/p/17960208">https://www.cnblogs.com/0xcafebabe/p/17960208</a>，在 scp 命令后加一个 <code>-O</code> 选项，即可成功。</p>
+<p>即执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">gitdir</span><span class="o">=</span><span class="k">$(</span>git rev-parse --git-dir<span class="k">)</span><span class="p">;</span> scp -O -p -P <span class="m">11111</span> XXX1@gerrit.AAA.com:hooks/commit-msg <span class="si">${</span><span class="nv">gitdir</span><span class="si">}</span>/hooks/
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="别的-win-账户-clone-的仓库自己账户再操作仓库的安全提示">别的 win 账户 clone 的仓库，自己账户再操作仓库的安全提示</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PS D:<span class="se">\A</span>AA&gt; git status
+fatal: detected dubious ownership in repository at <span class="s1">&#39;D:/AAA&#39;</span>
+<span class="s1">&#39;D:/AAA&#39;</span> is owned by:
+        XXX1 <span class="o">(</span>&lt;sn&gt;<span class="o">)</span>
+but the current user is:
+        XXX2 <span class="o">(</span>&lt;sn&gt;<span class="o">)</span>
+To add an exception <span class="k">for</span> this directory, call:
+
+        git config --global --add safe.directory D:/AAA
+</code></pre></td></tr></table>
+</div>
+</div><p>这里就是别的 win 账户 clone 的仓库，自己账户再操作仓库的安全提示，按照提示执行命令添加白名单就行了。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2026-02-25</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-title="Git 积累 &amp; 常用命令" data-hashtags="Git,软件"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-hashtag="Git"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/36git%E7%A7%AF%E7%B4%AF-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-title="Git 积累 &amp; 常用命令" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/git/">Git</a>,&nbsp;<a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/0%E7%AE%80%E6%98%8E%E8%87%AA%E6%8E%A7-%E8%81%8A%E8%81%8A%E5%95%A5%E6%98%AF%E8%87%AA%E6%8E%A7%E5%92%8C%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/" class="prev" rel="prev" title="【简明自控】聊聊啥是自控和特征方程"><i class="fas fa-angle-left fa-fw"></i>【简明自控】聊聊啥是自控和特征方程</a>
+            <a href="/35lvgl-%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/" class="next" rel="next" title="LVGL 总结备查">LVGL 总结备查<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

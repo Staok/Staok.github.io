@@ -1,18 +1,16 @@
 # 【规范】SCH & PCB 设计规范、技巧以及 AD 的使用
 
 
-# SCH & PCB 设计规范、技巧以及AD 的使用（SCH-&-PCB-rules-and-AD`s-usages）
+# SCH & PCB 设计规范、技巧以及AD 的使用
 
 <p align="center">
     <img src="assets/CC-BY-NC-SA-4.0-88x31.png" alt="CC BY-NC-SA 4.0 88x31"  />
 </p>
-***p.s 温馨提示：点个 star 收藏一下回头慢慢看；或者下(白)载(嫖)下来，在 Typora 中阅读； [本文知乎地址（不是最新）](https://zhuanlan.zhihu.com/p/356679916) ；一个人整理不易，这么丰富的仓库只顾着看和克隆而忘了点 star？。***
+本文系作者纯属对硬件的兴趣（但不走硬件岗）而对过去实践过的、没实践过的硬件概念、经验做的总结，广泛撷取、借鉴和整理，参考的公开文档、书籍和网络文章数量已经**不可数**。看本文的你最好已经对数模电比较熟悉。适合刚入门的人阅读和遵守，已经有较多经验的人看一看图个乐。如有错误恭谢指出！本文已经是长期积累和堆叠而形成一定规模，不必按照从前到后的顺序去看，可以挑感兴趣的章节去看。编辑整理 by [瞰百](https://github.com/Staok)，始于 2020.7 且无终稿。转载请注明作者及出处。
 
-编辑整理 by [Staok](https://github.com/Staok)，始于 2020.7 且无终稿。转载请注明作者及出处。本文系作者纯属对硬件的兴趣（但不走硬件岗）而对过去实践过的、没实践过的硬件概念、经验做的总结，广泛撷取、借鉴和整理，参考的公开文档、书籍和网络文章数量已经**不可数**。看本文的你最好已经对数模电比较熟悉。适合刚入门的人阅读和遵守，已经有较多经验的人看一看图个乐。如有错误恭谢指出！本文已经是长期积累和堆叠而形成一定规模，不必按照从前到后的顺序去看，可以挑感兴趣的章节去看。
+本文件是 “瞰百易” 计划的一部分，尽量遵循 [“二项玻”定则](https://github.com/Staok/Please-stay-in-the-future)，致力于与网络上碎片化严重的现象泾渭分明（这中二魂...）！
 
-本文件是 “瞰百易” 计划的一部分，尽量遵循[“二项玻”定则](https://github.com/Staok/Please-stay-in-the-future)，致力于与网络上碎片化严重的现象泾渭分明（这中二魂...）！
-
-本文对应的 [Github](https://github.com/Staok/thoughs-about-hardware-design)/[Gitee](https://gitee.com/staok/thoughs-about-hardware-design) 仓库地址，本文最新的原文 和 一些源码、备查手册等等 均放在里面。
+本文最新的原文 和 一些源码、备查手册等等 均放在 [Github](https://github.com/Staok/thoughs-about-hardware-design) / [Gitee](https://gitee.com/staok/thoughs-about-hardware-design) 仓库，其它地方不会跟进，所以请尽量去 仓库链接 里面查阅或下载。
 
 ------
 

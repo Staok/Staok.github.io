@@ -26,7 +26,8 @@
 - 中二出院多年但时不时回光返照。
 - 做一些有趣的电子玩楞。
 - 学学钢琴（如果有时间的话..），之后也可以学着搞搞电子音乐。
-- 和 同行 辩论 / battle。观察、思考、记录生活、人、世界与新的东西。
+- 和 同行 辩论 / battle。
+- 历史、政治、科技知识丰富。观察、思考、记录生活、人、世界与新的东西。
 - 发呆。
 - 希望英年退休，多看看整个地球，做自己喜欢的事。
 
@@ -49,7 +50,7 @@
 - 使用互联网。
 - 高中自通一个背圆周率方法几天课余时间到330位。有机会接触一些记忆宫殿等。
 - Game：红色警戒2、3，鬼泣3、4、5，我的世界，**传说之下**。
-- 写短篇科幻小说，投稿过《请留在未来》，[点众科幻地址（无了）](http://kehuan.dianzhong.com/bookdetail.html?bookid=6845) / [知乎地址](https://zhuanlan.zhihu.com/p/361265924)，[注解篇](https://zhuanlan.zhihu.com/p/148983427)。
+- 写短篇科幻小说。投稿过《请留在未来》：[点众地址](https://www.ishugui.com/book/11010108228) / [知乎地址](https://zhuanlan.zhihu.com/p/361265924) / [Github 地址](https://github.com/Staok/Please-stay-in-the-future)，[注解篇](https://zhuanlan.zhihu.com/p/148983427)。
 
 
 

@@ -1,18 +1,16 @@
 # 【规范】C & MCU 编写规范和技巧
 
 
-# C & MCU 编写规范和技巧（coding style and more）
+# C & MCU 编写规范和技巧
 
 <p align="center">
     <img src="assets/CC-BY-NC-SA-4.0-88x31.png" alt="CC BY-NC-SA 4.0 88x31"  />
 </p>
-***p.s 温馨提示：点个 star 收藏一下回头慢慢看；或者下(白)载(嫖)下来，在 Typora 中阅读；[本文知乎地址（不是最新）](https://zhuanlan.zhihu.com/p/350839857) ；一个人整理不易，此文如此丰富不值忘记 star。***
-
 本文介绍一些 ANSI C 和 GNU C 的基本语法、编写规范，本文系广泛撷取、借鉴和整理，侵删。本文适合刚入门的人阅读和遵守，也适合已经有较多编程经验的人参看。如有错误恭谢指出！本文已经是长期积累和堆叠而形成一定规模，不必按照从前到后的顺序去看，可以挑感兴趣的章节去看。
 
 本文内容较多，推荐从 `4 普适规则（General rules）` 一节开始看起。
 
-本文存在对应的 [Github](https://github.com/Staok/coding-style-and-more)/[Gitee](https://gitee.com/staok/coding-style-and-more) 仓库地址，本文最新的原文 和 一些源码、备查手册等等 均放在里面。
+本文最新的原文 和 一些源码、备查手册等等 均放在 [Github](https://github.com/Staok/coding-style-and-more) / [Gitee](https://gitee.com/staok/coding-style-and-more) 仓库，其它地方不会跟进，所以请尽量去 仓库链接 里面查阅或下载。
 
 ------
 

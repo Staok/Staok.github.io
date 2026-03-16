@@ -57,7 +57,12 @@
 
 - [C 语言学前班](https://staok.github.io/21c语言学前班/)。
 - [【规范】C & MCU 编写规范和技巧](https://staok.github.io/软件规范/) / [Github 仓库](https://github.com/Staok/coding-style-and-more) / [Gitee 仓库](https://gitee.com/staok/coding-style-and-more)。
-- [数据结构与算法 总结](https://staok.github.io/15数据结构与算法简述和cs综合/)。
+
+
+
+⚑ CS(Computer Science)-Study 计算机科学 / 纯软 相关总结：（工作后总结）
+
+[CS(Computer Science)-Study - 分类 - 欢迎来到 瞰百Staok](https://staok.github.io/categories/ee-cs-study/)。
 
 
 

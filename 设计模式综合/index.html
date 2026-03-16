@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>（集合）C / C&#43;&#43; 设计模式综合 - 欢迎来到 瞰百Staok</title><meta name="Description" content="设计模式综合啊~"><meta property="og:title" content="（集合）C / C&#43;&#43; 设计模式综合" />
+<meta property="og:description" content="设计模式综合啊~" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-12-26T09:15:14+08:00" />
+<meta property="article:modified_time" content="2025-12-26T09:15:14+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="（集合）C / C&#43;&#43; 设计模式综合"/>
+<meta name="twitter:description" content="设计模式综合啊~"/>
+<meta name="application-name" content="瞰百Staok">
+<meta name="apple-mobile-web-app-title" content="瞰百Staok"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/" /><link rel="prev" href="https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" /><link rel="next" href="https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "（集合）C / C++ 设计模式综合",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/staok.github.io\/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/staok.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "设计模式, 软件","wordcount":  6179 ,
+        "url": "https:\/\/staok.github.io\/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88\/","datePublished": "2025-12-26T09:15:14+08:00","dateModified": "2025-12-26T09:15:14+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Staok","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/staok.github.io\/images\/avatar.png",
+                    "width":  404 ,
+                    "height":  392 
+                }},"author": {
+                "@type": "Person",
+                "name": "Staok"
+            },"description": "设计模式综合啊~"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="欢迎来到 瞰百Staok"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">（集合）C / C&#43;&#43; 设计模式综合</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Staok" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Staok</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/cscomputer-science-study/"><i class="far fa-folder fa-fw"></i>CS(Computer Science)-Study</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2025-12-26">2025-12-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6179 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建型模式包含实例代码">创建型模式（包含实例代码）</a>
+      <ul>
+        <li><a href="#pimpl">Pimpl</a></li>
+        <li><a href="#builder">Builder</a></li>
+        <li><a href="#singleton">Singleton</a></li>
+      </ul>
+    </li>
+    <li><a href="#结构型模式">结构型模式</a>
+      <ul>
+        <li><a href="#适配器adapter--桥接bridge--组合composite">适配器(adapter) &amp; 桥接(bridge) &amp; 组合(composite)</a></li>
+        <li><a href="#装饰器decorator--外观facade--代理proxy">装饰器(decorator) &amp; 外观(facade) &amp; 代理(proxy)</a></li>
+      </ul>
+    </li>
+    <li><a href="#行为模式">行为模式</a>
+      <ul>
+        <li><a href="#行为链条chain--迭代器iterator">行为链条(chain) &amp; 迭代器(iterator)</a></li>
+        <li><a href="#中介中央调度mediator--命令command">中介/中央调度(mediator) &amp; 命令(command)</a></li>
+        <li><a href="#备忘录memento--访问者visitor">备忘录(memento) &amp; 访问者(visitor)</a></li>
+        <li><a href="#观察者observer--发布-订阅publisher-subscribers">观察者(observer) / 发布-订阅(publisher-subscribers)</a></li>
+        <li><a href="#状态设计state--有限状态机fsm">状态设计(state) / 有限状态机(FSM)</a></li>
+        <li><a href="#策略strategy--模板方法template-method--类多态">策略(strategy) &amp; 模板方法(template-method) / 类多态</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="c--c-设计模式综合">C / C++ 设计模式综合</h1>
+<p>本文最新原文和相关资料在 <a href="https://github.com/Staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer">Github</a> / <a href="https://gitee.com/staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer">Gitee</a> 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。</p>
+<h1 id="设计模式目录">设计模式目录</h1>
+<p>都是好文！</p>
+<p>背景和梳理：</p>
+<ul>
+<li><a href="https://blog.csdn.net/zcshoucsdn/article/details/80217199" target="_blank" rel="noopener noreffer">学无止境 之一 C 嵌入式设计模式（Design Patterns for Embedded Systems in C）笔记-CSDN博客</a>。</li>
+<li><a href="https://zh.wikipedia.org/zh-hans/%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f_%28%e8%ae%a1%e7%ae%97%e6%9c%ba%29" target="_blank" rel="noopener noreffer">设计模式 (计算机) - 维基百科，自由的百科全书 (wikipedia.org)</a>。（需要科学上网）</li>
+</ul>
+<p>设计模式目录：</p>
+<ul>
+<li>
+<p><a href="https://refactoringguru.cn/design-patterns/catalog" target="_blank" rel="noopener noreffer">设计模式目录：22种设计模式 (refactoringguru.cn)</a>。</p>
+</li>
+<li>
+<p><a href="https://www.runoob.com/design-pattern/design-pattern-tutorial.html" target="_blank" rel="noopener noreffer">设计模式 | 菜鸟教程 (runoob.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://design-patterns.readthedocs.io/zh-cn/latest/" target="_blank" rel="noopener noreffer">图说设计模式 — Graphic Design Patterns (design-patterns.readthedocs.io)</a>。</p>
+</li>
+<li>
+<p><a href="https://jueee.github.io/design-patterns/" target="_blank" rel="noopener noreffer">设计模式 | design-patterns (jueee.github.io)</a>。</p>
+</li>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/128145128" target="_blank" rel="noopener noreffer">快速记忆23种设计模式 - 知乎 (zhihu.com)</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/A1342772/article/details/91349142" target="_blank" rel="noopener noreffer">23 种设计模式详解（全23种）_23种设计模式-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://download.csdn.net/blog/column/12435130/136552720" target="_blank" rel="noopener noreffer">C++设计模式-设计模式简述_C++语言-CSDN专栏</a>。</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/feixiaoxing/article/details/7294900" target="_blank" rel="noopener noreffer">C语言和设计模式（总结篇）_设计模式c语言-CSDN博客</a>。</p>
+</li>
+<li>
+<p><a href="https://github.com/SummerGift/EmbeddedSystem/tree/master/DesignPattern" target="_blank" rel="noopener noreffer">EmbeddedSystem/DesignPattern at master · SummerGift/EmbeddedSystem (github.com)</a>。</p>
+</li>
+</ul>
+<p>More:</p>
+<ul>
+<li>
+<p>原文仓库中的 <code>设计模式介绍-仓库</code> 文件夹里里面有 离线了 一些优秀仓库。</p>
+</li>
+<li>
+<p><a href="https://github.com/Staok/Cpp-Learning" target="_blank" rel="noopener noreffer">Staok/Cpp-Learning (github.com)</a> 里面的《C++学习总结备查》一文中的 <code>C++ 精品汇总</code>、<code>C++精品仓库</code> 之类的小节有更多网络优秀总结。</p>
+</li>
+</ul>
+<h1 id="重构的艺术">重构的艺术</h1>
+<ul>
+<li><a href="https://juejin.cn/post/6996990620233383967" target="_blank" rel="noopener noreffer">重构指北——《重构，改善既有代码设计》精读本文总结自笔者的开发经验以及 Martin Fowler 的《重构，改善既有代 - 掘金 (juejin.cn)</a>。</li>
+<li><a href="https://zacharychang.gitbooks.io/refactoring-improving-the-design-of-existing-code/content/" target="_blank" rel="noopener noreffer">Introduction · 重构-改善既有代码的设计（笔记） (gitbooks.io)</a>。</li>
+<li><a href="https://www.cnblogs.com/wmyskxz/p/10990059.html" target="_blank" rel="noopener noreffer">《重构:改善既有代码的设计》读书笔记 (cnblogs.com)</a>。</li>
+<li><a href="https://refactoringguru.cn/refactoring" target="_blank" rel="noopener noreffer">Refactoring: clean your code (refactoringguru.cn)</a>。</li>
+</ul>
+<h1 id="设计模式详解">设计模式详解</h1>
+<p>参考并总结 <a href="https://refactoringguru.cn/design-patterns/catalog" target="_blank" rel="noopener noreffer">设计模式目录：22种设计模式</a>。</p>
+<p>更多参考 <a href="https://www.runoob.com/python-design-pattern/python-design-pattern-tutorial.html" target="_blank" rel="noopener noreffer">设计模式 | 菜鸟教程</a>。</p>
+<hr>
+<h2 id="创建型模式包含实例代码">创建型模式（包含实例代码）</h2>
+<p>这里直接给代码进行说明。具体设计模式描述见上面链接里面，这里给出我实现的代码结构，有一些自己的见解进行优化、融合，与经典的设计模式结构不完全一样。</p>
+<h3 id="pimpl">Pimpl</h3>
+<p>MyInterface.h 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#pragma once
+</span><span class="cp"></span>
+<span class="c1">// 减少头文件包含链，大型项目编译优化。
+</span><span class="c1">// 隐藏第三方库依赖，减少编译依赖和暴露的实现细节。
+</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">class</span> <span class="nc">MyInterface</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">MyInterface</span><span class="p">();</span>
+    <span class="o">~</span><span class="n">MyInterface</span><span class="p">();</span>
+
+    <span class="c1">// 只暴露公共API。
+</span><span class="c1"></span>    <span class="c1">// 用于第三方API封装。
+</span><span class="c1"></span>
+    <span class="kt">int</span> <span class="nf">publicApi1</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nf">publicApi2</span><span class="p">();</span>
+
+<span class="k">private</span><span class="o">:</span>
+
+    <span class="c1">// 这个暴露公共API的头文件中不包含任何成员变量。
+</span><span class="c1"></span>    <span class="c1">// 修改 Impl 的实现不会引起 MyInterface 的重新编译，接口稳定。
+</span><span class="c1"></span>
+    <span class="k">struct</span> <span class="nc">Impl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span> <span class="n">mImpl</span><span class="p">;</span>
+<span class="p">};</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>MyInterfaceImpl.cpp 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&#34;MyInterface.h&#34;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="c1">// ========= MyInterface 的具体声明 =========
+</span><span class="c1"></span>
+<span class="c1">// 这里可以引用包含一些具体的其它头文件依赖
+</span><span class="c1"></span>
+<span class="k">struct</span> <span class="nc">MyInterface</span><span class="o">::</span><span class="n">Impl</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="nf">publicApi1</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="nf">publicApi2</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">MyInterface</span><span class="o">::</span><span class="n">Impl</span><span class="o">::</span><span class="n">publicApi1</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">MyInterface</span><span class="o">::</span><span class="n">Impl</span><span class="o">::</span><span class="n">publicApi2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="mi">84</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// ========= MyInterface 的具体实现 =========
+</span><span class="c1">// 基本上就是把 Impl 的方法调用转发过去。
+</span><span class="c1"></span>
+<span class="n">MyInterface</span><span class="o">::</span><span class="n">MyInterface</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">mImpl</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">MyInterface</span><span class="o">::~</span><span class="n">MyInterface</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">MyInterface</span><span class="o">::</span><span class="n">publicApi1</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">mImpl</span><span class="o">-&gt;</span><span class="n">publicApi1</span><span class="p">();</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">MyInterface</span><span class="o">::</span><span class="n">publicApi2</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">mImpl</span><span class="o">-&gt;</span><span class="n">publicApi2</span><span class="p">();</span> <span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="builder">Builder</h3>
+<p>ProductBuilder.h 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span><span class="lnt">284
+</span><span class="lnt">285
+</span><span class="lnt">286
+</span><span class="lnt">287
+</span><span class="lnt">288
+</span><span class="lnt">289
+</span><span class="lnt">290
+</span><span class="lnt">291
+</span><span class="lnt">292
+</span><span class="lnt">293
+</span><span class="lnt">294
+</span><span class="lnt">295
+</span><span class="lnt">296
+</span><span class="lnt">297
+</span><span class="lnt">298
+</span><span class="lnt">299
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#pragma once
+</span><span class="cp"></span>
+<span class="c1">// 对于某一类产品的复杂对象构建，使用建造者/工厂模式（这里混合了常见的教程里面的概念）
+</span><span class="c1">// 一类产品应对应一个Builder类，负责该类产品的各个部分的设置和产品类的创建
+</span><span class="c1">// 并可灵活的增减和修改产品的设置和内部实现
+</span><span class="c1"></span>
+<span class="c1">// 其中 &#34;// ...&#34; 表示可以继续扩展的部分，而其余部分基本都是固定的可以不动。
+</span><span class="c1"></span>
+<span class="c1">// 函数执行返回值约定：
+</span><span class="c1">//      0 表示成功
+</span><span class="c1">//    &lt; 0 表示失败
+</span><span class="c1">//    &gt; 0 表示警告
+</span><span class="c1"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstddef&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="c1">// ========= 所有类型产品可以有一个共同的基类 =========
+</span><span class="c1"></span>
+<span class="k">class</span> <span class="nc">ObjectBasic</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ObjectBasic</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">ObjectBasic</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+<span class="k">protected</span><span class="o">:</span>
+    <span class="n">size_t</span> <span class="n">mId</span><span class="p">;</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="c1">// ========= 某一类产品的抽象类的定义 =========
+</span><span class="c1"></span>
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">ProductType</span> <span class="p">{</span>
+    <span class="n">ProductA</span><span class="p">,</span>
+    <span class="n">ProductB</span><span class="p">,</span>
+
+    <span class="c1">// 可扩展更多产品类型
+</span><span class="c1"></span>    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="c1">// 产品的各个设置项，必须包含所有，方便 Builder 设置，以及未来的类实例的克隆等作用
+</span><span class="c1"></span><span class="k">struct</span> <span class="nc">ProductSettings</span> <span class="p">{</span>
+
+    <span class="n">ProductType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">ProductType</span><span class="o">::</span><span class="n">ProductA</span><span class="p">;</span>
+
+    <span class="c1">// 基本设置项
+</span><span class="c1"></span>    <span class="c1">// 需要都写上默认值
+</span><span class="c1"></span>    <span class="kt">int32_t</span> <span class="n">partA</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">partB</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">partC</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>
+    <span class="c1">// 如果设置项有自定义类型，则需要提供该类型的判断相等等基础操作符重载
+</span><span class="c1"></span>
+    <span class="c1">// 基础操作符设施
+</span><span class="c1"></span>    <span class="c1">// 重置，赋值运算符，等号运算符，等
+</span><span class="c1"></span>
+    <span class="kt">void</span> <span class="nf">reset</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">partA</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">partB</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="n">partC</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="c1">// ...
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">ProductSettings</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="n">partA</span> <span class="o">==</span> <span class="n">other</span><span class="p">.</span><span class="n">partA</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
+                 <span class="p">(</span> <span class="n">partB</span> <span class="o">==</span> <span class="n">other</span><span class="p">.</span><span class="n">partB</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
+                 <span class="p">(</span> <span class="n">partC</span> <span class="o">==</span> <span class="n">other</span><span class="p">.</span><span class="n">partC</span> <span class="p">)</span> <span class="p">);</span>
+                 <span class="c1">// ...
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="cp">#define HANDLE_ISUNCHANGED(settingVar, newValue, changedExec, noChangeExec) \
+</span><span class="cp">    if (!(settingVar == newValue)) {    \
+</span><span class="cp">        settingVar = newValue;          \
+</span><span class="cp">        changedExec                     \
+</span><span class="cp">    } else {                            \
+</span><span class="cp">        noChangeExec                    \
+</span><span class="cp">    }
+</span><span class="cp"></span>
+<span class="cp">#define HANDLE_RET(ret, fun, retIs0ThanExec, retSmallThanExec, retLargerThanExec) \
+</span><span class="cp">    ret = fun;                  \
+</span><span class="cp">    if (ret == 0) {             \
+</span><span class="cp">        retIs0ThanExec          \
+</span><span class="cp">    } else if (ret &lt; 0) {       \
+</span><span class="cp">        retSmallThanExec        \
+</span><span class="cp">    } else {                    \
+</span><span class="cp">        retLargerThanExec       \
+</span><span class="cp">    }
+</span><span class="cp"></span>
+<span class="cp">#define SET_GET_PART_IMPL(funPartName, varPartName, partType, updateFunc, printFunc) \
+</span><span class="cp">    virtual int32_t set##funPartName(const partType&amp; value) {  \
+</span><span class="cp">        HANDLE_ISUNCHANGED(                             \
+</span><span class="cp">            varPartName, value,                         \
+</span><span class="cp">            int ret = -1;                               \
+</span><span class="cp">            HANDLE_RET(                                 \
+</span><span class="cp">                ret , updateFunc ,                      \
+</span><span class="cp">                return 0; ,                             \
+</span><span class="cp">                printFunc(#updateFunc &#34; failed, ret=%d\n&#34;, ret); \
+</span><span class="cp">                return ret; ,                            \
+</span><span class="cp">                printFunc(#updateFunc &#34; warning, ret=%d\n&#34;, ret); \
+</span><span class="cp">                return ret;                             \
+</span><span class="cp">            ),                                          \
+</span><span class="cp">            return 0;                                   \
+</span><span class="cp">        );                                              \
+</span><span class="cp">    }                                                   \
+</span><span class="cp">    virtual partType get##funPartName() const {                 \
+</span><span class="cp">        return varPartName;                             \
+</span><span class="cp">    }
+</span><span class="cp"></span>
+<span class="k">class</span> <span class="nc">ProductBasic</span> <span class="o">:</span> <span class="n">ObjectBasic</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ProductBasic</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">ProductBasic</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="c1">// 注意如果这些 API 需要多线程使用，则需要加锁保护
+</span><span class="c1"></span>
+    <span class="c1">// 这里仅仅设置和获取设置值，但不生效。可以用于&#34;克隆&#34;来自另一个实例的设置值
+</span><span class="c1"></span>    <span class="n">SET_GET_PART_IMPL</span><span class="p">(</span><span class="n">Settings</span><span class="p">,</span> <span class="n">mSettings</span><span class="p">,</span> <span class="n">ProductSettings</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">printf</span><span class="p">);</span> <span class="c1">// 打印函数按需修改
+</span><span class="c1"></span>
+    <span class="c1">// 公共的设置项
+</span><span class="c1"></span>    <span class="c1">// 设置和获取各个部分的值，并立即生效
+</span><span class="c1"></span>    <span class="c1">// 用于单独设置某个部分，操作细节
+</span><span class="c1"></span>    <span class="n">SET_GET_PART_IMPL</span><span class="p">(</span><span class="n">PartA</span><span class="p">,</span> <span class="n">mSettings</span><span class="p">.</span><span class="n">partA</span><span class="p">,</span> <span class="kt">int32_t</span><span class="p">,</span> <span class="n">updatePartA</span><span class="p">(),</span> <span class="n">printf</span><span class="p">);</span>
+    <span class="n">SET_GET_PART_IMPL</span><span class="p">(</span><span class="n">PartB</span><span class="p">,</span> <span class="n">mSettings</span><span class="p">.</span><span class="n">partB</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="n">updatePartB</span><span class="p">(),</span> <span class="n">printf</span><span class="p">);</span>
+    <span class="n">SET_GET_PART_IMPL</span><span class="p">(</span><span class="n">PartC</span><span class="p">,</span> <span class="n">mSettings</span><span class="p">.</span><span class="n">partC</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">updatePartC</span><span class="p">(),</span> <span class="n">printf</span><span class="p">);</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>
+    <span class="c1">// 根据最新的 mSettings 进行整体更新，使所有设置生效（进行设置项生效，运行、显示等）。
+</span><span class="c1"></span>    <span class="c1">// 里面写上所有设置值生效函数。
+</span><span class="c1"></span>    <span class="c1">// 用于创造新实例并填入所有设置值后的一次整体更新
+</span><span class="c1"></span>    <span class="c1">// 或批量设置后再生效，减少重复更新开销
+</span><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">int32_t</span> <span class="nf">makeSettingsAvailable</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="kt">int32_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">HANDLE_RET</span><span class="p">(</span>
+            <span class="n">ret</span> <span class="p">,</span> <span class="n">updatePartA</span><span class="p">()</span> <span class="p">,</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;updatePartA() failed, ret=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">ret</span><span class="p">;</span> <span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;updatePartA() warning, ret=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">ret</span><span class="p">;</span> <span class="p">);</span>
+
+        <span class="n">HANDLE_RET</span><span class="p">(</span>
+            <span class="n">ret</span> <span class="p">,</span> <span class="n">updatePartB</span><span class="p">()</span> <span class="p">,</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;updatePartB() failed, ret=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;updatePartB() warning, ret=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">);</span>
+
+        <span class="n">HANDLE_RET</span><span class="p">(</span>
+            <span class="n">ret</span> <span class="p">,</span> <span class="n">updatePartC</span><span class="p">()</span> <span class="p">,</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;updatePartC() failed, ret=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;updatePartC() warning, ret=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">);</span>
+
+        <span class="c1">// ...
+</span><span class="c1"></span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 一些公共的纯虚函数接口，由具体产品类实现
+</span><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">doSomething</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>
+<span class="k">protected</span><span class="o">:</span>
+    <span class="n">ProductSettings</span> <span class="n">mSettings</span><span class="p">;</span>
+
+    <span class="c1">// 实际更新各个部分的虚函数，由具体产品类实现
+</span><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">int32_t</span> <span class="nf">updatePartA</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">int32_t</span> <span class="nf">updatePartB</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">int32_t</span> <span class="nf">updatePartC</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">ProductNextBasic</span> <span class="o">:</span> <span class="n">ObjectBasic</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="c1">// ========= 具体产品类的定义 =========
+</span><span class="c1">// 最好每个具体产品类单独放在一个头文件和源文件中（这里只留前置声明）。
+</span><span class="c1">// 可以用 Pimpl 模式隐藏实现细节（这里没有，对于只暴露头文件的情况需要用）。
+</span><span class="c1"></span>
+<span class="k">class</span> <span class="nc">ProductAConcrete</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ProductBasic</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ProductAConcrete</span><span class="p">(</span><span class="k">const</span> <span class="n">ProductSettings</span><span class="o">&amp;</span> <span class="n">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mSettings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">~</span><span class="n">ProductAConcrete</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">doSomething</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="c1">// ...
+</span><span class="c1"></span>
+<span class="k">protected</span><span class="o">:</span>
+    <span class="kt">int32_t</span> <span class="n">updatePartA</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>        <span class="c1">// 根据 mSettings.partA 的值更新部分 A
+</span><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int32_t</span> <span class="nf">updatePartB</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>        <span class="c1">// 根据 mSettings.partB 的值更新部分 B
+</span><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int32_t</span> <span class="nf">updatePartC</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>        <span class="c1">// 根据 mSettings.partC 的值更新部分 C
+</span><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...
+</span><span class="c1"></span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="c1">// 具体产品类的私有成员变量
+</span><span class="c1"></span>
+    <span class="c1">// 如果新增新的设置项，需要在这里添加对应的成员变量的 updatePartX() 实现
+</span><span class="c1"></span>    <span class="c1">// 并添加对应设置项的 SET_GET_PART_IMPL(PartX, mSettings.PartX, std::string, updatePartX(), printf);
+</span><span class="c1"></span>    <span class="c1">// 并重写 makeSettingsAvailable()，里面先调用 ProductBasic::makeSettingsAvailable()，再调用这些新增的 updatePartX() 方法
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">ProductBConcrete</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ProductBasic</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ProductBConcrete</span><span class="p">(</span><span class="k">const</span> <span class="n">ProductSettings</span><span class="o">&amp;</span> <span class="n">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mSettings</span> <span class="o">=</span> <span class="n">settings</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">~</span><span class="n">ProductBConcrete</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">doSomething</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="c1">// ...
+</span><span class="c1"></span>
+<span class="k">protected</span><span class="o">:</span>
+    <span class="kt">int32_t</span> <span class="n">updatePartA</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>        <span class="c1">// 根据 mSettings.partA 的值更新部分 A
+</span><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int32_t</span> <span class="nf">updatePartB</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>        <span class="c1">// 根据 mSettings.partB 的值更新部分 B
+</span><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int32_t</span> <span class="nf">updatePartC</span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="c1">// 具体实现
+</span><span class="c1"></span>        <span class="c1">// 根据 mSettings.partC 的值更新部分 C
+</span><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="c1">// ========= ProductBuilder 类 =========
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">ProductBuilder</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">ProductBuilder</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">ProductBuilder</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ProductBasic</span><span class="o">&gt;</span> <span class="n">createProduct</span><span class="p">(</span><span class="k">const</span> <span class="n">ProductSettings</span><span class="o">&amp;</span> <span class="n">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">ProductType</span><span class="o">::</span><span class="nl">ProductA</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ProductAConcrete</span><span class="o">&gt;</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span>
+            <span class="k">case</span> <span class="n">ProductType</span><span class="o">::</span><span class="nl">ProductB</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">ProductBConcrete</span><span class="o">&gt;</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span>
+            <span class="c1">// 可扩展更多产品类型
+</span><span class="c1"></span>            <span class="c1">// ...
+</span><span class="c1"></span>            <span class="k">default</span><span class="o">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Unknown ProductType: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">type</span><span class="p">));</span>
+                <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 使用例子：
+</span><span class="c1">// ProductBuilder builder;
+</span><span class="c1">// auto productA = builder.createProduct(
+</span><span class="c1">//     ProductSettings{
+</span><span class="c1">//         .type = ProductType::ProductA,
+</span><span class="c1">//         .partA = 10,
+</span><span class="c1">//         .partB = 20.5,
+</span><span class="c1">//         .partC = &#34;ExampleA&#34;
+</span><span class="c1">//     }
+</span><span class="c1">// );
+</span><span class="c1">// 创建的多个产品实例，可以用 ToolBox/GeneralContainer（暂未开源） 来管理。
+</span><span class="c1">//    简单的就用 std::vector 之类的容器 添加到 ProductBuilder 类里面 进行管理。
+</span><span class="c1">// 创建多个不同设置的产品实例之后，统一调用 makeSettingsAvailable() 使批量设置生效（重要）。
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="singleton">Singleton</h3>
+<p>Singleton.h 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#pragma once
+</span><span class="cp"></span>
+<span class="c1">// 使用例子：
+</span><span class="c1">// Singleton::getInst().doSomething();
+</span><span class="c1"></span>
+<span class="k">class</span> <span class="nc">Singleton</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="c1">// 获取单例实例的静态方法
+</span><span class="c1"></span>    <span class="c1">// C++11 起，静态局部变量的初始化是线程安全的 (Meyers&#39; Singleton)
+</span><span class="c1"></span>    <span class="k">static</span> <span class="n">Singleton</span><span class="o">&amp;</span> <span class="n">getInst</span><span class="p">();</span>
+
+    <span class="c1">// 示例业务方法
+</span><span class="c1"></span>    <span class="kt">void</span> <span class="nf">doSomething</span><span class="p">();</span>
+
+    <span class="c1">// 删除拷贝构造函数和赋值运算符，防止复制
+</span><span class="c1"></span>    <span class="n">Singleton</span><span class="p">(</span><span class="k">const</span> <span class="n">Singleton</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+    <span class="n">Singleton</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Singleton</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="c1">// 私有构造函数，防止外部实例化
+</span><span class="c1"></span>    <span class="n">Singleton</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="o">~</span><span class="n">Singleton</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 或者，如果一个类只需要一个全局实例，可以使用全局实例的方式实现单例模式，示例如下：
+</span><span class="c1">// 单例类只用 .h 文件里面 放一个 `extern class classType Global&lt;name&gt;Inst;` 这种方式
+</span><span class="c1">// （在 .cpp 里面去声明 `calss classType Global&lt;name&gt;Inst;`），之后全局调用 `Global&lt;name&gt;Inst` 即可。
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Singleton.cpp 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&#34;Singleton.h&#34;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="n">Singleton</span><span class="o">&amp;</span> <span class="n">Singleton</span><span class="o">::</span><span class="n">getInst</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 静态局部变量，第一次调用时初始化，程序结束时销毁
+</span><span class="c1"></span>    <span class="c1">// C++11 标准保证了并发环境下的线程安全性
+</span><span class="c1"></span>    <span class="k">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Singleton</span><span class="o">::</span><span class="n">doSomething</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Singleton instance address: &#34;</span> <span class="o">&lt;&lt;</span> <span class="k">this</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; is doing something.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="结构型模式">结构型模式</h2>
+<h3 id="适配器adapter--桥接bridge--组合composite">适配器(adapter) &amp; 桥接(bridge) &amp; 组合(composite)</h3>
+<p>适配器(adapter) 可以写为 多种信息类型之间的转换 的组件：选定一个内部的统一的格式，做例如 setIn() 和 setOut() 的方法。</p>
+<p>如选定 jsonObj (比如 <code>nlohmann::json</code>) 作为内部的中间统一格式，就可以有 <code>jsonObj.setIn( jsonStr | jsonObj | xmlStr | xmlObj | yamlStr | yamlObj ... )</code>，以及 <code>jsonObj.setOut( ... )</code>。还可以参考 pcl 库的 各种滤波器 的使用，其中就有 <code>setInput()</code> 方法 并 重载了多种输入。</p>
+<p>上下二者类似 ↑ ↓</p>
+<p>桥接(bridge) 可以作为 多对多的控制或调用 的模块（模块为比组件高一个级别的层级，包括多个组件构成） 的结构：上层有多种对外接口功能，下层也有多种平台或者其它情况的各种适配，那种就可以设计一个中间层，只保留少量的、通用的接口。</p>
+<p>类似于 ↓</p>
+<p>组合(composite) 可以用于 信息结构呈现为树状或网状的 信息存储：将每个信息节点，用 多叉树 或者 网 的数据结构，组合到一起，再添加各种处理操作。</p>
+<h3 id="装饰器decorator--外观facade--代理proxy">装饰器(decorator) &amp; 外观(facade) &amp; 代理(proxy)</h3>
+<p>这几个类似 wrap 封装一层 的结构 或 方法：比如现在有 三种 三方组件库 A、B 和 C，他们具体接口不一样但是功能行为类似，比如多种社交媒体平台接口，均有发帖和获取贴等，现在要写个上层使用统一的结构对其操作，就可以加一个 wrap 包装/封装一层，先来个比如 WrapBasic 的抽象类定义通用的必要的接口，再写 AWrap 类继承 WrapBasic 并实现 特定接口 来操作 A 库的接口，其它 B 和 C 同理。现在就有了 AWrap、BWrap 和 CWrap 三种 接口统一的 类 可供操作 三种库。</p>
+<hr>
+<h2 id="行为模式">行为模式</h2>
+<h3 id="行为链条chain--迭代器iterator">行为链条(chain) &amp; 迭代器(iterator)</h3>
+<p>行为链条(chain)：用于链式的处理逻辑，比如要进行一系列有先后的检查步骤，并要方便的可以在中间增减检查步骤：使用链表结构存储检查函数或者检查抽象类智能指针等，核心就是使用链表的数据结构，如 <code>std::list</code>。</p>
+<p>对于链条数据结构的遍历，就需要迭代器如下。</p>
+<p>迭代器(iterator)：搞一个对某个数据结构的指定迭代/遍历方法的迭代器类：如对于 二叉树 或 网 的数据结构有 深度优先 和 广度优先 等遍历方法。</p>
+<p>自己实现的数据结构，需要实现基本的方法：增删改查；我再加四个：判排复遍——判空、排序（对于哈希表结构则没有）、复位（清空）和遍历。</p>
+<p>对于遍历，可以两种：</p>
+<ol>
+<li>
+<p>提供遍历的方法比如 <code>traverse(const TraverseFunction&amp; traverse_func)</code>，传入一个遍历的回调函数，如下。还可以增加遍历方法指定的形参。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Key</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Value</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">GeneralContainer</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Value</span><span class="o">&gt;::</span><span class="n">traverse</span><span class="p">(</span><span class="k">const</span> <span class="n">TraverseFunction</span><span class="o">&amp;</span> <span class="n">traverse_func</span><span class="p">)</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">traverse_func</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">shared_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">mMutex</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">it</span> <span class="p">:</span> <span class="n">mList</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 正序遍历
+</span><span class="c1"></span>        <span class="n">traverse_func</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>提供这里所说的迭代器类，不同的迭代器类代表对这个数据结构的不同的遍历方法。比如 std 标准库 容器的:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">myVector</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+<span class="k">auto</span> <span class="n">forwardIter</span> <span class="o">=</span> <span class="n">myVector</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>    <span class="c1">// forwardIter 指向 第一个 元素，forwardIter++ 则移动到第二个元素。
+</span><span class="c1"></span><span class="k">auto</span> <span class="n">backwardIter</span> <span class="o">=</span> <span class="n">myVector</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span>  <span class="c1">// backwardIter 指向 最后一个 元素，backwardIter++ 则移动到倒数第二个元素。
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="中介中央调度mediator--命令command">中介/中央调度(mediator) &amp; 命令(command)</h3>
+<p>中介/中央调度(mediator)：多个地方的组件请求执行动作，如果其之间有冲突，比如多个 app 要往 状态栏 弹带优先级的信息，不要各自都直接弹出，因为需要优先级高的始终在最上，因此需要一个中介或者中央调度的组件或模块，多个地方的 app 统一往这个 中介 请求弹信息，由 中介 选择 往信息栏 插入 的位置并插入、或者检查黑名单并忽略等等。</p>
+<p>还有 GUI 程序中的弹窗场景，有的界面可以弹窗，有的界面不允许弹窗，等等还有其它设计情况，因此需要一个中介去统一接受弹窗请求并处理。</p>
+<p>命令(command)：思想是，打包一个执行动作以及其传入参数：一个执行动作，如 GUI 程序中 用户点击一个按键，索要执行的一系列程序，封装为一个函数（多种按键有枚举等关系，或者按键为登录等需要传入参数的），需要执行动作时候，打包函数和函数实参 如用 <code>std::bind()</code>，放到一个队列中去执行。可以参考 线程池 <a href="https://github.com/progschj/ThreadPool" target="_blank" rel="noopener noreffer">progschj/ThreadPool: A simple C++11 Thread Pool implementation</a> 的使用方法。</p>
+<p>如上面的中介就需要类似 命令 的方式，设置接口，处理来自其它组件的 &ldquo;命令&rdquo;。</p>
+<h3 id="备忘录memento--访问者visitor">备忘录(memento) &amp; 访问者(visitor)</h3>
+<p>备忘录(memento)：针对需要给组件当前状态整一个快照、用于存留到历史记录中用于后面可能的再现/回放等场景，则给每个组件添加一个 比如 save() 或者 snapshot() 的方法，方法返回 保存了这个组件所有当前信息的（足够回放的）通用 Memento 类或者这个组件的一份克隆，有一个 history 类进行保存并在每次进行快照的时候增长。</p>
+<p>参考 <a href="https://refactoringguru.cn/design-patterns/memento/cpp/example" target="_blank" rel="noopener noreffer">C++ 备忘录模式讲解和代码示例</a>。</p>
+<p>访问者(visitor)：给需要被访问的类添加一个类似于 Accept(Visitor* visitor) 的函数，传入 visitor 后调用其 visitor-&gt;VisitConcreteComponentA(this);，在 VisitConcreteComponentA() 内部访问 当前类实例。</p>
+<p>参考 <a href="https://refactoringguru.cn/design-patterns/visitor/cpp/example" target="_blank" rel="noopener noreffer">C++ 访问者模式讲解和代码示例</a>。</p>
+<h3 id="观察者observer--发布-订阅publisher-subscribers">观察者(observer) / 发布-订阅(publisher-subscribers)</h3>
+<p>观察者订阅发布者，发布者执行发布操作（可带参数），即所有订阅这个发布者的观察者的订阅回调函数都会被执行。</p>
+<p>发布-订阅 模式的 C++ 库，如：libsigcplusplus、KDBindings、等 信号槽 类型库，以及 dds 进程间通讯库等。</p>
+<h3 id="状态设计state--有限状态机fsm">状态设计(state) / 有限状态机(FSM)</h3>
+<p>将组件或模块或设备的功能执行划分为一些状态以及状态之间的转移条件，画出状态转移图，即设计为 有限状态机 FSM，进行业务的编程建模。</p>
+<p>简单的可以为 switch-case 语句进行，复杂的、功能多的可以上库，如以下库等：</p>
+<ul>
+<li>StateMachine <a href="https://github.com/endurodave/StateMachine" target="_blank" rel="noopener noreffer">endurodave/StateMachine: State Machine Design in C++</a>，C++，编程风格为 定义 事件 event 下 所有 状态 的 行为，以及状态进入和退出的行为等。</li>
+<li>UML State Machine in C <a href="https://github.com/kiishor/UML-State-Machine-in-C" target="_blank" rel="noopener noreffer">kiishor/UML-State-Machine-in-C: A minimalist UML State machine framework for finite state machine and hierarchical state machine in C</a>，C 语言，轻量级（可用于 mcu），表格化构建状态机，支持层级状态机。</li>
+<li>stateMachine <a href="https://github.com/misje/stateMachine" target="_blank" rel="noopener noreffer">misje/stateMachine: A feature-rich, yet simple finite state machine (FSM) implementation in C</a>，C 语言，简易简陋超轻量状态机，可用于 mcu。</li>
+</ul>
+<p>FPGA 的 IP核 设计中常用 FSM 概念进行建模，有几种不同的写法，Verilog 编码 的例子可见 [HDL-FPGA-study-and-norms/FPGA学习和规范 的参考源码/具体模块/fsm 一段和三段状态机例子 at main · Staok/HDL-FPGA-study-and-norms](<a href="https://github.com/Staok/HDL-FPGA-study-and-norms/tree/main/FPGA">https://github.com/Staok/HDL-FPGA-study-and-norms/tree/main/FPGA</a>学习和规范 的参考源码/具体模块/fsm 一段和三段状态机例子)。</p>
+<h3 id="策略strategy--模板方法template-method--类多态">策略(strategy) &amp; 模板方法(template-method) / 类多态</h3>
+<p>策略(strategy)：针对需要对于一定的数据集，使用不同的策略来获取不同的结果。策略可以使用基类和衍生类的多态来实现，这样，创建不同种类的策略类实例并给到执行，就是使用了不同的策略。</p>
+<p>参考 <a href="https://refactoringguru.cn/design-patterns/strategy/cpp/example" target="_blank" rel="noopener noreffer">C++ 策略模式讲解和代码示例</a>。</p>
+<p>模板方法(template-method)：基类定义执行操作（里面包含多种子操作以及特定顺序）的一个（纯）虚函数，并定义一些子操作（（纯）虚）函数，继承这个基类的多个衍生类中，使用不同的实现重写这些执行操作的函数（不同的子操作、顺序等，以及不同的操作实现），使用类多态，做到创建不同的类实例，用于对数据执行不同的策略操作。</p>
+<p>参考 <a href="https://refactoringguru.cn/design-patterns/template-method/cpp/example" target="_blank" rel="noopener noreffer">C++ 模板方法模式讲解和代码示例</a>。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2025-12-26</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/" data-title="（集合）C / C&#43;&#43; 设计模式综合" data-hashtags="设计模式,软件"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/" data-hashtag="设计模式"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/" data-title="（集合）C / C&#43;&#43; 设计模式综合" data-ralateuid="u/3585238893"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>,&nbsp;<a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/" class="prev" rel="prev" title="编程经验、调试、性能和内存检查工具集合"><i class="fas fa-angle-left fa-fw"></i>编程经验、调试、性能和内存检查工具集合</a>
+            <a href="/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" class="next" rel="next" title="GUI 框架基础需求、设计和实现">GUI 框架基础需求、设计和实现<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2026</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"data":{"id-1":"回家","id-2":"回家"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
