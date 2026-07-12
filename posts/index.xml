@@ -1,78 +1,43 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>所有文章 - 欢迎来到 瞰百Staok</title>
-        <link>https://staok.github.io/posts/</link>
-        <description>所有文章 | 欢迎来到 瞰百Staok</description>
-        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Wed, 25 Feb 2026 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>GUI 框架基础需求、设计和实现</title>
-    <link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
-    <pubDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
-    <description><![CDATA[GUI 框架基础需求、设计和实现 以下皆为建议性内容，根据需求制定方案。 这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示]]></description>
-</item><item>
-    <title>（集合）C / C&#43;&#43; 设计模式综合</title>
-    <link>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</link>
-    <pubDate>Fri, 26 Dec 2025 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</guid>
-    <description><![CDATA[C / C++ 设计模式综合 本文最新原文和相关资料在 Github / Gitee 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。 设计模式目录 都是好文！ 背景和梳理]]></description>
-</item><item>
-    <title>编程经验、调试、性能和内存检查工具集合</title>
-    <link>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</link>
-    <pubDate>Sun, 22 Dec 2024 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</guid>
-    <description><![CDATA[编程经验 / 规范, 调试、性能和内存检查工具集合 程序调试、在检测工具手段上对程序评估和优化 的 综合。 分为很多块内容且相互独立，直接到对应小节。 p.s 有]]></description>
-</item><item>
-    <title>C / C&#43;&#43; 实用库备查</title>
-    <link>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</link>
-    <pubDate>Sun, 15 Sep 2024 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</guid>
-    <description><![CDATA[C / C++ 实用库备查 网络参考源： Your list / 实用库 / EE-CS (github.com)。 你工作中最推荐的 C/C++ 程序库有哪些，为什么？ - 知乎 (zhihu.com)。]]></description>
-</item><item>
-    <title>C&#43;&#43; 学习总结备查</title>
-    <link>https://staok.github.io/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link>
-    <pubDate>Sat, 29 Jul 2023 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</guid>
-    <description><![CDATA[C++ 学习总结 本文非基础教学文，而是在有 C 语言的基础上对 C++ 学习的总结记录，长期积累&amp;更新。 欢迎在原文 github / gitee 仓库 提 issue 指出错误，和 提 PR 来一同]]></description>
-</item><item>
-    <title>【目录贴】硕士实验室嵌入式学习路线参考清单</title>
-    <link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link>
-    <pubDate>Tue, 11 Apr 2023 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</guid>
-    <description><![CDATA[下面是对我在硕士期间边学边实践所写的部分文章，挑选整理出一个 “学习清单”。 其实我写到目前为止，如果你看进去了这些东西 可以说各种东西达到了熟悉]]></description>
-</item><item>
-    <title>必先看：主线剧情系列的循序渐进的查看顺序</title>
-    <link>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</link>
-    <pubDate>Sat, 04 Jun 2022 16:46:10 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</guid>
-    <description><![CDATA[必先看：主线剧情 系列 的循序渐进的查看顺序 【主线剧情】Linux 系列，为嵌入式 Linux 的学习记录。 每一篇文章的内容、以及仓库的内容都极其丰富~ 仓库地]]></description>
-</item><item>
-    <title>（大集合）数据结构与算法简述和CS综合</title>
-    <link>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link>
-    <pubDate>Fri, 10 Dec 2021 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid>
-    <description><![CDATA[数据结构与算法简述和CS综合 数据结构与算法简述和CS综述整理。本文非基础的教程，本文会列出大量学习和参考网站。老惯例，一个文章是一个集大成（]]></description>
-</item><item>
-    <title>【读标准01】IEEE1451 智能传感器接口标准介绍</title>
-    <link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Wed, 14 Jul 2021 09:57:11 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[IEEE 1451 智能传感器接口标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络]]></description>
-</item><item>
-    <title>【主线剧情01】ARM IMX6ULL 基础学习记录</title>
-    <link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link>
-    <pubDate>Fri, 02 Apr 2021 13:26:36 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid>
-    <description><![CDATA[ARM &amp; i.MX6ULL 基础学习记录 编辑整理 by Staok。 本文大部分内容摘自“100ask imx6ull”开发板的配套资料（如《IMX6ULL裸机开发完全手册]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - 欢迎来到 瞰百Staok</title><link>https://staok.github.io/posts/</link><description>所有文章 | 欢迎来到 瞰百Staok</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Feb 2026 09:15:14 +0800</lastBuildDate><atom:link href="https://staok.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>GUI 框架基础需求、设计和实现</title><link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link><pubDate>Sat, 14 Feb 2026 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid><description><![CDATA[<h2 id="gui-框架基础需求设计和实现">GUI 框架基础需求、设计和实现</h2>
+<p>以下皆为建议性内容，根据需求制定方案。</p>
+<p>这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示和交互逻辑，满足交互设计需求。</p>]]></description></item><item><title>（集合）C / C++ 设计模式综合</title><link>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</link><pubDate>Fri, 26 Dec 2025 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</guid><description><![CDATA[<h1 id="c--c-设计模式综合">C / C++ 设计模式综合</h1>
+<p>本文最新原文和相关资料在 <a href="https://github.com/Staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer ">Github</a> / <a href="https://gitee.com/staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer ">Gitee</a> 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。</p>
+<h1 id="设计模式目录">设计模式目录</h1>
+<p>都是好文！</p>
+<p>背景和梳理：</p>
+<ul>
+<li><a href="https://blog.csdn.net/zcshoucsdn/article/details/80217199" target="_blank" rel="noopener noreffer ">学无止境 之一 C 嵌入式设计模式（Design Patterns for Embedded Systems in C）笔记-CSDN博客</a>。</li>
+<li><a href="https://zh.wikipedia.org/zh-hans/%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f_%28%e8%ae%a1%e7%ae%97%e6%9c%ba%29" target="_blank" rel="noopener noreffer ">设计模式 (计算机) - 维基百科，自由的百科全书 (wikipedia.org)</a>。（需要科学上网）</li>
+</ul>
+<p>设计模式目录：</p>]]></description></item><item><title>编程经验、调试、性能和内存检查工具集合</title><link>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</link><pubDate>Sun, 22 Dec 2024 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E7%BC%96%E7%A8%8B%E7%BB%8F%E9%AA%8C%E8%B0%83%E8%AF%95%E6%80%A7%E8%83%BD%E5%92%8C%E5%86%85%E5%AD%98%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E9%9B%86%E5%90%88/</guid><description><![CDATA[<h1 id="编程经验--规范-调试性能和内存检查工具集合">编程经验 / 规范, 调试、性能和内存检查工具集合</h1>
+<p>程序调试、在检测工具手段上对程序评估和优化 的 综合。</p>
+<p>分为很多块内容且相互独立，直接到对应小节。</p>
+<p><em>p.s 有的网络页面不让复制文本，没关系，有让网页内容变可复制的插件。自行搜索，这里只是提醒，因为这些小点的经验提醒、思路、渔最重要。</em></p>]]></description></item><item><title>C / C++ 实用库备查</title><link>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</link><pubDate>Sun, 15 Sep 2024 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/c-cpp%E5%AE%9E%E7%94%A8%E5%BA%93%E5%A4%87%E6%9F%A5/</guid><description><![CDATA[<h1 id="c--c-实用库备查">C / C++ 实用库备查</h1>
+<p>网络参考源：</p>
+<ul>
+<li><a href="https://github.com/stars/Staok/lists/%e5%ae%9e%e7%94%a8%e5%ba%93-ee-cs" target="_blank" rel="noopener noreffer ">Your list / 实用库 / EE-CS (github.com)</a>。</li>
+<li><a href="https://www.zhihu.com/question/51134387" target="_blank" rel="noopener noreffer ">你工作中最推荐的 C/C++ 程序库有哪些，为什么？ - 知乎 (zhihu.com)</a>。可以不时的更新收录到下面。</li>
+<li><a href="https://www.zhihu.com/question/639724149" target="_blank" rel="noopener noreffer ">可以使用 C++ 的哪些库或函数来简化任务？ - 知乎 (zhihu.com)</a>。可以不时的更新收录到下面。</li>
+<li><a href="https://zh.cppreference.com/w/cpp/links/libs" target="_blank" rel="noopener noreffer ">开源 C++ 库列表 - cppreference.com</a>。这里面有一些比较老的，有些经典的。</li>
+<li><a href="https://github.com/fffaraz/awesome-cpp" target="_blank" rel="noopener noreffer ">fffaraz/awesome-cpp: A curated list of awesome C++ (or C) frameworks, libraries, resources, and shiny things. Inspired by awesome-&hellip; stuff. (github.com)</a>。超多，可以时不时看一看，更新收录到下面。</li>
+<li><a href="https://blog.csdn.net/IncrediBuild/article/details/130288032" target="_blank" rel="noopener noreffer ">不容错过的 13 个顶级 C++ 程序库_c++库-CSDN博客</a>。</li>
+<li><a href="https://baijiahao.baidu.com/s?id=1670023811243394679" target="_blank" rel="noopener noreffer ">分享给大家的c++常用库，建议收藏！ (baidu.com)</a>。</li>
+</ul>
+<p>以下是自总结的平时用到的、好用的库和一些网络上推荐的库的集合。基本上，每个领域只推荐一个 或 两个 相关领域 最常用的、最主流的。排序不分先后。</p>]]></description></item><item><title>C++ 学习总结备查</title><link>https://staok.github.io/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</link><pubDate>Sat, 29 Jul 2023 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/cpp%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%A4%87%E6%9F%A5/</guid><description><![CDATA[<h1 id="c-学习总结">C++ 学习总结</h1>
+<p>本文非基础教学文，而是在有 C 语言的基础上对 C++ 学习的总结记录，长期积累&amp;更新。</p>
+<p>欢迎在原文 <a href="https://github.com/Staok/Cpp-Learning" target="_blank" rel="noopener noreffer ">github</a> / <a href="https://gitee.com/staok/Cpp-Learning" target="_blank" rel="noopener noreffer ">gitee</a> 仓库 提 issue 指出错误，和 提 PR 来一同建设内容。</p>]]></description></item><item><title>【目录贴】硕士实验室嵌入式学习路线参考清单</title><link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link><pubDate>Tue, 11 Apr 2023 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</guid><description><![CDATA[<p>下面是对我在硕士期间边学边实践所写的部分文章，挑选整理出一个 “学习清单”。</p>
+<p>其实我写到目前为止，如果你看进去了这些东西</p>
+<p>可以说各种东西达到了熟悉/熟练的状态</p>]]></description></item><item><title>必先看：主线剧情系列的循序渐进的查看顺序</title><link>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</link><pubDate>Sat, 04 Jun 2022 16:46:10 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E5%BF%85%E5%85%88%E7%9C%8B%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%85%E7%B3%BB%E5%88%97%E7%9A%84%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E7%9A%84%E6%9F%A5%E7%9C%8B%E9%A1%BA%E5%BA%8F/</guid><description><![CDATA[<h1 id="必先看主线剧情-系列-的循序渐进的查看顺序">必先看：主线剧情 系列 的循序渐进的查看顺序</h1>
+<p>【主线剧情】Linux 系列，为嵌入式 Linux 的学习记录。</p>
+<p>每一篇文章的内容、以及仓库的内容都极其丰富~</p>
+<p><strong>仓库地址：</strong></p>
+<ul>
+<li>Github <a href="https://github.com/Staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer ">Staok/ARM-Linux-Study: ARM Linux 的学习历程，文章遵守 CC BY NC SA 4.0 协议。 (github.com)</a>。</li>
+<li>Gitee <a href="https://gitee.com/staok/ARM-Linux-Study" target="_blank" rel="noopener noreffer ">ARM-Linux-Study: ARM Linux 的学习历程，文章遵守 CC BY NC SA 4.0 协议。 (gitee.com)</a>。</li>
+</ul>
+<p>小站文章 <a href="https://staok.github.io/categories/%e4%b8%bb%e7%ba%bf%e5%89%a7%e6%83%85linux-%e7%b3%bb%e5%88%97/" target="_blank" rel="noopener noreffer ">【主线剧情】Linux 系列 - 分类 - 欢迎来到 Staok - 瞰百易 (github.io)</a>。</p>]]></description></item><item><title>（大集合）数据结构与算法简述和CS综合</title><link>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link><pubDate>Fri, 10 Dec 2021 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid><description><![CDATA[<h1 id="数据结构与算法简述和cs综合">数据结构与算法简述和CS综合</h1>
+<p>数据结构与算法简述和CS综述整理。<strong>本文非基础的教程</strong>，本文会列出大量学习和参考网站。老惯例，一个文章是一个集大成（本文借助了语音输入（PC 版 讯飞输入法）由此加速码字，但仍保持简洁的文风）。</p>]]></description></item><item><title>【读标准01】IEEE1451 智能传感器接口标准介绍</title><link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link><pubDate>Wed, 14 Jul 2021 09:57:11 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid><description><![CDATA[<h1 id="ieee-1451-智能传感器接口标准介绍">IEEE 1451 智能传感器接口标准介绍</h1>
+<p>本文的 Github/Gitee 仓库：<a href="https://github.com/Staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Github仓库</a>，<a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Gitee仓库</a>。</p>
+<p>简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络化、智能化和标准化，让相互不同的、陌生的传感器接入系统后可以“自发现”、“自识别”和“自组网”，并自动的开始进行数据和命令的上下传递，使传感器具有“即插即用”性、兼容性、互操作性与相互独立的解耦性（与 USB 等规范不同，此标准专门适应了 智能传感器的弱处理能力、低功耗、设备信息标准格式定义与传输、特有功能等独特性需求）。</p>]]></description></item><item><title>【主线剧情01】ARM IMX6ULL 基础学习记录</title><link>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</link><pubDate>Fri, 02 Apr 2021 13:26:36 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E4%B8%BB%E7%BA%BF%E5%89%A7%E6%83%8501-arm-imx6ull%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</guid><description><![CDATA[<h1 id="arm--imx6ull-基础学习记录">ARM &amp; i.MX6ULL 基础学习记录</h1>
+<p>编辑整理 by <a href="https://github.com/Staok" target="_blank" rel="noopener noreffer ">Staok</a>。</p>
+<p>本文大部分内容摘自“100ask imx6ull”开发板的配套资料（如《IMX6ULL裸机开发完全手册》等等），侵删。进行了精髓提取，方便日后查阅。过于基础的内容不会在此提及。如有错误恭谢指出！</p>]]></description></item></channel></rss>

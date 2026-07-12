@@ -1,29 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>IEEE 1451 - 标签 - 欢迎来到 瞰百Staok</title>
-        <link>https://staok.github.io/tags/ieee-1451/</link>
-        <description>IEEE 1451 - 标签 - 欢迎来到 瞰百Staok</description>
-        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Mon, 28 Nov 2022 16:07:06 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/ieee-1451/" rel="self" type="application/rss+xml" /><item>
-    <title>【读标准01】IEEE1451 智能传感器接口标准介绍</title>
-    <link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Wed, 14 Jul 2021 09:57:11 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[IEEE 1451 智能传感器接口标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络]]></description>
-</item><item>
-    <title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍</title>
-    <link>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Fri, 16 Jul 2021 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[IEEE 1451.5 智能无线传感器标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准]]></description>
-</item><item>
-    <title>【读标准03】IEEE1451.5标准协议尝鲜实现</title>
-    <link>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</link>
-    <pubDate>Mon, 28 Nov 2022 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</guid>
-    <description><![CDATA[读标准03-IEEE1451.5标准协议尝鲜实现 前面两个文章里面已经详细描述了 TEDS 和 Message 的组成，这里 C 的实现分两个部分：分别对 TEDS 和 Message 的 数据结构实]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>IEEE 1451 - 标签 - 欢迎来到 瞰百Staok</title><link>https://staok.github.io/tags/ieee-1451/</link><description>IEEE 1451 - 标签 - 欢迎来到 瞰百Staok</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 28 Nov 2022 16:07:06 +0800</lastBuildDate><atom:link href="https://staok.github.io/tags/ieee-1451/" rel="self" type="application/rss+xml"/><item><title>【读标准01】IEEE1451 智能传感器接口标准介绍</title><link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link><pubDate>Wed, 14 Jul 2021 09:57:11 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid><description><![CDATA[<h1 id="ieee-1451-智能传感器接口标准介绍">IEEE 1451 智能传感器接口标准介绍</h1>
+<p>本文的 Github/Gitee 仓库：<a href="https://github.com/Staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Github仓库</a>，<a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Gitee仓库</a>。</p>
+<p>简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络化、智能化和标准化，让相互不同的、陌生的传感器接入系统后可以“自发现”、“自识别”和“自组网”，并自动的开始进行数据和命令的上下传递，使传感器具有“即插即用”性、兼容性、互操作性与相互独立的解耦性（与 USB 等规范不同，此标准专门适应了 智能传感器的弱处理能力、低功耗、设备信息标准格式定义与传输、特有功能等独特性需求）。</p>]]></description></item><item><title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍</title><link>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link><pubDate>Fri, 16 Jul 2021 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid><description><![CDATA[<h1 id="ieee-14515-智能无线传感器标准介绍">IEEE 1451.5 智能无线传感器标准介绍</h1>
+<p>本文的 Github/Gitee 仓库：<a href="https://github.com/Staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Github仓库</a>，<a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Gitee仓库</a>。</p>
+<p>这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准源文。图片侵删。对于个人，如果业余时间想玩玩，把这个标准用起来，实现并且体验一下各个组件神奇的“自识别、自组网”、“即插即用”的话，主要在于实现 【读标准01】那篇文章里介绍的 1451.0 标准定义的 消息（message）和电子数据表格（TEDS）这两大功能，并且不用把标准所描述的都实现，实现其中自认为关键的/不可或缺的一部分即可。</p>]]></description></item><item><title>【读标准03】IEEE1451.5标准协议尝鲜实现</title><link>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</link><pubDate>Mon, 28 Nov 2022 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</guid><description><![CDATA[<h1 id="读标准03-ieee14515标准协议尝鲜实现">读标准03-IEEE1451.5标准协议尝鲜实现</h1>
+<p><a href="https://staok.github.io/categories/%E8%AF%BB%E6%A0%87%E5%87%86/" target="_blank" rel="noopener noreffer ">前面两个文章</a>里面已经详细描述了 TEDS 和 Message 的组成，这里 C 的实现分两个部分：分别对 TEDS 和 Message 的 数据结构实现 与 帧打包与解析的算法实现（第一版 2021.7）。从这个应用层协议标准原文来看，1451 协议内容相当繁杂（有关这种优缺点的论述在前两篇文章里面列举过）但是结构清晰，其类似表格化的结构可以比较顺畅的建模成编程语言的基本数据结构，并且一个编程基本哲学是设计优良的数据结构会使算法设计事半功倍。</p>]]></description></item></channel></rss>

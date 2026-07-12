@@ -1,78 +1,30 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>随机技术情报 - 分类 - 欢迎来到 瞰百Staok</title>
-        <link>https://staok.github.io/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/</link>
-        <description>随机技术情报 - 分类 - 欢迎来到 瞰百Staok</description>
-        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Wed, 25 Feb 2026 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/" rel="self" type="application/rss+xml" /><item>
-    <title>【读标准01】IEEE1451 智能传感器接口标准介绍</title>
-    <link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Wed, 14 Jul 2021 09:57:11 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[IEEE 1451 智能传感器接口标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络]]></description>
-</item><item>
-    <title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍</title>
-    <link>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Fri, 16 Jul 2021 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[IEEE 1451.5 智能无线传感器标准介绍 本文的 Github/Gitee 仓库：Github仓库，Gitee仓库。 这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准]]></description>
-</item><item>
-    <title>【读标准03】IEEE1451.5标准协议尝鲜实现</title>
-    <link>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</link>
-    <pubDate>Mon, 28 Nov 2022 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</guid>
-    <description><![CDATA[读标准03-IEEE1451.5标准协议尝鲜实现 前面两个文章里面已经详细描述了 TEDS 和 Message 的组成，这里 C 的实现分两个部分：分别对 TEDS 和 Message 的 数据结构实]]></description>
-</item><item>
-    <title>（大集合）嵌入式端的神经网络算法部署和实现综合</title>
-    <link>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</link>
-    <pubDate>Mon, 12 Apr 2021 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</guid>
-    <description><![CDATA[嵌入式端的神经网络算法部署和实现 介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现。神经网络的调教（训练）还是在 PC 端，神经]]></description>
-</item><item>
-    <title>【开源电源】巧克力板</title>
-    <link>https://staok.github.io/4%E5%BC%80%E6%BA%90%E7%94%B5%E6%BA%90-%E5%B7%A7%E5%85%8B%E5%8A%9B%E6%9D%BF/</link>
-    <pubDate>Wed, 01 Jul 2020 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/4%E5%BC%80%E6%BA%90%E7%94%B5%E6%BA%90-%E5%B7%A7%E5%85%8B%E5%8A%9B%E6%9D%BF/</guid>
-    <description><![CDATA[一个实现大功率可调的开关电源，附带多路多种输出和实用功能；本项目是“瞰百易”计划的一部分。 本项目的 GitHub仓库 Staok/PowerBar: 一个实现大功率可调的开关]]></description>
-</item><item>
-    <title>PCIe接口及其衍生接口大总结</title>
-    <link>https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/</link>
-    <pubDate>Mon, 24 May 2021 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/</guid>
-    <description><![CDATA[注，相关的介绍网上有很多，这里是一个总结文（用时再查），不是科普文。 参考： 搜索标准接口定义的网站：https://pinouts.ru/。 一]]></description>
-</item><item>
-    <title>装机、资料库结构与文件备份方案</title>
-    <link>https://staok.github.io/12%E8%A3%85%E6%9C%BA-%E8%B5%84%E6%96%99%E5%BA%93%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88/</link>
-    <pubDate>Mon, 25 Oct 2021 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/12%E8%A3%85%E6%9C%BA-%E8%B5%84%E6%96%99%E5%BA%93%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88/</guid>
-    <description><![CDATA[装机、资料库结构与文件备份方案 自从大约 2007 年左右第一次接触计算机到先在，经手了每个都长期使用过的五台电脑但每个阶段积累的文件和资料大都被顺利保]]></description>
-</item><item>
-    <title>无线传感网络的定位和时间同步技术简述</title>
-    <link>https://staok.github.io/14%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0/</link>
-    <pubDate>Fri, 03 Dec 2021 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/14%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0/</guid>
-    <description><![CDATA[无线传感网络的定位和时间同步技术简述 只记一些概念。都是在 2005 年的《无线传感网络》一书中摘取，基本概念可以了解，但具体方法在用的时候还需要再查阅]]></description>
-</item><item>
-    <title>C 语言学前班</title>
-    <link>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</link>
-    <pubDate>Mon, 04 Apr 2022 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</guid>
-    <description><![CDATA[10分钟入门、10天练习，哪有那么难。根本用不着科班通过上课学几个月。。 程序 = 数据结构 + 算法 数据结构：容器来存储要进行各种操作的数据。 算法：]]></description>
-</item><item>
-    <title>（大集合）可供选择的软件开源协议的罗列</title>
-    <link>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</link>
-    <pubDate>Thu, 06 May 2021 10:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</guid>
-    <description><![CDATA[Public License List 罗列各种开源代码的公共协议以供选择。具体每一个协议的含义可以另外找教程文章或看官网原文，这里解决“都有什么”的问题。 List of licenses that can be chosen. 注：]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>随机技术情报 - 分类 - 欢迎来到 瞰百Staok</title><link>https://staok.github.io/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/</link><description>随机技术情报 - 分类 - 欢迎来到 瞰百Staok</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Feb 2026 09:15:14 +0800</lastBuildDate><atom:link href="https://staok.github.io/categories/%E9%9A%8F%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%83%85%E6%8A%A5/" rel="self" type="application/rss+xml"/><item><title>【读标准01】IEEE1451 智能传感器接口标准介绍</title><link>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link><pubDate>Wed, 14 Jul 2021 09:57:11 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.1%E8%AF%BB%E6%A0%87%E5%87%8601-ieee1451-%E6%99%BA%E8%83%BD%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid><description><![CDATA[<h1 id="ieee-1451-智能传感器接口标准介绍">IEEE 1451 智能传感器接口标准介绍</h1>
+<p>本文的 Github/Gitee 仓库：<a href="https://github.com/Staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Github仓库</a>，<a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Gitee仓库</a>。</p>
+<p>简单地说，IEEE 1451 标准是为了统一传感器的“接口”的标准，使其网络化、智能化和标准化，让相互不同的、陌生的传感器接入系统后可以“自发现”、“自识别”和“自组网”，并自动的开始进行数据和命令的上下传递，使传感器具有“即插即用”性、兼容性、互操作性与相互独立的解耦性（与 USB 等规范不同，此标准专门适应了 智能传感器的弱处理能力、低功耗、设备信息标准格式定义与传输、特有功能等独特性需求）。</p>]]></description></item><item><title>【读标准02】IEEE 1451.5 智能无线传感器标准介绍</title><link>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</link><pubDate>Fri, 16 Jul 2021 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.2%E8%AF%BB%E6%A0%87%E5%87%8602-ieee1451.5-%E6%99%BA%E8%83%BD%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%87%86%E4%BB%8B%E7%BB%8D/</guid><description><![CDATA[<h1 id="ieee-14515-智能无线传感器标准介绍">IEEE 1451.5 智能无线传感器标准介绍</h1>
+<p>本文的 Github/Gitee 仓库：<a href="https://github.com/Staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Github仓库</a>，<a href="https://gitee.com/staok/IEEE-1451-study" target="_blank" rel="noopener noreffer ">Gitee仓库</a>。</p>
+<p>这里介绍 1451.5 标准中对于 1451.0 标准的一些新增/兼容部分的介绍，参考于 1451.5 标准源文。图片侵删。对于个人，如果业余时间想玩玩，把这个标准用起来，实现并且体验一下各个组件神奇的“自识别、自组网”、“即插即用”的话，主要在于实现 【读标准01】那篇文章里介绍的 1451.0 标准定义的 消息（message）和电子数据表格（TEDS）这两大功能，并且不用把标准所描述的都实现，实现其中自认为关键的/不可或缺的一部分即可。</p>]]></description></item><item><title>【读标准03】IEEE1451.5标准协议尝鲜实现</title><link>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</link><pubDate>Mon, 28 Nov 2022 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/10.3%E8%AF%BB%E6%A0%87%E5%87%8603-ieee1451.5%E6%A0%87%E5%87%86%E5%8D%8F%E8%AE%AE%E5%B0%9D%E9%B2%9C%E5%AE%9E%E7%8E%B0/</guid><description><![CDATA[<h1 id="读标准03-ieee14515标准协议尝鲜实现">读标准03-IEEE1451.5标准协议尝鲜实现</h1>
+<p><a href="https://staok.github.io/categories/%E8%AF%BB%E6%A0%87%E5%87%86/" target="_blank" rel="noopener noreffer ">前面两个文章</a>里面已经详细描述了 TEDS 和 Message 的组成，这里 C 的实现分两个部分：分别对 TEDS 和 Message 的 数据结构实现 与 帧打包与解析的算法实现（第一版 2021.7）。从这个应用层协议标准原文来看，1451 协议内容相当繁杂（有关这种优缺点的论述在前两篇文章里面列举过）但是结构清晰，其类似表格化的结构可以比较顺畅的建模成编程语言的基本数据结构，并且一个编程基本哲学是设计优良的数据结构会使算法设计事半功倍。</p>]]></description></item><item><title>（大集合）嵌入式端的神经网络算法部署和实现综合</title><link>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</link><pubDate>Mon, 12 Apr 2021 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</guid><description>&lt;h1 id="嵌入式端的神经网络算法部署和实现">嵌入式端的神经网络算法部署和实现&lt;/h1>
+&lt;p>介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现。神经网络的调教（训练）还是在 PC 端，神经网络参数训练好之后，在嵌入式端进行部署（本文的中心），经过在嵌入式端部署进去的神经网络算法对给定数据进行计算从而得出结果，实现算法的嵌入式端部署和运行，这么一个过程。&lt;/p></description></item><item><title>【开源电源】巧克力板</title><link>https://staok.github.io/4%E5%BC%80%E6%BA%90%E7%94%B5%E6%BA%90-%E5%B7%A7%E5%85%8B%E5%8A%9B%E6%9D%BF/</link><pubDate>Wed, 01 Jul 2020 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/4%E5%BC%80%E6%BA%90%E7%94%B5%E6%BA%90-%E5%B7%A7%E5%85%8B%E5%8A%9B%E6%9D%BF/</guid><description><![CDATA[<p>一个实现大功率可调的开关电源，附带多路多种输出和实用功能；本项目是“瞰百易”计划的一部分。</p>
+<h2 id="本项目的-github仓库">本项目的 GitHub仓库</h2>
+<p><a href="https://github.com/Staok/PowerBar" target="_blank" rel="noopener noreffer ">Staok/PowerBar: 一个实现大功率可调的开关电源，附带多路多种输出和实用功能 (github.com)</a>.</p>]]></description></item><item><title>PCIe接口及其衍生接口大总结</title><link>https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/</link><pubDate>Mon, 24 May 2021 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/6pcie%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E6%8E%A5%E5%8F%A3%E5%A4%A7%E6%80%BB%E7%BB%93/</guid><description><![CDATA[<p>注，相关的介绍网上有很多，这里是一个总结文（用时再查），不是科普文。</p>
+<p>参考：</p>
+<ul>
+<li>搜索标准接口定义的网站：<a href="https://link.zhihu.com/?target=https%3A//pinouts.ru/" target="_blank" rel="noopener noreffer ">https://pinouts.ru/</a>。</li>
+<li>一个视频讲的很精彩<a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1Qv411t7ZL" target="_blank" rel="noopener noreffer ">【硬件科普】硬盘的SATA M.2 NGFF NVME是什么意思，详解硬盘的总线协议与接口_哔哩哔哩_bilibili</a>，推荐从13：13看起。</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/Mark_md/article/details/111149261" target="_blank" rel="noopener noreffer ">SATA M.2 NGFF PCIE AHCI NVME SSD固态硬盘的接口、总线和协议区分_Mark_md的博客-CSDN博客</a>。</li>
+</ul>
+<hr>
+<p>开局一张鸟瞰图（水印表示<a href="https://link.zhihu.com/?target=https%3A//www.bilibili.com/video/BV1Qv411t7ZL" target="_blank" rel="noopener noreffer ">出处</a>）</p>]]></description></item><item><title>装机、资料库结构与文件备份方案</title><link>https://staok.github.io/12%E8%A3%85%E6%9C%BA-%E8%B5%84%E6%96%99%E5%BA%93%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88/</link><pubDate>Mon, 25 Oct 2021 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/12%E8%A3%85%E6%9C%BA-%E8%B5%84%E6%96%99%E5%BA%93%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88/</guid><description>&lt;h1 id="装机资料库结构与文件备份方案">装机、资料库结构与文件备份方案&lt;/h1>
+&lt;p>自从大约 2007 年左右第一次接触计算机到先在，经手了每个都长期使用过的五台电脑但每个阶段积累的文件和资料大都被顺利保存了下来（但是一些如初中时候做过的视频和 Flash 课件、小游戏的源文件等的感觉具有纪念意义的在历史的长河中无了）。&lt;/p></description></item><item><title>无线传感网络的定位和时间同步技术简述</title><link>https://staok.github.io/14%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0/</link><pubDate>Fri, 03 Dec 2021 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/14%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0/</guid><description>&lt;h1 id="无线传感网络的定位和时间同步技术简述">无线传感网络的定位和时间同步技术简述&lt;/h1>
+&lt;p>只记一些概念。都是在 2005 年的《无线传感网络》一书中摘取，基本概念可以了解，但具体方法在用的时候还需要再查阅最新的综述文献和书籍，再看新方法。这里的无线传感网络，即在一定区域内多节点分布式的分布且通过无线通讯方式而组成传感网络的范畴。&lt;/p></description></item><item><title>C 语言学前班</title><link>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</link><pubDate>Mon, 04 Apr 2022 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</guid><description><![CDATA[<p>10分钟入门、10天练习，哪有那么难。根本用不着科班通过上课学几个月。。</p>
+<hr>
+<h2 id="程序--数据结构--算法">程序 = 数据结构 + 算法</h2>
+<ul>
+<li>数据结构：容器来存储要进行各种操作的数据。</li>
+<li>算法：对各种数据进行各种操作（加减乘除，增删改查 + 判（判断）排（排序）复（复位））输出结果来达到计算、控制目的。就像函数 f(x)，有输入和输出的盒子，代入 x，计算得到 y = y(x)，这个过程，就是算法。吃经验和天赋，需要反复学习和实践，经验出编程思维。</li>
+</ul>
+<h2 id="数据结构基本数据类型">数据结构：基本数据类型</h2>
+<p>定义一个 存储占用空间 1 字节的 数字，或者叫 变量 a：<code>char a;</code>。</p>]]></description></item><item><title>（大集合）可供选择的软件开源协议的罗列</title><link>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</link><pubDate>Thu, 06 May 2021 10:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</guid><description><![CDATA[<h1 id="public-license-list">Public License List</h1>
+<p>罗列各种开源代码的公共协议以供选择。具体每一个协议的含义可以另外找教程文章或看官网原文，这里解决“都有什么”的问题。</p>
+<p>List of licenses that can be chosen.</p>
+<p>注：<a href="https://github.com/Staok/Public-License-List" target="_blank" rel="noopener noreffer ">在 Github 上的原版文章日后可能会更新</a>，在其它位置发的不会跟进。<a href="https://gitee.com/staok/Public-License-List" target="_blank" rel="noopener noreffer ">文章的 Gitee 仓库地址，Gitee 访问更流畅</a>。</p>]]></description></item></channel></rss>

@@ -1,78 +1,33 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>软件 - 标签 - 欢迎来到 瞰百Staok</title>
-        <link>https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/</link>
-        <description>软件 - 标签 - 欢迎来到 瞰百Staok</description>
-        <generator>Hugo -- gohugo.io</generator><managingEditor>superxhy@qq.com (Staok)</managingEditor>
-            <webMaster>superxhy@qq.com (Staok)</webMaster><lastBuildDate>Wed, 25 Feb 2026 09:15:14 &#43;0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml" /><item>
-    <title>GUI 框架基础需求、设计和实现</title>
-    <link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
-    <pubDate>Sat, 14 Feb 2026 16:07:06 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
-    <description><![CDATA[GUI 框架基础需求、设计和实现 以下皆为建议性内容，根据需求制定方案。 这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示]]></description>
-</item><item>
-    <title>（集合）C / C&#43;&#43; 设计模式综合</title>
-    <link>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</link>
-    <pubDate>Fri, 26 Dec 2025 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</guid>
-    <description><![CDATA[C / C++ 设计模式综合 本文最新原文和相关资料在 Github / Gitee 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。 设计模式目录 都是好文！ 背景和梳理]]></description>
-</item><item>
-    <title>【目录贴】硕士实验室嵌入式学习路线参考清单</title>
-    <link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link>
-    <pubDate>Tue, 11 Apr 2023 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</guid>
-    <description><![CDATA[下面是对我在硕士期间边学边实践所写的部分文章，挑选整理出一个 “学习清单”。 其实我写到目前为止，如果你看进去了这些东西 可以说各种东西达到了熟悉]]></description>
-</item><item>
-    <title>（大集合）数据结构与算法简述和CS综合</title>
-    <link>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link>
-    <pubDate>Fri, 10 Dec 2021 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid>
-    <description><![CDATA[数据结构与算法简述和CS综合 数据结构与算法简述和CS综述整理。本文非基础的教程，本文会列出大量学习和参考网站。老惯例，一个文章是一个集大成（]]></description>
-</item><item>
-    <title>（大集合）嵌入式端的神经网络算法部署和实现综合</title>
-    <link>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</link>
-    <pubDate>Mon, 12 Apr 2021 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</guid>
-    <description><![CDATA[嵌入式端的神经网络算法部署和实现 介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现。神经网络的调教（训练）还是在 PC 端，神经]]></description>
-</item><item>
-    <title>【规范】C &amp; MCU 编写规范和技巧</title>
-    <link>https://staok.github.io/%E8%BD%AF%E4%BB%B6%E8%A7%84%E8%8C%83/</link>
-    <pubDate>Wed, 10 Feb 2021 16:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/%E8%BD%AF%E4%BB%B6%E8%A7%84%E8%8C%83/</guid>
-    <description><![CDATA[C &amp; MCU 编写规范和技巧 本文介绍一些 ANSI C 和 GNU C 的基本语法、编写规范，本文系广泛撷取、借鉴和整理，侵删。本文适合刚入门的人阅读和遵守，也适合已经有]]></description>
-</item><item>
-    <title>超快 STM32 系统入门指南</title>
-    <link>https://staok.github.io/11%E8%B6%85%E5%BF%ABstm32%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
-    <pubDate>Fri, 03 Sep 2021 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/11%E8%B6%85%E5%BF%ABstm32%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
-    <description><![CDATA[计算机类的教程多，框架和 API 用法讲的全面，成系统的教程很多，CSDN上、知乎上很多个人学习记录和全面的成书的教程，而且生动形象有甚至有动画讲解]]></description>
-</item><item>
-    <title>C 语言学前班</title>
-    <link>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</link>
-    <pubDate>Mon, 04 Apr 2022 09:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</guid>
-    <description><![CDATA[10分钟入门、10天练习，哪有那么难。根本用不着科班通过上课学几个月。。 程序 = 数据结构 + 算法 数据结构：容器来存储要进行各种操作的数据。 算法：]]></description>
-</item><item>
-    <title>（大集合）Linux进程和线程的基本编程、通讯和例程【杂记】</title>
-    <link>https://staok.github.io/24linux%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BC%96%E7%A8%8B-%E9%80%9A%E8%AE%AF%E5%92%8C%E4%BE%8B%E7%A8%8B/</link>
-    <pubDate>Thu, 14 Apr 2022 10:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/24linux%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BC%96%E7%A8%8B-%E9%80%9A%E8%AE%AF%E5%92%8C%E4%BE%8B%E7%A8%8B/</guid>
-    <description><![CDATA[Linux 进程 和 线程 的基本 编程、通讯 和 例程 注：【杂记】系列为日常网搜资料的堆砌而积累成之。如有错误恭谢指出。标识为“原创”其实不完全是，只是多引用再]]></description>
-</item><item>
-    <title>（大集合）可供选择的软件开源协议的罗列</title>
-    <link>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</link>
-    <pubDate>Thu, 06 May 2021 10:15:14 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</guid>
-    <description><![CDATA[Public License List 罗列各种开源代码的公共协议以供选择。具体每一个协议的含义可以另外找教程文章或看官网原文，这里解决“都有什么”的问题。 List of licenses that can be chosen. 注：]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>软件 - 标签 - 欢迎来到 瞰百Staok</title><link>https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/</link><description>软件 - 标签 - 欢迎来到 瞰百Staok</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Feb 2026 09:15:14 +0800</lastBuildDate><atom:link href="https://staok.github.io/tags/%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml"/><item><title>GUI 框架基础需求、设计和实现</title><link>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link><pubDate>Sat, 14 Feb 2026 16:07:06 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/gui-%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid><description><![CDATA[<h2 id="gui-框架基础需求设计和实现">GUI 框架基础需求、设计和实现</h2>
+<p>以下皆为建议性内容，根据需求制定方案。</p>
+<p>这里列出 GUI 开发中的 通用性 的 需求、问题的解法和方案 等，为了能够搭建出复杂 GUI 显示和交互逻辑，满足交互设计需求。</p>]]></description></item><item><title>（集合）C / C++ 设计模式综合</title><link>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</link><pubDate>Fri, 26 Dec 2025 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%BC%E5%90%88/</guid><description><![CDATA[<h1 id="c--c-设计模式综合">C / C++ 设计模式综合</h1>
+<p>本文最新原文和相关资料在 <a href="https://github.com/Staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer ">Github</a> / <a href="https://gitee.com/staok/C-Cpp-design-patterns" target="_blank" rel="noopener noreffer ">Gitee</a> 仓库里，其它地方不会跟进，因此推荐到仓库里面进行查阅或下载。</p>
+<h1 id="设计模式目录">设计模式目录</h1>
+<p>都是好文！</p>
+<p>背景和梳理：</p>
+<ul>
+<li><a href="https://blog.csdn.net/zcshoucsdn/article/details/80217199" target="_blank" rel="noopener noreffer ">学无止境 之一 C 嵌入式设计模式（Design Patterns for Embedded Systems in C）笔记-CSDN博客</a>。</li>
+<li><a href="https://zh.wikipedia.org/zh-hans/%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f_%28%e8%ae%a1%e7%ae%97%e6%9c%ba%29" target="_blank" rel="noopener noreffer ">设计模式 (计算机) - 维基百科，自由的百科全书 (wikipedia.org)</a>。（需要科学上网）</li>
+</ul>
+<p>设计模式目录：</p>]]></description></item><item><title>【目录贴】硕士实验室嵌入式学习路线参考清单</title><link>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</link><pubDate>Tue, 11 Apr 2023 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E7%A1%95%E5%A3%AB%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%8F%82%E8%80%83%E6%B8%85%E5%8D%95/</guid><description><![CDATA[<p>下面是对我在硕士期间边学边实践所写的部分文章，挑选整理出一个 “学习清单”。</p>
+<p>其实我写到目前为止，如果你看进去了这些东西</p>
+<p>可以说各种东西达到了熟悉/熟练的状态</p>]]></description></item><item><title>（大集合）数据结构与算法简述和CS综合</title><link>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</link><pubDate>Fri, 10 Dec 2021 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AE%80%E8%BF%B0%E5%92%8Ccs%E7%BB%BC%E5%90%88/</guid><description><![CDATA[<h1 id="数据结构与算法简述和cs综合">数据结构与算法简述和CS综合</h1>
+<p>数据结构与算法简述和CS综述整理。<strong>本文非基础的教程</strong>，本文会列出大量学习和参考网站。老惯例，一个文章是一个集大成（本文借助了语音输入（PC 版 讯飞输入法）由此加速码字，但仍保持简洁的文风）。</p>]]></description></item><item><title>（大集合）嵌入式端的神经网络算法部署和实现综合</title><link>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</link><pubDate>Mon, 12 Apr 2021 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/4.5%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AB%AF%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AE%97%E6%B3%95%E9%83%A8%E7%BD%B2%E5%92%8C%E5%AE%9E%E7%8E%B0%E7%BB%BC%E5%90%88/</guid><description>&lt;h1 id="嵌入式端的神经网络算法部署和实现">嵌入式端的神经网络算法部署和实现&lt;/h1>
+&lt;p>介绍关于 ARM NN、CMSIS NN 和 K210 等嵌入式端的神经网络算法的部署和实现。神经网络的调教（训练）还是在 PC 端，神经网络参数训练好之后，在嵌入式端进行部署（本文的中心），经过在嵌入式端部署进去的神经网络算法对给定数据进行计算从而得出结果，实现算法的嵌入式端部署和运行，这么一个过程。&lt;/p></description></item><item><title>【规范】C &amp; MCU 编写规范和技巧</title><link>https://staok.github.io/%E8%BD%AF%E4%BB%B6%E8%A7%84%E8%8C%83/</link><pubDate>Wed, 10 Feb 2021 16:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/%E8%BD%AF%E4%BB%B6%E8%A7%84%E8%8C%83/</guid><description><![CDATA[<h1 id="c--mcu-编写规范和技巧">C &amp; MCU 编写规范和技巧</h1>
+<p align="center">
+    
+</p>
+本文介绍一些 ANSI C 和 GNU C 的基本语法、编写规范，本文系广泛撷取、借鉴和整理，侵删。本文适合刚入门的人阅读和遵守，也适合已经有较多编程经验的人参看。如有错误恭谢指出！本文已经是长期积累和堆叠而形成一定规模，不必按照从前到后的顺序去看，可以挑感兴趣的章节去看。
+<p>本文内容较多，推荐从 <code>4 普适规则（General rules）</code> 一节开始看起。</p>]]></description></item><item><title>超快 STM32 系统入门指南</title><link>https://staok.github.io/11%E8%B6%85%E5%BF%ABstm32%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link><pubDate>Fri, 03 Sep 2021 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/11%E8%B6%85%E5%BF%ABstm32%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;p>计算机类的教程多，框架和 API 用法讲的全面，成系统的教程很多，CSDN上、知乎上很多个人学习记录和全面的成书的教程，而且生动形象有甚至有动画讲解，回过头来看嵌入式的教程，又臭又长。本文 &lt;a href="https://github.com/Staok/ARM-Linux-Study/blob/main/%E8%B6%85%E5%BF%AB%20STM32%20%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/%E8%B6%85%E5%BF%AB%20STM32%20%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.md" target="_blank" rel="noopener noreffer ">Github 地址&lt;/a>。&lt;/p></description></item><item><title>C 语言学前班</title><link>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</link><pubDate>Mon, 04 Apr 2022 09:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/21c%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%89%8D%E7%8F%AD/</guid><description><![CDATA[<p>10分钟入门、10天练习，哪有那么难。根本用不着科班通过上课学几个月。。</p>
+<hr>
+<h2 id="程序--数据结构--算法">程序 = 数据结构 + 算法</h2>
+<ul>
+<li>数据结构：容器来存储要进行各种操作的数据。</li>
+<li>算法：对各种数据进行各种操作（加减乘除，增删改查 + 判（判断）排（排序）复（复位））输出结果来达到计算、控制目的。就像函数 f(x)，有输入和输出的盒子，代入 x，计算得到 y = y(x)，这个过程，就是算法。吃经验和天赋，需要反复学习和实践，经验出编程思维。</li>
+</ul>
+<h2 id="数据结构基本数据类型">数据结构：基本数据类型</h2>
+<p>定义一个 存储占用空间 1 字节的 数字，或者叫 变量 a：<code>char a;</code>。</p>]]></description></item><item><title>（大集合）Linux进程和线程的基本编程、通讯和例程【杂记】</title><link>https://staok.github.io/24linux%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BC%96%E7%A8%8B-%E9%80%9A%E8%AE%AF%E5%92%8C%E4%BE%8B%E7%A8%8B/</link><pubDate>Thu, 14 Apr 2022 10:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/24linux%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BC%96%E7%A8%8B-%E9%80%9A%E8%AE%AF%E5%92%8C%E4%BE%8B%E7%A8%8B/</guid><description><![CDATA[<h1 id="linux-进程-和-线程-的基本-编程通讯-和-例程">Linux 进程 和 线程 的基本 编程、通讯 和 例程</h1>
+<p><em>注：【杂记】系列为日常网搜资料的堆砌而积累成之。如有错误恭谢指出。标识为“原创”其实不完全是，只是多引用再整理和加上自己的理解，进行记录备查，大都引自网络，侵删！</em></p>]]></description></item><item><title>（大集合）可供选择的软件开源协议的罗列</title><link>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</link><pubDate>Thu, 06 May 2021 10:15:14 +0800</pubDate><author>xxxx</author><guid>https://staok.github.io/25%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%97%E5%88%97/</guid><description><![CDATA[<h1 id="public-license-list">Public License List</h1>
+<p>罗列各种开源代码的公共协议以供选择。具体每一个协议的含义可以另外找教程文章或看官网原文，这里解决“都有什么”的问题。</p>
+<p>List of licenses that can be chosen.</p>
+<p>注：<a href="https://github.com/Staok/Public-License-List" target="_blank" rel="noopener noreffer ">在 Github 上的原版文章日后可能会更新</a>，在其它位置发的不会跟进。<a href="https://gitee.com/staok/Public-License-List" target="_blank" rel="noopener noreffer ">文章的 Gitee 仓库地址，Gitee 访问更流畅</a>。</p>]]></description></item></channel></rss>
